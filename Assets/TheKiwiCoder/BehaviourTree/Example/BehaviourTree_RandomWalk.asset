@@ -24,8 +24,9 @@ MonoBehaviour:
   treeState: 0
   blackboard:
     moveToPosition: {x: 100, y: 0, z: 0}
-  viewPosition: {x: -628, y: 197.6, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+    health: 0
+  viewPosition: {x: -445, y: 371, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -38,6 +39,7 @@ MonoBehaviour:
         position: {x: 723.1318, y: -392.096}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
         description: Where it all begins!
         drawGizmos: 0
         child:
@@ -51,6 +53,7 @@ MonoBehaviour:
         position: {x: 723, y: -230.00012}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
         description: Repeat forever
         drawGizmos: 0
         child:
@@ -66,6 +69,7 @@ MonoBehaviour:
         position: {x: 722.99994, y: -81.93839}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
         description: Select random position, move to it, then wait
         drawGizmos: 0
         children:
@@ -78,9 +82,10 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9a1467763237cb145b9cf65e90ce3193
-        position: {x: 722.99994, y: 168.99998}
+        position: {x: 723, y: 169}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
         description: Randomly generates a position into the blackboard
         drawGizmos: 0
         min: {x: -10, y: -10}
@@ -94,6 +99,7 @@ MonoBehaviour:
         position: {x: 948.666, y: 181}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
         description: Move to the random position in the blackboard
         drawGizmos: 0
         speed: 5
@@ -110,6 +116,7 @@ MonoBehaviour:
         position: {x: 463.73767, y: 181}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
         description: Wait
         drawGizmos: 0
         duration: 1

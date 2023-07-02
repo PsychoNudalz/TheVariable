@@ -18,8 +18,12 @@ namespace TheKiwiCoder {
         [HideInInspector] public Vector2 position;
         [HideInInspector] public Context context;
         [HideInInspector] public Blackboard blackboard;
+        [HideInInspector] public Vector3 agent_Position => context.transform.position;
+
+        
         [TextArea] public string description;
         public bool drawGizmos = false;
+
 
         public State Update() {
 

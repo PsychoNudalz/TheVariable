@@ -17,7 +17,8 @@ public class RandomPosition : ActionNode {
     protected override State OnUpdate() {
         Vector3 pos = new Vector3();
         pos.x = Random.Range(min.x, max.x);
-        pos.y = Random.Range(min.y, max.y);
+        pos.z = Random.Range(min.y, max.y);
+        pos.y = agent_Position.y;
         blackboard.moveToPosition = pos;
         return State.Success;
     }

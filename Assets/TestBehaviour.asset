@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: TestBehaviour
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 3724653506528018432
+  nodes:
+  - rid: 3724653506528018432
+  - rid: 3724653506528018435
+  - rid: 3724653506528018436
+  - rid: 3724653506528018437
+  - rid: 3724653506528018440
+  - rid: 3724653506528018451
+  - rid: 3724653508081483777
+  treeState: 0
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    health: 0
+  viewPosition: {x: 161, y: 74, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3724653506528018432
+      type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 5326e518-bf47-40f3-8b68-8fd4a993e35a
+        position: {x: 0, y: 0}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 3724653506528018435
+    - rid: 3724653506528018435
+      type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: bb8c3d8274b692d64b547199d36fd124
+        position: {x: 0.00001335144, y: 134}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 3724653506528018451
+        restartOnSuccess: 1
+        restartOnFailure: 1
+    - rid: 3724653506528018436
+      type: {class: RandomPosition, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: cdf04934e9b2e53dcb9084ea5f18f937
+        position: {x: -17.988665, y: 584.99994}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        description: 
+        drawGizmos: 0
+        min: {x: -10, y: -10}
+        max: {x: 10, y: 10}
+    - rid: 3724653506528018437
+      type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 14388064c62bca57cb86a688806930f8
+        position: {x: 95.94322, y: 443.99997}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        description: 
+        drawGizmos: 0
+        speed: 5
+        stoppingDistance: 0.1
+        updateRotation: 1
+        acceleration: 40
+        tolerance: 1
+    - rid: 3724653506528018440
+      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 3b87c69c33f1c1208818883eddb1c670
+        position: {x: -168.00008, y: 584.9999}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        description: 
+        drawGizmos: 0
+        duration: 1
+    - rid: 3724653506528018451
+      type: {class: CompareDistance, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 74653ba9d89283c74b7cd3ae837627fb
+        position: {x: -0.000022518769, y: 290.95825}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 3724653508081483777
+        - rid: 3724653506528018437
+        distance: 5
+    - rid: 3724653508081483777
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 6f32ce43600e6060f9e5f5e6a323ce3c
+        position: {x: -93, y: 444}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 3724653506528018440
+        - rid: 3724653506528018436

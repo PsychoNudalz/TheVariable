@@ -161,7 +161,15 @@ namespace TheKiwiCoder {
                 titleLabel.text = $"TreeView ({path})";
             }
 
-            overlayView.Hide();
+            try
+            {
+                overlayView.Hide();
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
             treeView.PopulateView(serializer);
             blackboardView.Bind(serializer);
         }

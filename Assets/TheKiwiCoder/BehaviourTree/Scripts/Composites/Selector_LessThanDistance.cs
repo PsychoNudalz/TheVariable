@@ -9,43 +9,20 @@ using UnityEngine.Serialization;
 /// runs left Node if within distance
 /// </summary>
 [System.Serializable]
-public class Selector_LessThanDistance : CompositeNode
+public class Selector_LessThanDistance : Selector_TrueFalse
 {
-    [FormerlySerializedAs("Distance")]
     public float distance;
-    protected override void OnStart() {
+
+    protected override void OnStart()
+    {
     }
 
-    protected override void OnStop() {
+    protected override void OnStop()
+    {
     }
 
-    protected override State OnUpdate() {
-
-        if (children.Count > 0)
-        {
-            if (Vector3.Distance(agent_Position, blackboard.moveToPosition) < distance)
-            {
-                if (children.Count > 1)
-                {
-                    RightNode.Abort();
-                }
-                return LeftNode.Update();
-
-            }
-            else
-            {
-                LeftNode.Abort();
-                if (children.Count > 1)
-                {
-                    return RightNode.Update();
-                }
-                else
-                {
-                    return State.Success;
-                }
-            }
-        }
-
-        return State.Failure;
+    protected override State OnUpdate()
+    {
+        return TrueOrFalse(Vector3.Distance(agent_Position, blackboard.moveToPosition) < distance);
     }
 }

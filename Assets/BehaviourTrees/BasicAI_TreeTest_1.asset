@@ -16,29 +16,228 @@ MonoBehaviour:
     rid: 2809099641645694977
   nodes:
   - rid: 2809099641645694977
+  - rid: 2809099641645694979
+  - rid: 2809099641645694980
+  - rid: 2809099641645694981
+  - rid: 2809099641645694982
+  - rid: 2809099641645694983
+  - rid: 2809099645928341504
+  - rid: 2809099645928341505
+  - rid: 2809099645928341506
+  - rid: 2809099645928341507
+  - rid: 2809099645928341508
+  - rid: 2809099645928341510
+  - rid: 2809099645928341511
   treeState: 0
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     health: 0
-  viewPosition: {x: 600, y: 300, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+  viewPosition: {x: 361.6, y: 232, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
-        started: 0
+        started: 1
         guid: 41f2f4c2-41cc-4e5e-be4a-886ffa40ed85
-        position: {x: 0, y: 0}
+        position: {x: 3.2000122, y: -227.16003}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-        name: 
+        name: RootNode_Test
         description: 
         drawGizmos: 0
         child:
-          rid: -2
+          rid: 2809099641645694983
+    - rid: 2809099641645694979
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e93e93a21d0855741b6bfc92bd954799
+        position: {x: 244.40887, y: 435.7075}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: Sequencer
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2809099641645694982
+        - rid: 2809099641645694980
+        - rid: 2809099641645694981
+    - rid: 2809099641645694980
+      type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a14ab65e7d407564aa4cc43a5e608144
+        position: {x: 244.80005, y: 588.80005}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: MoveToPosition
+        description: 
+        drawGizmos: 0
+        speed: 5
+        stoppingDistance: 0.1
+        updateRotation: 1
+        acceleration: 40
+        tolerance: 1
+    - rid: 2809099641645694981
+      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ed0c00bd25cc1c94ca2c3c3434823e5a
+        position: {x: 395.19998, y: 588.80005}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: Wait
+        description: 
+        drawGizmos: 0
+        duration: 1
+    - rid: 2809099641645694982
+      type: {class: RandomPosition, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 41adc6f6cb8000942994893d94b73568
+        position: {x: 95.20001, y: 588.80005}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: RandomPosition
+        description: 
+        drawGizmos: 0
+        min: {x: -10, y: -10}
+        max: {x: 10, y: 10}
+    - rid: 2809099641645694983
+      type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a61b1fe17c3b0ab4fbb017ed5210ebdd
+        position: {x: 3.200022, y: -90.43499}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: Repeat
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 2809099645928341504
+        restartOnSuccess: 1
+        restartOnFailure: 0
+    - rid: 2809099645928341504
+      type: {class: Selector_HasTask, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 38f60941e89e393468c56d9eb68b3542
+        position: {x: 3.200022, y: 23.672504}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: Selector_HasTask
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2809099645928341505
+        - rid: 2809099641645694979
+    - rid: 2809099645928341505
+      type: {class: Selector_ArriveAtTask, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b80abab7afff90a498ab4a7821fa15d2
+        position: {x: -226.39996, y: 152}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: Selector_ArriveAtTask
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2809099645928341506
+        - rid: 2809099645928341507
+        distance: 0.1
+    - rid: 2809099645928341506
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 2776c90cc4681db4f9fa7fb357e70d2a
+        position: {x: -376.8, y: 300.8}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: Sequencer
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2809099645928341508
+    - rid: 2809099645928341507
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 9a3ede6f743f4a74dae05bc0be048b92
+        position: {x: -72, y: 300.8}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: Sequencer
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2809099645928341510
+        - rid: 2809099645928341511
+    - rid: 2809099645928341508
+      type: {class: Action_DoTask, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: cac3ec7092898f94fb3b05651ce0978c
+        position: {x: -376.8, y: 437.52084}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: Action_DoTask
+        description: 
+        drawGizmos: 0
+    - rid: 2809099645928341510
+      type: {class: Action_SetTaskToTarget, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 2424344b7cb2ce24e9190cb01b5ae1d6
+        position: {x: -162.4, y: 450.4}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: Action_SetTaskToTarget
+        description: 
+        drawGizmos: 0
+    - rid: 2809099645928341511
+      type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e43e1fbc69358874095b1d2e615a98e8
+        position: {x: 18.40004, y: 450.40002}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+        name: MoveToPosition
+        description: 
+        drawGizmos: 0
+        speed: 5
+        stoppingDistance: 0.1
+        updateRotation: 1
+        acceleration: 40
+        tolerance: 1

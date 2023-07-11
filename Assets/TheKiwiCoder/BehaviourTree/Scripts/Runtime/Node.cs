@@ -15,7 +15,7 @@ namespace TheKiwiCoder
             Success
         }
 
-        [HideInInspector]
+        [SerializeField]
         public State state = State.Running;
 
         [HideInInspector]

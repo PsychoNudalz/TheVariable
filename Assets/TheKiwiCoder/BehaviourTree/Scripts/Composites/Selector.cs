@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,7 @@ namespace TheKiwiCoder {
                         return State.Success;
                     case State.Failure:
                         continue;
+
                 }
             }
 

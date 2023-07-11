@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 /// runs left Node if within distance
 /// </summary>
 [System.Serializable]
-public class CompareDistance : CompositeNode
+public class Selector_LessThanDistance : CompositeNode
 {
     [FormerlySerializedAs("Distance")]
     public float distance;
@@ -27,17 +27,17 @@ public class CompareDistance : CompositeNode
             {
                 if (children.Count > 1)
                 {
-                    children[1].Abort();
+                    RightNode.Abort();
                 }
-                return children[0].Update();
+                return LeftNode.Update();
 
             }
             else
             {
-                children[0].Abort();
+                LeftNode.Abort();
                 if (children.Count > 1)
                 {
-                    return children[1].Update();
+                    return RightNode.Update();
                 }
                 else
                 {

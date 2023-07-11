@@ -19,7 +19,7 @@ namespace TheKiwiCoder {
         public NodeView(SerializedBehaviourTree tree, Node node) : base(AssetDatabase.GetAssetPath(BehaviourTreeSettings.GetOrCreateSettings().nodeXml)) {
             this.serializer = tree;
             this.node = node;
-            this.title = node.GetType().Name;
+            this.title = node.GetName();
             this.viewDataKey = node.guid;
 
             style.left = node.position.x;

@@ -48,11 +48,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DisplacementAmount: 0.3
+    - _IsDisplacement: 0
+    - _MoveValue: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Steps: 6
+    - _VoronoiCellDensity: 2.3
     m_Colors:
+    - _Base: {r: 0, g: 0, b: 0, a: 0}
     - _Colour_1: {r: 2.670157, g: 2.424651, b: 0.81616116, a: 0}
     - _Colour_2: {r: 0.9150943, g: 0.7469789, b: 0.5732289, a: 0}
+    - _Top: {r: 0, g: 2, b: 0, a: 0}
     - _WorldNormal: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Task;
+using TheKiwiCoder;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
-public class NpcData : MonoBehaviour
+public class NpcController : MonoBehaviour
 {
     [FormerlySerializedAs("tasks")]
     [SerializeField]
@@ -18,6 +19,24 @@ public class NpcData : MonoBehaviour
     [SerializeField]
     [Tooltip("This is the schedule")]
     private List<TaskEvent> schedule = new List<TaskEvent>();
+
+    [FormerlySerializedAs("VisualController")]
+    [Header("Controller")]
+    [SerializeField]
+    private NpcVisualController visualController;
+    
+
+    [SerializeField]
+    private BehaviourTreeRunner treeRunner;
+
+
+    public List<TaskEvent> taskQueue1 => taskQueue;
+
+    public List<TaskEvent> schedule1 => schedule;
+
+    public NpcVisualController VisualController => visualController;
+
+    public BehaviourTreeRunner treeRunner1 => treeRunner;
 
     private void Awake()
     {
@@ -87,7 +106,7 @@ public class NpcData : MonoBehaviour
         {
             if (taskQueue[0].HasObject)
             {
-                taskQueue[0].TaskObject.Interact();
+                taskQueue[0].TaskObject.Interact(this);
             }
 
             return taskQueue[0].Duration;
@@ -104,7 +123,7 @@ public class NpcData : MonoBehaviour
         {
             if (taskQueue[0].HasObject)
             {
-                taskQueue[0].TaskObject.Finish(isInterrupt);
+                taskQueue[0].TaskObject.Finish(this,isInterrupt);
             }
 
             return taskQueue[0].Duration;
@@ -148,5 +167,14 @@ public class NpcData : MonoBehaviour
 
         return flag;
     }
-    
+
+
+    public void PlayAnimation(NpcAnimation npcAnimation)
+    {
+        if (visualController)
+        {
+            visualController.PlayAnimation(npcAnimation);
+        }
+    }
+
 }

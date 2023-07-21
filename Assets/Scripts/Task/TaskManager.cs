@@ -54,7 +54,7 @@ namespace Task
         public int BroadcastTick()
         {
             int i = 0;
-            foreach (NpcData NPC in NpcManager.NPCs)
+            foreach (NpcController NPC in NpcManager.NPCs)
             {
                 if (NPC.UpdateTaskFromSchedule(currentTick))
                 {

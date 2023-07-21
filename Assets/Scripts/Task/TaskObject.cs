@@ -30,14 +30,15 @@ namespace Task
         
         }
 
-        public virtual void Interact()
+        public virtual void Interact(NpcController npc)
         {
-            
+            npc.PlayAnimation(NpcAnimation.Interact);
         }
         
-        public virtual void Finish(bool isInterrupt = false)
+        public virtual void Finish(NpcController npc,bool isInterrupt = false)
         {
-            
+            npc.PlayAnimation(NpcAnimation.Idle);
+
         }
 
         public virtual TaskEvent GetTaskEvent()

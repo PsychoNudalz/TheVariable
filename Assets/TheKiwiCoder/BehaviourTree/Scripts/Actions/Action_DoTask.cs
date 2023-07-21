@@ -12,8 +12,8 @@ public class Action_DoTask : ActionNode
     private bool hasStarted = false;
     protected override void OnStart()
     {
-        currentTask = context.npcData.GetCurrentTask();
-        taskDuration = context.npcData.StartCurrentTask();
+        currentTask = context.NpcController.GetCurrentTask();
+        taskDuration = context.NpcController.StartCurrentTask();
         hasStarted = true;
     }
 
@@ -24,9 +24,9 @@ public class Action_DoTask : ActionNode
             if (taskDuration > 0)
             {
                 //if the task is incomplete
-                Debug.Log($"Task: {context.npcData.GetCurrentTask().TaskName} interrupt.");
+                Debug.Log($"Task: {context.NpcController.GetCurrentTask().TaskName} interrupt.");
             }
-            context.npcData.RemoveTask();
+            context.NpcController.RemoveTask();
 
         }
 

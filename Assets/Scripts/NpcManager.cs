@@ -7,14 +7,14 @@ public class NpcManager : MonoBehaviour
 {
     //TODO: Add in NPC controller class
     [SerializeField]
-    private List<NpcData> npcs;
+    private List<NpcController> npcs;
 
     public static NpcManager current;
-    public static List<NpcData> NPCs => current.npcs;
+    public static List<NpcController> NPCs => current.npcs;
     private void Awake()
     {
         current = this;
-        npcs = new List<NpcData>(FindObjectsOfType<NpcData>());
+        npcs = new List<NpcController>(FindObjectsOfType<NpcController>());
     }
 
     // Start is called before the first frame update

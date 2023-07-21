@@ -13,7 +13,7 @@ public class Selector_HasTask : Selector_TrueFalse
     }
 
     protected override State OnUpdate() {
-        return TrueOrFalse(context.npcData.HasTasks());
+        return TrueOrFalse(context.NpcController.HasTasks());
 
     }
 }

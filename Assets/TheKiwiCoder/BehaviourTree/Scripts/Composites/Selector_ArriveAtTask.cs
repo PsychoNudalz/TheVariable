@@ -15,7 +15,7 @@ public class Selector_ArriveAtTask : Selector_TrueFalse
     }
 
     protected override State OnUpdate() {
-        return TrueOrFalse(Vector3.Distance(agent_Position, context.npcData.GetCurrentTask().Position) < distance);
+        return TrueOrFalse(Vector3.Distance(agent_Position, context.NpcController.GetCurrentTask().Position) < distance);
 
     }
 }

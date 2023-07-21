@@ -8,7 +8,7 @@ public class Action_SetTaskToTarget : ActionNode
 {
     protected override void OnStart()
     {
-        blackboard.moveToPosition = context.npcData.GetCurrentTask().Position;
+        blackboard.moveToPosition = context.NpcController.GetCurrentTask().Position;
     }
 
     protected override void OnStop() {

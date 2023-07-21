@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheKiwiCoder {
-    [RequireComponent(typeof(NPC_Data))]
+    [RequireComponent(typeof(NpcData))]
     public class BehaviourTreeRunner : MonoBehaviour {
 
         // The main behaviour tree asset

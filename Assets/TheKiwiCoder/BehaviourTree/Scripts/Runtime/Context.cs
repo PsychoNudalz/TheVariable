@@ -11,7 +11,7 @@ namespace TheKiwiCoder
     // Feel free to extend this class 
     public class Context
     {
-        public NPC_Data npcData;
+        public NpcData npcData;
         public GameObject gameObject;
         public Transform transform;
         public Animator animator;
@@ -29,7 +29,7 @@ namespace TheKiwiCoder
             // Fetch all commonly used components
             Context context = new Context();
             context.transform = gameObject.transform;
-            context.npcData = gameObject.GetComponent<NPC_Data>();
+            context.npcData = gameObject.GetComponent<NpcData>();
             context.gameObject = gameObject;
             context.animator = gameObject.GetComponent<Animator>();
             context.physics = gameObject.GetComponent<Rigidbody>();

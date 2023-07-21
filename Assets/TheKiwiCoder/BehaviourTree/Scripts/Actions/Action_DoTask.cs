@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
+using Task;
 using UnityEngine;
 using TheKiwiCoder;
 
@@ -13,7 +13,7 @@ public class Action_DoTask : ActionNode
     protected override void OnStart()
     {
         currentTask = context.npcData.GetCurrentTask();
-        taskDuration = context.npcData.GetCurrentTask().Duration;
+        taskDuration = context.npcData.StartCurrentTask();
         hasStarted = true;
     }
 

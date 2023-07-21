@@ -147,7 +147,7 @@ namespace TheKiwiCoder {
                     catch (NullReferenceException e)
                     {
                         Console.WriteLine(e);
-                        throw;
+                        return;
                     }
                 }
             }
@@ -176,7 +176,7 @@ namespace TheKiwiCoder {
             catch (NullReferenceException e)
             {
                 // Console.WriteLine(e);
-                throw;
+                return;
             }
             treeView.PopulateView(serializer);
             blackboardView.Bind(serializer);

@@ -20,8 +20,10 @@ public class Action_DoTask : ActionNode
     protected override void OnStop() {
         if (hasStarted)
         {
+            //To finish the task
             if (taskDuration > 0)
             {
+                //if the task is incomplete
                 Debug.Log($"Task: {context.npcData.GetCurrentTask().TaskName} interrupt.");
             }
             context.npcData.RemoveTask();

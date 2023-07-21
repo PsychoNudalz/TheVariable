@@ -7,6 +7,7 @@ using UnityEngine;
 public class NPC_Data : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Currently queued task. this is not the schedule")]
     private List<TaskEvent> tasks = new List<TaskEvent>();
 
     // Start is called before the first frame update

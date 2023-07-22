@@ -14,11 +14,27 @@ public class NpcVisualController : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    [Header("Material  Effect")]
     [SerializeField]
+    private Renderer renderer;
     private Material[] materials;
+
+    [SerializeField]
+    private float animationTime = 1f;
+    [SerializeField]
+    [Range(0f,1f)]
+    private float animationTime_Current = .5f;
+
+
+    private void Awake()
+    {
+        materials = renderer.materials;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        
         PlayAnimation(NpcAnimation.Idle);
     }
 
@@ -26,6 +42,11 @@ public class NpcVisualController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateMaterial();
     }
 
     public void PlayAnimation(NpcAnimation npcAnimation)
@@ -45,6 +66,21 @@ public class NpcVisualController : MonoBehaviour
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(npcAnimation), npcAnimation, null);
+        }
+
+        animationTime_Current = 0;
+    }
+
+    public void UpdateMaterial()
+    {
+        if (animationTime_Current > 1)
+        {
+            return;
+        }
+        animationTime_Current += Time.deltaTime / animationTime;
+        foreach (Material material in materials)
+        {
+            material.SetFloat("_MoveValue",animationTime_Current);
         }
     }
 }

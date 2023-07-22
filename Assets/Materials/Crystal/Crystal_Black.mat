@@ -49,8 +49,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _DisplacementAmount: 0.3
-    - _IsDisplacement: 0
-    - _MoveValue: 1
+    - _IsDisplacement: 1
+    - _MoveValue: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Steps: 6
@@ -59,6 +59,6 @@ Material:
     - _Base: {r: 0, g: 0, b: 0, a: 0}
     - _Colour_1: {r: 0.94166356, g: 0.94166356, b: 0.94166356, a: 0}
     - _Colour_2: {r: 0, g: 0, b: 0, a: 0}
-    - _Top: {r: 0, g: 2, b: 0, a: 0}
+    - _Top: {r: 0, g: 1, b: 0, a: 0}
     - _WorldNormal: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

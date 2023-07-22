@@ -8,13 +8,14 @@ using UnityEngine;
 /// Objects that Both player and npc can interact with and investigate 
 /// </summary>
 [RequireComponent(typeof(HighlightEffect))]
-public abstract class SmartObjects : MonoBehaviour
+public abstract class SmartObject : MonoBehaviour
 {
     [SerializeField]
     protected Transform interactPoint;
 
     private HighlightEffect highlightEffect;
     public Vector3 Position => transform.position;
+    public virtual Vector3 Forward => transform.forward;
     public Vector3 InteractPosition => InteractPointPosition();
 
     protected virtual Vector3 InteractPointPosition()
@@ -54,12 +55,11 @@ public abstract class SmartObjects : MonoBehaviour
 
     public virtual void OnSelect_Enter()
     {
-        highlightEffect.isSelected = true;
+        highlightEffect.highlighted = true;
     }
 
     public virtual void OnSelect_Exit()
     {
-        highlightEffect.isSelected = false;
-
+        highlightEffect.highlighted = false;
     }
 }

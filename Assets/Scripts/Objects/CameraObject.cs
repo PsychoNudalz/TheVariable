@@ -5,7 +5,7 @@ using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
-public class CameraObject : SmartObjects
+public class CameraObject : SmartObject
 {
     [Header("Camera")]
     [SerializeField]
@@ -18,6 +18,7 @@ public class CameraObject : SmartObjects
     private Vector3 cameraOrientation = default;
 
     private const int CameraPriority = 10;
+    public override Vector3 Forward =>camera_transform.forward;
 
     protected override void AwakeBehaviour()
     {
@@ -37,14 +38,7 @@ public class CameraObject : SmartObjects
     {
     }
 
-    public override void OnSelect_Enter()
-    {
-        
-    }
 
-    public override void OnSelect_Exit()
-    {
-    }
 
     public void RotateCamera(float horizontal, float vertical)
     {

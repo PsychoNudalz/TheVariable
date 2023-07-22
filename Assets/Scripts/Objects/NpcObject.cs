@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NpcObject : SmartObjects
+public class NpcObject : SmartObject
 {
     private NpcController controller;
     protected override void AwakeBehaviour()
@@ -22,11 +22,5 @@ public class NpcObject : SmartObjects
     {
     }
 
-    public override void OnSelect_Enter()
-    {
-    }
 
-    public override void OnSelect_Exit()
-    {
-    }
 }

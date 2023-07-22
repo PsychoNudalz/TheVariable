@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Task
 {
-    public class TaskObject : SmartObjects
+    public class TaskObject : SmartObject
     {
 
         // Start is called before the first frame update
@@ -35,14 +35,6 @@ namespace Task
             npc.PlayAnimation(NpcAnimation.Interact);
         }
 
-        public override void OnSelect_Enter()
-        {
-            
-        }
-
-        public override void OnSelect_Exit()
-        {
-        }
 
         public void FinishTask(NpcController npc,bool isInterrupt = false)
         {

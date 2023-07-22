@@ -123,7 +123,7 @@ public class NpcController : MonoBehaviour
         {
             if (taskQueue[0].HasObject)
             {
-                taskQueue[0].TaskObject.Finish(this,isInterrupt);
+                taskQueue[0].TaskObject.FinishTask(this,isInterrupt);
             }
 
             return taskQueue[0].Duration;

@@ -9,7 +9,6 @@ public class Action_DoTask : ActionNode
 {
     private float taskDuration = 0;
     private TaskEvent currentTask;
-    private bool hasStarted = false;
     protected override void OnStart()
     {
         currentTask = context.NpcController.GetCurrentTask();

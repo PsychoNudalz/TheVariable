@@ -2,21 +2,8 @@ using UnityEngine;
 
 namespace Task
 {
-    public class TaskObject : MonoBehaviour
+    public class TaskObject : SmartObjects
     {
-        [SerializeField]
-        private Transform interactPoint;
-
-        public Vector3 Position => InteractPointPosition();
-
-        private Vector3 InteractPointPosition()
-        {
-            if (!interactPoint)
-            {
-                return transform.position;
-            }
-            return interactPoint.position;
-        }
 
         // Start is called before the first frame update
         void Start()
@@ -30,12 +17,25 @@ namespace Task
         
         }
 
-        public virtual void Interact(NpcController npc)
+        protected override void AwakeBehaviour()
+        {
+            
+        }
+
+        protected override void StartBehaviour()
+        {
+        }
+
+        protected override void UpdateBehaviour()
+        {
+        }
+
+        public override void Interact(NpcController npc)
         {
             npc.PlayAnimation(NpcAnimation.Interact);
         }
         
-        public virtual void Finish(NpcController npc,bool isInterrupt = false)
+        public void FinishTask(NpcController npc,bool isInterrupt = false)
         {
             npc.PlayAnimation(NpcAnimation.Idle);
 

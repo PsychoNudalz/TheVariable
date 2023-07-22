@@ -26,6 +26,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float rotateMultiplier_joystick = 3f;
 
+    [Header("Selector")]
+    [SerializeField]
+    private LayerMask selectorLayer;
+
+    [SerializeField]
+    private float castRange = 20f;
+    
     private Vector2 lookValue;
 
     // Start is called before the first frame update

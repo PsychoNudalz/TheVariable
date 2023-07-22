@@ -34,7 +34,16 @@ namespace Task
         {
             npc.PlayAnimation(NpcAnimation.Interact);
         }
-        
+
+        public override void OnSelect_Enter()
+        {
+            
+        }
+
+        public override void OnSelect_Exit()
+        {
+        }
+
         public void FinishTask(NpcController npc,bool isInterrupt = false)
         {
             npc.PlayAnimation(NpcAnimation.Idle);

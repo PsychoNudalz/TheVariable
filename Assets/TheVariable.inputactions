@@ -294,11 +294,33 @@
                 },
                 {
                     "name": "",
+                    "id": "2e41808f-ce88-40a3-a19e-0cd4bdaf4676",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Camera_Prev",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f1da914c-e162-4b10-a9a3-1bf13bad4658",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad;Joystick",
+                    "action": "Camera_Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfd3d20f-722a-4d2c-b1d7-890005b2c62f",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Camera_Next",
                     "isComposite": false,
                     "isPartOfComposite": false

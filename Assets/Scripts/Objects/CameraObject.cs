@@ -37,6 +37,15 @@ public class CameraObject : SmartObjects
     {
     }
 
+    public override void OnSelect_Enter()
+    {
+        
+    }
+
+    public override void OnSelect_Exit()
+    {
+    }
+
     public void RotateCamera(float horizontal, float vertical)
     {
         cameraOrientation.x = Mathf.Clamp(cameraOrientation.x - vertical, xClamp.x, xClamp.y);
@@ -56,4 +65,6 @@ public class CameraObject : SmartObjects
             camera.Priority = -1;
         }
     }
+    
+    
 }

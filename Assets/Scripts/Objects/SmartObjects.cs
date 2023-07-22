@@ -10,7 +10,8 @@ public abstract class SmartObjects : MonoBehaviour
     [SerializeField]
     protected Transform interactPoint;
 
-    public Vector3 Position => InteractPointPosition();
+    public Vector3 Position => transform.position;
+    public Vector3 InteractPosition => InteractPointPosition();
 
     protected virtual Vector3 InteractPointPosition()
     {

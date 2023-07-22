@@ -17,10 +17,12 @@ public class CameraObject : SmartObjects
     private Vector2 xClamp = new Vector2(-90f, 90f);
     private Vector3 cameraOrientation = default;
 
+    private const int CameraPriority = 10;
 
     protected override void AwakeBehaviour()
     {
         cameraOrientation = camera_transform.eulerAngles;
+        SetActive(false);
     }
 
     protected override void StartBehaviour()
@@ -41,5 +43,17 @@ public class CameraObject : SmartObjects
         cameraOrientation.y += horizontal;
         camera_transform.eulerAngles = cameraOrientation;
 
+    }
+
+    public void SetActive(bool b)
+    {
+        if (b)
+        {
+            camera.Priority = CameraPriority;
+        }
+        else
+        {
+            camera.Priority = -1;
+        }
     }
 }

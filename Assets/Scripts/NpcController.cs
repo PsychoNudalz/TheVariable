@@ -147,7 +147,7 @@ public class NpcController : MonoBehaviour
         //setting the position to the task object's interaction point
         if (taskEvent is {HasObject: true, Position: {magnitude: <= .1f}})
         {
-            taskEvent.Position = taskEvent.TaskObject.Position;
+            taskEvent.Position = taskEvent.TaskObject.InteractPosition;
         }
 
         return taskEvent;

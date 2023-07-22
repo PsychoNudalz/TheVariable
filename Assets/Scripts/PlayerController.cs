@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Components")]
     [SerializeField]
+    private CameraManager cameraManager;
+    [SerializeField]
     private CameraObject currentCamera;
 
     [Header("Settings")]
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        currentCamera = cameraManager.Cameras[0];
+
     }
 
     // Update is called once per frame
@@ -60,6 +64,17 @@ public class PlayerController : MonoBehaviour
         print("Joystick move: " + lookValue);
     }
 
+
+    public void OnCamera_Next()
+    {
+        currentCamera = cameraManager.GetNextCamera(currentCamera);
+    }
+    
+    public void OnCamera_Prev()
+    {
+        currentCamera = cameraManager.GetPrevCamera(currentCamera);
+    }
+
     public void UpdateCamera(Vector2 rotation)
     {
         if (currentCamera)
@@ -67,4 +82,5 @@ public class PlayerController : MonoBehaviour
             currentCamera.RotateCamera(rotation.x, rotation.y);
         }
     }
+    
 }

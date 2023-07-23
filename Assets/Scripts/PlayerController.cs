@@ -12,8 +12,15 @@ public class PlayerController : MonoBehaviour
         Controller
     }
 
-    [SerializeField]
+    enum ZoomMode
+    {
+        None,
+        In,
+        Out
+    }
+
     private ControlMode controlMode = ControlMode.MK;
+    private ZoomMode zoomMode = ZoomMode.None;
 
     [Header("Components")]
     [SerializeField]
@@ -60,6 +67,24 @@ public class PlayerController : MonoBehaviour
                 UpdateCamera(lookValue);
             }
         }
+
+        switch (zoomMode)
+        {
+            case ZoomMode.None:
+                currentCamera.UpdateZoom(0);
+
+                break;
+            case ZoomMode.In:
+                currentCamera.UpdateZoom(1);
+
+                break;
+            case ZoomMode.Out:
+                currentCamera.UpdateZoom(-1);
+
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     private void FixedUpdate()
@@ -95,6 +120,24 @@ public class PlayerController : MonoBehaviour
         currentCamera = cameraManager.GetPrevCamera(currentCamera);
     }
 
+
+    public void OnZoom(InputValue inputValue)
+    {
+        float zoom = inputValue.Get<float>();
+
+        if (zoom > 0.1f)
+        {
+            zoomMode = ZoomMode.In;
+        }
+        else if (zoom < -0.1f)
+        {
+            zoomMode = ZoomMode.Out;
+        }
+        else
+        {
+            zoomMode = ZoomMode.None;
+        }
+    }
     void UpdateCamera(Vector2 rotation)
     {
         if (currentCamera)

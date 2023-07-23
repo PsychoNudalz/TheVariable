@@ -243,7 +243,7 @@ Camera:
     height: 1
   near clip plane: 0.05
   far clip plane: 500
-  field of view: 90
+  field of view: 62.13595
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -268,13 +268,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211623370}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.5, y: 2.5, z: 5.5}
+  m_LocalRotation: {x: -3.3711906e-19, y: 0, z: -1.1368684e-13, w: 1}
+  m_LocalPosition: {x: 11.5, y: 2.619, z: 5.787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &211623374
 MonoBehaviour:
@@ -500,6 +500,11 @@ PrefabInstance:
       propertyPath: glowPasses.Array.data[3].color.r
       value: 0.64
       objectReference: {fileID: 0}
+    - target: {fileID: 3915646344706757922, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 62.13595
+      objectReference: {fileID: 0}
     - target: {fileID: 3915646345386012472, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: m_RootOrder
@@ -667,7 +672,7 @@ Transform:
   - {fileID: 999021734}
   - {fileID: 1770643768}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &872421535
 GameObject:
@@ -852,7 +857,7 @@ Transform:
   m_Children:
   - {fileID: 1551244207}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &898195284
 MonoBehaviour:
@@ -1184,7 +1189,7 @@ Transform:
   m_Children:
   - {fileID: 480982194}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1038261663
 MonoBehaviour:
@@ -1402,7 +1407,7 @@ Transform:
   - {fileID: 1091636463}
   - {fileID: 1185493747}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1091636461
 GameObject:
@@ -1613,11 +1618,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028381242f3073245a7c4d6f6dbfbb8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlMode: 0
   cameraManager: {fileID: 1485376414}
   currentCamera: {fileID: 1449924170}
-  rotateMultiplier: 0.3
-  rotateMultiplier_joystick: 3
+  rotateMultiplier: 0.1
+  rotateMultiplier_joystick: 1
   selectedObject: {fileID: 0}
   selectorLayer:
     serializedVersion: 2
@@ -1857,7 +1861,7 @@ Transform:
   - {fileID: 1677364047}
   - {fileID: 872421539}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551244206
 GameObject:
@@ -2249,7 +2253,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &1885485735
 MonoBehaviour:
@@ -2382,6 +2386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: glowPasses.Array.data[3].color.r
       value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915646344706757922, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3915646345386012472, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
@@ -3500,110 +3509,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1485376413}
     m_Modifications:
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
+    - target: {fileID: 3915646344706757922, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
-      propertyPath: glowPasses.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[0].alpha
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[1].alpha
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[2].alpha
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[3].alpha
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[0].offset
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[1].offset
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[2].offset
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[3].offset
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[0].color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[0].color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[0].color.r
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[1].color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[1].color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[1].color.r
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[2].color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[2].color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[2].color.r
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[3].color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[3].color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115976637550050552, guid: 6b8031b96a3d95549a06fe14865b31cc,
-        type: 3}
-      propertyPath: glowPasses.Array.data[3].color.r
-      value: 0.64
+      propertyPath: m_Lens.FieldOfView
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3915646345386012472, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}

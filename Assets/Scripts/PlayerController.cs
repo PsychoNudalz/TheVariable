@@ -103,10 +103,7 @@ public class PlayerController : MonoBehaviour
     public void OnLook_Joystick(InputValue inputValue)
     {
         controlMode = ControlMode.Controller;
-
-
         lookValue = inputValue.Get<Vector2>() * rotateMultiplier_joystick;
-        print("Joystick move: " + lookValue);
     }
 
 

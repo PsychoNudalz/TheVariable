@@ -249,6 +249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactPoint: {fileID: 0}
+  hacks:
+  - rid: 3119726263020290056
   camera: {fileID: 3915646344706757922}
   camera_transform: {fileID: 3915646344706757923}
   xClamp: {x: -90, y: 90}
@@ -257,6 +259,13 @@ MonoBehaviour:
   zoomSpeed: 1
   cameraBody: {fileID: 5103197614238685720}
   collider: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3119726263020290056
+      type: {class: Hack_Camera_Switch, ns: , asm: Assembly-CSharp}
+      data:
+        HackName: Hack_Camera_Switch
 --- !u!114 &3115976637550050552
 MonoBehaviour:
   m_ObjectHideFlags: 0

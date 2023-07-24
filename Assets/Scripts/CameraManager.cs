@@ -55,4 +55,17 @@ public class CameraManager : MonoBehaviour
         currentCamera.SetActive(true);
         return currentCamera;
     }
+
+    /// <summary>
+    /// Change Cameras
+    /// </summary>
+    /// <param name="newCamera"></param>
+    /// <param name="oldCamera"></param>
+    /// <returns></returns>
+    public CameraObject ChangeCamera(CameraObject newCamera, CameraObject oldCamera)
+    {
+        oldCamera.SetActive(false);
+        newCamera.SetActive(true);
+        return newCamera;
+    }
 }

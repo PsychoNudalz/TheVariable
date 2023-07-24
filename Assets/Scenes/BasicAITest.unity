@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18029127, g: 0.22572401, b: 0.3069303, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -987,6 +987,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactPoint: {fileID: 0}
+  hacks: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &898195287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1272,6 +1276,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactPoint: {fileID: 0}
+  hacks: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &1038261664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3741,6 +3749,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CCTV Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915646345386012475, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: hacks.Array.data[1]
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915646345386012475, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: hacks.Array.data[2]
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915646345386012475, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: managedReferences[-2]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8031b96a3d95549a06fe14865b31cc, type: 3}

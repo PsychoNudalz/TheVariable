@@ -50,6 +50,13 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 lookValue;
 
+    public static PlayerController current;
+
+    private void Awake()
+    {
+        current = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -117,6 +124,12 @@ public class PlayerController : MonoBehaviour
         currentCamera = cameraManager.GetPrevCamera(currentCamera);
     }
 
+    public void ChangeCamera(CameraObject cameraObject)
+    {
+        currentCamera = cameraManager.ChangeCamera(cameraObject, currentCamera);
+    }
+
+
 
     public void OnZoom(InputValue inputValue)
     {
@@ -171,4 +184,5 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    
 }

@@ -183,7 +183,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 80
+    FieldOfView: 40
     OrthographicSize: 5
     NearClipPlane: 0.05
     FarClipPlane: 500
@@ -258,7 +258,7 @@ MonoBehaviour:
   zoomFOVMultiplier: 0.5
   zoomSpeed: 1
   cameraBody: {fileID: 5103197614238685720}
-  collider: {fileID: 0}
+  collider: {fileID: 8702349244428145143}
   references:
     version: 2
     RefIds:
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888380afc233049ce9e618f9f36c8ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 0}
+  profile: {fileID: 11400000, guid: 4197efd10fcee09438d8f037f5ef8b09, type: 2}
   profileSync: 0
   previewInEditor: 1
   camerasLayerMask:
@@ -318,7 +318,7 @@ MonoBehaviour:
   overlayTextureScale: 1
   overlayVisibility: 0
   outline: 1
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineColorStyle: 0
   outlineGradient:
     serializedVersion: 2
@@ -350,9 +350,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   outlineGradientInLocalSpace: 0
-  outlineWidth: 0.45
+  outlineWidth: 0.5
   outlineBlurPasses: 2
-  outlineQuality: 3
+  outlineQuality: 1
   outlineEdgeMode: 0
   outlineEdgeThreshold: 0.995
   outlineDownsampling: 1
@@ -361,9 +361,9 @@ MonoBehaviour:
   outlineBlitDebug: 0
   outlineIndependent: 0
   outlineContourStyle: 0
-  glow: 0
-  glowWidth: 0.4
-  glowQuality: 3
+  glow: 1
+  glowWidth: 0.2
+  glowQuality: 1
   glowDownsampling: 2
   glowHQColor: {r: 0.64, g: 1, b: 0, a: 1}
   glowDithering: 1
@@ -376,16 +376,16 @@ MonoBehaviour:
   glowPasses:
   - offset: 4
     alpha: 0.1
-    color: {r: 0.64, g: 1, b: 0, a: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
   - offset: 3
     alpha: 0.2
-    color: {r: 0.64, g: 1, b: 0, a: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
   - offset: 2
     alpha: 0.3
-    color: {r: 0.64, g: 1, b: 0, a: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
   - offset: 1
     alpha: 0.4
-    color: {r: 0.64, g: 1, b: 0, a: 1}
+    color: {r: 1, g: 1, b: 1, a: 1}
   glowIgnoreMask: 0
   innerGlow: 0
   innerGlowWidth: 1

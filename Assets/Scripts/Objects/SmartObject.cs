@@ -21,7 +21,7 @@ public abstract class SmartObject : MonoBehaviour
     private HackAbility[] hacks = Array.Empty<HackAbility>();
 
 
-    public Vector3 Position => transform.position;
+    public virtual Vector3 Position => transform.position;
     public virtual Vector3 Forward => transform.forward;
     public Vector3 InteractPosition => InteractPointPosition();
 

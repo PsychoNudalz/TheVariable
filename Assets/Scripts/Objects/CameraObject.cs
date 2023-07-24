@@ -43,7 +43,9 @@ public class CameraObject : SmartObject
     private Vector3 cameraOrientation = default;
 
     private const int CameraPriority = 10;
+    public override Vector3 Position => camera_transform.position;
     public override Vector3 Forward => camera_transform.forward;
+
 
     protected override void AwakeBehaviour()
     {

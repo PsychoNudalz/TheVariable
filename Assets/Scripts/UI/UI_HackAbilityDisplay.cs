@@ -35,7 +35,10 @@ public class UI_HackAbilityDisplay : MonoBehaviour
             {
                 uiHackAbilityButton.SetActive(true,currentSO.Hacks[index].ToString());
             }
-            uiHackAbilityButton.SetActive(false);
+            else
+            {
+                uiHackAbilityButton.SetActive(false);
+            }
         }
     }
 

@@ -177,6 +177,8 @@ public class PlayerController : MonoBehaviour
                     uiController.Display_Hacks(true,selectedObject);
                     break;
                 case CameraMode.SelectHack:
+                    cameraMode = CameraMode.Free;
+                    uiController.Display_Hacks(false);
                     break;
             }
         }
@@ -232,6 +234,7 @@ public class PlayerController : MonoBehaviour
                     selectedObject = smartObject;
                     selectedObject.OnSelect_Enter();
                 }
+                Debug.DrawRay(currentCamera.Position, currentCamera.Forward*castRange,Color.green,Time.deltaTime);
             }
         }
         else
@@ -242,6 +245,8 @@ public class PlayerController : MonoBehaviour
                 selectedObject.OnSelect_Exit();
                 selectedObject = null;
             }
+            Debug.DrawRay(currentCamera.Position, currentCamera.Forward*castRange,Color.green,Time.deltaTime);
+
         }
     }
     

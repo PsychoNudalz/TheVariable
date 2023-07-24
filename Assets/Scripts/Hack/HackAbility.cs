@@ -43,7 +43,7 @@ public abstract class HackAbility
 
     protected HackAbility()
     {
-        HackName = this.GetType().ToString();
+        HackName = ToString();
     }
 
     public bool IsActive => isActive;
@@ -68,4 +68,12 @@ public abstract class HackAbility
     // {
     //     return Hack(context);
     // }
+
+    public override string ToString()
+    {
+        string[] split = GetType().ToString().Split("_");
+        split = split[1..split.Length];
+        
+        return String.Concat(split);
+    }
 }

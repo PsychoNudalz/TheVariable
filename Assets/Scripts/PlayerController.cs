@@ -19,8 +19,15 @@ public class PlayerController : MonoBehaviour
         Out
     }
 
+    enum CameraMode
+    {
+        Free,
+        SelectHack
+    }
+
     private ControlMode controlMode = ControlMode.MK;
     private ZoomMode zoomMode = ZoomMode.None;
+    private CameraMode cameraMode = CameraMode.Free;
 
     [Header("Components")]
     [SerializeField]
@@ -28,6 +35,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private CameraObject currentCamera;
+
+    [SerializeField]
+    private UIController uiController;
 
     [Header("Settings")]
     [SerializeField]
@@ -100,8 +110,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Player Input
     public void OnLook(InputValue inputValue)
     {
+        if (cameraMode == CameraMode.SelectHack)
+        {
+            return;
+        }
         controlMode = ControlMode.MK;
         lookValue = inputValue.Get<Vector2>() * rotateMultiplier;
         UpdateCamera(lookValue);
@@ -109,6 +124,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnLook_Joystick(InputValue inputValue)
     {
+        if (cameraMode == CameraMode.SelectHack)
+        {
+            return;
+        }
         controlMode = ControlMode.Controller;
         lookValue = inputValue.Get<Vector2>() * rotateMultiplier_joystick;
     }
@@ -123,14 +142,6 @@ public class PlayerController : MonoBehaviour
     {
         currentCamera = cameraManager.GetPrevCamera(currentCamera);
     }
-
-    public void ChangeCamera(CameraObject cameraObject)
-    {
-        currentCamera = cameraManager.ChangeCamera(cameraObject, currentCamera);
-    }
-
-
-
     public void OnZoom(InputValue inputValue)
     {
         float zoom = inputValue.Get<float>();
@@ -148,6 +159,54 @@ public class PlayerController : MonoBehaviour
             zoomMode = ZoomMode.None;
         }
     }
+
+    public void OnSelect(InputValue inputValue)
+    {
+        if (!selectedObject)
+        {
+            cameraMode = CameraMode.Free;
+            return;
+            
+        }
+        if (inputValue.isPressed)
+        {
+            switch (cameraMode)
+            {
+                case CameraMode.Free:
+                    cameraMode = CameraMode.SelectHack;
+                    uiController.Display_Hacks(true,selectedObject);
+                    break;
+                case CameraMode.SelectHack:
+                    break;
+            }
+        }
+        else
+        {
+            switch (cameraMode)
+            {
+                case CameraMode.Free:
+                    break;
+                case CameraMode.SelectHack:
+                    cameraMode = CameraMode.Free;
+                    uiController.Display_Hacks(false);
+
+                    break;
+            }
+        }
+    }
+    //Player Input END
+
+    
+    
+    
+    public void ChangeCamera(CameraObject cameraObject)
+    {
+        currentCamera = cameraManager.ChangeCamera(cameraObject, currentCamera);
+    }
+
+
+
+    
     void UpdateCamera(Vector2 rotation)
     {
         if (currentCamera)
@@ -177,6 +236,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            //TODO - might need to check if it is worth disabling the hack wheel when it can't detect it no more
             if (selectedObject)
             {
                 selectedObject.OnSelect_Exit();

@@ -26,6 +26,18 @@ public class UI_HackAbilityButton : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text;
 
+    private Vector2 dotDir = default;
+
+    public Vector2 GetDotDir()
+    {
+        if (dotDir.Equals(default))
+        {
+            dotDir = (transform.position - display.transform.position).normalized;
+        }
+
+        return dotDir;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,11 +54,11 @@ public class UI_HackAbilityButton : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        UpdateButton(hackName);
 
+        UpdateButton(hackName);
     }
 
-    public void SetDisplay(UI_HackAbilityDisplay display,int i)
+    public void SetDisplay(UI_HackAbilityDisplay display, int i)
     {
         this.display = display;
     }

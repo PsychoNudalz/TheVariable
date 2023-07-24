@@ -183,7 +183,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 90
     OrthographicSize: 5
     NearClipPlane: 0.05
     FarClipPlane: 500
@@ -251,17 +251,27 @@ MonoBehaviour:
   interactPoint: {fileID: 0}
   hacks:
   - rid: 3119726263020290056
+  - rid: 2809099941738708992
+  - rid: 2809099941738708993
   camera: {fileID: 3915646344706757922}
   camera_transform: {fileID: 3915646344706757923}
   xClamp: {x: -90, y: 90}
   zoomLevel: 0
-  zoomFOVMultiplier: 0.5
+  zoomFOVMultiplier: 0.2
   zoomSpeed: 1
   cameraBody: {fileID: 5103197614238685720}
   collider: {fileID: 8702349244428145143}
   references:
     version: 2
     RefIds:
+    - rid: 2809099941738708992
+      type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
+      data:
+        HackName: GeneralDistraction
+    - rid: 2809099941738708993
+      type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
+      data:
+        HackName: GeneralDistraction
     - rid: 3119726263020290056
       type: {class: Hack_Camera_Switch, ns: , asm: Assembly-CSharp}
       data:

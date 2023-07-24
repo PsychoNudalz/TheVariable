@@ -46,6 +46,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float rotateMultiplier_joystick = 3f;
 
+    [SerializeField]
+    private float zoomMultiplier = 10f;
+
+    [SerializeField]
+    private float zoomMultiplier_joystick = 1f;
+
     [Header("Selector")]
     [SerializeField]
     [Space(5)]
@@ -59,6 +65,9 @@ public class PlayerController : MonoBehaviour
 
 
     private Vector2 lookValue;
+
+    [SerializeField]
+    private Vector2 selectDir;
 
     public static PlayerController current;
 
@@ -79,7 +88,7 @@ public class PlayerController : MonoBehaviour
     {
         if (controlMode == ControlMode.Controller)
         {
-            if (lookValue.magnitude > 0.1f)
+            if (lookValue.magnitude > 0.01f*rotateMultiplier_joystick)
             {
                 UpdateCamera(lookValue);
             }
@@ -92,15 +101,33 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case ZoomMode.In:
-                currentCamera.UpdateZoom(1);
+                switch (controlMode)
+                {
+                    case ControlMode.MK:
+                        currentCamera.UpdateZoom(zoomMultiplier);
+
+                        break;
+                    case ControlMode.Controller:
+                        currentCamera.UpdateZoom(zoomMultiplier_joystick);
+
+                        break;
+                }
 
                 break;
             case ZoomMode.Out:
-                currentCamera.UpdateZoom(-1);
+                switch (controlMode)
+                {
+                    case ControlMode.MK:
+                        currentCamera.UpdateZoom(-zoomMultiplier);
+
+                        break;
+                    case ControlMode.Controller:
+                        currentCamera.UpdateZoom(-zoomMultiplier_joystick);
+
+                        break;
+                }
 
                 break;
-            default:
-                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -108,7 +135,13 @@ public class PlayerController : MonoBehaviour
     {
         RaycastCamera();
 
+        if (cameraMode == CameraMode.SelectHack)
+        {
+            uiController.HacksDisplay_UpdateDir(selectDir);
+        }
     }
+
+
 
     //Player Input
     public void OnLook(InputValue inputValue)
@@ -117,6 +150,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
         controlMode = ControlMode.MK;
         lookValue = inputValue.Get<Vector2>() * rotateMultiplier;
         UpdateCamera(lookValue);
@@ -128,8 +162,36 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
         controlMode = ControlMode.Controller;
         lookValue = inputValue.Get<Vector2>() * rotateMultiplier_joystick;
+    }
+
+
+    public void OnSelectHack(InputValue inputValue)
+    {
+        if (cameraMode == CameraMode.Free)
+        {
+            return;
+        }
+
+        controlMode = ControlMode.MK;
+        Vector2 dir = inputValue.Get<Vector2>();
+        if (dir.magnitude > .2f)
+        {
+            selectDir = dir;
+        }
+    }
+
+    public void OnSelectHack_Joystick(InputValue inputValue)
+    {
+        if (cameraMode == CameraMode.Free)
+        {
+            return;
+        }
+
+        controlMode = ControlMode.Controller;
+        selectDir = inputValue.Get<Vector2>();
     }
 
 
@@ -142,6 +204,7 @@ public class PlayerController : MonoBehaviour
     {
         currentCamera = cameraManager.GetPrevCamera(currentCamera);
     }
+
     public void OnZoom(InputValue inputValue)
     {
         float zoom = inputValue.Get<float>();
@@ -166,19 +229,17 @@ public class PlayerController : MonoBehaviour
         {
             cameraMode = CameraMode.Free;
             return;
-            
         }
+
         if (inputValue.isPressed)
         {
             switch (cameraMode)
             {
                 case CameraMode.Free:
-                    cameraMode = CameraMode.SelectHack;
-                    uiController.Display_Hacks(true,selectedObject);
+                    DisplayHack();
                     break;
                 case CameraMode.SelectHack:
-                    cameraMode = CameraMode.Free;
-                    uiController.Display_Hacks(false);
+
                     break;
             }
         }
@@ -189,26 +250,34 @@ public class PlayerController : MonoBehaviour
                 case CameraMode.Free:
                     break;
                 case CameraMode.SelectHack:
-                    cameraMode = CameraMode.Free;
-                    uiController.Display_Hacks(false);
+                    SelectHack(selectDir);
 
                     break;
             }
         }
     }
+
+    private void SelectHack(Vector2 dir)
+    {
+        uiController.HacksDisplay_SelectHack(selectDir);
+        cameraMode = CameraMode.Free;
+        uiController.HacksDisplay_SetActive(false);
+    }
+
+    private void DisplayHack()
+    {
+        cameraMode = CameraMode.SelectHack;
+        uiController.HacksDisplay_SetActive(true, selectedObject);
+    }
     //Player Input END
 
-    
-    
-    
+
     public void ChangeCamera(CameraObject cameraObject)
     {
         currentCamera = cameraManager.ChangeCamera(cameraObject, currentCamera);
     }
 
 
-
-    
     void UpdateCamera(Vector2 rotation)
     {
         if (currentCamera)
@@ -220,7 +289,7 @@ public class PlayerController : MonoBehaviour
     void RaycastCamera()
     {
         RaycastHit hit;
-        if (Physics.Raycast(currentCamera.Position, currentCamera.Forward,out hit, castRange, selectorLayer))
+        if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, castRange, selectorLayer))
         {
             SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
             if (smartObject)
@@ -231,10 +300,12 @@ public class PlayerController : MonoBehaviour
                     {
                         selectedObject.OnSelect_Exit();
                     }
+
                     selectedObject = smartObject;
                     selectedObject.OnSelect_Enter();
                 }
-                Debug.DrawRay(currentCamera.Position, currentCamera.Forward*castRange,Color.green,Time.deltaTime);
+
+                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * castRange, Color.green, Time.deltaTime);
             }
         }
         else
@@ -245,9 +316,8 @@ public class PlayerController : MonoBehaviour
                 selectedObject.OnSelect_Exit();
                 selectedObject = null;
             }
-            Debug.DrawRay(currentCamera.Position, currentCamera.Forward*castRange,Color.green,Time.deltaTime);
 
+            Debug.DrawRay(currentCamera.Position, currentCamera.Forward * castRange, Color.green, Time.deltaTime);
         }
     }
-    
 }

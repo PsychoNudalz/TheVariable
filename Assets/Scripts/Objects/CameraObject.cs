@@ -22,7 +22,7 @@ public class CameraObject : SmartObject
     [SerializeField]
     [Range(0f, 1f)]
     private float zoomLevel = 0f;
-    
+
 
     [SerializeField]
     private float zoomFOVMultiplier = .5f;
@@ -66,20 +66,28 @@ public class CameraObject : SmartObject
     {
     }
 
+    private void OnApplicationQuit()
+    {
+        camera.m_Lens.FieldOfView = originalFOV;
+    }
+
+    private void OnDestroy()
+    {
+        camera.m_Lens.FieldOfView = originalFOV;
+    }
 
     public void RotateCamera(float horizontal, float vertical)
     {
-        float zoomRotateMultiplier = Mathf.Lerp(1,.2f, zoomLevel);
-        cameraOrientation.x = Mathf.Clamp(cameraOrientation.x - vertical*zoomRotateMultiplier, xClamp.x, xClamp.y);
-        cameraOrientation.y += horizontal*zoomRotateMultiplier;
+        float zoomRotateMultiplier = Mathf.Lerp(1, .2f, zoomLevel);
+        cameraOrientation.x = Mathf.Clamp(cameraOrientation.x - vertical * zoomRotateMultiplier, xClamp.x, xClamp.y);
+        cameraOrientation.y += horizontal * zoomRotateMultiplier;
         camera_transform.eulerAngles = cameraOrientation;
     }
 
     public void UpdateZoom(float zoomAmount)
     {
         zoomLevel = Mathf.Clamp(zoomAmount * Time.deltaTime + zoomLevel, 0f, 1f);
-        camera.m_Lens.FieldOfView = Mathf.Lerp(originalFOV,originalFOV*zoomFOVMultiplier,zoomLevel);
-
+        camera.m_Lens.FieldOfView = Mathf.Lerp(originalFOV, originalFOV * zoomFOVMultiplier, zoomLevel);
     }
 
     public void SetActive(bool b)

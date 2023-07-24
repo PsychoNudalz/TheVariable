@@ -24,9 +24,27 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "SelectHack",
+                    "type": "Value",
+                    "id": "e7b7824e-95f2-45be-acb0-7411cf345f1f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Look_Joystick",
                     "type": "Value",
                     "id": "bf533df0-0dee-4f49-a40c-2ef3749dbe28",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SelectHack_Joystick",
+                    "type": "Value",
+                    "id": "e9179dfd-ca50-40f2-b82f-6bd6fd0ab1fb",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -312,17 +330,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f1da914c-e162-4b10-a9a3-1bf13bad4658",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad;Joystick",
-                    "action": "Camera_Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "dfd3d20f-722a-4d2c-b1d7-890005b2c62f",
                     "path": "<Keyboard>/x",
                     "interactions": "",
@@ -439,6 +446,50 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0286c6b1-68e3-45ea-888b-3016a54f9dd7",
+                    "path": "<Pointer>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Touch",
+                    "action": "SelectHack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b4c6e83-5817-473e-8989-d61fab297118",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SelectHack_Joystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da9a94a0-1787-4783-ac2a-bfd420ea4dff",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SelectHack_Joystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "181a6c56-ce31-48aa-bb2b-196bbfbb4e39",
+                    "path": "<Joystick>/{Hatswitch}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "SelectHack_Joystick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

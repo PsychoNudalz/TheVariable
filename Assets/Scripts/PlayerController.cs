@@ -86,14 +86,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (controlMode == ControlMode.Controller)
+        //Rotating camera
+        if (cameraMode == CameraMode.Free && controlMode == ControlMode.Controller)
         {
-            if (lookValue.magnitude > 0.01f*rotateMultiplier_joystick)
+            if (lookValue.magnitude > 0.01f * rotateMultiplier_joystick)
             {
                 UpdateCamera(lookValue);
             }
         }
 
+        //Zooming
         switch (zoomMode)
         {
             case ZoomMode.None:
@@ -140,7 +142,6 @@ public class PlayerController : MonoBehaviour
             uiController.HacksDisplay_UpdateDir(selectDir);
         }
     }
-
 
 
     //Player Input
@@ -257,9 +258,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnSelectCancel()
+    {
+        switch (cameraMode)
+        {
+            case CameraMode.Free:
+                break;
+            case CameraMode.SelectHack:
+                SelectHack(Vector2.zero);
+                break;
+        }
+    }
+
     private void SelectHack(Vector2 dir)
     {
-        uiController.HacksDisplay_SelectHack(selectDir);
+        uiController.HacksDisplay_SelectHack(dir);
         cameraMode = CameraMode.Free;
         uiController.HacksDisplay_SetActive(false);
     }

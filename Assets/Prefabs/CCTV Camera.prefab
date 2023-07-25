@@ -250,9 +250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactPoint: {fileID: 0}
   hacks:
-  - rid: 3119726263020290056
-  - rid: 2809099941738708992
-  - rid: 2809099941738708993
+  - rid: 2809099959511023616
+  - rid: 2809099959511023617
   camera: {fileID: 3915646344706757922}
   camera_transform: {fileID: 3915646344706757923}
   xClamp: {x: -90, y: 90}
@@ -264,18 +263,14 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2809099941738708992
-      type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
-      data:
-        HackName: GeneralDistraction
-    - rid: 2809099941738708993
-      type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
-      data:
-        HackName: GeneralDistraction
-    - rid: 3119726263020290056
+    - rid: 2809099959511023616
       type: {class: Hack_Camera_Switch, ns: , asm: Assembly-CSharp}
       data:
-        HackName: Hack_Camera_Switch
+        HackName: Camera Switch
+    - rid: 2809099959511023617
+      type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
+      data:
+        HackName: General Distraction
 --- !u!114 &3115976637550050552
 MonoBehaviour:
   m_ObjectHideFlags: 0

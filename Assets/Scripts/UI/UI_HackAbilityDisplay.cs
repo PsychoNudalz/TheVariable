@@ -73,6 +73,10 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         for (var index = 0; index < buttons.Length; index++)
         {
             var button = buttons[index];
+            if (!button.IsActive)
+            {
+                break;
+            }
             dotTemp = Vector2.Dot(button.GetDotDir(), dir);
             if (dotTemp > dot)
             {

@@ -24,18 +24,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "SelectHack",
+                    "name": "Look_Joystick",
                     "type": "Value",
-                    "id": "e7b7824e-95f2-45be-acb0-7411cf345f1f",
+                    "id": "bf533df0-0dee-4f49-a40c-2ef3749dbe28",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look_Joystick",
+                    "name": "SelectHack",
                     "type": "Value",
-                    "id": "bf533df0-0dee-4f49-a40c-2ef3749dbe28",
+                    "id": "e7b7824e-95f2-45be-acb0-7411cf345f1f",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -63,6 +63,15 @@
                     "name": "Select",
                     "type": "PassThrough",
                     "id": "3e24661f-bb49-4af9-ae5f-9d2ec8e1534a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectCancel",
+                    "type": "Button",
+                    "id": "80b3fdd0-79c2-491f-a6b6-6a1e45f28f3b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -451,17 +460,6 @@
                 },
                 {
                     "name": "",
-                    "id": "0286c6b1-68e3-45ea-888b-3016a54f9dd7",
-                    "path": "<Pointer>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse;Touch",
-                    "action": "SelectHack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0b4c6e83-5817-473e-8989-d61fab297118",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
@@ -490,6 +488,28 @@
                     "processors": "",
                     "groups": "Joystick",
                     "action": "SelectHack_Joystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a8d00c4-b75b-4c5e-a4a3-0354969134d7",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectCancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0286c6b1-68e3-45ea-888b-3016a54f9dd7",
+                    "path": "<Pointer>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Touch",
+                    "action": "SelectHack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

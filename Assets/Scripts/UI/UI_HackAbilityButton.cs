@@ -28,6 +28,10 @@ public class UI_HackAbilityButton : MonoBehaviour
 
     private Vector2 dotDir = default;
 
+    private bool isActive = true;
+
+    public bool IsActive => isActive;
+
     public Vector2 GetDotDir()
     {
         if (dotDir.Equals(default))
@@ -55,6 +59,7 @@ public class UI_HackAbilityButton : MonoBehaviour
             gameObject.SetActive(false);
         }
 
+        isActive = b;
         UpdateButton(hackName);
     }
 

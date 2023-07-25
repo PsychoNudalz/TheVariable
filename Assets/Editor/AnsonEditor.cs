@@ -19,5 +19,16 @@ public class AnsonEditor : Editor
     {
         EditorUtility.SetDirty(go);
     }
+
+    public virtual void SetDirty()
+    {
+        EditorUtility.SetDirty(((MonoBehaviour)target).gameObject);
+
+    }
+
+    public virtual void GUIContent()
+    {
+        
+    }
 }
 #endif

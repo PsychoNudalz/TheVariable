@@ -33,11 +33,13 @@ public abstract class HackAbility
     [SerializeField]
     [HideInInspector]
     protected string HackName;
+
     protected abstract void AwakeBehaviour();
     protected abstract void StartBehaviour();
     protected abstract void UpdateBehaviour();
 
     protected bool isActive = false;
+
     [Tooltip("should be left empty by default, this is for keeping track what was the last context for debugging")]
     protected HackContext context = new HackContext(Array.Empty<SmartObject>());
 
@@ -71,9 +73,9 @@ public abstract class HackAbility
 
     public override string ToString()
     {
-        string[] split = GetType().ToString().Split("_");
-        split = split[1..split.Length];
-        
-        return String.Concat(split);
+        string split = GetType().ToString().Substring(5);
+        split = split.Replace("_", " ");
+
+        return split;
     }
 }

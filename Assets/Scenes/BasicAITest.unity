@@ -272,8 +272,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211623370}
-  m_LocalRotation: {x: -3.3711906e-19, y: 0, z: -1.1368684e-13, w: 1}
-  m_LocalPosition: {x: 11.5, y: 2.619, z: 5.787}
+  m_LocalRotation: {x: 8.038853e-14, y: -0.70710707, z: -8.038894e-14, w: 0.70710653}
+  m_LocalPosition: {x: 6.6219997, y: 2.839, z: 5.0999994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1241,12 +1241,12 @@ GameObject:
   m_Component:
   - component: {fileID: 898195283}
   - component: {fileID: 898195284}
+  - component: {fileID: 898195285}
+  - component: {fileID: 898195286}
   - component: {fileID: 898195280}
   - component: {fileID: 898195279}
   - component: {fileID: 898195278}
-  - component: {fileID: 898195285}
   - component: {fileID: 898195287}
-  - component: {fileID: 898195286}
   m_Layer: 8
   m_Name: NPC_Base
   m_TagString: Untagged
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 4197efd10fcee09438d8f037f5ef8b09, type: 2}
-  profileSync: 0
+  profileSync: 1
   previewInEditor: 1
   camerasLayerMask:
     serializedVersion: 2
@@ -1473,7 +1473,7 @@ MonoBehaviour:
   outlineEdgeMode: 0
   outlineEdgeThreshold: 0.995
   outlineDownsampling: 1
-  outlineVisibility: 0
+  outlineVisibility: 1
   glowBlendMode: 0
   outlineBlitDebug: 0
   outlineIndependent: 0
@@ -1752,7 +1752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 4197efd10fcee09438d8f037f5ef8b09, type: 2}
-  profileSync: 0
+  profileSync: 1
   previewInEditor: 1
   camerasLayerMask:
     serializedVersion: 2
@@ -1829,7 +1829,7 @@ MonoBehaviour:
   outlineEdgeMode: 0
   outlineEdgeThreshold: 0.995
   outlineDownsampling: 1
-  outlineVisibility: 0
+  outlineVisibility: 1
   glowBlendMode: 0
   outlineBlitDebug: 0
   outlineIndependent: 0

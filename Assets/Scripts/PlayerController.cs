@@ -61,6 +61,9 @@ public class PlayerController : MonoBehaviour
     private LayerMask selectorLayer;
 
     [SerializeField]
+    private LayerMask cameraLayer;
+
+    [SerializeField]
     private float castRange = 20f;
 
 
@@ -301,6 +304,7 @@ public class PlayerController : MonoBehaviour
 
     void RaycastCamera()
     {
+        bool detectedHit = false;
         RaycastHit hit;
         if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, castRange, selectorLayer))
         {
@@ -318,10 +322,36 @@ public class PlayerController : MonoBehaviour
                     selectedObject.OnSelect_Enter();
                 }
 
+                detectedHit = true;
                 Debug.DrawRay(currentCamera.Position, currentCamera.Forward * castRange, Color.green, Time.deltaTime);
             }
         }
-        else
+        if (!detectedHit)
+        {
+            if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, castRange, cameraLayer))
+            {
+                SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
+                if (smartObject)
+                {
+                    if (!smartObject.Equals(selectedObject))
+                    {
+                        if (selectedObject)
+                        {
+                            selectedObject.OnSelect_Exit();
+                        }
+
+                        selectedObject = smartObject;
+                        selectedObject.OnSelect_Enter();
+                    }
+
+                    detectedHit = true;
+
+                    Debug.DrawRay(currentCamera.Position, currentCamera.Forward * castRange, Color.yellow, Time.deltaTime);
+                }
+            }
+        }
+
+        if(!detectedHit)
         {
             //TODO - might need to check if it is worth disabling the hack wheel when it can't detect it no more
             if (selectedObject)
@@ -330,7 +360,7 @@ public class PlayerController : MonoBehaviour
                 selectedObject = null;
             }
 
-            Debug.DrawRay(currentCamera.Position, currentCamera.Forward * castRange, Color.green, Time.deltaTime);
+            Debug.DrawRay(currentCamera.Position, currentCamera.Forward * castRange, Color.red, Time.deltaTime);
         }
     }
 }

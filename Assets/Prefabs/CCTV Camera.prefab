@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 442617663786768319}
   - component: {fileID: 364951481339373577}
   - component: {fileID: 6870615058198510829}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5274273081451659481}
   - component: {fileID: 8702349244428145143}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: CameraBackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3915646344706757923}
   - component: {fileID: 3915646344706757922}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 3915646345386012475}
   - component: {fileID: 3115976637550050552}
   - component: {fileID: 7876393163173654306}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: CCTV Camera
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 7cba34d70552e144586a4d3ce4a33de5, type: 3}
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 4197efd10fcee09438d8f037f5ef8b09, type: 2}
-  profileSync: 0
+  profileSync: 1
   previewInEditor: 1
   camerasLayerMask:
     serializedVersion: 2
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3915646345454334886}
   - component: {fileID: 3915646345454334889}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6877891881104558477}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: CCTV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 4254428286845269551}
   - component: {fileID: 1430562263563549920}
   - component: {fileID: 5103197614238685720}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}

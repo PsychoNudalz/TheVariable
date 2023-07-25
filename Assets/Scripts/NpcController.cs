@@ -10,6 +10,9 @@ using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Handles NPC
+/// </summary>
 public class NpcController : MonoBehaviour
 {
     [FormerlySerializedAs("tasks")]

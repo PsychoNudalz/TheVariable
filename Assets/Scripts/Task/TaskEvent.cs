@@ -8,7 +8,8 @@ namespace Task
     /// Identify where the task is, when does it start, how long it is and what TaskObject it is interacting with
     /// </summary>
     [Serializable]
-    public struct TaskEvent
+    [CanBeNull]
+    public class TaskEvent
     {
         [SerializeField]
         private string taskName;
@@ -25,6 +26,12 @@ namespace Task
         [SerializeField]
         float duration;
 
+        [SerializeField]
+        private ItemName[] requiredItems;
+
+        [SerializeField]
+        private bool itemsConsumeOnUse;
+
         public string TaskName => taskName;
 
         public TaskObject TaskObject => taskObject;
@@ -32,6 +39,10 @@ namespace Task
         public int StartTime => startTime;
 
         public bool IsNull => taskName.Equals("");
+
+        public ItemName[] RequiredItems => requiredItems;
+
+        public bool ItemsConsumeOnUse => itemsConsumeOnUse;
 
         public Vector3 Position
         {
@@ -44,6 +55,16 @@ namespace Task
         public bool HasObject => taskObject != null;
 
 
+        public TaskEvent()
+        {
+            this.taskName = "";
+            this.position = default;
+            this.duration = 1;
+            this.startTime = -1;
+            taskObject = null;
+            requiredItems = Array.Empty<ItemName>();
+            itemsConsumeOnUse = false;
+        }
 
         public TaskEvent(string taskName)
         {
@@ -52,6 +73,8 @@ namespace Task
             this.duration = 1;
             this.startTime = -1;
             taskObject = null;
+            requiredItems = Array.Empty<ItemName>();
+            itemsConsumeOnUse = false;
         }
 
         public TaskEvent(string taskName, int startTime, Vector3 position, float duration)
@@ -61,6 +84,8 @@ namespace Task
             this.duration = duration;
             this.startTime = startTime;
             taskObject = null;
+            requiredItems = Array.Empty<ItemName>();
+            itemsConsumeOnUse = false;
         }
 
         public TaskEvent(string taskName, TaskObject taskObject, int startTime, Vector3 position, float duration)
@@ -70,7 +95,8 @@ namespace Task
             this.startTime = startTime;
             this.position = position;
             this.duration = duration;
+            requiredItems = Array.Empty<ItemName>();
+            itemsConsumeOnUse = false;
         }
     }
-    
 }

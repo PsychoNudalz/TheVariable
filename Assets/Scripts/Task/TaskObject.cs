@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Task
 {
+    /// <summary>
+    /// Swapped from struct to class as it is 2840 bytes, bigger than the recommended 16 bytes
+    /// </summary>
     public class TaskObject : SmartObject
     {
 
@@ -13,7 +16,9 @@ namespace Task
 
         [SerializeField]
         private List<ItemObject> currentItems;
-        
+
+        public TaskEvent[] AvailableTasks => availableTasks;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -81,9 +86,9 @@ namespace Task
             availableTasks = temp.ToArray();
         }
 
-        public virtual TaskEvent GetTaskEvent()
+        public virtual TaskEvent GetTaskEvent(int i = 0)
         {
-            return new TaskEvent("Random Event", this, 0, transform.position, 2f);
+            return availableTasks[i];
         }
     }
 }

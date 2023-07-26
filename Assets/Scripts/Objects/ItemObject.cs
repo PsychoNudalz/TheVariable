@@ -6,7 +6,9 @@ using UnityEngine;
 
 public enum ItemName
 {
-    Base
+    Base,
+    Apple,
+    Poison
 }
 public class ItemObject : SmartObject
 {
@@ -16,6 +18,8 @@ public class ItemObject : SmartObject
 
     private TaskEvent currentTask;
     public ItemName Name => name;
+
+    public bool IsUsing => currentTask.Equals(null);
 
     protected override void AwakeBehaviour()
     {

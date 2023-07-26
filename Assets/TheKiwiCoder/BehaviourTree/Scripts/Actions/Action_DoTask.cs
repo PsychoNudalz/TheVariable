@@ -12,8 +12,16 @@ public class Action_DoTask : ActionNode
     protected override void OnStart()
     {
         currentTask = context.NpcController.GetCurrentTask();
-        taskDuration = context.NpcController.StartCurrentTask();
-        hasStarted = true;
+        if (context.NpcController.CanStartCurrentTask())
+        {
+            taskDuration = context.NpcController.StartCurrentTask();
+            hasStarted = true;
+        }
+        else
+        {
+            Debug.Log("Missing item for task");
+            hasStarted = false;
+        }
     }
 
     protected override void OnStop() {
@@ -35,6 +43,10 @@ public class Action_DoTask : ActionNode
     }
 
     protected override State OnUpdate() {
+        if (!hasStarted)
+        {
+            return State.Failure;
+        }
         if (taskDuration > 0)
         {
             taskDuration -= Time.deltaTime;
@@ -42,6 +54,7 @@ public class Action_DoTask : ActionNode
             return State.Running;
 
         }
+        
         else
         {
             state = State.Success;

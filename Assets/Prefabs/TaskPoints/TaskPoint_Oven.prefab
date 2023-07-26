@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1048168505913645455
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3419652172736465016}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 97788c85ffa3b1a44a7d3fb93f8ec5e9, type: 2}
+    - target: {fileID: 919132149155446097, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_Name
+      value: SM_Prop_Oven_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f4fc2a3ea906bf745878dcaffca1811d, type: 3}
+--- !u!1001 &7564304820040404322
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 219127237438829814, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572827, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: rmsCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: availableTasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: availableTasks.Array.data[0].duration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: availableTasks.Array.data[0].taskName
+      value: TaskPoint_Oven_Bake Pie
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: availableTasks.Array.data[0].taskObject
+      value: 
+      objectReference: {fileID: 7779138984410950662}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: availableTasks.Array.data[0].itemsConsumeOnUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: availableTasks.Array.data[0].requiredItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: availableTasks.Array.data[0].requiredItems.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572839, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_Name
+      value: TaskPoint_Oven
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f64ec6eb2b81604ab51f063b9e51632, type: 3}
+--- !u!4 &3419652172736465016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5155711866920568090, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+    type: 3}
+  m_PrefabInstance: {fileID: 7564304820040404322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7779138984410950662 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+    type: 3}
+  m_PrefabInstance: {fileID: 7564304820040404322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131f9f65807596549a6571148598d615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

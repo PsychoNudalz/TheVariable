@@ -41,4 +41,21 @@ public class ItemObject : SmartObject
     {
         currentTask = taskEvent;
     }
+
+    public override bool Equals(object other)
+    {
+        if (other is ItemName n)
+        {
+            return this.name.Equals(n);
+        }
+        else
+        {
+            return base.Equals(other);
+        }
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
 }

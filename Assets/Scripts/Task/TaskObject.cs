@@ -18,7 +18,7 @@ namespace Task
         private List<ItemObject> currentItems;
 
         public TaskEvent[] AvailableTasks => availableTasks;
-
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -44,14 +44,14 @@ namespace Task
         {
         }
 
-        /// <summary>
-        /// When the task is in queue and started to be executed
-        /// </summary>
-        /// <param name="npc"></param>
-        public virtual void StartTask(NpcController npc)
-        {
-            
-        }
+        // /// <summary>
+        // /// When the task is in queue and started to be executed
+        // /// </summary>
+        // /// <param name="npc"></param>
+        // public virtual void QueueTask(NpcController npc)
+        // {
+        //     
+        // }
 
         /// <summary>
         /// When the NPC is in range to interact and start the task and the object runs it's process
@@ -89,6 +89,19 @@ namespace Task
         public virtual TaskEvent GetTaskEvent(int i = 0)
         {
             return availableTasks[i];
+        }
+
+        public bool HasItem(ItemName item)
+        {
+            foreach (ItemObject currentItem in currentItems)
+            {
+                if (currentItem.Equals(item))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

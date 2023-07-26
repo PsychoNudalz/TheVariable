@@ -23,6 +23,10 @@ public class NpcController : MonoBehaviour
     [Tooltip("This is the schedule")]
     private List<TaskEvent> schedule = new List<TaskEvent>();
 
+    [Header("Item")]
+    [SerializeField]
+    private ItemObject itemToFind;
+    
     [FormerlySerializedAs("VisualController")]
     [Header("Controller")]
     [SerializeField]
@@ -33,13 +37,13 @@ public class NpcController : MonoBehaviour
     private BehaviourTreeRunner treeRunner;
 
 
-    public List<TaskEvent> taskQueue1 => taskQueue;
+    public List<TaskEvent> TaskQueue => taskQueue;
 
-    public List<TaskEvent> schedule1 => schedule;
+    public List<TaskEvent> Schedule => schedule;
 
     public NpcVisualController VisualController => visualController;
 
-    public BehaviourTreeRunner treeRunner1 => treeRunner;
+    public BehaviourTreeRunner TreeRunner => treeRunner;
 
     private void Awake()
     {
@@ -99,6 +103,18 @@ public class NpcController : MonoBehaviour
         }
     }
 
+    public bool CanStartCurrentTask()
+    {
+        if (!HasTasks())
+        {
+            return false;
+        }
+        else
+        {
+            return taskQueue[0].CanStartTask();
+        }
+    }
+
     public float StartCurrentTask()
     {
         if (!HasTasks())
@@ -145,7 +161,12 @@ public class NpcController : MonoBehaviour
         schedule = schedule.OrderBy(o => o.StartTime).ToList();
     }
 
-    public TaskEvent InitialiseTask( TaskEvent taskEvent)
+    /// <summary>
+    /// Initialise the position of the task
+    /// </summary>
+    /// <param name="taskEvent"></param>
+    /// <returns></returns>
+    TaskEvent InitialiseTask( TaskEvent taskEvent)
     {
         //setting the position to the task object's interaction point
         if (taskEvent is {HasObject: true, Position: {magnitude: <= .1f}})

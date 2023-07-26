@@ -98,5 +98,23 @@ namespace Task
             requiredItems = Array.Empty<ItemName>();
             itemsConsumeOnUse = false;
         }
+
+        public bool CanStartTask()
+        {
+            if (!taskObject)
+            {
+                return true;
+            }
+
+            foreach (ItemName requiredItem in requiredItems)
+            {
+                if (!taskObject.HasItem(requiredItem))
+                {
+                    Debug.Log($"{taskName} is missing {requiredItem.ToString()}");
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

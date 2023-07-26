@@ -1,8 +1,12 @@
 ﻿using System;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Task
 {
+    /// <summary>
+    /// Identify where the task is, when does it start, how long it is and what TaskObject it is interacting with
+    /// </summary>
     [Serializable]
     public struct TaskEvent
     {
@@ -27,6 +31,8 @@ namespace Task
 
         public int StartTime => startTime;
 
+        public bool IsNull => taskName.Equals("");
+
         public Vector3 Position
         {
             get => position;
@@ -36,6 +42,8 @@ namespace Task
         public float Duration => duration;
 
         public bool HasObject => taskObject != null;
+
+
 
         public TaskEvent(string taskName)
         {

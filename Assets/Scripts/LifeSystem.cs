@@ -14,16 +14,16 @@ public enum LifeState
 public class LifeSystem : MonoBehaviour
 {
     [SerializeField]
-    private LifeState lifeState = LifeState.Alive;
+    protected LifeState lifeState = LifeState.Alive;
 
     [SerializeField]
-    private float health_max = 100f;
+    protected float health_max = 100f;
 
     [SerializeField]
-    private float health;
+    protected float health;
 
     [SerializeField]
-    private AnimationCurve healthToDisplay;
+    protected AnimationCurve healthToDisplay;
 
     [Header("On Death")]
     [SerializeField]

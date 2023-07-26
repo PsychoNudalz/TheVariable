@@ -12,13 +12,14 @@ public class Action_DoTask : ActionNode
     protected override void OnStart()
     {
         currentTask = context.NpcController.GetCurrentTask();
-        if (context.NpcController.CanStartCurrentTask())
+        if (context.NpcController.CanStartCurrentTask(out ItemName[] missingItems))
         {
             taskDuration = context.NpcController.StartCurrentTask();
             hasStarted = true;
         }
         else
         {
+            blackboard.missingItems = missingItems;
             Debug.Log("Missing item for task");
             hasStarted = false;
         }

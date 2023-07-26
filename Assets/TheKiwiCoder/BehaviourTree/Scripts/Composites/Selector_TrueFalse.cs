@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TheKiwiCoder;
 
+
+/// <summary>
+/// Based on comparing data, true: left node. false: right node
+/// </summary>
 [System.Serializable]
 public class Selector_TrueFalse : CompositeNode
 {

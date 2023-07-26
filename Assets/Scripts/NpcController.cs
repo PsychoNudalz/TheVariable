@@ -103,15 +103,16 @@ public class NpcController : MonoBehaviour
         }
     }
 
-    public bool CanStartCurrentTask()
+    public bool CanStartCurrentTask(out ItemName[] items)
     {
+        items = Array.Empty<ItemName>();
         if (!HasTasks())
         {
             return false;
         }
         else
         {
-            return taskQueue[0].CanStartTask();
+            return taskQueue[0].CanStartTask(out items);
         }
     }
 

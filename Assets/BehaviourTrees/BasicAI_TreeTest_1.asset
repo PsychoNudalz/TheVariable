@@ -28,12 +28,17 @@ MonoBehaviour:
   - rid: 2809099645928341508
   - rid: 2809099645928341510
   - rid: 2809099645928341511
+  - rid: 2809099987240878080
+  - rid: 2809099987240878081
+  - rid: 2809099987240878082
+  - rid: 2809099987240878083
   treeState: 0
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     health: 0
-  viewPosition: {x: 199, y: 129, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+    missingItems: 
+  viewPosition: {x: 868.8, y: -17.6, z: 0}
+  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
   references:
     version: 2
     RefIds:
@@ -47,6 +52,7 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: RootNode_Test
         description: 
         drawGizmos: 0
@@ -62,6 +68,7 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -79,6 +86,7 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -97,6 +105,7 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: Wait
         description: 
         drawGizmos: 0
@@ -111,6 +120,7 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: RandomPosition
         description: 
         drawGizmos: 0
@@ -126,6 +136,7 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: Repeat
         description: 
         drawGizmos: 0
@@ -143,11 +154,12 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: Selector_HasTask
         description: 
         drawGizmos: 0
         children:
-        - rid: 2809099645928341505
+        - rid: 2809099987240878080
         - rid: 2809099641645694979
     - rid: 2809099645928341505
       type: {class: Selector_ArriveAtTask, ns: , asm: Assembly-CSharp}
@@ -155,10 +167,11 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b80abab7afff90a498ab4a7821fa15d2
-        position: {x: -226.39996, y: 152}
+        position: {x: -381.23956, y: 332.0207}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: Selector_ArriveAtTask
         description: 
         drawGizmos: 0
@@ -172,10 +185,11 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2776c90cc4681db4f9fa7fb357e70d2a
-        position: {x: -376.8, y: 300.8}
+        position: {x: -489.23962, y: 485.62073}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -187,10 +201,11 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9a3ede6f743f4a74dae05bc0be048b92
-        position: {x: -72, y: 300.8}
+        position: {x: -184.43964, y: 485.62073}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -203,10 +218,11 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: cac3ec7092898f94fb3b05651ce0978c
-        position: {x: -376.8, y: 437.52084}
+        position: {x: -489.23962, y: 622.4207}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: Action_DoTask
         description: 
         drawGizmos: 0
@@ -216,10 +232,11 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2424344b7cb2ce24e9190cb01b5ae1d6
-        position: {x: -162.4, y: 450.4}
+        position: {x: -274.83957, y: 635.2207}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
         name: Action_SetTaskToTarget
         description: 
         drawGizmos: 0
@@ -229,10 +246,78 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e43e1fbc69358874095b1d2e615a98e8
-        position: {x: 18.40004, y: 450.40002}
+        position: {x: -94.03955, y: 635.2207}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          missingItems: 
+        name: MoveToPosition
+        description: 
+        drawGizmos: 0
+        speed: 5
+        stoppingDistance: 0.1
+        updateRotation: 1
+        acceleration: 40
+        tolerance: 1
+    - rid: 2809099987240878080
+      type: {class: Selector_HasMissingItem, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 52906cfb8d4569744ab5a11a231b64ac
+        position: {x: -549.9502, y: 178.20006}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+          missingItems: 
+        name: Selector_HasMissingItem
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2809099987240878081
+        - rid: 2809099645928341505
+    - rid: 2809099987240878081
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: def9263b4eee4b74abc0abe1f044621a
+        position: {x: -732, y: 298.4}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+          missingItems: 
+        name: Sequencer
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2809099987240878082
+        - rid: 2809099987240878083
+    - rid: 2809099987240878082
+      type: {class: Action_LocateItem, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a52bdfd80adb2414f82a98ee0ac3df1e
+        position: {x: -922.03253, y: 509.6}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+          missingItems: 
+        name: Action_LocateItem
+        description: 
+        drawGizmos: 0
+    - rid: 2809099987240878083
+      type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d4894e47647e3aa4e977039f4df34b6e
+        position: {x: -732, y: 509.59998}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+          missingItems: 
         name: MoveToPosition
         description: 
         drawGizmos: 0

@@ -103,5 +103,19 @@ namespace Task
 
             return false;
         }
+
+        public ItemName[] GetMissingItems(TaskEvent task)
+        {
+            List<ItemName> missingItems = new List<ItemName>();
+            foreach (ItemName item in task.RequiredItems)
+            {
+                if (!HasItem(item))
+                {
+                    missingItems.Add(item);
+                }
+            }
+
+            return missingItems.ToArray();
+        }
     }
 }

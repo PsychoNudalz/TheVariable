@@ -10,6 +10,7 @@ public enum ItemName
     Apple,
     Poison
 }
+
 public class ItemObject : SmartObject
 {
     [Header("Item")]
@@ -46,13 +47,19 @@ public class ItemObject : SmartObject
     {
         if (other is ItemName n)
         {
-            return this.name.Equals(n);
+            return name.Equals(n);
         }
         else
         {
             return base.Equals(other);
         }
     }
+
+    public bool Equals(ItemName n)
+    {
+        return name.Equals(n);
+    }
+
 
     public override int GetHashCode()
     {

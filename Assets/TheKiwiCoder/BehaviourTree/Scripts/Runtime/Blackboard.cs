@@ -12,5 +12,6 @@ namespace TheKiwiCoder {
     {
         public Vector3 moveToPosition;
         public int health;
+        public ItemName[] missingItems;
     }
 }

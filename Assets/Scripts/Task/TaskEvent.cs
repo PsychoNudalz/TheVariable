@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -99,11 +101,15 @@ namespace Task
             itemsConsumeOnUse = false;
         }
 
-        public bool CanStartTask()
+        public bool CanStartTask(out ItemName[] items)
         {
+            List<ItemName> temp = new List<ItemName>();
+            items = Array.Empty<ItemName>();
+            bool flag = true;
+
             if (!taskObject)
             {
-                return true;
+                return flag;
             }
 
             foreach (ItemName requiredItem in requiredItems)
@@ -111,10 +117,12 @@ namespace Task
                 if (!taskObject.HasItem(requiredItem))
                 {
                     Debug.Log($"{taskName} is missing {requiredItem.ToString()}");
-                    return false;
+                    temp.Add(requiredItem);
+                    flag = false;
                 }
             }
-            return true;
+            items = temp.ToArray();
+            return flag;
         }
     }
 }

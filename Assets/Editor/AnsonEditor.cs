@@ -23,6 +23,7 @@ public class AnsonEditor : Editor
     public virtual void SetDirty()
     {
         EditorUtility.SetDirty(((MonoBehaviour)target).gameObject);
+        EditorUtility.SetDirty(((MonoBehaviour)target));
 
     }
 

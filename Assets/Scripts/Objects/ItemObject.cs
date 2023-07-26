@@ -32,4 +32,9 @@ public class ItemObject : SmartObject
     public override void Interact(NpcController npc)
     {
     }
+
+    public virtual void AssignTask(TaskEvent taskEvent)
+    {
+        currentTask = taskEvent;
+    }
 }

@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Task
@@ -5,6 +7,13 @@ namespace Task
     public class TaskObject : SmartObject
     {
 
+        [Header("Tasks")]
+        [SerializeField]
+        TaskEvent[] availableTasks = Array.Empty<TaskEvent>();
+
+        [SerializeField]
+        private List<ItemObject> currentItems;
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -63,6 +72,13 @@ namespace Task
         {
             npc.PlayAnimation(NpcAnimation.Idle);
 
+        }
+
+        public virtual void AddAvailableTask(TaskEvent taskEvent)
+        {
+            List<TaskEvent> temp = new List<TaskEvent>(availableTasks);
+            temp.Add(taskEvent);
+            availableTasks = temp.ToArray();
         }
 
         public virtual TaskEvent GetTaskEvent()

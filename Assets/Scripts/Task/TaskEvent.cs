@@ -72,4 +72,5 @@ namespace Task
             this.duration = duration;
         }
     }
+    
 }

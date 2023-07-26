@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219764443607572839}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.7349224, y: -0.5483862, z: 2.5650725}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -220,6 +220,8 @@ MonoBehaviour:
   interactPoint: {fileID: 0}
   hacks:
   - rid: 2809099959511023618
+  availableTasks: []
+  currentItems: []
   references:
     version: 2
     RefIds:

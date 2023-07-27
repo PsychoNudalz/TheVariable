@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,6 @@ namespace Task
     /// </summary>
     public class TaskObject : SmartObject
     {
-
         [Header("Tasks")]
         [SerializeField]
         TaskEvent[] availableTasks = Array.Empty<TaskEvent>();
@@ -17,23 +17,25 @@ namespace Task
         [SerializeField]
         private List<ItemObject> currentItems;
 
+
+        private bool inUse = false;
+
+        public bool InUse => inUse;
+
         public TaskEvent[] AvailableTasks => availableTasks;
-        
+
         // Start is called before the first frame update
         void Start()
         {
-        
         }
 
         // Update is called once per frame
         void Update()
         {
-        
         }
 
         protected override void AwakeBehaviour()
         {
-            
         }
 
         protected override void StartBehaviour()
@@ -60,6 +62,8 @@ namespace Task
         public override void Interact(NpcController npc)
         {
             npc.PlayAnimation(NpcAnimation.Interact);
+            RemoveUsedItems(npc.GetCurrentTask());
+            inUse = true;
         }
 
         /// <summary>
@@ -73,18 +77,40 @@ namespace Task
         }
 
 
-        public virtual void FinishTask(NpcController npc,TaskEvent taskEvent,bool isInterrupt = false)
+        public virtual void FinishTask(NpcController npc, TaskEvent taskEvent, bool isInterrupt = false)
         {
             npc.PlayAnimation(NpcAnimation.Idle);
+            inUse = false;
+        }
+
+        private void RemoveUsedItems(TaskEvent taskEvent)
+        {
+            ItemObject itemToRemove = null;
+
             foreach (ItemName itemName in taskEvent.RequiredItems)
             {
                 foreach (ItemObject currentItem in currentItems)
                 {
                     if (currentItem.Equals(itemName))
                     {
-                        currentItem.AssignTask(null);
+                        itemToRemove = currentItem;
+                        if (taskEvent.ItemsConsumeOnUse)
+                        {
+                            currentItem.Destroy();
+                        }
+                        else
+                        {
+                            StartCoroutine(DelayRemoveUsedItem(currentItem, taskEvent.Duration));
+                        }
+
                         break;
                     }
+                }
+
+                if (itemToRemove)
+                {
+                    currentItems.Remove(itemToRemove);
+                    itemToRemove = null;
                 }
             }
         }
@@ -126,6 +152,12 @@ namespace Task
             }
 
             return missingItems.ToArray();
+        }
+
+        IEnumerator DelayRemoveUsedItem(ItemObject itemObject, float time)
+        {
+            yield return new WaitForSeconds(time);
+            itemObject.Drop(InteractPosition);
         }
     }
 }

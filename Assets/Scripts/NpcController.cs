@@ -77,6 +77,22 @@ public class NpcController : MonoBehaviour
         return taskQueue.Count > 0;
     }
 
+    public bool IsTaskObjectFree()
+    {
+        if (HasTasks())
+        {
+            if (GetCurrentTask().TaskObject)
+            {
+                if (GetCurrentTask().TaskObject.InUse)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     public void AddTask(TaskEvent t)
     {
         taskQueue.Add(t);
@@ -101,7 +117,7 @@ public class NpcController : MonoBehaviour
     {
         if (!HasTasks())
         {
-            return new TaskEvent();
+            return null;
         }
         else
         {

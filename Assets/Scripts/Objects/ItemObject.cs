@@ -66,6 +66,10 @@ public class ItemObject : SmartObject
             Debug.Log($"{name} task assign: null");
 
         }
+    }    public virtual void AssignTask()
+    {
+        currentTask = null;
+            Debug.Log($"{name} task assign: null");
     }
 
     public virtual void Deposit(TaskObject taskObject)
@@ -81,10 +85,27 @@ public class ItemObject : SmartObject
         }
     }
 
-    public virtual void Drop()
+    public virtual void Drop(Vector3 position = default)
     {
-        transform.position = transform.parent.position;
+        AssignTask();
+        if (position.Equals(default))
+        {
+            transform.position = transform.parent.position;
+        }
+        else
+        {
+            transform.position = position;
+        }
+
         transform.parent = null;
+        modelGO.SetActive(true);
+
+    }
+
+    public virtual void Destroy()
+    {
+        AssignTask();
+        Destroy(gameObject);
     }
 
     public override bool Equals(object other)

@@ -12,6 +12,7 @@ namespace TheKiwiCoder {
 
         protected override void OnStart() {
             startTime = Time.time;
+            context.NpcController.PlayAnimation(NpcAnimation.Idle);
         }
 
         protected override void OnStop() {

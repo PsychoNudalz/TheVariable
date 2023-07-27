@@ -31,31 +31,44 @@ public class ItemManager : MonoBehaviour
 
     public ItemObject FindItem(ItemName itemName, Vector3 fromPosition)
     {
+        bool cleanFlag = false;
         ItemObject foundItem = null;
         float foundItemDistance = -1;
         float currentItemDistance = -1;
         foreach (ItemObject item in items)
         {
-            if (item.Equals(itemName) && item.IsFree)
+            if (item)
             {
-                if (!foundItem)
+                if (item.Equals(itemName) && item.IsFree)
                 {
-                    foundItemDistance = GetDistance(fromPosition, item.Position);
-                    if (foundItemDistance > 0)
+                    if (!foundItem)
                     {
-                        foundItem = item;
+                        foundItemDistance = GetDistance(fromPosition, item.Position);
+                        if (foundItemDistance > 0)
+                        {
+                            foundItem = item;
+                        }
                     }
-                }
-                else
-                {
-                    currentItemDistance = GetDistance(fromPosition, item.Position);
-                    if (foundItemDistance > currentItemDistance)
+                    else
                     {
-                        foundItemDistance = currentItemDistance;
-                        foundItem = item;
+                        currentItemDistance = GetDistance(fromPosition, item.Position);
+                        if (foundItemDistance > currentItemDistance)
+                        {
+                            foundItemDistance = currentItemDistance;
+                            foundItem = item;
+                        }
                     }
                 }
             }
+            else
+            {
+                cleanFlag = true;
+            }
+        }
+
+        if (cleanFlag)
+        {
+            CleanList();
         }
 
         return foundItem;
@@ -77,5 +90,17 @@ public class ItemManager : MonoBehaviour
         }
 
         return -1;
+    }
+
+    public void CleanList()
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i]==null)
+            {
+                items.RemoveAt(i);
+                i--;
+            }
+        }
     }
 }

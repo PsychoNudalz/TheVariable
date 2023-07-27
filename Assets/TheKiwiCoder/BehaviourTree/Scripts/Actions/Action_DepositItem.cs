@@ -6,12 +6,13 @@ using TheKiwiCoder;
 [System.Serializable]
 public class Action_DepositItem : ActionNode
 {
-    protected override void OnStart() {
+    protected override void OnStart()
+    {
         if (!blackboard.pickedUpItem)
         {
             return;
         }
-        
+
         if (blackboard.pickedUpItem.Equals(blackboard.missingItem))
         {
             context.NpcController.DepositItem();
@@ -19,14 +20,19 @@ public class Action_DepositItem : ActionNode
         else
         {
             context.NpcController.DropItem();
-
         }
+
+        blackboard.missingItem = ItemName.None;
+        blackboard.locatedItem = null;
+        blackboard.pickedUpItem = null;
     }
 
-    protected override void OnStop() {
+    protected override void OnStop()
+    {
     }
 
-    protected override State OnUpdate() {
+    protected override State OnUpdate()
+    {
         return State.Success;
     }
 }

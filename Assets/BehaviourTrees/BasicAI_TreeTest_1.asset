@@ -28,17 +28,21 @@ MonoBehaviour:
   - rid: 2809099645928341508
   - rid: 2809099645928341510
   - rid: 2809099645928341511
-  - rid: 2809099987240878080
   - rid: 2809099987240878081
   - rid: 2809099987240878082
   - rid: 2809099987240878083
+  - rid: 2809100001274232834
+  - rid: 2809100001274232837
+  - rid: 2809100001274232839
   treeState: 0
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     health: 0
-    missingItems: 
-  viewPosition: {x: 868.8, y: -17.6, z: 0}
-  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
+    missingItem: 0
+    locatedItem: {fileID: 0}
+    pickedUpItem: {fileID: 0}
+  viewPosition: {x: 1142.4, y: 236.8, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -52,7 +56,9 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: RootNode_Test
         description: 
         drawGizmos: 0
@@ -68,7 +74,9 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -86,7 +94,9 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -105,7 +115,9 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Wait
         description: 
         drawGizmos: 0
@@ -120,7 +132,9 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: RandomPosition
         description: 
         drawGizmos: 0
@@ -136,30 +150,34 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Repeat
         description: 
         drawGizmos: 0
         child:
           rid: 2809099645928341504
         restartOnSuccess: 1
-        restartOnFailure: 0
+        restartOnFailure: 1
     - rid: 2809099645928341504
       type: {class: Selector_HasTask, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 38f60941e89e393468c56d9eb68b3542
-        position: {x: 3.200022, y: 23.672504}
+        position: {x: 3.2000732, y: 30}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Selector_HasTask
         description: 
         drawGizmos: 0
         children:
-        - rid: 2809099987240878080
+        - rid: 2809100001274232839
         - rid: 2809099641645694979
     - rid: 2809099645928341505
       type: {class: Selector_ArriveAtTask, ns: , asm: Assembly-CSharp}
@@ -167,11 +185,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b80abab7afff90a498ab4a7821fa15d2
-        position: {x: -381.23956, y: 332.0207}
+        position: {x: -348.79987, y: 321.42004}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Selector_ArriveAtTask
         description: 
         drawGizmos: 0
@@ -185,15 +205,18 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2776c90cc4681db4f9fa7fb357e70d2a
-        position: {x: -489.23962, y: 485.62073}
+        position: {x: -498.40002, y: 479.59998}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Sequencer
         description: 
         drawGizmos: 0
         children:
+        - rid: 2809100001274232837
         - rid: 2809099645928341508
     - rid: 2809099645928341507
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
@@ -205,7 +228,9 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -218,11 +243,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: cac3ec7092898f94fb3b05651ce0978c
-        position: {x: -489.23962, y: 622.4207}
+        position: {x: -436, y: 646}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Action_DoTask
         description: 
         drawGizmos: 0
@@ -236,7 +263,9 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Action_SetTaskToTarget
         description: 
         drawGizmos: 0
@@ -250,7 +279,9 @@ MonoBehaviour:
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -259,51 +290,39 @@ MonoBehaviour:
         updateRotation: 1
         acceleration: 40
         tolerance: 1
-    - rid: 2809099987240878080
-      type: {class: Selector_HasMissingItem, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 52906cfb8d4569744ab5a11a231b64ac
-        position: {x: -549.9502, y: 178.20006}
-        blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
-          health: 0
-          missingItems: 
-        name: Selector_HasMissingItem
-        description: 
-        drawGizmos: 0
-        children:
-        - rid: 2809099987240878081
-        - rid: 2809099645928341505
     - rid: 2809099987240878081
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: def9263b4eee4b74abc0abe1f044621a
-        position: {x: -732, y: 298.4}
+        position: {x: -975, y: 421.59998}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Sequencer
         description: 
         drawGizmos: 0
         children:
         - rid: 2809099987240878082
         - rid: 2809099987240878083
+        - rid: 2809100001274232834
     - rid: 2809099987240878082
       type: {class: Action_LocateItem, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: a52bdfd80adb2414f82a98ee0ac3df1e
-        position: {x: -922.03253, y: 509.6}
+        position: {x: -1145.6, y: 622.7999}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: Action_LocateItem
         description: 
         drawGizmos: 0
@@ -313,11 +332,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d4894e47647e3aa4e977039f4df34b6e
-        position: {x: -732, y: 509.59998}
+        position: {x: -995.2, y: 622.7999}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
-          missingItems: 
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -326,3 +347,55 @@ MonoBehaviour:
         updateRotation: 1
         acceleration: 40
         tolerance: 1
+    - rid: 2809100001274232834
+      type: {class: Action_PickUpItem, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4945a26075539234e821e8e49a056e4d
+        position: {x: -845.6, y: 622.7999}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+        name: Action_PickUpItem
+        description: 
+        drawGizmos: 0
+        pickUpRange: 2
+    - rid: 2809100001274232837
+      type: {class: Action_DepositItem, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 697964ba828d98e46a56ca8fe43a0f4e
+        position: {x: -597.60004, y: 646}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+        name: Action_DepositItem
+        description: 
+        drawGizmos: 0
+    - rid: 2809100001274232839
+      type: {class: Selector_HasMissingItemToPickup, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 5c6fbc48f14bb6847a1adbce1eac90af
+        position: {x: -662.8, y: 170.4}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+          health: 0
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+        name: Selector_HasMissingItemToPickup
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2809099987240878081
+        - rid: 2809099645928341505

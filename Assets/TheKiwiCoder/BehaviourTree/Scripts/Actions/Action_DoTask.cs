@@ -9,58 +9,59 @@ public class Action_DoTask : ActionNode
 {
     private float taskDuration = 0;
     private TaskEvent currentTask;
+
     protected override void OnStart()
     {
         currentTask = context.NpcController.GetCurrentTask();
         if (context.NpcController.CanStartCurrentTask(out ItemName[] missingItems))
         {
             taskDuration = context.NpcController.StartCurrentTask();
-            hasStarted = true;
+            started = true;
         }
         else
         {
-            blackboard.missingItems = missingItems;
+            blackboard.missingItem = missingItems[0];
             Debug.Log("Missing item for task");
-            hasStarted = false;
+            started = false;
         }
     }
 
-    protected override void OnStop() {
-        if (hasStarted)
+    protected override void OnStop()
+    {
+        if (started)
         {
             //To finish the task
+
+            context.NpcController.FinishCurrentTask(taskDuration > 0);
             if (taskDuration > 0)
             {
                 //if the task is incomplete
                 Debug.Log($"Task: {context.NpcController.GetCurrentTask().TaskName} interrupt.");
             }
-            context.NpcController.RemoveTask();
-
         }
 
-        hasStarted = false;
-
-
+        started = false;
     }
 
-    protected override State OnUpdate() {
-        if (!hasStarted)
+    protected override State OnUpdate()
+    {
+        if (!started)
         {
+            OnStop();
             return State.Failure;
         }
+
         if (taskDuration > 0)
         {
             taskDuration -= Time.deltaTime;
             state = State.Running;
             return State.Running;
-
         }
-        
+
         else
         {
             state = State.Success;
             return State.Success;
-
         }
     }
 }

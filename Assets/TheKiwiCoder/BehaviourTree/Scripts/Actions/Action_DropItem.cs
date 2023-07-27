@@ -4,7 +4,7 @@ using UnityEngine;
 using TheKiwiCoder;
 
 [System.Serializable]
-public class Selector_HasMissingItem : Selector_TrueFalse
+public class Action_DropItem : ActionNode
 {
     protected override void OnStart() {
     }
@@ -12,8 +12,7 @@ public class Selector_HasMissingItem : Selector_TrueFalse
     protected override void OnStop() {
     }
 
-    protected override State OnUpdate()
-    {
-        return TrueOrFalse(blackboard.missingItem!=ItemName.None);
+    protected override State OnUpdate() {
+        return State.Success;
     }
 }

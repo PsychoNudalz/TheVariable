@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TheKiwiCoder {
 
@@ -12,6 +13,12 @@ namespace TheKiwiCoder {
     {
         public Vector3 moveToPosition;
         public int health;
-        public ItemName[] missingItems;
+        public ItemName missingItem = ItemName.None;
+        public ItemObject locatedItem;
+        public ItemObject pickedUpItem;
+        
+        
+        // public ItemName MissingItem => missingItems[0];
+        // protected bool foundAllItems =>
     }
 }

@@ -19,19 +19,23 @@ public class NpcController : MonoBehaviour
     [SerializeField]
     [Tooltip("Currently queued task. this is not the schedule")]
     private List<TaskEvent> taskQueue = new List<TaskEvent>();
+
     [SerializeField]
     [Tooltip("This is the schedule")]
     private List<TaskEvent> schedule = new List<TaskEvent>();
 
     [Header("Item")]
     [SerializeField]
-    private ItemObject itemToFind;
-    
+    private ItemObject pickedUpItem;
+
+    [SerializeField]
+    private Transform itemHoldingPoint;
+
     [FormerlySerializedAs("VisualController")]
     [Header("Controller")]
     [SerializeField]
     private NpcVisualController visualController;
-    
+
 
     [SerializeField]
     private BehaviourTreeRunner treeRunner;
@@ -44,6 +48,8 @@ public class NpcController : MonoBehaviour
     public NpcVisualController VisualController => visualController;
 
     public BehaviourTreeRunner TreeRunner => treeRunner;
+
+    public Vector3 PickUpPosition => itemHoldingPoint.position;
 
     private void Awake()
     {
@@ -59,7 +65,6 @@ public class NpcController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -88,6 +93,7 @@ public class NpcController : MonoBehaviour
         {
             return;
         }
+
         taskQueue.RemoveAt(0);
     }
 
@@ -141,12 +147,14 @@ public class NpcController : MonoBehaviour
         }
         else
         {
-            if (taskQueue[0].HasObject)
+            TaskEvent task = taskQueue[0];
+            if (task.HasObject)
             {
-                taskQueue[0].TaskObject.FinishTask(this,isInterrupt);
+                task.TaskObject.FinishTask(this, task, isInterrupt);
             }
 
-            return taskQueue[0].Duration;
+            RemoveTask();
+            return task.Duration;
         }
     }
 
@@ -155,7 +163,7 @@ public class NpcController : MonoBehaviour
     {
         AddTask(new TaskEvent("Eat Food", 0, new Vector3(10, 0, 10), Random.Range(1f, 4f)));
     }
-    
+
     [ContextMenu("Sort Schedule")]
     public void SortSchedule()
     {
@@ -167,7 +175,7 @@ public class NpcController : MonoBehaviour
     /// </summary>
     /// <param name="taskEvent"></param>
     /// <returns></returns>
-    TaskEvent InitialiseTask( TaskEvent taskEvent)
+    TaskEvent InitialiseTask(TaskEvent taskEvent)
     {
         //setting the position to the task object's interaction point
         if (taskEvent is {HasObject: true, Position: {magnitude: <= .1f}})
@@ -193,6 +201,47 @@ public class NpcController : MonoBehaviour
         return flag;
     }
 
+    public void PickUpItem(ItemObject item)
+    {
+        pickedUpItem = item;
+        item.PickUp(this, GetCurrentTask());
+    }
+
+    /// <summary>
+    /// deposits the item to the task object
+    /// Null means it deposits in to the current task
+    /// </summary>
+    /// <param name="taskObject"></param>
+    public void DepositItem(TaskObject taskObject = null)
+    {
+        if (!taskObject)
+        {
+            taskObject = GetCurrentTask().TaskObject;
+        }
+
+        pickedUpItem.Deposit(taskObject);
+        if (taskObject)
+        {
+            taskObject.Deposit(pickedUpItem);
+        }
+        else
+        {
+            Debug.LogWarning("Missing deposit point");
+        }
+
+        pickedUpItem = null;
+    }
+
+    public void DropItem()
+    {
+
+        if (pickedUpItem)
+        {
+            pickedUpItem.Drop();
+        }
+        pickedUpItem = null;
+    }
+
 
     public void PlayAnimation(NpcAnimation npcAnimation)
     {
@@ -201,5 +250,4 @@ public class NpcController : MonoBehaviour
             visualController.PlayAnimation(npcAnimation);
         }
     }
-
 }

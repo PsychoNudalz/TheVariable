@@ -14,7 +14,6 @@ public class MoveToPosition : ActionNode
 
     protected override void OnStart()
     {
-        hasStarted = true;
         context.agent.stoppingDistance = stoppingDistance;
         context.agent.speed = speed;
         context.agent.destination = blackboard.moveToPosition;
@@ -26,9 +25,9 @@ public class MoveToPosition : ActionNode
 
     protected override void OnStop()
     {
-        if (hasStarted)
+        if (started)
         {
-            hasStarted = false;
+            started = false;
             context.NpcController.PlayAnimation(NpcAnimation.Idle);
         }
     }

@@ -7,8 +7,10 @@ public enum NpcAnimation
 {
     Idle,
     Walk,
-    Interact
+    Interact,
+    PickUp
 }
+
 public class NpcVisualController : MonoBehaviour
 {
     [SerializeField]
@@ -17,12 +19,14 @@ public class NpcVisualController : MonoBehaviour
     [Header("Material  Effect")]
     [SerializeField]
     private Renderer renderer;
+
     private Material[] materials;
 
     [SerializeField]
     private float animationTime = 1f;
+
     [SerializeField]
-    [Range(0f,1f)]
+    [Range(0f, 1f)]
     private float animationTime_Current = .5f;
 
 
@@ -34,14 +38,12 @@ public class NpcVisualController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         PlayAnimation(NpcAnimation.Idle);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void FixedUpdate()
@@ -64,8 +66,13 @@ public class NpcVisualController : MonoBehaviour
                 animator.Play("NPC_Interact");
 
                 break;
+            case NpcAnimation.PickUp:
+                animator.Play("NPC_Interact");
+
+                break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(npcAnimation), npcAnimation, null);
+                animator.Play("NPC_Idle");
+                break;
         }
 
         animationTime_Current = 0;
@@ -77,10 +84,11 @@ public class NpcVisualController : MonoBehaviour
         {
             return;
         }
+
         animationTime_Current += Time.deltaTime / animationTime;
         foreach (Material material in materials)
         {
-            material.SetFloat("_MoveValue",animationTime_Current);
+            material.SetFloat("_MoveValue", animationTime_Current);
         }
     }
 }

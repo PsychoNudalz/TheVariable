@@ -6,13 +6,34 @@ using TheKiwiCoder;
 [System.Serializable]
 public class Action_LocateItem : ActionNode
 {
+    
     protected override void OnStart() {
+        if (blackboard.missingItem!=ItemName.None)
+        {
+            blackboard.locatedItem = ItemManager.current.FindItem(blackboard.missingItem, agent_Position);
+        }
+
+        if (!blackboard.locatedItem)
+        {
+            started = false;
+        }
+        else
+        {
+            blackboard.moveToPosition = blackboard.locatedItem.Position;
+        }
     }
 
     protected override void OnStop() {
     }
 
     protected override State OnUpdate() {
-        return State.Success;
+        if (blackboard.locatedItem)
+        {
+            return State.Success;
+        }
+        else
+        {
+            return State.Failure;
+        }
     }
 }

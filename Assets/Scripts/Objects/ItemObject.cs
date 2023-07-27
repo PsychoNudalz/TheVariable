@@ -6,7 +6,7 @@ using UnityEngine;
 
 public enum ItemName
 {
-    Base,
+    None,
     Apple,
     Poison
 }
@@ -15,8 +15,12 @@ public class ItemObject : SmartObject
 {
     [Header("Item")]
     [SerializeField]
-    private ItemName name = ItemName.Base;
+    private ItemName name = ItemName.None;
 
+    [SerializeField]
+    private GameObject modelGO;
+
+    public virtual bool IsFree => currentTask == null;
     private TaskEvent currentTask;
     public ItemName Name => name;
 
@@ -34,13 +38,53 @@ public class ItemObject : SmartObject
     {
     }
 
+    /// <summary>
+    /// Not for pick up, some items may have it's own interact behaviour
+    /// </summary>
+    /// <param name="npc"></param>
     public override void Interact(NpcController npc)
     {
+    }
+
+    public virtual void PickUp(NpcController npc, TaskEvent taskEvent)
+    {
+        AssignTask(taskEvent);
+        transform.parent = npc.transform;
+        transform.position = npc.PickUpPosition;
+        modelGO.SetActive(true);
     }
 
     public virtual void AssignTask(TaskEvent taskEvent)
     {
         currentTask = taskEvent;
+        if (taskEvent!=null)
+        {
+            Debug.Log($"{name} task assign: {taskEvent.TaskName}");
+        }
+        else
+        {
+            Debug.Log($"{name} task assign: null");
+
+        }
+    }
+
+    public virtual void Deposit(TaskObject taskObject)
+    {
+        if (taskObject)
+        {
+            transform.parent = taskObject.transform;
+            modelGO.SetActive(false);
+        }
+        else
+        {
+            transform.parent = null;
+        }
+    }
+
+    public virtual void Drop()
+    {
+        transform.position = transform.parent.position;
+        transform.parent = null;
     }
 
     public override bool Equals(object other)

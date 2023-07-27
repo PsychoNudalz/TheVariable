@@ -7,6 +7,5 @@ namespace TheKiwiCoder {
 
     [System.Serializable]
     public abstract class ActionNode : Node {
-        protected bool hasStarted = false;
     }
 }

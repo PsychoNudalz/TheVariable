@@ -59,8 +59,8 @@ namespace TheKiwiCoder
         {
             if (!started)
             {
-                OnStart();
                 started = true;
+                OnStart();
             }
 
             state = OnUpdate();

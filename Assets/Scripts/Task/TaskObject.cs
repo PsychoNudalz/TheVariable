@@ -69,14 +69,24 @@ namespace Task
         /// <param name="itemObject"></param>
         public virtual void Deposit(ItemObject itemObject)
         {
-            
+            currentItems.Add(itemObject);
         }
 
 
-        public virtual void FinishTask(NpcController npc,bool isInterrupt = false)
+        public virtual void FinishTask(NpcController npc,TaskEvent taskEvent,bool isInterrupt = false)
         {
             npc.PlayAnimation(NpcAnimation.Idle);
-
+            foreach (ItemName itemName in taskEvent.RequiredItems)
+            {
+                foreach (ItemObject currentItem in currentItems)
+                {
+                    if (currentItem.Equals(itemName))
+                    {
+                        currentItem.AssignTask(null);
+                        break;
+                    }
+                }
+            }
         }
 
         public virtual void AddAvailableTask(TaskEvent taskEvent)

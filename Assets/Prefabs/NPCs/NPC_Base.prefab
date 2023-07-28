@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1320077873986614615}
   - component: {fileID: 1320077873986614614}
   - component: {fileID: 1320077873986614613}
+  - component: {fileID: 4527088458200361262}
   - component: {fileID: 1320077873986614611}
   - component: {fileID: 1320077873986614604}
   - component: {fileID: 1320077873986614605}
@@ -122,6 +123,31 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &4527088458200361262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320077873986614606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc69a0b6a02f0fe4ea918fc7b95c4688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeState: 0
+  health_max: 100
+  health: 0
+  healthToDisplay:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  onDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  healthSpriteRenderer: {fileID: 0}
 --- !u!136 &1320077873986614611
 CapsuleCollider:
   m_ObjectHideFlags: 0

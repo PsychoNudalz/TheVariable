@@ -31,10 +31,12 @@ public class NpcController : MonoBehaviour
     [SerializeField]
     private Transform itemHoldingPoint;
 
-    [FormerlySerializedAs("VisualController")]
-    [Header("Controller")]
+    [Header("Components")]
     [SerializeField]
     private NpcVisualController visualController;
+
+    [SerializeField]
+    NpcLifeSystem lifeSystem;
 
 
     [SerializeField]

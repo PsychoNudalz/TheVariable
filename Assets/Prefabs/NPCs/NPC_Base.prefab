@@ -121,10 +121,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactPoint: {fileID: 0}
-  hacks: []
+  hacks:
+  - rid: 2809100053256339456
+  - rid: 2809100053256339457
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2809100053256339456
+      type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
+      data:
+        HackName: General Distraction
+    - rid: 2809100053256339457
+      type: {class: Hack_NPC_ClearTasks, ns: , asm: Assembly-CSharp}
+      data:
+        HackName: NPC ClearTasks
 --- !u!114 &4527088458200361262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,12 +792,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 44160fade37aced42811dbf0e61f92ba, type: 2}
+      objectReference: {fileID: 2100000, guid: 51c29c320f8002a41b725955d28f96c0, type: 2}
     - target: {fileID: -269875310634046969, guid: f6395086a7866af4bad3937fa04f8b98,
         type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 3a3ca1609f329c647b3d8b3e4d3b04c0, type: 2}
+      objectReference: {fileID: 2100000, guid: ca037c6544085d24eb49e81446269d5e, type: 2}
     - target: {fileID: -160381263799956828, guid: f6395086a7866af4bad3937fa04f8b98,
         type: 3}
       propertyPath: m_Layer

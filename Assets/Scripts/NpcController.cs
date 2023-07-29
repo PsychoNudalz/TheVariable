@@ -85,9 +85,9 @@ public class NpcController : MonoBehaviour
     {
         if (HasTasks())
         {
-            if (GetCurrentTask().TaskObject)
+            if (GetCurrentTask().TaskSmartObject)
             {
-                if (GetCurrentTask().TaskObject.InUse)
+                if (GetCurrentTask().TaskSmartObject.InUse)
                 {
                     return false;
                 }
@@ -152,7 +152,7 @@ public class NpcController : MonoBehaviour
         {
             if (taskQueue[0].HasObject)
             {
-                taskQueue[0].TaskObject.Interact(this);
+                taskQueue[0].TaskSmartObject.Interact(this);
             }
 
             return taskQueue[0].Duration;
@@ -170,7 +170,7 @@ public class NpcController : MonoBehaviour
             TaskEvent task = taskQueue[0];
             if (task.HasObject)
             {
-                task.TaskObject.FinishTask(this, task, isInterrupt);
+                task.TaskSmartObject.FinishTask(this, task, isInterrupt);
             }
 
             RemoveTask();
@@ -200,7 +200,7 @@ public class NpcController : MonoBehaviour
         //setting the position to the task object's interaction point
         if (taskEvent is {HasObject: true, Position: {magnitude: <= .1f}})
         {
-            taskEvent.Position = taskEvent.TaskObject.InteractPosition;
+            taskEvent.Position = taskEvent.TaskSmartObject.InteractPosition;
         }
 
         return taskEvent;
@@ -231,18 +231,18 @@ public class NpcController : MonoBehaviour
     /// deposits the item to the task object
     /// Null means it deposits in to the current task
     /// </summary>
-    /// <param name="taskObject"></param>
-    public void DepositItem(TaskObject taskObject = null)
+    /// <param name="taskSmartObject"></param>
+    public void DepositItem(TaskSmartObject taskSmartObject = null)
     {
-        if (!taskObject)
+        if (!taskSmartObject)
         {
-            taskObject = GetCurrentTask().TaskObject;
+            taskSmartObject = GetCurrentTask().TaskSmartObject;
         }
 
-        pickedUpItem.Deposit(taskObject);
-        if (taskObject)
+        pickedUpItem.Deposit(taskSmartObject);
+        if (taskSmartObject)
         {
-            taskObject.Deposit(pickedUpItem);
+            taskSmartObject.Deposit(pickedUpItem);
         }
         else
         {
@@ -269,5 +269,11 @@ public class NpcController : MonoBehaviour
         {
             visualController.PlayAnimation(npcAnimation);
         }
+    }
+
+    public void ClearTasks()
+    {
+        DropItem();
+        taskQueue = new List<TaskEvent>();
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 219764443607572837}
   - component: {fileID: 219764443607572827}
   - component: {fileID: 219764443607572836}
+  - component: {fileID: 127775623659055012}
   m_Layer: 7
   m_Name: TaskPoint_Base
   m_TagString: Untagged
@@ -32,6 +33,8 @@ Transform:
   m_Children:
   - {fileID: 5155711866920568090}
   - {fileID: 2918198883386962691}
+  - {fileID: 7673712880855638557}
+  - {fileID: 5195698906512685421}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -223,6 +226,7 @@ MonoBehaviour:
   - rid: 2809099959511023618
   availableTasks: []
   currentItems: []
+  controller: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -230,6 +234,61 @@ MonoBehaviour:
       type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
       data:
         HackName: General Distraction
+--- !u!114 &127775623659055012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219764443607572839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544e9fc6c48b5e846a5ba10f15bebbf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteractEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onDepositEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onInterruptEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &790617485617708034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7673712880855638557}
+  m_Layer: 7
+  m_Name: Effects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7673712880855638557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790617485617708034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 219764443607572837}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1607850883106544561
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +351,37 @@ Transform:
   - {fileID: 217157427030250870}
   m_Father: {fileID: 219764443607572837}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8579484326968316363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5195698906512685421}
+  m_Layer: 7
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5195698906512685421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579484326968316363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 219764443607572837}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &219764444122843210
 PrefabInstance:

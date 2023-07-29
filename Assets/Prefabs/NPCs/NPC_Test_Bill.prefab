@@ -187,5 +187,15 @@ PrefabInstance:
       propertyPath: schedule.Array.data[1].requiredItems.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7931100631368753877, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44160fade37aced42811dbf0e61f92ba, type: 2}
+    - target: {fileID: 7931100631368753877, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3a3ca1609f329c647b3d8b3e4d3b04c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d069e2915b6eb7046a856e3c59f0a699, type: 3}

@@ -5,10 +5,8 @@ using UnityEngine;
 
 namespace Task
 {
-    /// <summary>
-    /// Swapped from struct to class as it is 2840 bytes, bigger than the recommended 16 bytes
-    /// </summary>
-    public class TaskObject : SmartObject
+
+    public class TaskSmartObject : SmartObject
     {
         [Header("Tasks")]
         [SerializeField]
@@ -16,10 +14,11 @@ namespace Task
 
         [SerializeField]
         private List<ItemObject> currentItems;
-
-
         private bool inUse = false;
 
+        [Header("Components")]
+        [SerializeField]
+        private TaskObjectController controller;
         public bool InUse => inUse;
 
         public TaskEvent[] AvailableTasks => availableTasks;
@@ -64,6 +63,7 @@ namespace Task
             npc.PlayAnimation(NpcAnimation.Interact);
             RemoveUsedItems(npc.GetCurrentTask());
             inUse = true;
+            controller?.OnInteract();
         }
 
         /// <summary>
@@ -74,6 +74,7 @@ namespace Task
         public virtual void Deposit(ItemObject itemObject)
         {
             currentItems.Add(itemObject);
+            controller?.OnDeposit();
         }
 
 
@@ -81,6 +82,14 @@ namespace Task
         {
             npc.PlayAnimation(NpcAnimation.Idle);
             inUse = false;
+            if (isInterrupt)
+            {
+                controller?.OnFinishTask();
+            }
+            else
+            {
+                controller?.OnInterruptTask();
+            }
         }
 
         private void RemoveUsedItems(TaskEvent taskEvent)

@@ -75,10 +75,10 @@ public class DamageSystem : MonoBehaviour
         }
     }
 
-    public static bool isLOS(LifeSystem target, LifeSystem self, float LOSRange, LayerMask layerMask)
+    public static bool isLOS(Vector3 target, Vector3 self, float LOSRange, LayerMask layerMask)
     {
-        Vector3 dir = (target.transform.position - self.transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(self.transform.position, dir, LOSRange, layerMask);
+        Vector3 dir = (target - self).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(self, dir, LOSRange, layerMask);
         if (hit)
         {
             if (hit.collider.TryGetComponent(out LifeSystem ls) && ls.Equals(target))

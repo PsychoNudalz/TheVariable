@@ -72,11 +72,11 @@ public class ItemObject : SmartObject
             Debug.Log($"{name} task assign: null");
     }
 
-    public virtual void Deposit(TaskObject taskObject)
+    public virtual void Deposit(TaskSmartObject taskSmartObject)
     {
-        if (taskObject)
+        if (taskSmartObject)
         {
-            transform.parent = taskObject.transform;
+            transform.parent = taskSmartObject.transform;
             modelGO.SetActive(false);
         }
         else

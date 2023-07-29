@@ -14,7 +14,10 @@ public class DamageZone : MonoBehaviour
     private bool friendlyFire = false;
 
     [SerializeField]
-    private LayerMask damageLayerMask;
+    private bool needLOS = true;
+
+    [SerializeField]
+    private LayerMask LOSLayerMask;
 
     [SerializeField]
     private float duration = 1f;
@@ -22,7 +25,7 @@ public class DamageZone : MonoBehaviour
     [SerializeField]
     private float range = 1f;
 
-    
+
     [SerializeField]
     [Tooltip("1: Close.  0: Far")]
     private AnimationCurve damageCurve;
@@ -56,14 +59,37 @@ public class DamageZone : MonoBehaviour
     {
         if (inTriggerUnit.Count > 0)
         {
-            float damageThisFrame = baseDamage* Time.fixedDeltaTime;
-            foreach (LifeSystem lifeSystem in inTriggerUnit)
+            float damageThisFrame = baseDamage * Time.fixedDeltaTime;
+            if (needLOS)
             {
-                DamageSystem.DealDamage(lifeSystem,
-                    new DamageData(damageThisFrame*SampleRangeMultiplier(lifeSystem.Position), transform.position,
-                        range), friendlyFire);
+                foreach (LifeSystem lifeSystem in inTriggerUnit)
+                {
+                    if (DamageSystem.isLOS(lifeSystem.Position, transform.position, range * 2f, LOSLayerMask))
+                    {
+                        damage(damageThisFrame,lifeSystem);
+                    }
+                }
+            }
+            else
+            {
+                damageTiggerUnits(damageThisFrame);
             }
         }
+    }
+
+    private void damageTiggerUnits(float damageThisFrame)
+    {
+        foreach (LifeSystem lifeSystem in inTriggerUnit)
+        {
+            damage(damageThisFrame, lifeSystem);
+        }
+    }
+
+    private void damage(float damageThisFrame, LifeSystem lifeSystem)
+    {
+        DamageSystem.DealDamage(lifeSystem,
+            new DamageData(damageThisFrame * SampleRangeMultiplier(lifeSystem.Position), transform.position,
+                range), friendlyFire);
     }
 
     float SampleRangeMultiplier(Vector3 target)
@@ -92,6 +118,7 @@ public class DamageZone : MonoBehaviour
 
         inTriggerUnit = new List<LifeSystem>(temp);
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.TryGetComponent(out LifeSystem ls))

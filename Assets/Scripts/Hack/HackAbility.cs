@@ -51,10 +51,10 @@ public abstract class HackAbility
     public bool IsActive => isActive;
 
     /// <summary>
-    /// The main hack
+    /// The main hack. 0: no error, 1: error
     /// </summary>
     /// <param name="hackContext"></param>
-    /// <returns></returns>
+    /// <returns>0: no error, 1: error</returns>
     public abstract int Hack(HackContext hackContext);
 
     // /// <summary>

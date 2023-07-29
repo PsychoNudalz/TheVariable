@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Task
 {
     /// <summary>
     /// Identify where the task is, when does it start, how long it is and what TaskObject it is interacting with
+    /// Swapped from struct to class as it is 2840 bytes, bigger than the recommended 16 bytes
     /// </summary>
     [Serializable]
     [CanBeNull]
@@ -16,8 +18,9 @@ namespace Task
         [SerializeField]
         private string taskName;
 
+        [FormerlySerializedAs("taskObject")]
         [SerializeField]
-        private TaskObject taskObject;
+        private TaskSmartObject taskSmartObject;
 
         [SerializeField]
         private int startTime;
@@ -36,7 +39,7 @@ namespace Task
 
         public string TaskName => taskName;
 
-        public TaskObject TaskObject => taskObject;
+        public TaskSmartObject TaskSmartObject => taskSmartObject;
 
         public int StartTime => startTime;
 
@@ -54,7 +57,7 @@ namespace Task
 
         public float Duration => duration;
 
-        public bool HasObject => taskObject != null;
+        public bool HasObject => taskSmartObject != null;
 
 
         public TaskEvent()
@@ -63,7 +66,7 @@ namespace Task
             this.position = default;
             this.duration = 1;
             this.startTime = -1;
-            taskObject = null;
+            taskSmartObject = null;
             requiredItems = Array.Empty<ItemName>();
             itemsConsumeOnUse = false;
         }
@@ -74,7 +77,7 @@ namespace Task
             this.position = default;
             this.duration = 1;
             this.startTime = -1;
-            taskObject = null;
+            taskSmartObject = null;
             requiredItems = Array.Empty<ItemName>();
             itemsConsumeOnUse = false;
         }
@@ -85,15 +88,15 @@ namespace Task
             this.position = position;
             this.duration = duration;
             this.startTime = startTime;
-            taskObject = null;
+            taskSmartObject = null;
             requiredItems = Array.Empty<ItemName>();
             itemsConsumeOnUse = false;
         }
 
-        public TaskEvent(string taskName, TaskObject taskObject, int startTime, Vector3 position, float duration)
+        public TaskEvent(string taskName, TaskSmartObject taskSmartObject, int startTime, Vector3 position, float duration)
         {
             this.taskName = taskName;
-            this.taskObject = taskObject;
+            this.taskSmartObject = taskSmartObject;
             this.startTime = startTime;
             this.position = position;
             this.duration = duration;
@@ -107,14 +110,14 @@ namespace Task
             items = Array.Empty<ItemName>();
             bool flag = true;
 
-            if (!taskObject)
+            if (!taskSmartObject)
             {
                 return flag;
             }
 
             foreach (ItemName requiredItem in requiredItems)
             {
-                if (!taskObject.HasItem(requiredItem))
+                if (!taskSmartObject.HasItem(requiredItem))
                 {
                     Debug.Log($"{taskName} is missing {requiredItem.ToString()}");
                     temp.Add(requiredItem);

@@ -7,17 +7,17 @@ using UnityEngine;
 // using System.Runtime.InteropServices;
 
 
-[CustomEditor(typeof(TaskObject))]
+[CustomEditor(typeof(TaskSmartObject))]
 public class TaskObjectEditor : SmartObjectEditor
 {
-    private TaskObject taskObject;
+    private TaskSmartObject taskSmartObject;
     private string taskName = "";
     private int startTime = 0;
     private float duration = 0;
 
     public override void GUIContent()
     {
-        taskObject = (TaskObject)smartObject;
+        taskSmartObject = (TaskSmartObject)smartObject;
         GUILayout.Label("Hacks");
         AddHack_Distraction();
         GUILayout.Space(5);
@@ -28,9 +28,9 @@ public class TaskObjectEditor : SmartObjectEditor
         // EditorGUILayout.ObjectField(smartObject, typeof(TaskObject));
         if (GUILayout.Button("Create and Add Task"))
         {
-            string finalName = string.Concat(taskObject.name, "_", taskName);
+            string finalName = string.Concat(taskSmartObject.name, "_", taskName);
 
-            taskObject.AddAvailableTask(new TaskEvent(finalName, taskObject, startTime, taskObject.InteractPosition,
+            taskSmartObject.AddAvailableTask(new TaskEvent(finalName, taskSmartObject, startTime, taskSmartObject.InteractPosition,
                 duration));
             SetDirty();
         }

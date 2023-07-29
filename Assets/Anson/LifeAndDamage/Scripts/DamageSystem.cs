@@ -107,7 +107,7 @@ public class DamageSystem : MonoBehaviour
         }
         else
         {
-            Debug.Log("Friendly state ignored");
+            // Debug.Log("Friendly state ignored");
             targetLs.TakeDamage(damageData, self);
         }
 

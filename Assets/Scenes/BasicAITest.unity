@@ -3092,6 +3092,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Test_Bill
       objectReference: {fileID: 0}
+    - target: {fileID: 8400038469038462663, guid: 0f511cf63453f1e4e9908c1d59150171,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8400038469038462681, guid: 0f511cf63453f1e4e9908c1d59150171,
         type: 3}
       propertyPath: m_RootOrder
@@ -3762,7 +3767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785409226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.25, y: 0, z: -2.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -32,12 +32,13 @@ public class Action_DoTask : ActionNode
         {
             //To finish the task
 
-            context.NpcController.FinishCurrentTask(taskDuration > 0);
             if (taskDuration > 0)
             {
                 //if the task is incomplete
                 Debug.Log($"Task: {context.NpcController.GetCurrentTask().TaskName} interrupt.");
             }
+
+            context.NpcController.FinishCurrentTask(taskDuration > 0);
         }
 
         started = false;

@@ -83,8 +83,8 @@ namespace TheKiwiCoder
         {
             BehaviourTree.Traverse(this, (node) =>
             {
-                node.started = false;
-                node.state = State.Running;
+                // node.started = false;
+                // node.state = State.Running;
                 node.OnStop();
             });
         }

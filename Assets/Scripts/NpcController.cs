@@ -53,6 +53,8 @@ public class NpcController : MonoBehaviour
 
     public Vector3 PickUpPosition => itemHoldingPoint.position;
 
+    public float Health => lifeSystem.Health;
+
     private void Awake()
     {
         //Initialising schedule

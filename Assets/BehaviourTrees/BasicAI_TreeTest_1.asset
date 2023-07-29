@@ -39,16 +39,22 @@ MonoBehaviour:
   - rid: 2809100001274232842
   - rid: 2809100001274232843
   - rid: 2809100001274232844
-  - rid: 2809100001274232845
+  - rid: 2809100022982639617
+  - rid: 2809100022982639618
+  - rid: 2809100044328239105
+  - rid: 2809100044328239106
   treeState: 0
   blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
     health: 0
+    moveToPosition: {x: 0, y: 0, z: 0}
     missingItem: 0
     locatedItem: {fileID: 0}
     pickedUpItem: {fileID: 0}
-  viewPosition: {x: 31.2, y: -520.8, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+    flag_wait: 0
+    wait_startTime: 0
+    wait_duration: 0
+  viewPosition: {x: 71.2, y: 180.8, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -58,13 +64,16 @@ MonoBehaviour:
         state: 0
         started: 1
         guid: 41f2f4c2-41cc-4e5e-be4a-886ffa40ed85
-        position: {x: 3.2000122, y: -227.16003}
+        position: {x: 640.94086, y: -588.54285}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: RootNode_Test
         description: 
         drawGizmos: 0
@@ -76,14 +85,17 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e93e93a21d0855741b6bfc92bd954799
-        position: {x: 316.31985, y: 186.18939}
+        position: {x: 713.0688, y: 157.97667}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
-        name: Sequencer
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Seq_Wonder
         description: 
         drawGizmos: 0
         children:
@@ -96,13 +108,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a14ab65e7d407564aa4cc43a5e608144
-        position: {x: 316.31985, y: 338.9894}
+        position: {x: 701.5999, y: 321.59995}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -112,35 +127,42 @@ MonoBehaviour:
         acceleration: 40
         tolerance: 1
     - rid: 2809099641645694981
-      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      type: {class: Action_SetWait, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: ed0c00bd25cc1c94ca2c3c3434823e5a
-        position: {x: 466.7198, y: 338.9894}
+        position: {x: 852, y: 321.59998}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
-        name: Wait
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Action_SetWait
         description: 
         drawGizmos: 0
-        duration: 1
+        duration: 2
+        playWaitAnimation: 1
     - rid: 2809099641645694982
       type: {class: RandomPosition, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 41adc6f6cb8000942994893d94b73568
-        position: {x: 166.71983, y: 338.9894}
+        position: {x: 551.99994, y: 321.59995}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: RandomPosition
         description: 
         drawGizmos: 0
@@ -152,18 +174,21 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a61b1fe17c3b0ab4fbb017ed5210ebdd
-        position: {x: 3.200022, y: -90.43499}
+        position: {x: 640.94086, y: -451.7428}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Repeat
         description: 
         drawGizmos: 0
         child:
-          rid: 2809099645928341504
+          rid: 2809100022982639617
         restartOnSuccess: 1
         restartOnFailure: 1
     - rid: 2809099645928341504
@@ -172,13 +197,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 38f60941e89e393468c56d9eb68b3542
-        position: {x: 3.2000732, y: 30}
+        position: {x: 268, y: 13.599983}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Selector_HasTask
         description: 
         drawGizmos: 0
@@ -191,33 +219,39 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b80abab7afff90a498ab4a7821fa15d2
-        position: {x: -385.0044, y: 466.41757}
+        position: {x: 50.399994, y: 384.79996}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Selector_ArriveAtTask
         description: 
         drawGizmos: 0
         children:
         - rid: 2809099645928341506
         - rid: 2809100001274232840
-        distance: 0.1
+        distance: 0.5
     - rid: 2809099645928341506
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 2776c90cc4681db4f9fa7fb357e70d2a
-        position: {x: -534.6044, y: 624.81757}
+        position: {x: -99.19995, y: 543.19995}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -230,13 +264,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9a3ede6f743f4a74dae05bc0be048b92
-        position: {x: -182.4651, y: 746.8}
+        position: {x: 252.79997, y: 665.6}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -249,13 +286,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: cac3ec7092898f94fb3b05651ce0978c
-        position: {x: -472.2044, y: 791.2176}
+        position: {x: -36.80002, y: 709.59985}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Action_DoTask
         description: 
         drawGizmos: 0
@@ -265,13 +305,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2424344b7cb2ce24e9190cb01b5ae1d6
-        position: {x: -272.8651, y: 896.4}
+        position: {x: 162.39993, y: 815.19995}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Action_SetTaskToTarget
         description: 
         drawGizmos: 0
@@ -281,34 +324,40 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e43e1fbc69358874095b1d2e615a98e8
-        position: {x: -92.06512, y: 896.4}
+        position: {x: 343.2, y: 815.19995}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: MoveToPosition
         description: 
         drawGizmos: 0
         speed: 5
-        stoppingDistance: 0.1
+        stoppingDistance: 0.2
         updateRotation: 1
         acceleration: 40
-        tolerance: 1
+        tolerance: 0.03
     - rid: 2809099987240878081
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: def9263b4eee4b74abc0abe1f044621a
-        position: {x: -975, y: 421.59998}
+        position: {x: -539.99994, y: 340}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -316,20 +365,22 @@ MonoBehaviour:
         - rid: 2809099987240878082
         - rid: 2809099987240878083
         - rid: 2809100001274232834
-        - rid: 2809100001274232845
     - rid: 2809099987240878082
       type: {class: Action_LocateItem, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: a52bdfd80adb2414f82a98ee0ac3df1e
-        position: {x: -1275.2002, y: 624.8}
+        position: {x: -839.9998, y: 543.19995}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Action_LocateItem
         description: 
         drawGizmos: 0
@@ -339,13 +390,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d4894e47647e3aa4e977039f4df34b6e
-        position: {x: -1124.8003, y: 624.8}
+        position: {x: -689.60004, y: 543.19995}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -353,23 +407,28 @@ MonoBehaviour:
         stoppingDistance: 0.1
         updateRotation: 1
         acceleration: 40
-        tolerance: 1
+        tolerance: 0.03
     - rid: 2809100001274232834
       type: {class: Action_PickUpItem, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 4945a26075539234e821e8e49a056e4d
-        position: {x: -975.2002, y: 624.8}
+        position: {x: -540, y: 543.2}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Action_PickUpItem
         description: 
         drawGizmos: 0
+        duration: 1
+        playWaitAnimation: 0
         pickUpRange: 2
     - rid: 2809100001274232837
       type: {class: Action_DepositItem, ns: , asm: Assembly-CSharp}
@@ -377,13 +436,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 697964ba828d98e46a56ca8fe43a0f4e
-        position: {x: -633.8043, y: 791.2176}
+        position: {x: -198.40002, y: 709.59985}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Action_DepositItem
         description: 
         drawGizmos: 0
@@ -393,13 +455,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 5c6fbc48f14bb6847a1adbce1eac90af
-        position: {x: -662.8, y: 170.4}
+        position: {x: -222.39996, y: 168.79999}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Selector_HasMissingItemToPickup
         description: 
         drawGizmos: 0
@@ -412,13 +477,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 970d978880b00a848b499c173719a004
-        position: {x: -51.779995, y: 608.40436}
+        position: {x: 381.8775, y: 527.2}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Selector_IsTaskFree
         description: 
         drawGizmos: 0
@@ -427,36 +495,43 @@ MonoBehaviour:
         - rid: 2809100001274232842
         distance: 3
     - rid: 2809100001274232841
-      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      type: {class: Action_SetWait, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: ce7babbb216a76f4eb91919658993c5d
-        position: {x: 371.70538, y: 880.8}
+        position: {x: 807.19995, y: 799.1999}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
-        name: Wait
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Action_SetWait
         description: 
         drawGizmos: 0
-        duration: 1
+        duration: 2
+        playWaitAnimation: 1
     - rid: 2809100001274232842
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 5f0f0896092461645821973afefd27b3
-        position: {x: 116.09707, y: 733.4243}
+        position: {x: 552, y: 653.3225}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
-        name: Sequencer
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Seq_Wait for task be free
         description: 
         drawGizmos: 0
         children:
@@ -469,13 +544,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 8532a030f094a784d8467f566e55ff53
-        position: {x: 58.400024, y: 880.8}
+        position: {x: 493.6, y: 799.1999}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: Action_StopMove
         description: 
         drawGizmos: 0
@@ -485,13 +563,16 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 57286a04f2ca3634bae5355e8f9e69b4
-        position: {x: 222.40015, y: 880.00006}
+        position: {x: 656.7999, y: 799.1999}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -500,20 +581,85 @@ MonoBehaviour:
         updateRotation: 1
         acceleration: 40
         tolerance: 1
-    - rid: 2809100001274232845
-      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+    - rid: 2809100022982639617
+      type: {class: Selector_HasHealth, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: 651c9a4f281291e4198550e84929bec3
-        position: {x: -824.8001, y: 624.80005}
+        guid: 7e907fc04502aad498707a1f73458d8f
+        position: {x: 640.94086, y: -338.9428}
         blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
           health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
-        name: Wait
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Selector_HasHealth
         description: 
         drawGizmos: 0
-        duration: 1
+        children:
+        - rid: 2809099645928341504
+        - rid: 2809100022982639618
+        healthThreshold: 0
+    - rid: 2809100022982639618
+      type: {class: Action_Dead, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 641fb9a71e2133941bd775b4e1dfb69c
+        position: {x: 938.5408, y: -160.54282}
+        blackboard:
+          health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Action_Dead
+        description: 
+        drawGizmos: 0
+    - rid: 2809100044328239105
+      type: {class: Selector_HasWait, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a124a51d0a9b90e43a204ba489b017e7
+        position: {x: 139.99995, y: -152.16713}
+        blackboard:
+          health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Selector_HasWait
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2809100044328239106
+    - rid: 2809100044328239106
+      type: {class: Action_PlayWait, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 45a59b5fbd33ed84ca66b14b4a9627b1
+        position: {x: 117.59996, y: 13.599995}
+        blackboard:
+          health: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Action_PlayWait
+        description: 
+        drawGizmos: 0

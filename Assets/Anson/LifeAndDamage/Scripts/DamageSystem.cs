@@ -111,8 +111,6 @@ public class DamageSystem : MonoBehaviour
             targetLs.TakeDamage(damageData, self);
         }
 
-        Debug.Log("Friendly state ignored");
-        targetLs.TakeDamage(damageData, self);
     }
 
     public static void SphereCastDamage(Vector3 position, float damage, float range, LayerMask layerMask,

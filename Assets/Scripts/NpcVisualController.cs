@@ -8,7 +8,8 @@ public enum NpcAnimation
     Idle,
     Walk,
     Interact,
-    PickUp
+    PickUp,
+    Dead
 }
 
 public class NpcVisualController : MonoBehaviour
@@ -53,6 +54,11 @@ public class NpcVisualController : MonoBehaviour
 
     public void PlayAnimation(NpcAnimation npcAnimation)
     {
+        if (animationTime_Current > .2f&&animationTime_Current < .9f)
+        {
+            return;
+        }
+
         switch (npcAnimation)
         {
             case NpcAnimation.Idle:
@@ -67,7 +73,11 @@ public class NpcVisualController : MonoBehaviour
 
                 break;
             case NpcAnimation.PickUp:
-                animator.Play("NPC_Interact");
+                animator.Play("NPC_PickUp");
+
+                break;
+            case NpcAnimation.Dead:
+                animator.Play("NPC_Dead");
 
                 break;
             default:

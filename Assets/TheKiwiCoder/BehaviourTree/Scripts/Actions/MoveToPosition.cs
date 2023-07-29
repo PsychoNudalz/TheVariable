@@ -19,8 +19,8 @@ public class MoveToPosition : ActionNode
         context.agent.destination = blackboard.moveToPosition;
         context.agent.updateRotation = updateRotation;
         context.agent.acceleration = acceleration;
+        started = false; //Assume false unless the update starts and the path is valid
 
-        context.NpcController.PlayAnimation(NpcAnimation.Walk);
     }
 
     protected override void OnStop()
@@ -47,6 +47,12 @@ public class MoveToPosition : ActionNode
         if (context.agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathInvalid)
         {
             return State.Failure;
+        }
+
+        if (!started)
+        {
+            context.NpcController.PlayAnimation(NpcAnimation.Walk);
+            started = true;
         }
 
         return State.Running;

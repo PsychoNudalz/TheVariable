@@ -38,23 +38,28 @@ namespace TheKiwiCoder
 
 
         [TextArea]
-        public string name =  "";
+        public string name;
+
         [TextArea]
         public string description;
 
         public bool drawGizmos = false;
 
-
+        protected Node()
+        {
+            name = GetType().Name;
+        }
 
         public string GetName()
         {
-            if (name.Length == 0)
-            {
-                name = GetType().Name;
-            }
+            // if (name.Length == 0)
+            // {
+            //     name = GetType().Name;
+            // }
 
             return name;
         }
+
         public State Update()
         {
             if (!started)
@@ -96,6 +101,7 @@ namespace TheKiwiCoder
     public class NullNodeException : Exception
     {
         private Node node;
+
         public NullNodeException(Node node)
         {
             this.node = node;
@@ -104,7 +110,7 @@ namespace TheKiwiCoder
         public override string ToString()
         {
             string n = node.GetName();
-            
+
             return $"{n}: missing child node. \nDescription: {node.description}";
         }
     }

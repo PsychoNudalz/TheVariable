@@ -18,17 +18,22 @@ namespace TheKiwiCoder {
 
         public NodeView(SerializedBehaviourTree tree, Node node) : base(AssetDatabase.GetAssetPath(BehaviourTreeSettings.GetOrCreateSettings().nodeXml)) {
             this.serializer = tree;
-            this.node = node;
-            this.title = node.GetName();
-            this.viewDataKey = node.guid;
-
-            style.left = node.position.x;
-            style.top = node.position.y;
-
-            CreateInputPorts();
-            CreateOutputPorts();
-            SetupClasses();
-            SetupDataBinding();
+            if (node!=null)
+            {
+                this.title = node.GetName();
+                this.node = node;
+                this.viewDataKey = node.guid;
+                style.left = node.position.x;
+                style.top = node.position.y;
+                CreateInputPorts();
+                CreateOutputPorts();
+                SetupClasses();
+                SetupDataBinding();
+            }
+            else
+            {
+                Debug.LogWarning($"Tree read node as NULL!");
+            }
         }
         
         private void SetupDataBinding() {

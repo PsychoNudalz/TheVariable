@@ -11,13 +11,17 @@ namespace TheKiwiCoder {
     [System.Serializable]
     public class Blackboard
     {
+
+        public float health;
         public Vector3 moveToPosition;
-        public int health;
         public ItemName missingItem = ItemName.None;
         public ItemObject locatedItem;
         public ItemObject pickedUpItem;
-        
-        
+        [Space(5)]
+        public bool flag_wait = false;
+        public float wait_startTime = 0;
+        public float wait_duration = 0;
+
         // public ItemName MissingItem => missingItems[0];
         // protected bool foundAllItems =>
     }

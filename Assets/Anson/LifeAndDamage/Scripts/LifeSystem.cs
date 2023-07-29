@@ -17,7 +17,7 @@ public class LifeSystem : MonoBehaviour
     private LifeState lifeState = LifeState.Alive;
 
     [SerializeField]
-    private float health_max = 100f;
+    private  float health_max = 100f;
 
     [SerializeField]
     private float health;
@@ -41,7 +41,11 @@ public class LifeSystem : MonoBehaviour
 
     private UnitFaction faction;
 
-   
+    public Vector3 Position => transform.position;
+
+    public float Health => health;
+
+
     public bool IsFriendly(UnitFaction other)
     {
         return other.Equals(faction);

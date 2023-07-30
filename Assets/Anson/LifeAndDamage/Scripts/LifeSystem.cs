@@ -53,6 +53,10 @@ public class LifeSystem : MonoBehaviour
 
     public bool IsHostile(UnitFaction other)
     {
+        if (other == UnitFaction.None)
+        {
+            return true;
+        }
         return !other.Equals(faction);
     }
     private void Start()

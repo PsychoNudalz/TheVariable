@@ -17,6 +17,9 @@ public class NpcController : MonoBehaviour
 {
     [FormerlySerializedAs("tasks")]
     [SerializeField]
+    private TaskEvent currentTask;
+
+    [SerializeField]
     [Tooltip("Currently queued task. this is not the schedule")]
     private List<TaskEvent> taskQueue = new List<TaskEvent>();
 
@@ -76,14 +79,19 @@ public class NpcController : MonoBehaviour
     {
     }
 
-    public bool HasTasks()
+    public bool HasTasksQueued()
     {
+        if (currentTask != null && taskQueue.Count > 0)
+        {
+            UpdateCurrentTask();
+        }
+
         return taskQueue.Count > 0;
     }
 
     public bool IsTaskObjectFree()
     {
-        if (HasTasks())
+        if (HasTasksQueued())
         {
             if (GetCurrentTask().TaskSmartObject)
             {
@@ -97,85 +105,114 @@ public class NpcController : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Adds a task and load task in to current if Null
+    /// </summary>
+    /// <param name="t"></param>
     public void AddTask(TaskEvent t)
     {
         taskQueue.Add(t);
+        if (currentTask == null)
+        {
+            UpdateCurrentTask();
+        }
+    }
+
+    private void UpdateCurrentTask()
+    {
+        currentTask = taskQueue[0];
     }
 
     public void RemoveTask(TaskEvent t)
     {
         taskQueue.Remove(t);
+        if (taskQueue.Count > 0)
+        {
+            UpdateCurrentTask();
+        }
+        else
+        {
+            currentTask = null;
+        }
     }
 
     public void RemoveTask()
     {
         if (taskQueue.Count == 0)
         {
+            currentTask = null;
             return;
         }
-
-        taskQueue.RemoveAt(0);
+        else
+        {
+            taskQueue.RemoveAt(0);
+            if (taskQueue.Count > 0)
+            {
+                UpdateCurrentTask();
+            }
+            else
+            {
+                currentTask = null;
+            }
+        }
     }
 
     public TaskEvent GetCurrentTask()
     {
-        if (!HasTasks())
+        if (!HasTasksQueued())
         {
             return null;
         }
         else
         {
-            return taskQueue[0];
+            return currentTask;
         }
     }
 
     public bool CanStartCurrentTask(out ItemName[] items)
     {
         items = Array.Empty<ItemName>();
-        if (!HasTasks())
+        if (!HasTasksQueued())
         {
             return false;
         }
         else
         {
-            return taskQueue[0].CanStartTask(out items);
+            return currentTask.CanStartTask(out items);
         }
     }
 
     public float StartCurrentTask()
     {
-        if (!HasTasks())
+        if (!HasTasksQueued())
         {
             return -1;
         }
         else
         {
-            if (taskQueue[0].HasObject)
+            if (currentTask.HasObject)
             {
-                taskQueue[0].TaskSmartObject.Interact(this);
+                currentTask.TaskSmartObject.Interact(this);
             }
 
-            return taskQueue[0].Duration;
+            return currentTask.Duration;
         }
     }
 
     public float FinishCurrentTask(bool isInterrupt = false)
     {
-        if (!HasTasks())
+        if (currentTask == null)
         {
-            return -1;
+            Debug.LogWarning($"{name} finish task is NULL");
         }
-        else
+        TaskEvent task = currentTask;
+        if (task.HasObject)
         {
-            TaskEvent task = taskQueue[0];
-            if (task.HasObject)
-            {
-                task.TaskSmartObject.FinishTask(this, task, isInterrupt);
-            }
+            task.TaskSmartObject.FinishTask(this, task, isInterrupt);
+        }
 
-            RemoveTask();
-            return task.Duration;
-        }
+        RemoveTask();
+        return task.Duration;
     }
 
     [ContextMenu("Add test task")]
@@ -254,11 +291,11 @@ public class NpcController : MonoBehaviour
 
     public void DropItem()
     {
-
         if (pickedUpItem)
         {
             pickedUpItem.Drop();
         }
+
         pickedUpItem = null;
     }
 

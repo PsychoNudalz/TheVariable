@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4494576970443820311}
   - component: {fileID: 7354641671289239453}
   - component: {fileID: 7312666878541835902}
+  - component: {fileID: 776358967761759516}
   m_Layer: 7
   m_Name: BrokenDamageZone
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5166154293152395576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,19 +49,20 @@ MonoBehaviour:
   baseDamage: 50
   friendlyFire: 0
   needLOS: 1
+  LOSoffset: {x: 0, y: 0, z: 0}
   LOSLayerMask:
     serializedVersion: 2
-    m_Bits: 897
+    m_Bits: 769
   duration: 1
-  range: 2
+  range: 1.5
   damageCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
@@ -68,8 +70,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
@@ -87,11 +89,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5166154293152395576}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &776358967761759516
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166154293152395576}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8481218640496985606
 GameObject:
   m_ObjectHideFlags: 0
@@ -24557,37 +24575,37 @@ PrefabInstance:
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.6860781
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.54838574
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5.8294544
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.0000018179414
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
@@ -24597,7 +24615,7 @@ PrefabInstance:
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
@@ -24653,7 +24671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265699b862114e4a807c22570dea0d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoFinishOnInterrupt: 1
+  autoFinishOnInterrupt: 0
   onInteractEvent:
     m_PersistentCalls:
       m_Calls: []

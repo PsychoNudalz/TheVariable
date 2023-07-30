@@ -53,8 +53,8 @@ MonoBehaviour:
     flag_wait: 0
     wait_startTime: 0
     wait_duration: 0
-  viewPosition: {x: 66.4, y: 290.4, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  viewPosition: {x: 424, y: -16, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -348,7 +348,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: def9263b4eee4b74abc0abe1f044621a
-        position: {x: -539.99994, y: 340}
+        position: {x: -539.9998, y: 339.99997}
         blackboard:
           health: 0
           moveToPosition: {x: 0, y: 0, z: 0}
@@ -414,7 +414,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4945a26075539234e821e8e49a056e4d
-        position: {x: -540, y: 543.2}
+        position: {x: -539.1998, y: 543.2}
         blackboard:
           health: 0
           moveToPosition: {x: 0, y: 0, z: 0}

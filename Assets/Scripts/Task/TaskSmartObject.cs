@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace Task
 {
-
     public class TaskSmartObject : SmartObject
     {
         [Header("Tasks")]
@@ -14,11 +13,13 @@ namespace Task
 
         [SerializeField]
         private List<ItemObject> currentItems;
+
         private bool inUse = false;
 
         [Header("Components")]
         [SerializeField]
         private TaskObjectController controller;
+
         public bool InUse => inUse;
 
         public TaskEvent[] AvailableTasks => availableTasks;
@@ -84,11 +85,11 @@ namespace Task
             inUse = false;
             if (isInterrupt)
             {
-                controller?.OnFinishTask();
+                controller?.OnInterruptTask();
             }
             else
             {
-                controller?.OnInterruptTask();
+                controller?.OnFinishTask();
             }
         }
 

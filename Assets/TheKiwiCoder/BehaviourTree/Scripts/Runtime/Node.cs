@@ -18,6 +18,7 @@ namespace TheKiwiCoder
         [SerializeField]
         public State state = State.Running;
 
+        public bool IsRunning => state == State.Running;
         [HideInInspector]
         public bool started = false;
 
@@ -85,7 +86,20 @@ namespace TheKiwiCoder
             {
                 // node.started = false;
                 // node.state = State.Running;
-                node.OnStop();
+                if (node is ActionNode an)
+                {
+                    if (an.started || an.IsRunning)
+                    {
+                        an.OnStop();
+                    }
+                }
+                else
+                {
+                    node.OnStop();
+                }
+                node.started = false;
+                node.state = State.Running;
+
             });
         }
 

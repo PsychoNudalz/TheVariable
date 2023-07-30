@@ -54,10 +54,7 @@ public class NpcVisualController : MonoBehaviour
 
     public void PlayAnimation(NpcAnimation npcAnimation)
     {
-        if (animationTime_Current > .2f&&animationTime_Current < .9f)
-        {
-            return;
-        }
+
 
         switch (npcAnimation)
         {
@@ -84,8 +81,11 @@ public class NpcVisualController : MonoBehaviour
                 animator.Play("NPC_Idle");
                 break;
         }
-
         animationTime_Current = 0;
+
+        // if (!(animationTime_Current > .2f && animationTime_Current < .9f))
+        // {
+        // }
     }
 
     public void UpdateMaterial()

@@ -29,14 +29,24 @@ public class Selector_TrueFalse : CompositeNode
         {
             if (children.Count > 1)
             {
+                // if (RightNode.started || RightNode.IsRunning)
+                // {
+                //     RightNode.Abort();
+                // }
                 RightNode.Abort();
+
             }
 
             return LeftNode.Update();
         }
         else
         {
+            // if (LeftNode.started || LeftNode.IsRunning)
+            // {
+            //     LeftNode.Abort();
+            // }
             LeftNode.Abort();
+
 
             if (children.Count > 1)
             {

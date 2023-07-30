@@ -58,30 +58,46 @@ public class DamageSystem : MonoBehaviour
 
     public bool isLOS(LifeSystem target)
     {
-        Vector3 dir = (target.transform.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, LOSRange, allLayers);
-        if (hit)
-        {
-            if (hit.collider.TryGetComponent(out LifeSystem ls) && ls.Equals(target))
-            {
-                return true;
-            }
-
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        // Vector3 dir = (target.transform.position - transform.position).normalized;
+        // RaycastHit hit = Physics.Raycast(transform.position, dir, LOSRange, allLayers);
+        // if (hit)
+        // {
+        //     if (hit.collider.TryGetComponent(out LifeSystem ls) && ls.Equals(target))
+        //     {
+        //         return true;
+        //     }
+        //
+        //     return false;
+        // }
+        // else
+        // {
+        //     return true;
+        // }
+        return true;
     }
 
     public static bool isLOS(Vector3 target, Vector3 self, float LOSRange, LayerMask layerMask)
     {
         Vector3 dir = (target - self).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(self, dir, LOSRange, layerMask);
-        if (hit)
+        Debug.DrawRay(self, dir*LOSRange, Color.blue, .02f);
+        RaycastHit hit;
+        if (Physics.Raycast(self, dir, out hit,LOSRange, layerMask))
         {
-            if (hit.collider.TryGetComponent(out LifeSystem ls) && ls.Equals(target))
+            if (hit.collider.TryGetComponent(out LifeSystem ls))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }    public static bool isLOS(LifeSystem target, Vector3 self, float LOSRange, LayerMask layerMask)
+    {
+        Vector3 dir = (target.Position - self).normalized;
+        Debug.DrawRay(self, dir*LOSRange, Color.blue, .02f);
+        RaycastHit hit;
+        if (Physics.Raycast(self, dir, out hit,LOSRange, layerMask))
+        {
+            if (hit.collider.TryGetComponent(out LifeSystem ls)&&ls.Equals(target))
             {
                 return true;
             }

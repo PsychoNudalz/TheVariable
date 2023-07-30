@@ -17,6 +17,9 @@ public class DamageZone : MonoBehaviour
     private bool needLOS = true;
 
     [SerializeField]
+    private Vector3 LOSoffset = new Vector3(0, .5f, 0);
+
+    [SerializeField]
     private LayerMask LOSLayerMask;
 
     [SerializeField]
@@ -64,7 +67,7 @@ public class DamageZone : MonoBehaviour
             {
                 foreach (LifeSystem lifeSystem in inTriggerUnit)
                 {
-                    if (DamageSystem.isLOS(lifeSystem.Position, transform.position, range * 2f, LOSLayerMask))
+                    if (DamageSystem.isLOS(lifeSystem, transform.position+LOSoffset, range * 2f, LOSLayerMask))
                     {
                         damage(damageThisFrame,lifeSystem);
                     }

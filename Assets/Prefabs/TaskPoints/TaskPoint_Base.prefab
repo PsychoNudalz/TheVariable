@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactPoint: {fileID: 2918198883386962691}
+  highlightEffect: {fileID: 219764443607572827}
   hacks:
   - rid: 2809099959511023618
   availableTasks: []
@@ -258,6 +259,8 @@ MonoBehaviour:
   onInterruptEvent:
     m_PersistentCalls:
       m_Calls: []
+  particleSystems: []
+  visualEffects: []
 --- !u!1 &790617485617708034
 GameObject:
   m_ObjectHideFlags: 0

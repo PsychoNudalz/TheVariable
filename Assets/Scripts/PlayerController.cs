@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
     private LayerMask cameraLayer;
 
     [SerializeField]
-    private float castRange = 20f;
+    private float camera_CastRange = 20f;
 
 
     private Vector2 lookValue;
@@ -273,6 +274,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnHighlightCameras()
+    {
+        cameraManager.ActiveThroughWalls(currentCamera.Position,camera_CastRange);
+    }
+
     private void SelectHack(Vector2 dir)
     {
         uiController.HacksDisplay_SelectHack(dir);
@@ -306,7 +312,7 @@ public class PlayerController : MonoBehaviour
     {
         bool detectedHit = false;
         RaycastHit hit;
-        if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, castRange, selectorLayer))
+        if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, selectorLayer))
         {
             SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
             if (smartObject)
@@ -323,12 +329,12 @@ public class PlayerController : MonoBehaviour
                 }
 
                 detectedHit = true;
-                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * castRange, Color.green, Time.deltaTime);
+                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.green, Time.deltaTime);
             }
         }
         if (!detectedHit)
         {
-            if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, castRange, cameraLayer))
+            if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, cameraLayer))
             {
                 SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
                 if (smartObject)
@@ -346,7 +352,7 @@ public class PlayerController : MonoBehaviour
 
                     detectedHit = true;
 
-                    Debug.DrawRay(currentCamera.Position, currentCamera.Forward * castRange, Color.yellow, Time.deltaTime);
+                    Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.yellow, Time.deltaTime);
                 }
             }
         }
@@ -360,7 +366,7 @@ public class PlayerController : MonoBehaviour
                 selectedObject = null;
             }
 
-            Debug.DrawRay(currentCamera.Position, currentCamera.Forward * castRange, Color.red, Time.deltaTime);
+            Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.red, Time.deltaTime);
         }
     }
 }

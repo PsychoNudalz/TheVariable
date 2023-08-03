@@ -103,6 +103,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "HighlightCameras",
+                    "type": "Button",
+                    "id": "12ac8138-0212-460f-8843-5b7e06ccaf0d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -349,39 +358,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Controller",
-                    "id": "d2b6f0ca-9891-46dd-a5c8-0230e0f042ea",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "d340a1b5-7d76-4d93-aea5-0e23d6d60a38",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "715c5dfe-e202-4d13-bc40-e8f7404a9551",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "8d78b382-d97a-485f-97dc-fc3e17277f3b",
                     "path": "<Mouse>/scroll/x",
@@ -396,6 +372,17 @@
                     "name": "",
                     "id": "850619c5-c6d1-4f3a-a405-186b60baa0c3",
                     "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2eb16096-cd5c-44e8-a3f5-67075154d801",
+                    "path": "<Gamepad>/dpad/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -510,6 +497,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse;Touch",
                     "action": "SelectHack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a23f9082-5ba3-4e94-adcf-b9b2f247d2af",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HighlightCameras",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08a5e4d6-d425-40f1-be61-28af09fb82c8",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HighlightCameras",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

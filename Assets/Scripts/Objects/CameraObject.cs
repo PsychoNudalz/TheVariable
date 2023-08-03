@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using HighlightPlus;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
@@ -32,6 +33,16 @@ public class CameraObject : SmartObject
     [SerializeField]
     private float zoomSpeed = 1f;
 
+    [Header("Effects")]
+    [SerializeField]
+    private HighlightEffect throughWallEffect;
+
+    [SerializeField]
+    private float throughWallEffect_Time = 1f;
+
+    private float throughWallEffect_TimeNow = 0;
+    private bool throughWallEffect_Active = false;
+
     [Space(10)]
     [Header("Components")]
     [SerializeField]
@@ -39,6 +50,7 @@ public class CameraObject : SmartObject
 
     [SerializeField]
     private Collider collider;
+
 
     private Vector3 cameraOrientation = default;
 
@@ -60,6 +72,10 @@ public class CameraObject : SmartObject
 
     protected override void UpdateBehaviour()
     {
+        if (throughWallEffect_Active)
+        {
+            ThroughWallEffect_Update();
+        }
     }
 
     public override void Interact(NpcController npc)
@@ -118,5 +134,33 @@ public class CameraObject : SmartObject
                 cameraBody.enabled = true;
             }
         }
+    }
+
+    public void ThroughWallEffect_Activate()
+    {
+        throughWallEffect_Active = true;
+        throughWallEffect_TimeNow = 0;
+        throughWallEffect.highlighted = true;
+    }
+
+    void ThroughWallEffect_Update()
+    {
+        if (!throughWallEffect_Active)
+        {
+            return;
+        }
+
+        if (throughWallEffect_TimeNow > 1)
+        {
+            throughWallEffect_Active = false;
+            throughWallEffect_TimeNow = 0;
+            throughWallEffect.highlighted = false;
+
+            return;
+        }
+
+        throughWallEffect_TimeNow += 1f / throughWallEffect_Time * Time.deltaTime;
+
+        throughWallEffect.overlay = Mathf.Sin(throughWallEffect_TimeNow * 2 * Mathf.PI);
     }
 }

@@ -14,6 +14,7 @@ public abstract class SmartObject : MonoBehaviour
     [SerializeField]
     protected Transform interactPoint;
 
+    [SerializeField]
     private HighlightEffect highlightEffect;
 
     [Header("Hacks")]
@@ -39,7 +40,11 @@ public abstract class SmartObject : MonoBehaviour
 
     private void Awake()
     {
-        highlightEffect = GetComponent<HighlightEffect>();
+        if (!highlightEffect)
+        {
+            highlightEffect = GetComponent<HighlightEffect>();
+        }
+
         AwakeBehaviour();
     }
 

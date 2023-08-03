@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -9,6 +10,11 @@ public class CameraManager : MonoBehaviour
     private List<CameraObject> cameras;
 
     public List<CameraObject> Cameras => cameras;
+
+    private void Awake()
+    {
+        cameras = new List<CameraObject>(GetComponentsInChildren<CameraObject>());
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -67,5 +73,28 @@ public class CameraManager : MonoBehaviour
         oldCamera.SetActive(false);
         newCamera.SetActive(true);
         return newCamera;
+    }
+
+    public void ActiveThroughWalls(Vector3 position, float range)
+    {
+        List<CameraObject> temp = new List<CameraObject>();
+        foreach (CameraObject cameraObject in cameras)
+        {
+            if (Vector3.Distance(cameraObject.Position, position) < range)
+            {
+                temp.Add(cameraObject);
+            }
+        }
+
+        StartCoroutine(ThroughWallAnimation(temp.OrderBy((d) => (Vector3.Distance(d.Position, position))).ToArray()));
+    }
+
+    private IEnumerator ThroughWallAnimation(CameraObject[] cameras)
+    {
+        foreach (CameraObject cameraObject in this.cameras)
+        {
+            cameraObject.ThroughWallEffect_Activate();
+            yield return new WaitForSeconds(.1f);
+        }
     }
 }

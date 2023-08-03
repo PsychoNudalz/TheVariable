@@ -54,6 +54,16 @@ public class Action_DoTask : ActionNode
             return State.Failure;
         }
 
+        if (!context.NpcController.HasTasksQueued())
+        {
+            return State.Failure;
+        }
+
+        if (IsAlive() == State.Failure)
+        {
+            return State.Failure;
+        }
+
         if (taskDuration > 0)
         {
             taskDuration -= Time.deltaTime;

@@ -114,6 +114,20 @@ namespace TheKiwiCoder
         protected abstract void OnStart();
         protected abstract void OnStop();
         protected abstract State OnUpdate();
+        
+        //Shared Methods
+        protected State IsAlive()
+        {
+            blackboard.health = context.NpcController.Health;
+            if (blackboard.health > blackboard.healthThreshold)
+            {
+                return State.Success;
+            }
+            else
+            {
+                return State.Failure;
+            }
+        }
     }
 
     public class NullNodeException : Exception
@@ -132,4 +146,7 @@ namespace TheKiwiCoder
             return $"{n}: missing child node. \nDescription: {node.description}";
         }
     }
+    
+    
+
 }

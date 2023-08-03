@@ -13,6 +13,8 @@ namespace TheKiwiCoder {
     {
 
         public float health;
+        public float healthThreshold = 0;
+
         public Vector3 moveToPosition;
         public ItemName missingItem = ItemName.None;
         public ItemObject locatedItem;

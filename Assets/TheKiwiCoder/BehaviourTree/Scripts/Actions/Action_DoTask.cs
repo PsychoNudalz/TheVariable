@@ -4,6 +4,9 @@ using Task;
 using UnityEngine;
 using TheKiwiCoder;
 
+/// <summary>
+/// Does the task, success on completion, running while counting timer, fail if missing items
+/// </summary>
 [System.Serializable]
 public class Action_DoTask : ActionNode
 {
@@ -48,7 +51,6 @@ public class Action_DoTask : ActionNode
     {
         if (!started)
         {
-            OnStop();
             return State.Failure;
         }
 

@@ -48,6 +48,12 @@ MonoBehaviour:
   - rid: 3923952595406684163
   - rid: 3923952595406684164
   - rid: 3923952595406684165
+  - rid: 3923952595406684169
+  - rid: 3923952595406684170
+  - rid: 3923952595406684171
+  - rid: 3923952595406684172
+  - rid: 3923952595406684173
+  - rid: 3923952595406684174
   treeState: 0
   blackboard:
     alertState: 1
@@ -60,8 +66,8 @@ MonoBehaviour:
     flag_wait: 0
     wait_startTime: 0
     wait_duration: 0
-  viewPosition: {x: -728, y: 216, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: -723, y: 76, z: 0}
+  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
   references:
     version: 2
     RefIds:
@@ -575,6 +581,149 @@ MonoBehaviour:
           rid: 3923952595406684164
         checkType: 01000000
         alertStates: 01000000
+    - rid: 3923952595406684169
+      type: {class: Check_General, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 8b33e9cae2f5049fa94db73a1356ff8e
+        position: {x: 1906.7665, y: 349.97614}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Check_General
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 3923952595406684170
+        checkType: 0000000001000000
+        alertStates: 02000000
+    - rid: 3923952595406684170
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a5ec2e022c9a5855ab12558e21f6240b
+        position: {x: 2001.3003, y: 480.71436}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Sequencer
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 3923952595406684171
+        - rid: 3923952595406684172
+        - rid: 3923952595406684173
+        - rid: 3923952595406684174
+    - rid: 3923952595406684171
+      type: {class: SetPosition_SensorySource, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f3fac2dbe3d169ff3909d011b1bf2f29
+        position: {x: 1857.9999, y: 623.9999}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: SetPosition_SensorySource
+        description: 
+        drawGizmos: 0
+    - rid: 3923952595406684172
+      type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0ff5508c9b471b6b78ea1210a1202dbc
+        position: {x: 2076, y: 629}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: MoveToPosition
+        description: 
+        drawGizmos: 0
+        speed: 5
+        stoppingDistance: 0.1
+        updateRotation: 1
+        acceleration: 40
+        tolerance: 1
+    - rid: 3923952595406684173
+      type: {class: Action_SetWait, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d3a1a72bf60badb2e8e65a57cf06e38d
+        position: {x: 2249, y: 629}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Action_SetWait
+        description: 
+        drawGizmos: 0
+        duration: 0
+        playWaitAnimation: 0
+    - rid: 3923952595406684174
+      type: {class: Action_ChangeAlertState, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 8102047d519116d6e945f3def3e237a2
+        position: {x: 2401, y: 629}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Action_ChangeAlertState
+        description: 
+        drawGizmos: 0
+        newState: 0
     - rid: 8796965019197636610
       type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -605,7 +754,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0a548a740473c7b4bbe942522b5c1818
-        position: {x: 1838, y: 190}
+        position: {x: 1831.9998, y: -25.21518}
         blackboard:
           alertState: 0
           health: 0
@@ -626,7 +775,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 78c1cdf4b92861247b5ad3faad73aadc
-        position: {x: 1171.0977, y: 108.118324}
+        position: {x: 1195.9999, y: 126.10217}
         blackboard:
           alertState: 0
           health: 0
@@ -645,6 +794,7 @@ MonoBehaviour:
         - rid: 8796965019197636617
         - rid: 3923952595406684160
         - rid: 3923952595406684161
+        - rid: 3923952595406684169
     - rid: 8796965019197636615
       type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:

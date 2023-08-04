@@ -51,6 +51,9 @@ public class NpcController : MonoBehaviour
     [SerializeField]
     NpcLifeSystem lifeSystem;
 
+    [SerializeField]
+    private NpcSensoryController sensoryController;
+
 
     [SerializeField]
     private BehaviourTreeRunner treeRunner;
@@ -70,6 +73,8 @@ public class NpcController : MonoBehaviour
 
     public NPC_AlertState GetAlertState => treeRunner.tree.blackboard.alertState;
 
+    public SensorySource GetCurrentSS => sensoryController.GetCurrentSS;
+    
     public void SetAlertState(NPC_AlertState npcAlertState)
     {
         Debug.Log($"Change NPC state: {GetAlertState} --> {npcAlertState}");

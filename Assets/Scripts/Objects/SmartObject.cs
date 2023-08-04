@@ -21,6 +21,18 @@ public abstract class SmartObject : MonoBehaviour
     [SerializeReference]
     private HackAbility[] hacks = Array.Empty<HackAbility>();
 
+    [Header("Audio Distract")]
+    [SerializeField]
+    private float audioDistract_Range = 10f;
+
+    [SerializeField]
+    private float audioDistract_Strength = 1f;
+
+    [SerializeField]
+    LayerMask audioDistraction_LayerMask ;
+
+    [SerializeField]
+    private ParticleSystem audioDistract_PS;
 
     public virtual Vector3 Position => transform.position;
     public virtual Vector3 Forward => transform.forward;
@@ -117,5 +129,26 @@ public abstract class SmartObject : MonoBehaviour
     public void TestHack0()
     {
         ActivateHack(0);
+    }
+
+    public virtual void CreateAudioDistraction()
+    {
+        if (audioDistract_PS)
+        {
+            audioDistract_PS.Play();
+        }
+
+        SensorySource_Audio newSSA = new SensorySource_Audio(transform.position, audioDistract_Strength);
+        RaycastHit[] castHits = Physics.SphereCastAll(transform.position, audioDistract_Range, Vector3.up, 0,
+            audioDistraction_LayerMask);
+        Collider collider;
+        foreach (RaycastHit hit in castHits)
+        {
+            collider = hit.collider;
+            if (collider.TryGetComponent(out NpcSensoryController npcSensoryController))
+            {
+                npcSensoryController.AddSSA(newSSA);
+            }
+        }
     }
 }

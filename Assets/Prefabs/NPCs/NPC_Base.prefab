@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1320077873986614605}
   - component: {fileID: 1320077873986614612}
   - component: {fileID: 3788546991272533903}
+  - component: {fileID: 8123274052060901740}
   m_Layer: 8
   m_Name: NPC_Base
   m_TagString: Untagged
@@ -100,6 +101,7 @@ MonoBehaviour:
   itemHoldingPoint: {fileID: 6239586647801190416}
   visualController: {fileID: 1320077873986614614}
   lifeSystem: {fileID: 4527088458200361262}
+  sensoryController: {fileID: 8123274052060901740}
   treeRunner: {fileID: 1320077873986614605}
 --- !u!114 &1320077873986614614
 MonoBehaviour:
@@ -136,6 +138,12 @@ MonoBehaviour:
   - rid: 2809100053256339457
   - rid: 3923952594555502599
   - rid: 3923952595406684166
+  audioDistract_Range: 10
+  audioDistract_Strength: 1
+  audioDistraction_LayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  audioDistract_PS: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -449,6 +457,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8123274052060901740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320077873986614606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7336fc3488a834328be54ebc4e81f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcController: {fileID: 1320077873986614615}
 --- !u!1 &1320077875737293229
 GameObject:
   m_ObjectHideFlags: 0

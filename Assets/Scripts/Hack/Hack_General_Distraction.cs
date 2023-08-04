@@ -33,6 +33,8 @@ public class Hack_General_Distraction : HackAbility
     {
         context = hackContext;
         Debug.Log($"Distraction from {context.SmartObjects[0]} at {context.SmartObjects[0].Position}");
+        hackContext.SmartObjects[0].CreateAudioDistraction();
+        
         return 0;
     }
 }

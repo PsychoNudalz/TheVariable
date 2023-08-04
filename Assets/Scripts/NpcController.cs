@@ -313,4 +313,9 @@ public class NpcController : MonoBehaviour
         DropItem();
         taskQueue = new List<TaskEvent>();
     }
+
+    public void TakeDamage(float damage)
+    {
+        lifeSystem.TakeDamage(damage);
+    }
 }

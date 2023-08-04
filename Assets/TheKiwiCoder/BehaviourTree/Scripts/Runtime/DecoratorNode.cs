@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TheKiwiCoder {
-    public abstract class DecoratorNode : Node {
-
+namespace TheKiwiCoder
+{
+    public abstract class DecoratorNode : Node
+    {
         [SerializeReference]
-        [HideInInspector] 
+        [HideInInspector]
         public Node child;
+
+        public override void Abort()
+        {
+            base.Abort();
+            child.Abort();
+        }
     }
 }

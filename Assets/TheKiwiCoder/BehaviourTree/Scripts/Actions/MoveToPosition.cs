@@ -34,10 +34,10 @@ public class MoveToPosition : ActionNode
 
     protected override State OnUpdate()
     {
-        if (IsAlive() == State.Failure)
-        {
-            return State.Failure;
-        }
+        // if (IsAlive() == State.Failure)
+        // {
+        //     return State.Failure;
+        // }
         if (context.agent.pathPending)
         {
             return State.Running;

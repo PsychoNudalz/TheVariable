@@ -46,6 +46,7 @@ MonoBehaviour:
   treeState: 0
   blackboard:
     health: 0
+    healthThreshold: 0
     moveToPosition: {x: 0, y: 0, z: 0}
     missingItem: 0
     locatedItem: {fileID: 0}
@@ -53,7 +54,7 @@ MonoBehaviour:
     flag_wait: 0
     wait_startTime: 0
     wait_duration: 0
-  viewPosition: {x: 424, y: -16, z: 0}
+  viewPosition: {x: 355, y: 20, z: 0}
   viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
@@ -67,6 +68,7 @@ MonoBehaviour:
         position: {x: 640.94086, y: -588.54285}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -88,6 +90,7 @@ MonoBehaviour:
         position: {x: 713.0688, y: 157.97667}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -111,6 +114,7 @@ MonoBehaviour:
         position: {x: 701.5999, y: 321.59995}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -135,6 +139,7 @@ MonoBehaviour:
         position: {x: 852, y: 321.59998}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -156,6 +161,7 @@ MonoBehaviour:
         position: {x: 551.99994, y: 321.59995}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -177,6 +183,7 @@ MonoBehaviour:
         position: {x: 640.94086, y: -451.7428}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -200,6 +207,7 @@ MonoBehaviour:
         position: {x: 268, y: 13.599983}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -222,6 +230,7 @@ MonoBehaviour:
         position: {x: 50.399994, y: 384.79996}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -245,6 +254,7 @@ MonoBehaviour:
         position: {x: -99.19995, y: 543.19995}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -267,6 +277,7 @@ MonoBehaviour:
         position: {x: 252.79997, y: 665.6}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -289,6 +300,7 @@ MonoBehaviour:
         position: {x: -36.80002, y: 709.59985}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -308,6 +320,7 @@ MonoBehaviour:
         position: {x: 162.39993, y: 815.19995}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -327,6 +340,7 @@ MonoBehaviour:
         position: {x: 343.2, y: 815.19995}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -351,6 +365,7 @@ MonoBehaviour:
         position: {x: -539.9998, y: 339.99997}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -374,6 +389,7 @@ MonoBehaviour:
         position: {x: -839.9998, y: 543.19995}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -393,6 +409,7 @@ MonoBehaviour:
         position: {x: -689.60004, y: 543.19995}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -417,6 +434,7 @@ MonoBehaviour:
         position: {x: -539.1998, y: 543.2}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -439,6 +457,7 @@ MonoBehaviour:
         position: {x: -198.40002, y: 709.59985}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -458,6 +477,7 @@ MonoBehaviour:
         position: {x: -222.39996, y: 168.79999}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -480,6 +500,7 @@ MonoBehaviour:
         position: {x: 381.8775, y: 527.2}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -503,6 +524,7 @@ MonoBehaviour:
         position: {x: 807.19995, y: 799.1999}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -524,6 +546,7 @@ MonoBehaviour:
         position: {x: 552, y: 653.3225}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -547,6 +570,7 @@ MonoBehaviour:
         position: {x: 493.6, y: 799.1999}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -566,6 +590,7 @@ MonoBehaviour:
         position: {x: 656.7999, y: 799.1999}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -590,6 +615,7 @@ MonoBehaviour:
         position: {x: 640.94086, y: -338.9428}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -613,6 +639,7 @@ MonoBehaviour:
         position: {x: 938.5408, y: -160.54282}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -632,6 +659,7 @@ MonoBehaviour:
         position: {x: 139.99995, y: -152.16713}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
@@ -653,6 +681,7 @@ MonoBehaviour:
         position: {x: 117.59996, y: 13.599995}
         blackboard:
           health: 0
+          healthThreshold: 0
           moveToPosition: {x: 0, y: 0, z: 0}
           missingItem: 0
           locatedItem: {fileID: 0}

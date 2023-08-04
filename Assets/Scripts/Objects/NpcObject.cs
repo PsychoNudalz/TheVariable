@@ -30,5 +30,10 @@ public class NpcObject : SmartObject
         controller.ClearTasks();
     }
 
+    public void Hack_StraightKill()
+    {
+        controller.TakeDamage(10000f);
+    }
+
 
 }

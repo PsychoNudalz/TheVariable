@@ -134,6 +134,7 @@ MonoBehaviour:
   hacks:
   - rid: 2809100053256339456
   - rid: 2809100053256339457
+  - rid: 3923952594555502599
   references:
     version: 2
     RefIds:
@@ -145,6 +146,10 @@ MonoBehaviour:
       type: {class: Hack_NPC_ClearTasks, ns: , asm: Assembly-CSharp}
       data:
         HackName: NPC ClearTasks
+    - rid: 3923952594555502599
+      type: {class: Hack_NPC_StraightKill, ns: , asm: Assembly-CSharp}
+      data:
+        HackName: NPC StraightKill
 --- !u!114 &4527088458200361262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +194,19 @@ MonoBehaviour:
       m_Calls: []
   onDeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1320077873986614611}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   healthSpriteRenderer: {fileID: 6539014548595332423}
 --- !u!136 &1320077873986614611
 CapsuleCollider:

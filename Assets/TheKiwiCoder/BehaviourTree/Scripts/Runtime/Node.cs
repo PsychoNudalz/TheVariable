@@ -80,16 +80,15 @@ namespace TheKiwiCoder
             return state;
         }
 
-        public void Abort()
+        public virtual void Abort()
         {
             BehaviourTree.Traverse(this, (node) =>
             {
+                node.OnStop();
                 node.started = false;
                 node.state = State.Running;
-                node.OnStop();
 
-                
-                
+
                 // if (node is ActionNode an)
                 // {
                 //     if (an.started || an.IsRunning)

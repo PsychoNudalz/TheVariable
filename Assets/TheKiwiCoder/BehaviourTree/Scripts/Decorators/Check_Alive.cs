@@ -4,9 +4,8 @@ using UnityEngine;
 using TheKiwiCoder;
 
 [System.Serializable]
-public class Check_Alive : ActionNode
+public class Check_Alive : DecoratorNode
 {
-
     protected override void OnStart() {
     }
 
@@ -15,8 +14,11 @@ public class Check_Alive : ActionNode
 
     protected override State OnUpdate()
     {
-        return IsAlive();
+        State alive = IsAlive();
+        if (alive == State.Failure)
+        {
+            return State.Failure;
+        }
+        return child.Update();
     }
-
-
 }

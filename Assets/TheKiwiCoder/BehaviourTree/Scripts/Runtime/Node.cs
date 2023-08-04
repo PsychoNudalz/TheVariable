@@ -127,6 +127,24 @@ namespace TheKiwiCoder
                 return State.Failure;
             }
         }
+
+        protected bool AllowedState(NPC_AlertState[] states)
+        {
+            foreach (NPC_AlertState npcAlertState in states)
+            {
+                if (npcAlertState.Equals(blackboard.alertState))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        public void ChangeAlertState(NPC_AlertState alertState)
+        {
+            Debug.Log($"Node change NPC state: {blackboard.alertState} --> {alertState}");
+            blackboard.alertState = alertState;
+        }
     }
 
     public class NullNodeException : Exception
@@ -144,6 +162,8 @@ namespace TheKiwiCoder
 
             return $"{n}: missing child node. \nDescription: {node.description}";
         }
+
+
     }
     
     

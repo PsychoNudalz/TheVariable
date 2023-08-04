@@ -11,7 +11,7 @@ namespace TheKiwiCoder {
     [System.Serializable]
     public class Blackboard
     {
-
+        public NPC_AlertState alertState = NPC_AlertState.Peace;
         public float health;
         public float healthThreshold = 0;
 

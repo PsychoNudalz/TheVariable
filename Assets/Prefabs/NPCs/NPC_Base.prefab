@@ -135,6 +135,7 @@ MonoBehaviour:
   - rid: 2809100053256339456
   - rid: 2809100053256339457
   - rid: 3923952594555502599
+  - rid: 3923952595406684166
   references:
     version: 2
     RefIds:
@@ -150,6 +151,10 @@ MonoBehaviour:
       type: {class: Hack_NPC_StraightKill, ns: , asm: Assembly-CSharp}
       data:
         HackName: NPC StraightKill
+    - rid: 3923952595406684166
+      type: {class: Hack_NPC_SetPeace, ns: Hack, asm: Assembly-CSharp}
+      data:
+        HackName: Hack NPC SetPeace
 --- !u!114 &4527088458200361262
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -35,5 +35,10 @@ public class NpcObject : SmartObject
         controller.TakeDamage(10000f);
     }
 
+    public void Hack_SetAlertState(NPC_AlertState state)
+    {
+        controller.SetAlertState(state);
+    }
+
 
 }

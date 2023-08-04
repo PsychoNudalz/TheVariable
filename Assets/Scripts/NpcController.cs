@@ -10,6 +10,16 @@ using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
+
+public enum NPC_AlertState
+{
+    Peace,
+    Alert,
+    Suspicious,
+    Spotted,
+    Hunt
+}
+
 /// <summary>
 /// Handles NPC
 /// </summary>
@@ -57,6 +67,14 @@ public class NpcController : MonoBehaviour
     public Vector3 PickUpPosition => itemHoldingPoint.position;
 
     public float Health => lifeSystem.Health;
+
+    public NPC_AlertState GetAlertState => treeRunner.tree.blackboard.alertState;
+
+    public void SetAlertState(NPC_AlertState npcAlertState)
+    {
+        Debug.Log($"Change NPC state: {GetAlertState} --> {npcAlertState}");
+        treeRunner.tree.blackboard.alertState = npcAlertState;
+    }
 
     private void Awake()
     {
@@ -205,6 +223,7 @@ public class NpcController : MonoBehaviour
         {
             Debug.LogWarning($"{name} finish task is NULL");
         }
+
         TaskEvent task = currentTask;
         if (task.HasObject)
         {
@@ -235,7 +254,7 @@ public class NpcController : MonoBehaviour
     TaskEvent InitialiseTask(TaskEvent taskEvent)
     {
         //setting the position to the task object's interaction point
-        if (taskEvent is {HasObject: true, Position: {magnitude: <= .1f}})
+        if (taskEvent is { HasObject: true, Position: { magnitude: <= .1f } })
         {
             taskEvent.Position = taskEvent.TaskSmartObject.InteractPosition;
         }

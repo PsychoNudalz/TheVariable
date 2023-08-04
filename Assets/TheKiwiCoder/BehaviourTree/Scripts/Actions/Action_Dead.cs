@@ -7,8 +7,15 @@ using TheKiwiCoder;
 public class Action_Dead : ActionNode
 {
     protected override void OnStart() {
-        context.NpcController.PlayAnimation(NpcAnimation.Dead);
-        context.agent.enabled = false;
+        if (IsAlive() == State.Success)
+        {
+            started = false;
+        }
+        else
+        {
+            context.NpcController.PlayAnimation(NpcAnimation.Dead);
+            context.agent.enabled = false;
+        }
     }
 
     protected override void OnStop() {
@@ -17,6 +24,11 @@ public class Action_Dead : ActionNode
     }
 
     protected override State OnUpdate() {
+
+        if (!started)
+        {
+            return State.Failure;
+        }
         return State.Running;
     }
 }

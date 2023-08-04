@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Hack;
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(NpcObject))]
@@ -13,5 +14,6 @@ public class NpcObjectEditor : SmartObjectEditor
         AddHack_Distraction();
         AddHack<Hack_NPC_ClearTasks>("Clear Tasks");
         AddHack<Hack_NPC_StraightKill>("Straight KILL");
+        AddHack<Hack_NPC_SetPeace>("Set Peace");
     }
 }

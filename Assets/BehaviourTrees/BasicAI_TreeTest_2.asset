@@ -60,8 +60,8 @@ MonoBehaviour:
     flag_wait: 0
     wait_startTime: 0
     wait_duration: 0
-  viewPosition: {x: -1120, y: -51, z: 0}
-  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  viewPosition: {x: -728, y: 216, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -581,7 +581,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: deedc7694db9fbb498a453633f690c54
-        position: {x: 1552, y: -184}
+        position: {x: 1553, y: -161.26294}
         blackboard:
           alertState: 0
           health: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0a548a740473c7b4bbe942522b5c1818
-        position: {x: 1811.2, y: -37.599976}
+        position: {x: 1838, y: 190}
         blackboard:
           alertState: 0
           health: 0
@@ -806,7 +806,7 @@ MonoBehaviour:
         child:
           rid: 8796965019197636610
         restartOnSuccess: 1
-        restartOnFailure: 0
+        restartOnFailure: 1
     - rid: 8796965019197636630
       type: {class: Move_TaskWait, ns: , asm: Assembly-CSharp}
       data:

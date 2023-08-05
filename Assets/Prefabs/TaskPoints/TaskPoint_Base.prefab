@@ -227,7 +227,8 @@ MonoBehaviour:
   hacks:
   - rid: 2809099959511023618
   audioDistract_Range: 10
-  audioDistract_Strength: 1
+  audioDistract_Strength: 10
+  audioDistract_Dampen: 0.75
   audioDistraction_LayerMask:
     serializedVersion: 2
     m_Bits: 768
@@ -323,7 +324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607850883106544561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -8,7 +8,7 @@ public class SetPosition_SensorySource : ActionNode
 {
     protected override void OnStart()
     {
-        blackboard.moveToPosition = context.NpcController.GetCurrentSS.Position;
+        blackboard.moveToPosition = blackboard.currentSensorySource.Position;
     }
 
     protected override void OnStop()

@@ -24,6 +24,9 @@ namespace TheKiwiCoder {
         public float wait_startTime = 0;
         public float wait_duration = 0;
 
+        [Space(5)]
+        public SensorySource currentSensorySource;
+
         // public ItemName MissingItem => missingItems[0];
         // protected bool foundAllItems =>
     }

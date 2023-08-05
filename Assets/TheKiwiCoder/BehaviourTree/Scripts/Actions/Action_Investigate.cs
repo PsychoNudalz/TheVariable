@@ -4,12 +4,15 @@ using UnityEngine;
 using TheKiwiCoder;
 
 [System.Serializable]
-public class NewActionNode : ActionNode
+public class Action_Investigate : ActionNode
 {
     protected override void OnStart() {
+        
     }
 
     protected override void OnStop() {
+        context.NpcController.RemoveCurrentSensorySource();
+        blackboard.currentSensorySource = null;
     }
 
     protected override State OnUpdate() {

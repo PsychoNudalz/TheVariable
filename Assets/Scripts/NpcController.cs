@@ -342,4 +342,14 @@ public class NpcController : MonoBehaviour
     {
         lifeSystem.TakeDamage(damage);
     }
+
+    public void AddSensorySource(SensorySource ss)
+    {
+        sensoryController.AddSS(ss);
+    }
+
+    public void RemoveCurrentSensorySource()
+    {
+        sensoryController.PopCurrentSS();
+    }
 }

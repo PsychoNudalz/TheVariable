@@ -29,7 +29,11 @@ public abstract class SmartObject : MonoBehaviour
     private float audioDistract_Strength = 1f;
 
     [SerializeField]
-    LayerMask audioDistraction_LayerMask ;
+    [Range(0f, 1f)]
+    private float audioDistract_Dampen = 1f;
+
+    [SerializeField]
+    LayerMask audioDistraction_LayerMask;
 
     [SerializeField]
     private ParticleSystem audioDistract_PS;
@@ -110,7 +114,7 @@ public abstract class SmartObject : MonoBehaviour
             return 1;
         }
 
-        hacks[i].Hack(new HackContext(new[] { this }));
+        hacks[i].Hack(new HackContext(new[] {this}));
         return 0;
     }
 
@@ -138,7 +142,9 @@ public abstract class SmartObject : MonoBehaviour
             audioDistract_PS.Play();
         }
 
-        SensorySource_Audio newSSA = new SensorySource_Audio(transform.position, audioDistract_Strength);
+        // SensorySource_Audio newSSA = new SensorySource_Audio(InteractPosition, audioDistract_Strength);
+
+
         RaycastHit[] castHits = Physics.SphereCastAll(transform.position, audioDistract_Range, Vector3.up, 0,
             audioDistraction_LayerMask);
         Collider collider;
@@ -147,7 +153,10 @@ public abstract class SmartObject : MonoBehaviour
             collider = hit.collider;
             if (collider.TryGetComponent(out NpcSensoryController npcSensoryController))
             {
-                npcSensoryController.AddSSA(newSSA);
+                SensorySource_Audio newSSA = new SensorySource_Audio(InteractPosition, audioDistract_Strength);
+                newSSA.AdjustStrength(npcSensoryController.transform.position, audioDistraction_LayerMask,
+                    audioDistract_Dampen);
+                npcSensoryController.AddSS(newSSA);
             }
         }
     }

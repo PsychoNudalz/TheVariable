@@ -2,49 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Debug = System.Diagnostics.Debug;
 
-
-public class SensorySource
-{
-    protected Vector3 positsion;
-    protected float strength;
-
-    public Vector3 Position => positsion;
-
-    public float Strength => strength;
-
-    public SensorySource(Vector3 positsion, float strength)
-    {
-        this.positsion = positsion;
-        this.strength = strength;
-    }
-}
-
-public class SensorySource_Audio : SensorySource
-{
-    public SensorySource_Audio(Vector3 positsion, float strength) : base(positsion, strength)
-    {
-        this.positsion = positsion;
-        this.strength = strength;
-    }
-}
-
-public class SensorySource_Visual : SensorySource
-{
-    public SensorySource_Visual(Vector3 positsion, float strength) : base(positsion, strength)
-    {
-        this.positsion = positsion;
-        this.strength = strength;
-    }
-}
 
 public class NpcSensoryController : MonoBehaviour
 {
     [SerializeField]
     private NpcController npcController;
-    private List<SensorySource> sensorySources = new List<SensorySource>();
+    private SensorySource currentSS = null;
 
-    public SensorySource GetCurrentSS =>sensorySources[0];
+    public SensorySource GetCurrentSS =>currentSS;
 
     private void Awake()
     {
@@ -55,17 +22,21 @@ public class NpcSensoryController : MonoBehaviour
         
     }
 
-    public void AddSSA(SensorySource_Audio ssa)
+    public void AddSS(SensorySource ss)
     {
-        if (sensorySources.Count == 0)
+        if (currentSS==null)
         {
-            sensorySources.Add(ssa);
+            currentSS = ss;
         }
         else
         {
-            sensorySources[0] = ssa;
+            currentSS = SensorySource.Compare(currentSS, ss);
         }
-
         npcController.SetAlertState(NPC_AlertState.Suspicious);
+    }
+
+    public void PopCurrentSS()
+    {
+        currentSS = null;
     }
 }

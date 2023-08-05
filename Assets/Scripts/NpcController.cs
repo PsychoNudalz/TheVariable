@@ -44,6 +44,14 @@ public class NpcController : MonoBehaviour
     [SerializeField]
     private Transform itemHoldingPoint;
 
+    [Header("Alert State")]
+    [SerializeField]
+    private float alertValue = 0;
+
+    [SerializeField]
+    private float peaceToAlertSpeed = 2f;
+    
+
     [Header("Components")]
     [SerializeField]
     private NpcVisualController visualController;
@@ -71,14 +79,19 @@ public class NpcController : MonoBehaviour
 
     public float Health => lifeSystem.Health;
 
-    public NPC_AlertState GetAlertState => treeRunner.tree.blackboard.alertState;
 
     public SensorySource GetCurrentSS => sensoryController.GetCurrentSS;
-    
+    NPC_AlertState blackboardAlertState
+    {
+        get => treeRunner.tree.blackboard.alertState;
+        set => treeRunner.tree.blackboard.alertState = value;
+    }
+
+
     public void SetAlertState(NPC_AlertState npcAlertState)
     {
-        Debug.Log($"Change NPC state: {GetAlertState} --> {npcAlertState}");
-        treeRunner.tree.blackboard.alertState = npcAlertState;
+        Debug.Log($"Change NPC state: {blackboardAlertState} --> {npcAlertState}");
+        blackboardAlertState = npcAlertState;
     }
 
     private void Awake()
@@ -92,14 +105,27 @@ public class NpcController : MonoBehaviour
         SortSchedule();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void FixedUpdate()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        CameraObject co = sensoryController.GetCamera();
+        if (co)
+        {
+            if (alertValue < 1f)
+            {
+                alertValue = Math.Clamp(alertValue + peaceToAlertSpeed * Time.deltaTime, 0f, 1f);
+                if (alertValue >= 1f)
+                {
+                    sensoryController.AddSS(new SensorySource_Visual(co.Position,100f));
+                }
+            }
+        }
+        else
+        {
+            if (alertValue > 0f)
+            {
+                alertValue = Math.Clamp(alertValue - peaceToAlertSpeed * Time.deltaTime, 0f, 1f);
+            }
+        }
     }
 
     public bool HasTasksQueued()

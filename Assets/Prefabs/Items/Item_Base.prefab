@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1445601569542259108}
   - component: {fileID: 2617819239995198200}
   - component: {fileID: 7101816993292373045}
+  - component: {fileID: 3399867990514886041}
   m_Layer: 7
   m_Name: Item_Base
   m_TagString: Untagged
@@ -253,6 +254,13 @@ MonoBehaviour:
   highlightEffect: {fileID: 2617819239995198200}
   hacks:
   - rid: 3119726308385619969
+  audioDistract_Range: 10
+  audioDistract_Strength: 1
+  audioDistract_Dampen: 1
+  audioDistraction_LayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  audioDistract_PS: {fileID: 0}
   name: 0
   modelGO: {fileID: 129341653907168838}
   references:
@@ -262,6 +270,22 @@ MonoBehaviour:
       type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
       data:
         HackName: General Distraction
+--- !u!54 &3399867990514886041
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977700637173320418}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &8600881093953442027
 PrefabInstance:
   m_ObjectHideFlags: 0

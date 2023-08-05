@@ -13,6 +13,14 @@ public class NpcSensoryController : MonoBehaviour
 
     public SensorySource GetCurrentSS =>currentSS;
 
+    [SerializeField]
+    private NpcVisionConeController visionConeController;
+
+    public List<SmartObject> detectedObjects => visionConeController.AllDetectedSmartObjects;
+    public List<SmartObject> losObjects => visionConeController.AllLoSSmartObjects;
+    
+
+
     private void Awake()
     {
         if (!npcController)
@@ -38,5 +46,23 @@ public class NpcSensoryController : MonoBehaviour
     public void PopCurrentSS()
     {
         currentSS = null;
+    }
+
+    public bool HasCamera()
+    {
+        return GetCamera();
+    }
+    
+    public CameraObject GetCamera()
+    {
+        foreach (SmartObject smartObject in losObjects)
+        {
+            if (smartObject is CameraObject cameraObject)
+            {
+                return cameraObject;
+            }
+        }
+
+        return null;
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23193896550930936}
   - component: {fileID: 64812749142226244}
   - component: {fileID: -8437450552035201119}
+  - component: {fileID: 8851553165925930772}
   m_Layer: 0
   m_Name: SM_Buildings_RoofAngledPoint_1x1_01
   m_TagString: Untagged
@@ -115,3 +116,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.5, y: 0.202, z: 0.5}
   m_TimeToStationary: 0.5
+--- !u!54 &8851553165925930772
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254363797849990}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

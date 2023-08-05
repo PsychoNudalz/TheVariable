@@ -147,6 +147,13 @@ namespace TheKiwiCoder
             Debug.Log($"Node change NPC state: {blackboard.alertState} --> {alertState}");
             blackboard.alertState = alertState;
         }
+        
+        protected void Clear_Blackboard_Items()
+        {
+            blackboard.missingItem = ItemName.None;
+            blackboard.locatedItem = null;
+            blackboard.pickedUpItem = null;
+        }
     }
 
     public class NullNodeException : Exception

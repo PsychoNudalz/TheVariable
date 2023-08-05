@@ -7,6 +7,12 @@ using TheKiwiCoder;
 public class Action_DropItem : ActionNode
 {
     protected override void OnStart() {
+        if (!blackboard.pickedUpItem)
+        {
+            return;
+        }
+        context.NpcController.DropItem();
+        blackboard.pickedUpItem = null;
     }
 
     protected override void OnStop() {

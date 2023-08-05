@@ -15,7 +15,11 @@ namespace TheKiwiCoder {
         }
 
         protected override State OnUpdate() {
-            Debug.Log($"{message}");
+            if (started)
+            {
+                Debug.Log($"{message}");
+            }
+
             return State.Success;
         }
     }

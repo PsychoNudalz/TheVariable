@@ -6,7 +6,7 @@ using TheKiwiCoder;
 [System.Serializable]
 public class Action_SetWait : ActionNode
 {
-    public float duration;
+    public float duration = 1;
     public bool playWaitAnimation = false;
 
     protected float startTime

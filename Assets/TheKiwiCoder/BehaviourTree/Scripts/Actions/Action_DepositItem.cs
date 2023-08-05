@@ -22,10 +22,10 @@ public class Action_DepositItem : ActionNode
             context.NpcController.DropItem();
         }
 
-        blackboard.missingItem = ItemName.None;
-        blackboard.locatedItem = null;
-        blackboard.pickedUpItem = null;
+        Clear_Blackboard_Items();
     }
+
+
 
     protected override void OnStop()
     {

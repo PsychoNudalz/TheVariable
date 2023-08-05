@@ -42,8 +42,14 @@ public class Check_General : DecoratorNode
             }
         }
 
-
-        return child.Update();
+        if (child != null)
+        {
+            return child.Update();
+        }
+        else
+        {
+            return State.Success;
+        }
     }
 
     private State EvaluateType(DecoratorCheckType type)

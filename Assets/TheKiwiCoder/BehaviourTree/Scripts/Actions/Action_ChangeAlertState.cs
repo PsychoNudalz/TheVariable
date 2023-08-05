@@ -1,20 +1,22 @@
-namespace TheKiwiCoder
+using UnityEngine;
+using TheKiwiCoder;
+
+[System.Serializable]
+public class Action_ChangeAlertState : ActionNode
 {
-    public class Action_ChangeAlertState:ActionNode
+    public NPC_AlertState newState;
+
+    protected override void OnStart()
     {
-        public NPC_AlertState newState;
-        protected override void OnStart()
-        {
-            ChangeAlertState(newState);
-        }
+        ChangeAlertState(newState);
+    }
 
-        protected override void OnStop()
-        {
-        }
+    protected override void OnStop()
+    {
+    }
 
-        protected override State OnUpdate()
-        {
-            return State.Success;
-        }
+    protected override State OnUpdate()
+    {
+        return State.Success;
     }
 }

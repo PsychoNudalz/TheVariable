@@ -46,6 +46,8 @@ namespace TheKiwiCoder
 
         public bool drawGizmos = false;
 
+        public string NodeTypeName => GetType().Name;
+
         protected Node()
         {
             name = GetType().Name;

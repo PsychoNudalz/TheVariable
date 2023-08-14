@@ -50,6 +50,8 @@ public class NpcController : MonoBehaviour
 
     [SerializeField]
     private float peaceToAlertSpeed = 2f;
+    [SerializeField]
+    Transform alertPosition;
     
 
     [Header("Components")]
@@ -66,6 +68,8 @@ public class NpcController : MonoBehaviour
     [SerializeField]
     private BehaviourTreeRunner treeRunner;
 
+    [SerializeField]
+    private UIController uiController;
 
     public List<TaskEvent> TaskQueue => taskQueue;
 
@@ -77,6 +81,7 @@ public class NpcController : MonoBehaviour
 
     public Vector3 PickUpPosition => itemHoldingPoint.position;
 
+    public Vector3 AlertPosition => alertPosition.position;
     public float Health => lifeSystem.Health;
 
 
@@ -103,6 +108,12 @@ public class NpcController : MonoBehaviour
         }
 
         SortSchedule();
+        }
+
+    private void Start()
+    {
+        uiController = UIController.current;
+
     }
 
     private void FixedUpdate()
@@ -112,7 +123,7 @@ public class NpcController : MonoBehaviour
         {
             if (alertValue < 1f)
             {
-                alertValue = Math.Clamp(alertValue + peaceToAlertSpeed * Time.deltaTime, 0f, 1f);
+                UpdateAlertValue();
                 if (alertValue >= 1f)
                 {
                     sensoryController.AddSS(new SensorySource_Visual(co.Position,100f));
@@ -123,9 +134,16 @@ public class NpcController : MonoBehaviour
         {
             if (alertValue > 0f)
             {
-                alertValue = Math.Clamp(alertValue - peaceToAlertSpeed * Time.deltaTime, 0f, 1f);
+                UpdateAlertValue(-1f);
+
             }
         }
+    }
+
+    private void UpdateAlertValue(float multiplier = 1f)
+    {
+        alertValue = Math.Clamp(alertValue + peaceToAlertSpeed*multiplier * Time.deltaTime, 0f, 1f);
+        uiController.AlertManager_SetAlert(this,alertValue);
     }
 
     public bool HasTasksQueued()

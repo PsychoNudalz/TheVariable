@@ -14,7 +14,7 @@ public class NpcManager : MonoBehaviour
     private void Awake()
     {
         current = this;
-        npcs = new List<NpcController>(FindObjectsOfType<NpcController>());
+        npcs = new List<NpcController>(FindObjectsOfType<NpcController>(true));
     }
 
     // Start is called before the first frame update

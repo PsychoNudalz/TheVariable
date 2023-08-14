@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,14 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_HackAbilityDisplay hackAbilityDisplay;
 
-    // Start is called before the first frame update
+    [SerializeField]
+    private UI_AlertManager alertManager;
+    public static UIController current;
+    private void Awake()
+    {
+        current = this;
+    }
+
     void Start()
     {
         HacksDisplay_SetActive(false);
@@ -33,5 +41,10 @@ public class UIController : MonoBehaviour
     public void HacksDisplay_SelectHack(Vector2 dir)
     {
         hackAbilityDisplay.Hack(hackAbilityDisplay.UpdateDir(dir));
+    }
+
+    public void AlertManager_SetAlert(NpcController npc, float value)
+    {
+        alertManager.UpdateAlert(npc,value);
     }
 }

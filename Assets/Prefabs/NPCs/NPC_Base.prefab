@@ -63,6 +63,37 @@ Transform:
   m_Father: {fileID: 1320077873986614608}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1254939197117372130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4776704124699353233}
+  m_Layer: 8
+  m_Name: AlertPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4776704124699353233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254939197117372130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.838, z: 0.069}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1320077873986614608}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320077873986614606
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,6 +136,7 @@ Transform:
   - {fileID: 6239586647801190416}
   - {fileID: 274886032517865494}
   - {fileID: 1584941110699586881}
+  - {fileID: 4776704124699353233}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -134,10 +166,12 @@ MonoBehaviour:
   itemHoldingPoint: {fileID: 6239586647801190416}
   alertValue: 0
   peaceToAlertSpeed: 2
+  alertPosition: {fileID: 4776704124699353233}
   visualController: {fileID: 1320077873986614614}
   lifeSystem: {fileID: 4527088458200361262}
   sensoryController: {fileID: 8123274052060901740}
   treeRunner: {fileID: 1320077873986614605}
+  uiController: {fileID: 0}
 --- !u!114 &1320077873986614614
 MonoBehaviour:
   m_ObjectHideFlags: 0

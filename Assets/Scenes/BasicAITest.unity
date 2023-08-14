@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18029127, g: 0.22572401, b: 0.3069303, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -520,8 +520,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211623370}
-  m_LocalRotation: {x: -2.507217e-19, y: -0.0000007599592, z: -1.1368684e-13, w: 1}
-  m_LocalPosition: {x: 4.9090114, y: 2.839, z: -5.7279997}
+  m_LocalRotation: {x: -3.3711906e-19, y: 0, z: -1.1368684e-13, w: 1}
+  m_LocalPosition: {x: 11.5, y: 2.619, z: 5.787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -950,7 +950,7 @@ PrefabInstance:
     - target: {fileID: 3915646345386012473, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8031b96a3d95549a06fe14865b31cc, type: 3}
@@ -1077,7 +1077,7 @@ PrefabInstance:
     - target: {fileID: 3915646345386012473, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8031b96a3d95549a06fe14865b31cc, type: 3}
@@ -4301,7 +4301,7 @@ PrefabInstance:
     - target: {fileID: 3915646345386012473, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8031b96a3d95549a06fe14865b31cc, type: 3}
@@ -4934,7 +4934,7 @@ PrefabInstance:
     - target: {fileID: 3915646345386012473, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8031b96a3d95549a06fe14865b31cc, type: 3}
@@ -5020,7 +5020,7 @@ PrefabInstance:
     - target: {fileID: 3915646345386012473, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8031b96a3d95549a06fe14865b31cc, type: 3}

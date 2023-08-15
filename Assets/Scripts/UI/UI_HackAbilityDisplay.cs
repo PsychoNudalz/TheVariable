@@ -78,6 +78,10 @@ public class UI_HackAbilityDisplay : MonoBehaviour
                 break;
             }
             dotTemp = Vector2.Dot(button.GetDotDir(), dir);
+            if (dotTemp<0f)
+            {
+                break;
+            }
             if (dotTemp > dot)
             {
                 dot = dotTemp;
@@ -85,7 +89,13 @@ public class UI_HackAbilityDisplay : MonoBehaviour
                 bIndex = index;
             }
         }
+        //If the dir is moving in the complete opposite way 
+        if (dot < 0f)
+        {
+            return -1;
+        }
         selectedButton.OnHover(true);
+
         return bIndex;
     }
 }

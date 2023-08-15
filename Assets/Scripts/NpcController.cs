@@ -138,12 +138,27 @@ public class NpcController : MonoBehaviour
 
             }
         }
+
+    }
+
+    private void Update()
+    {
+        
+        if (alertValue > 0f)
+        {
+            UpdateAlertUI();
+        }
     }
 
     private void UpdateAlertValue(float multiplier = 1f)
     {
         alertValue = Math.Clamp(alertValue + peaceToAlertSpeed*multiplier * Time.deltaTime, 0f, 1f);
-        uiController.AlertManager_SetAlert(this,alertValue);
+        UpdateAlertUI();
+    }
+
+    private void UpdateAlertUI()
+    {
+        uiController.AlertManager_SetAlert(this, alertValue);
     }
 
     public bool HasTasksQueued()

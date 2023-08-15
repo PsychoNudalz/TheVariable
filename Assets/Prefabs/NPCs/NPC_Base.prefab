@@ -165,7 +165,7 @@ MonoBehaviour:
   pickedUpItem: {fileID: 0}
   itemHoldingPoint: {fileID: 6239586647801190416}
   alertValue: 0
-  peaceToAlertSpeed: 2
+  peaceToAlertSpeed: 0.5
   alertPosition: {fileID: 4776704124699353233}
   visualController: {fileID: 1320077873986614614}
   lifeSystem: {fileID: 4527088458200361262}

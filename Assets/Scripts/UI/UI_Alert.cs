@@ -13,6 +13,15 @@ public class UI_Alert : MonoBehaviour
     [SerializeField]
     private SpriteRenderer alertSprite;
 
+    [Header("Sized")]
+    [SerializeField]
+    private Vector2 distanceRange = new Vector2(0,10);
+
+    [SerializeField]
+    private Vector2 scaleRange = new Vector2(.3f,10f);
+
+    private Transform alertTransform;
+
     private Material alertMaterial;
     private static readonly int AlertStrength = Shader.PropertyToID("_AlertStrength");
     private Camera world;
@@ -28,6 +37,7 @@ public class UI_Alert : MonoBehaviour
 
         SetAlertStrength(0f);
         world = Camera.main;
+        alertTransform = alertSprite.transform;
     }
     
     // Start is called before the first frame update
@@ -37,9 +47,10 @@ public class UI_Alert : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        transform.forward = -(world.transform.forward);
+        alertTransform.forward = -(world.transform.forward);
+        alertTransform.localScale = new Vector3(GetScale(),GetScale(),GetScale());
     }
     public void SetAlertPosition(Vector3 worldPosition)
     {
@@ -72,5 +83,11 @@ public class UI_Alert : MonoBehaviour
         }
     }
 
+    float GetScale()
+    {
+        float distance = Vector3.Distance(world.transform.position, alertTransform.position);
+        float factor = Math.Clamp(distance / distanceRange.y, 0f, 1f);
+        return (scaleRange.y - scaleRange.x) * factor + scaleRange.x;
+    }
 
 }

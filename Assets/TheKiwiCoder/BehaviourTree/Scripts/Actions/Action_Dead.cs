@@ -15,11 +15,14 @@ public class Action_Dead : ActionNode
         {
             context.NpcController.PlayAnimation(NpcAnimation.Dead);
             context.agent.enabled = false;
+            context.NpcController.ShrinkBody();
+            
         }
     }
 
     protected override void OnStop() {
         context.agent.enabled = true;
+        context.NpcController.ResetBody();
 
     }
 

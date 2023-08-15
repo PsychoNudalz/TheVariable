@@ -167,11 +167,13 @@ MonoBehaviour:
   alertValue: 0
   peaceToAlertSpeed: 0.5
   alertPosition: {fileID: 4776704124699353233}
+  deathSizeMultiplier: 0.5
   visualController: {fileID: 1320077873986614614}
   lifeSystem: {fileID: 4527088458200361262}
   sensoryController: {fileID: 8123274052060901740}
   treeRunner: {fileID: 1320077873986614605}
   uiController: {fileID: 0}
+  bodyCollider: {fileID: 1320077873986614611}
 --- !u!114 &1320077873986614614
 MonoBehaviour:
   m_ObjectHideFlags: 0

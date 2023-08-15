@@ -54,6 +54,13 @@ public class NpcController : MonoBehaviour
     [SerializeField]
     Transform alertPosition;
 
+    [Header("Death")]
+    [SerializeField]
+    float deathSizeMultiplier = .5f;
+
+    private Vector3 originalBodyCenter;
+    float originalHeight;
+
 
     [Header("Components")]
     [SerializeField]
@@ -71,6 +78,9 @@ public class NpcController : MonoBehaviour
 
     [SerializeField]
     private UIController uiController;
+
+    [SerializeField]
+    private CapsuleCollider bodyCollider;
 
     public List<TaskEvent> TaskQueue => taskQueue;
 
@@ -112,12 +122,18 @@ public class NpcController : MonoBehaviour
         }
 
         SortSchedule();
+        if (bodyCollider)
+        {
+            originalBodyCenter = bodyCollider.center;
+            originalHeight = bodyCollider.height;
+        }
     }
 
     private void Start()
     {
         uiController = UIController.current;
     }
+
     private void Update()
     {
         if (alertValue > 0f)
@@ -165,8 +181,7 @@ public class NpcController : MonoBehaviour
     }
 
 
-
-    private void UpdateAlertValue(float multiplier )
+    private void UpdateAlertValue(float multiplier)
     {
         alertValue = Math.Clamp(alertValue + peaceToAlertSpeed * multiplier * Time.deltaTime, 0f, 1f);
         UpdateAlertUI();
@@ -426,5 +441,23 @@ public class NpcController : MonoBehaviour
     public void RemoveCurrentSensorySource()
     {
         sensoryController.PopCurrentSS();
+    }
+
+    public void ShrinkBody()
+    {
+        if (bodyCollider)
+        {
+            bodyCollider.center = originalBodyCenter * deathSizeMultiplier;
+            bodyCollider.height = originalHeight * deathSizeMultiplier;
+        }
+    }
+
+    public void ResetBody()
+    {
+        if (bodyCollider)
+        {
+            bodyCollider.center = originalBodyCenter;
+            bodyCollider.height = originalHeight;
+        }
     }
 }

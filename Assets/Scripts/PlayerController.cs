@@ -139,11 +139,16 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RaycastCamera();
-
-        if (cameraMode == CameraMode.SelectHack)
+        switch (cameraMode)
         {
-            uiController.HacksDisplay_UpdateDir(selectDir);
+            case CameraMode.Free:
+                RaycastCamera();
+                break;
+            case CameraMode.SelectHack:
+                uiController.HacksDisplay_UpdateDir(selectDir);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -276,7 +281,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnHighlightCameras()
     {
-        cameraManager.ActiveThroughWalls(currentCamera.Position,camera_CastRange);
+        cameraManager.ActiveThroughWalls(currentCamera.Position, camera_CastRange);
     }
 
     private void SelectHack(Vector2 dir)
@@ -289,6 +294,7 @@ public class PlayerController : MonoBehaviour
     private void DisplayHack()
     {
         cameraMode = CameraMode.SelectHack;
+        selectDir = Vector2.zero;
         uiController.HacksDisplay_SetActive(true, selectedObject);
     }
     //Player Input END
@@ -310,8 +316,10 @@ public class PlayerController : MonoBehaviour
 
     void RaycastCamera()
     {
-        bool detectedHit = false;
+        bool detectedSOHit = false;
         RaycastHit hit;
+
+        //Finding Smart Objects, excluding cameras
         if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, selectorLayer))
         {
             SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
@@ -328,36 +336,40 @@ public class PlayerController : MonoBehaviour
                     selectedObject.OnSelect_Enter();
                 }
 
-                detectedHit = true;
-                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.green, Time.deltaTime);
+                detectedSOHit = true;
+                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.green,
+                    Time.deltaTime);
             }
         }
-        if (!detectedHit)
+
+        if (!detectedSOHit)
         {
+            //Finding cameras
             if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, cameraLayer))
             {
-                SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
-                if (smartObject)
+                CameraObject cameraObject = hit.collider.GetComponentInParent<CameraObject>();
+                if (cameraObject)
                 {
-                    if (!smartObject.Equals(selectedObject))
+                    if (!cameraObject.Equals(selectedObject))
                     {
                         if (selectedObject)
                         {
                             selectedObject.OnSelect_Exit();
                         }
 
-                        selectedObject = smartObject;
+                        selectedObject = cameraObject;
                         selectedObject.OnSelect_Enter();
                     }
 
-                    detectedHit = true;
+                    detectedSOHit = true;
 
-                    Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.yellow, Time.deltaTime);
+                    Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.yellow,
+                        Time.deltaTime);
                 }
             }
         }
 
-        if(!detectedHit)
+        if (!detectedSOHit)
         {
             //TODO - might need to check if it is worth disabling the hack wheel when it can't detect it no more
             if (selectedObject)

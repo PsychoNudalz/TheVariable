@@ -16,7 +16,7 @@ public class SmartObjectEditor : AnsonEditor
         GUIContent();
         GUILayout.Space(10f);
         DrawDefaultInspector();
-        GUIUtility.ExitGUI();
+        // GUIUtility.ExitGUI();
     }
 
     protected virtual void AddHack(HackAbility hack)

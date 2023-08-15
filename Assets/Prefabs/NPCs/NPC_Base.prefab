@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcController: {fileID: 1320077873986614615}
-  visionConeController: {fileID: 1681793478665704542}
+  visionConeController: {fileID: 1402429275581797342}
 --- !u!1 &1320077875737293229
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2149476692529430343}
   - component: {fileID: 3871430035802091172}
-  - component: {fileID: 1681793478665704542}
+  - component: {fileID: 1402429275581797342}
   m_Layer: 8
   m_Name: VisionZone
   m_TagString: Untagged
@@ -620,7 +620,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -115492275472595111, guid: 1dc5821e127ceab49b56f8db40ffc44a, type: 3}
---- !u!114 &1681793478665704542
+--- !u!114 &1402429275581797342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -637,7 +637,7 @@ MonoBehaviour:
   los_Distance: 15
   los_LayerMask:
     serializedVersion: 2
-    m_Bits: 896
+    m_Bits: 1664
   eyeTransform: {fileID: 2149476692529430343}
   objectIgnore: {fileID: 1320077873986614613}
 --- !u!1 &7034779571806174397

@@ -40,6 +40,7 @@ public abstract class SmartObject : MonoBehaviour
 
     public virtual Vector3 Position => transform.position;
     public virtual Vector3 Forward => transform.forward;
+    public virtual Vector3 ColliderPosition => transform.forward;
     public Vector3 InteractPosition => InteractPointPosition();
 
     public HackAbility[] Hacks => hacks;

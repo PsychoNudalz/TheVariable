@@ -50,9 +50,10 @@ public class NpcController : MonoBehaviour
 
     [SerializeField]
     private float peaceToAlertSpeed = 2f;
+
     [SerializeField]
     Transform alertPosition;
-    
+
 
     [Header("Components")]
     [SerializeField]
@@ -86,6 +87,7 @@ public class NpcController : MonoBehaviour
 
 
     public SensorySource GetCurrentSS => sensoryController.GetCurrentSS;
+
     NPC_AlertState blackboardAlertState
     {
         get => treeRunner.tree.blackboard.alertState;
@@ -93,8 +95,10 @@ public class NpcController : MonoBehaviour
     }
 
 
-    public void SetAlertState(NPC_AlertState npcAlertState)
+    public void SetAlertState(NPC_AlertState npcAlertState, float alert = 0)
     {
+        alertValue += alert;
+        UpdateAlertValue(1f);
         Debug.Log($"Change NPC state: {blackboardAlertState} --> {npcAlertState}");
         blackboardAlertState = npcAlertState;
     }
@@ -108,25 +112,38 @@ public class NpcController : MonoBehaviour
         }
 
         SortSchedule();
-        }
+    }
 
     private void Start()
     {
         uiController = UIController.current;
-
+    }
+    private void Update()
+    {
+        if (alertValue > 0f)
+        {
+            UpdateAlertUI();
+        }
     }
 
     private void FixedUpdate()
     {
-        CameraObject co = sensoryController.GetCamera();
+        //Not sure if this should be in the behaviour tree or not
+        // AlertUpdateBehaviour();
+    }
+
+    public float AlertUpdateBehaviour()
+    {
+        CameraObject co = sensoryController.FindPlayerCamera();
+
         if (co)
         {
             if (alertValue < 1f)
             {
-                UpdateAlertValue();
+                UpdateAlertValue(1f);
                 if (alertValue >= 1f)
                 {
-                    sensoryController.AddSS(new SensorySource_Visual(co.Position,100f));
+                    sensoryController.AddSS(new SensorySource_Visual(co.Position, 100f));
                 }
             }
         }
@@ -135,24 +152,23 @@ public class NpcController : MonoBehaviour
             if (alertValue > 0f)
             {
                 UpdateAlertValue(-1f);
-
             }
         }
 
+        return alertValue;
     }
 
-    private void Update()
+    public void ResetAlert()
     {
-        
-        if (alertValue > 0f)
-        {
-            UpdateAlertUI();
-        }
+        alertValue = 0;
+        UpdateAlertUI();
     }
 
-    private void UpdateAlertValue(float multiplier = 1f)
+
+
+    private void UpdateAlertValue(float multiplier )
     {
-        alertValue = Math.Clamp(alertValue + peaceToAlertSpeed*multiplier * Time.deltaTime, 0f, 1f);
+        alertValue = Math.Clamp(alertValue + peaceToAlertSpeed * multiplier * Time.deltaTime, 0f, 1f);
         UpdateAlertUI();
     }
 

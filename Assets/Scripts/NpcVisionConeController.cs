@@ -31,6 +31,7 @@ public class NpcVisionConeController : MonoBehaviour
 
     public List<SmartObject> AllLoSSmartObjects => allLoSSmartObjects;
 
+     static string CameraTag = "CCTV";
 
     private void FixedUpdate()
     {
@@ -40,27 +41,49 @@ public class NpcVisionConeController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(.3f, 1, .3f);
-        Gizmos.DrawRay(eyePositon,-transform.right*los_Distance);
+        Gizmos.DrawRay(eyePositon, -transform.right * los_Distance);
     }
 
     void UpdateLoSObjects()
     {
         foreach (SmartObject smartObject in allDetectedSmartObjects)
         {
-            Vector3 diff = (smartObject.Position - eyePositon);
+            Vector3 diff = (smartObject.ColliderPosition - eyePositon);
 
-            if (!allLoSSmartObjects.Contains(smartObject))
+            // int detectedObjects = Physics.RaycastAll(eyePositon, diff, los_Distance, los_LayerMask).Length;
+            RaycastHit hit;
+            bool detectedObjects = Physics.Raycast(eyePositon, diff,out hit, los_Distance, los_LayerMask);
+
+            if (detectedObjects)
             {
-                if (Physics.RaycastAll(eyePositon, diff, los_Distance, los_LayerMask).Length == 1)
+                SmartObject detected = hit.collider.GetComponentInParent<SmartObject>();
+                if (!allLoSSmartObjects.Contains(smartObject))
                 {
-                    allLoSSmartObjects.Add(smartObject);
+                    //If the object wasn't in line of sight originally
+                    if (smartObject.Equals(detected))
+                    {
+                        allLoSSmartObjects.Add(smartObject);
+                        Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
+                    }
+                    else
+                    {
+                        //Remaining out of LOS
+                        Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
+                    }
                 }
-            }
-            else
-            {
-                if (Physics.RaycastAll(eyePositon, diff, los_Distance, los_LayerMask).Length != 1)
+                else
                 {
-                    allLoSSmartObjects.Remove(smartObject);
+                    //If the object is in line of sight originally
+
+                    if (smartObject.Equals(detected))
+                    {
+                        Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
+                    }
+                    else
+                    {
+                        allLoSSmartObjects.Remove(smartObject);
+                        Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
+                    }
                 }
             }
         }
@@ -69,12 +92,13 @@ public class NpcVisionConeController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         SmartObject smartObject = GetSmartObject(other);
-        if (smartObject)
+        if (smartObject && !allDetectedSmartObjects.Contains(smartObject))
         {
             if (smartObject.Equals(objectIgnore))
             {
                 return;
             }
+
             allDetectedSmartObjects.Add(smartObject);
         }
     }

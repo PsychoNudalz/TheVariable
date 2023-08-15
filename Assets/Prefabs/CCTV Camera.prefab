@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8702349244428145143}
   m_Layer: 10
   m_Name: CameraBackHitbox
-  m_TagString: Untagged
+  m_TagString: CCTV
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.2, z: 0.2}
+  m_Size: {x: 0.3, y: 0.3, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3915646344706757920
 GameObject:
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 3869751362047965775}
   m_Layer: 10
   m_Name: CCTV Camera
-  m_TagString: Untagged
+  m_TagString: CCTV
   m_Icon: {fileID: 2800000, guid: 7cba34d70552e144586a4d3ce4a33de5, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,8 @@ MonoBehaviour:
   throughWallEffect: {fileID: 2812268136883804289}
   throughWallEffect_Time: 1
   cameraBody: {fileID: 5103197614238685720}
-  collider: {fileID: 8702349244428145143}
+  disableCollider: {fileID: 7876393163173654306}
+  mainCollider: {fileID: 8702349244428145143}
   references:
     version: 2
     RefIds:

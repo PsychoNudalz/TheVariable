@@ -5,6 +5,7 @@ using Cinemachine;
 using HighlightPlus;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.Serialization;
 
 public class CameraObject : SmartObject
 {
@@ -48,16 +49,24 @@ public class CameraObject : SmartObject
     [SerializeField]
     private Renderer cameraBody;
 
+    [FormerlySerializedAs("collider")]
     [SerializeField]
-    private Collider collider;
+    private Collider disableCollider;
+    [SerializeField]
+    Collider mainCollider;
 
 
     private Vector3 cameraOrientation = default;
 
     private const int CameraPriority = 10;
+
+    private bool playerControl = false;
     public override Vector3 Position => camera_transform.position;
     public override Vector3 Forward => camera_transform.forward;
 
+    public override Vector3 ColliderPosition => mainCollider.transform.position;
+
+    public bool PlayerControl => playerControl;
 
     protected override void AwakeBehaviour()
     {
@@ -111,9 +120,9 @@ public class CameraObject : SmartObject
         if (b)
         {
             camera.Priority = CameraPriority;
-            if (collider)
+            if (disableCollider)
             {
-                collider.enabled = false;
+                disableCollider.enabled = false;
             }
 
             if (cameraBody)
@@ -124,9 +133,9 @@ public class CameraObject : SmartObject
         else
         {
             camera.Priority = -1;
-            if (collider)
+            if (disableCollider)
             {
-                collider.enabled = true;
+                disableCollider.enabled = true;
             }
 
             if (cameraBody)
@@ -134,6 +143,8 @@ public class CameraObject : SmartObject
                 cameraBody.enabled = true;
             }
         }
+
+        playerControl = b;
     }
 
     public void ThroughWallEffect_Activate()

@@ -40,7 +40,7 @@ public class NpcSensoryController : MonoBehaviour
         {
             currentSS = SensorySource.Compare(currentSS, ss);
         }
-        npcController.SetAlertState(NPC_AlertState.Suspicious);
+        npcController.SetAlertState(NPC_AlertState.Suspicious,1);
     }
 
     public void PopCurrentSS()
@@ -60,6 +60,27 @@ public class NpcSensoryController : MonoBehaviour
             if (smartObject is CameraObject cameraObject)
             {
                 return cameraObject;
+            }
+        }
+
+        return null;
+    }
+    
+    /// <summary>
+    /// Find camera that is controlled the player
+    /// TODO: one for if the camera is hacking
+    /// </summary>
+    /// <returns></returns>
+    public CameraObject FindPlayerCamera()
+    {
+        foreach (SmartObject smartObject in losObjects)
+        {
+            if (smartObject is CameraObject cameraObject)
+            {
+                if (cameraObject.PlayerControl)
+                {
+                    return cameraObject;
+                }
             }
         }
 

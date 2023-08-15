@@ -25,16 +25,25 @@ public class Action_PickUpItem : Action_SetWait
     }
 
     protected override void OnStop() {
-        if (started)
-        {
-            Wait_End();
-            context.NpcController.PickUpItem(blackboard.locatedItem);
-            blackboard.pickedUpItem = blackboard.locatedItem;
 
-        }
     }
 
-    protected override State OnUpdate() {
-        return Wait_Update();
+    protected override State OnUpdate()
+    {
+        State waitUpdate = Wait_Update();
+        if (waitUpdate == State.Success)
+        {
+            if (started)
+            {
+                Wait_End();
+                if (!context.NpcController.PickUpItem(blackboard.locatedItem))
+                {
+                    return State.Failure;
+                }
+                blackboard.pickedUpItem = blackboard.locatedItem;
+
+            }
+        }
+        return waitUpdate;
     }
 }

@@ -372,10 +372,10 @@ public class NpcController : MonoBehaviour
         return flag;
     }
 
-    public void PickUpItem(ItemObject item)
+    public bool PickUpItem(ItemObject item)
     {
         pickedUpItem = item;
-        item.PickUp(this, GetCurrentTask());
+        return item.PickUp(this, GetCurrentTask());
     }
 
     /// <summary>

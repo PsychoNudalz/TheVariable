@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using Task;
 using UnityEngine;
 
+public enum ItemState
+{
+    Idle,
+    PickUp,
+    Using
+}
 
 public enum ItemName
 {
@@ -13,6 +19,8 @@ public enum ItemName
 
 public class ItemObject : SmartObject
 {
+    private ItemState itemState = ItemState.Idle;
+
     [Header("Item")]
     [SerializeField]
     private ItemName name = ItemName.None;
@@ -20,7 +28,7 @@ public class ItemObject : SmartObject
     [SerializeField]
     private GameObject modelGO;
 
-    public virtual bool IsFree => currentTask == null;
+    public virtual bool IsFree => currentTask == null&&itemState == ItemState.Idle;
     private TaskEvent currentTask;
     public ItemName Name => name;
 
@@ -46,30 +54,37 @@ public class ItemObject : SmartObject
     {
     }
 
-    public virtual void PickUp(NpcController npc, TaskEvent taskEvent)
+    public virtual bool PickUp(NpcController npc, TaskEvent taskEvent)
     {
+        if (itemState != ItemState.Idle)
+        {
+            return false;
+        }
         AssignTask(taskEvent);
+        itemState = ItemState.PickUp;
         transform.parent = npc.transform;
         transform.position = npc.PickUpPosition;
         modelGO.SetActive(true);
+        return true;
     }
 
     public virtual void AssignTask(TaskEvent taskEvent)
     {
         currentTask = taskEvent;
-        if (taskEvent!=null)
+        if (taskEvent != null)
         {
             Debug.Log($"{name} task assign: {taskEvent.TaskName}");
         }
         else
         {
             Debug.Log($"{name} task assign: null");
-
         }
-    }    public virtual void AssignTask()
+    }
+
+    public virtual void AssignTask()
     {
         currentTask = null;
-            Debug.Log($"{name} task assign: null");
+        Debug.Log($"{name} task assign: null");
     }
 
     public virtual void Deposit(TaskSmartObject taskSmartObject)
@@ -83,11 +98,15 @@ public class ItemObject : SmartObject
         {
             transform.parent = null;
         }
+        itemState = ItemState.Using;
+
     }
 
     public virtual void Drop(Vector3 position = default)
     {
         AssignTask();
+        itemState = ItemState.Idle;
+
         if (position.Equals(default))
         {
             transform.position = transform.parent.position;
@@ -99,7 +118,6 @@ public class ItemObject : SmartObject
 
         transform.parent = null;
         modelGO.SetActive(true);
-
     }
 
     public virtual void Destroy()

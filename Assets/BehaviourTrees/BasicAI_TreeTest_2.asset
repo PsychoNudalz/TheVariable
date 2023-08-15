@@ -85,8 +85,8 @@ MonoBehaviour:
     flag_wait: 0
     wait_startTime: 0
     wait_duration: 0
-  viewPosition: {x: -743, y: -63, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: -505.6, y: 93.6, z: 0}
+  viewScale: {x: 0.375937, y: 0.375937, z: 1}
   references:
     version: 2
     RefIds:
@@ -206,7 +206,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
         name: Sequencer
-        description: 
+        description: 'Find and pick up Item
+
+'
         drawGizmos: 0
         children:
         - rid: 2809099987240878082
@@ -721,7 +723,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6da711376abe684478ba1a0a9b3f7b93
-        position: {x: 195.02615, y: 1464.0001}
+        position: {x: 195.20004, y: 1465.6003}
         blackboard:
           alertState: 0
           health: 0
@@ -734,7 +736,7 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
         name: Sequencer
-        description: 
+        description: Deposit and do task
         drawGizmos: 0
         children:
         - rid: 8796965019197636620

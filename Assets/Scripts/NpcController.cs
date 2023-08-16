@@ -13,11 +13,11 @@ using Random = UnityEngine.Random;
 
 public enum NPC_AlertState
 {
-    Peace,
-    Alert,
-    Suspicious,
-    Spotted,
-    Hunt
+    Peace, // Follow schedule
+    Alert, // Be scared and hide/hunt
+    Suspicious, // Investigating
+    Spotted, // Attacking
+    Hunt // Looking for the player
 }
 
 /// <summary>

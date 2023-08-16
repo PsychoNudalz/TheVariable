@@ -24,7 +24,7 @@ public class Action_DoTask : ActionNode
         else
         {
             blackboard.missingItem = missingItems[0];
-            Debug.Log("Missing item for task");
+            // Debug.Log("Missing item for task");
             started = false;
         }
     }

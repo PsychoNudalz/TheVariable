@@ -9,6 +9,9 @@ public class HackManager : ScriptableObject
     [SerializeField]
     public static HackAbility[] AllHacks = new HackAbility[]{};
     
+    const string hacksPath = "Hacks/";
+
+    
     public static  HackAbility GetHack<T>()
     {
         if (AllHacks.Length == 0)
@@ -36,9 +39,30 @@ public class HackManager : ScriptableObject
         throw new NullReferenceException();
 
     }
+    public static HackAbility GetHack(string name)
+    {
+        if (AllHacks.Length == 0)
+        {
+            UpdateHacks();
+        }
+
+        foreach (HackAbility hackAbility in AllHacks)
+        {
+            if (hackAbility.hackName.Equals(name))
+            {
+                var temp = CreateInstance(hackAbility.GetType());
+                return temp as HackAbility;
+                
+            }
+        }
+
+        return null;
+    }
 
     private static void UpdateHacks()
     {
-        AllHacks = Resources.LoadAll<HackAbility>("Hacks/").Cast<HackAbility>().ToArray();
+        AllHacks = Resources.LoadAll<HackAbility>(hacksPath).Cast<HackAbility>().ToArray();
     }
+
+
 }

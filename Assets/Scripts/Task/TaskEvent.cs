@@ -119,7 +119,7 @@ namespace Task
             {
                 if (!taskSmartObject.HasItem(requiredItem))
                 {
-                    Debug.Log($"{taskName} is missing {requiredItem.ToString()}");
+                    // Debug.Log($"{taskName} is missing {requiredItem.ToString()}");
                     temp.Add(requiredItem);
                     flag = false;
                 }

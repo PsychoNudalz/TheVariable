@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4773841955946945744}
   - component: {fileID: 6230879108543905253}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.01
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -254,7 +254,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
@@ -404,7 +404,6 @@ MonoBehaviour:
   throughWallEffect_Time: 1
   cameraHackState: 0
   hackLine: {fileID: 6230879108543905253}
-  hackTarget: {fileID: 0}
   cameraBody: {fileID: 5103197614238685720}
   disableCollider: {fileID: 7876393163173654306}
   mainCollider: {fileID: 8702349244428145143}

@@ -61,6 +61,17 @@ public abstract class SmartObject : MonoBehaviour
         {
             highlightEffect = GetComponent<HighlightEffect>();
         }
+        
+        //Initialise Hacks
+        if (hacks.Length > 0 && hacks[0] == null)
+        {
+            for (var i = 0; i < hacks.Length; i++)
+            {
+                HackAbility hackAbility = hacks[i];
+                hackAbility = HackManager.GetHack(hackAbility.hackName);
+                hacks[i] = hackAbility ;
+            }
+        }
 
         AwakeBehaviour();
     }

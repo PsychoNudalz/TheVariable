@@ -59,9 +59,13 @@ public class CameraObject : SmartObject
 
     [SerializeField]
     private LineRenderer hackLine;
+    // private LineRenderer hackLine_Material;
 
     // [SerializeField]
     private Transform hackTarget;
+    private float cameraHack_Time = 0;
+    private float cameraHack_TimeNow = 0;
+
 
     [Space(10)]
     [Header("Components")]
@@ -96,6 +100,8 @@ public class CameraObject : SmartObject
         originalFOV = camera.m_Lens.FieldOfView;
         SetActive(false);
         hackLine.gameObject.SetActive(false);
+        
+
     }
 
     protected override void StartBehaviour()
@@ -116,8 +122,15 @@ public class CameraObject : SmartObject
             case CameraHackState.Hacking:
                 if (hackLine && hackTarget)
                 {
+                    if (cameraHack_TimeNow > 0)
+                    {
+                        cameraHack_TimeNow -= Time.deltaTime;
+                    }
                     hackLine.SetPosition(0, Position+new Vector3(0,-.2f,0));
                     hackLine.SetPosition(1, hackTarget.position);
+                    hackLine.material.SetVector("_Effect_Animation_Position",hackLine.transform.position);
+                    hackLine.material.SetFloat("_Effect_Animation_Distance",(Position-hackTarget.position).magnitude);
+                    hackLine.material.SetFloat("_Effect_Animation_Value",1-(cameraHack_TimeNow/cameraHack_Time));
                 }
 
                 break;
@@ -229,7 +242,6 @@ public class CameraObject : SmartObject
         }
 
         hackCoroutine = StartCoroutine(HackRoutine(target, index));
-        hackTarget = target.transform;
     }
 
     // IEnumerator HackRoutine(float time, SmartObject target, int index)
@@ -245,8 +257,10 @@ public class CameraObject : SmartObject
     {
         cameraHackState = CameraHackState.Hacking;
         hackLine.gameObject.SetActive(true);
-
+        hackTarget = target.transform;
         float time = target.Hacks[index].HackTime;
+        cameraHack_Time = time;
+        cameraHack_TimeNow = time;
         yield return new WaitForSeconds(time);
         target.ActivateHack(index);
         cameraHackState = CameraHackState.None;

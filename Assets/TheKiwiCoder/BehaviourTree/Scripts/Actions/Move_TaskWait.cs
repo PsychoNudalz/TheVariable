@@ -12,8 +12,11 @@ public class Move_TaskWait : MoveToPosition
     
 
     protected override State OnUpdate() {
-        
 
+        if (context.NpcController.GetCurrentTask() == null)
+        {
+            return State.Failure;
+        }
         
         float dist = Vector3.Distance(agent_Position, context.NpcController.GetCurrentTask().Position);
         bool notFree = !(dist >= taskWaitDistance ||

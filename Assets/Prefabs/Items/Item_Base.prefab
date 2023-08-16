@@ -252,8 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactPoint: {fileID: 0}
   highlightEffect: {fileID: 2617819239995198200}
-  hacks:
-  - {fileID: 11400000, guid: 62c1bc74d9bcfe1f2b0d78dfdad6f9b0, type: 2}
+  hacks: []
   audioDistract_Range: 10
   audioDistract_Strength: 1
   audioDistract_Dampen: 1

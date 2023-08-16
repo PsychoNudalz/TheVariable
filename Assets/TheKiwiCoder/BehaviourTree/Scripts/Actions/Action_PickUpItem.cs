@@ -13,6 +13,11 @@ public class Action_PickUpItem : Action_SetWait
 
 
     protected override void OnStart() {
+        if (!blackboard.locatedItem)
+        {
+            started = false;
+            return;
+        }
         if (Vector3.Distance(agent_Position, blackboard.locatedItem.Position) < pickUpRange)
         {
             context.NpcController.PlayAnimation(NpcAnimation.PickUp);

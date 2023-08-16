@@ -1,4 +1,8 @@
-﻿public class Hack_NPC_ClearTasks : HackAbility
+﻿using UnityEngine;
+
+[CreateAssetMenu(menuName = "Hacks/NPC/Clear Task")]
+
+public class Hack_NPC_ClearTasks : HackAbility
 {
     protected override void AwakeBehaviour()
     {

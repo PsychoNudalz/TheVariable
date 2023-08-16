@@ -28,12 +28,18 @@ public struct HackContext
 /// </summary>
 /// 
 [Serializable]
-public abstract class HackAbility
+public abstract class HackAbility:ScriptableObject
 {
     [SerializeField]
-    [HideInInspector]
+    // [HideInInspector]
     protected string HackName;
 
+    [SerializeField]
+    private float hackTime = 1f;
+
+    [SerializeField]
+    private int hackCost = 1;
+    
     protected abstract void AwakeBehaviour();
     protected abstract void StartBehaviour();
     protected abstract void UpdateBehaviour();

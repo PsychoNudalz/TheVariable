@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[CreateAssetMenu(menuName = "Hacks/NPC/Straight Kill")]
 
 public class Hack_NPC_StraightKill : HackAbility
 {

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[CreateAssetMenu(menuName = "Hacks/Camera/Switch")]
 
 [Serializable]
 public class Hack_Camera_Switch : HackAbility

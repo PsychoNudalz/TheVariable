@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[CreateAssetMenu(menuName = "Hacks/General/Distraction")]
 
 public class Hack_General_Distraction : HackAbility
 {

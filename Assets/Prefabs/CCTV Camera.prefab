@@ -253,8 +253,8 @@ MonoBehaviour:
   interactPoint: {fileID: 0}
   highlightEffect: {fileID: 3115976637550050552}
   hacks:
-  - rid: 2809099959511023616
-  - rid: 2809099959511023617
+  - {fileID: 11400000, guid: 62c1bc74d9bcfe1f2b0d78dfdad6f9b0, type: 2}
+  - {fileID: 11400000, guid: 5e903e5f97da3caaea730c63e6787b23, type: 2}
   audioDistract_Range: 10
   audioDistract_Strength: 1
   audioDistract_Dampen: 1
@@ -273,17 +273,6 @@ MonoBehaviour:
   cameraBody: {fileID: 5103197614238685720}
   disableCollider: {fileID: 7876393163173654306}
   mainCollider: {fileID: 8702349244428145143}
-  references:
-    version: 2
-    RefIds:
-    - rid: 2809099959511023616
-      type: {class: Hack_Camera_Switch, ns: , asm: Assembly-CSharp}
-      data:
-        HackName: Camera Switch
-    - rid: 2809099959511023617
-      type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
-      data:
-        HackName: General Distraction
 --- !u!114 &3115976637550050552
 MonoBehaviour:
   m_ObjectHideFlags: 0

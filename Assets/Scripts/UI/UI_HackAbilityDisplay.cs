@@ -68,20 +68,20 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         dir = dir.normalized;
         selectedButton = buttons[0];
         float dot = Vector2.Dot(selectedButton.GetDotDir(), dir);
-        float dotTemp;
+        float dotTemp = -1;
         int bIndex = 0;
         for (var index = 0; index < buttons.Length; index++)
         {
             var button = buttons[index];
             if (!button.IsActive)
             {
-                break;
+                continue;
             }
             dotTemp = Vector2.Dot(button.GetDotDir(), dir);
-            if (dotTemp<0f)
-            {
-                break;
-            }
+            // if (dotTemp<0f)
+            // {
+            //     break;
+            // }
             if (dotTemp > dot)
             {
                 dot = dotTemp;

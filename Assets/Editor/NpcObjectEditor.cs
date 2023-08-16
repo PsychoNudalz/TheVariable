@@ -1,5 +1,4 @@
-﻿using Hack;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(NpcObject))]

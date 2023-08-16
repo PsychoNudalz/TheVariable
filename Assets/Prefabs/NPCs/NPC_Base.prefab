@@ -205,10 +205,11 @@ MonoBehaviour:
   interactPoint: {fileID: 0}
   highlightEffect: {fileID: 1320077873986614612}
   hacks:
-  - rid: 2809100053256339456
-  - rid: 2809100053256339457
-  - rid: 3923952594555502599
-  - rid: 3923952595406684166
+  - {fileID: 11400000, guid: 62c1bc74d9bcfe1f2b0d78dfdad6f9b0, type: 2}
+  - {fileID: 11400000, guid: a091bba9597a0893096d89ebc6844685, type: 2}
+  - {fileID: 11400000, guid: 7ceabf8282161728eafb23bcd1b368b4, type: 2}
+  - {fileID: 11400000, guid: 61b2998df6d350798acd07c6fd8cac76, type: 2}
+  - {fileID: 11400000, guid: 62c1bc74d9bcfe1f2b0d78dfdad6f9b0, type: 2}
   audioDistract_Range: 10
   audioDistract_Strength: 1
   audioDistract_Dampen: 1
@@ -216,25 +217,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   audioDistract_PS: {fileID: 0}
-  references:
-    version: 2
-    RefIds:
-    - rid: 2809100053256339456
-      type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
-      data:
-        HackName: General Distraction
-    - rid: 2809100053256339457
-      type: {class: Hack_NPC_ClearTasks, ns: , asm: Assembly-CSharp}
-      data:
-        HackName: NPC ClearTasks
-    - rid: 3923952594555502599
-      type: {class: Hack_NPC_StraightKill, ns: , asm: Assembly-CSharp}
-      data:
-        HackName: NPC StraightKill
-    - rid: 3923952595406684166
-      type: {class: Hack_NPC_SetPeace, ns: Hack, asm: Assembly-CSharp}
-      data:
-        HackName: Hack NPC SetPeace
 --- !u!114 &4527088458200361262
 MonoBehaviour:
   m_ObjectHideFlags: 0

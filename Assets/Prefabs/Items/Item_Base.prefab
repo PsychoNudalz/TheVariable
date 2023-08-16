@@ -253,7 +253,7 @@ MonoBehaviour:
   interactPoint: {fileID: 0}
   highlightEffect: {fileID: 2617819239995198200}
   hacks:
-  - rid: 3119726308385619969
+  - {fileID: 11400000, guid: 62c1bc74d9bcfe1f2b0d78dfdad6f9b0, type: 2}
   audioDistract_Range: 10
   audioDistract_Strength: 1
   audioDistract_Dampen: 1
@@ -263,13 +263,6 @@ MonoBehaviour:
   audioDistract_PS: {fileID: 0}
   name: 0
   modelGO: {fileID: 129341653907168838}
-  references:
-    version: 2
-    RefIds:
-    - rid: 3119726308385619969
-      type: {class: Hack_General_Distraction, ns: , asm: Assembly-CSharp}
-      data:
-        HackName: General Distraction
 --- !u!54 &3399867990514886041
 Rigidbody:
   m_ObjectHideFlags: 0

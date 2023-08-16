@@ -25,12 +25,20 @@ public class SmartObjectEditor : AnsonEditor
         smartObject.AddHack(hack);
         Debug.Log($"Added hack to {smartObject.name}[{i}], now size: {smartObject.Hacks.Length}");
     }
+
+    protected virtual void AddHack<T>()
+    {
+        int i = smartObject.Hacks.Length;
+        smartObject.AddHack(HackManager.GetHack<T>());
+        Debug.Log($"Added hack to {smartObject.name}[{i}], now size: {smartObject.Hacks.Length}");
+    }
     protected virtual void AddHack<T>(string hackName) where T : new()
     {
         if (GUILayout.Button("Hack: "+hackName))
         {
             var hack = new T();
-            AddHack(hack as HackAbility);
+            // AddHack(hack as HackAbility);
+            AddHack<T>();
             SetDirty();
         }
     }

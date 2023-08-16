@@ -11,7 +11,9 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     private UI_AlertManager alertManager;
+
     public static UIController current;
+
     private void Awake()
     {
         current = this;
@@ -38,13 +40,28 @@ public class UIController : MonoBehaviour
         return hackAbilityDisplay.UpdateDir(dir);
     }
 
-    public void HacksDisplay_SelectHack(Vector2 dir)
+    /// <summary>
+    ///     Starting the hack
+    /// </summary>
+    /// <param name="dir"></param>
+    public int HacksDisplay_SelectHack(Vector2 dir)
     {
-        hackAbilityDisplay.Hack(hackAbilityDisplay.UpdateDir(dir));
+        int hackIndex = hackAbilityDisplay.UpdateDir(dir);
+        // hack = hackAbilityDisplay.GetHack(hackIndex);
+        // hackAbilityDisplay.Hack(hackIndex);
+        return hackIndex;
+    }
+    
+    public int HacksDisplay_SelectHack(Vector2 dir, out HackAbility hack)
+    {
+        int hackIndex = hackAbilityDisplay.UpdateDir(dir);
+        hack = hackAbilityDisplay.GetHack(hackIndex);
+        // hackAbilityDisplay.Hack(hackIndex);
+        return hackIndex;
     }
 
     public void AlertManager_SetAlert(NpcController npc, float value)
     {
-        alertManager.UpdateAlert(npc,value);
+        alertManager.UpdateAlert(npc, value);
     }
 }

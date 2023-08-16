@@ -286,7 +286,8 @@ public class PlayerController : MonoBehaviour
 
     private void SelectHack(Vector2 dir)
     {
-        uiController.HacksDisplay_SelectHack(dir);
+        int hackIndex = uiController.HacksDisplay_SelectHack(dir);
+        currentCamera.StartHack(selectedObject,hackIndex);
         cameraMode = CameraMode.Free;
         uiController.HacksDisplay_SetActive(false);
     }

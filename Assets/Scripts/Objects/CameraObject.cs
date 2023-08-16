@@ -20,7 +20,7 @@ public class CameraObject : SmartObject
     [SerializeField]
     private Vector2 xClamp = new Vector2(-90f, 90f);
 
-    [Header("Zone")]
+    [Header("Zoom")]
     [SerializeField]
     [Range(0f, 1f)]
     private float zoomLevel = 0f;
@@ -44,6 +44,19 @@ public class CameraObject : SmartObject
     private float throughWallEffect_TimeNow = 0;
     private bool throughWallEffect_Active = false;
 
+    [Serializable]
+    enum CameraHackState
+    {
+        None,
+        Hacking
+    }
+    [Header("Hacking")]
+    [SerializeField]
+    private CameraHackState cameraHackState = CameraHackState.None;
+
+    private Coroutine hackCoroutine;
+    
+    
     [Space(10)]
     [Header("Components")]
     [SerializeField]
@@ -52,6 +65,7 @@ public class CameraObject : SmartObject
     [FormerlySerializedAs("collider")]
     [SerializeField]
     private Collider disableCollider;
+
     [SerializeField]
     Collider mainCollider;
 
@@ -173,5 +187,40 @@ public class CameraObject : SmartObject
         throughWallEffect_TimeNow += 1f / throughWallEffect_Time * Time.deltaTime;
 
         throughWallEffect.overlay = Mathf.Sin(throughWallEffect_TimeNow * 2 * Mathf.PI);
+    }
+
+    public void StartHack(SmartObject target, int index)
+    {
+        if (cameraHackState != CameraHackState.None)
+        {
+            Debug.Log($"{name} state not none");
+            return;
+        }
+        if (index < 0)
+        {
+            Debug.LogError($"{name} hack on {target.name} index < 0");
+            return;
+        }
+
+        hackCoroutine = StartCoroutine(HackRoutine(target, index));
+    }
+
+    IEnumerator HackRoutine(float time, SmartObject target, int index)
+    {
+        cameraHackState = CameraHackState.Hacking;
+
+        yield return new WaitForSeconds(time);
+        target.ActivateHack(index);
+        cameraHackState = CameraHackState.None;
+
+    }
+    IEnumerator HackRoutine(SmartObject target, int index)
+    {
+        cameraHackState = CameraHackState.Hacking;
+        float time = target.Hacks[index].HackTime;
+        yield return new WaitForSeconds(time);
+        target.ActivateHack(index);
+        cameraHackState = CameraHackState.None;
+
     }
 }

@@ -53,6 +53,11 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         currentSO.ActivateHack(i);
     }
 
+    public HackAbility GetHack(int i)
+    {
+        return currentSO.Hacks[i];
+    }
+
     public int UpdateDir(Vector2 dir)
     {
         if (selectedButton)

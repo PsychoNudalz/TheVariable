@@ -45,9 +45,15 @@ public abstract class HackAbility:ScriptableObject
     protected abstract void UpdateBehaviour();
 
     protected bool isActive = false;
-
+    
     [Tooltip("should be left empty by default, this is for keeping track what was the last context for debugging")]
     protected HackContext context = new HackContext(Array.Empty<SmartObject>());
+
+    public string hackName => HackName;
+
+    public float HackTime => hackTime;
+
+    public int hackCost1 => hackCost;
 
     protected HackAbility()
     {
@@ -57,7 +63,7 @@ public abstract class HackAbility:ScriptableObject
     public bool IsActive => isActive;
 
     /// <summary>
-    /// The main hack. 0: no error, 1: error
+    /// The main hacking procedure. 0: no error, 1: error
     /// </summary>
     /// <param name="hackContext"></param>
     /// <returns>0: no error, 1: error</returns>
@@ -83,5 +89,10 @@ public abstract class HackAbility:ScriptableObject
         split = split.Replace("_", " ");
 
         return split;
+    }
+    
+    IEnumerator DelayHack()
+    {
+        yield return new WaitForSeconds(hackTime);
     }
 }

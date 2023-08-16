@@ -77,7 +77,7 @@ public class NpcSensoryController : MonoBehaviour
         {
             if (smartObject is CameraObject cameraObject)
             {
-                if (cameraObject.PlayerControl)
+                if (cameraObject.IsHacking)
                 {
                     return cameraObject;
                 }

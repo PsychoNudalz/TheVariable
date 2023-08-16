@@ -50,13 +50,19 @@ public class CameraObject : SmartObject
         None,
         Hacking
     }
+
     [Header("Hacking")]
     [SerializeField]
     private CameraHackState cameraHackState = CameraHackState.None;
 
     private Coroutine hackCoroutine;
-    
-    
+
+    [SerializeField]
+    private LineRenderer hackLine;
+
+    // [SerializeField]
+    private Transform hackTarget;
+
     [Space(10)]
     [Header("Components")]
     [SerializeField]
@@ -82,11 +88,14 @@ public class CameraObject : SmartObject
 
     public bool PlayerControl => playerControl;
 
+    public bool IsHacking => cameraHackState == CameraHackState.Hacking;
+
     protected override void AwakeBehaviour()
     {
         cameraOrientation = camera_transform.eulerAngles;
         originalFOV = camera.m_Lens.FieldOfView;
         SetActive(false);
+        hackLine.gameObject.SetActive(false);
     }
 
     protected override void StartBehaviour()
@@ -98,6 +107,22 @@ public class CameraObject : SmartObject
         if (throughWallEffect_Active)
         {
             ThroughWallEffect_Update();
+        }
+
+        switch (cameraHackState)
+        {
+            case CameraHackState.None:
+                break;
+            case CameraHackState.Hacking:
+                if (hackLine && hackTarget)
+                {
+                    hackLine.SetPosition(0, Position+new Vector3(0,-.2f,0));
+                    hackLine.SetPosition(1, hackTarget.position);
+                }
+
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -196,6 +221,7 @@ public class CameraObject : SmartObject
             Debug.Log($"{name} state not none");
             return;
         }
+
         if (index < 0)
         {
             Debug.LogError($"{name} hack on {target.name} index < 0");
@@ -203,24 +229,28 @@ public class CameraObject : SmartObject
         }
 
         hackCoroutine = StartCoroutine(HackRoutine(target, index));
+        hackTarget = target.transform;
     }
 
-    IEnumerator HackRoutine(float time, SmartObject target, int index)
-    {
-        cameraHackState = CameraHackState.Hacking;
-
-        yield return new WaitForSeconds(time);
-        target.ActivateHack(index);
-        cameraHackState = CameraHackState.None;
-
-    }
+    // IEnumerator HackRoutine(float time, SmartObject target, int index)
+    // {
+    //     cameraHackState = CameraHackState.Hacking;
+    //
+    //     yield return new WaitForSeconds(time);
+    //     target.ActivateHack(index);
+    //     cameraHackState = CameraHackState.None;
+    //
+    // }
     IEnumerator HackRoutine(SmartObject target, int index)
     {
         cameraHackState = CameraHackState.Hacking;
+        hackLine.gameObject.SetActive(true);
+
         float time = target.Hacks[index].HackTime;
         yield return new WaitForSeconds(time);
         target.ActivateHack(index);
         cameraHackState = CameraHackState.None;
-
+        hackTarget = null;
+        hackLine.gameObject.SetActive(false);
     }
 }

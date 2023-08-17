@@ -48,6 +48,11 @@ public class SensorySource_Audio : SensorySource
         this.position = position;
         this.strength = strength;
     }
+    public SensorySource_Audio(SmartObject so, float strength) : base(so.Position, strength)
+    {
+        this.position = so.Position;
+        this.strength = strength;
+    }
 }
 
 [System.Serializable]
@@ -56,6 +61,12 @@ public class SensorySource_Visual : SensorySource
     public SensorySource_Visual(Vector3 position, float strength) : base(position, strength)
     {
         this.position = position;
+        this.strength = strength;
+    }
+
+    public SensorySource_Visual(SmartObject so, float strength) : base(so.Position, strength)
+    {
+        this.position = so.Position;
         this.strength = strength;
     }
 }

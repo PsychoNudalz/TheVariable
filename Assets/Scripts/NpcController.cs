@@ -52,6 +52,13 @@ public class NpcController : MonoBehaviour
     private float peaceToAlertSpeed = 2f;
 
     [SerializeField]
+    private float alert_SuspiciousThresshold = .5f;
+
+    [SerializeField]
+    float alert_SpottedThresshold = 1f;
+
+
+    [SerializeField]
     Transform alertPosition;
 
     [Header("Death")]
@@ -94,6 +101,7 @@ public class NpcController : MonoBehaviour
 
     public Vector3 AlertPosition => alertPosition.position;
     public float Health => lifeSystem.Health;
+    public bool IsRoaming => blackboardAlertState is NPC_AlertState.Peace or NPC_AlertState.Alert;
 
 
     public SensorySource GetCurrentSS => sensoryController.GetCurrentSS;
@@ -109,8 +117,38 @@ public class NpcController : MonoBehaviour
     {
         alertValue += alert;
         UpdateAlertValue(1f);
-        Debug.Log($"Change NPC state: {blackboardAlertState} --> {npcAlertState}");
+        Debug.Log($"Controller change NPC state from: {blackboardAlertState} --> {npcAlertState}");
         blackboardAlertState = npcAlertState;
+    }
+
+    public void SetMinAlertValue(NPC_AlertState npcAlertState)
+    {
+        // alertValue += alert;
+        // UpdateAlertValue(1f);
+        // Debug.Log($"Controller change NPC state from: {blackboardAlertState} --> {npcAlertState}");
+        // blackboardAlertState = npcAlertState;
+        float thresholdOffset = .1f;
+        switch (npcAlertState)
+        {
+            case NPC_AlertState.Peace:
+                alertValue = Math.Max(alertValue, 0);
+                break;
+            case NPC_AlertState.Alert:
+                alertValue = Math.Max(alertValue, 0);
+
+                break;
+            case NPC_AlertState.Suspicious:
+                alertValue = Math.Max(alertValue, alert_SuspiciousThresshold+thresholdOffset);
+
+                break;
+            case NPC_AlertState.Spotted:
+                alertValue = Math.Max(alertValue, alert_SpottedThresshold+thresholdOffset);
+
+                break;
+            case NPC_AlertState.Hunt:
+                alertValue = Math.Max(alertValue, alert_SuspiciousThresshold+thresholdOffset);
+                break;
+        }
     }
 
     private void Awake()
@@ -148,30 +186,50 @@ public class NpcController : MonoBehaviour
         // AlertUpdateBehaviour();
     }
 
-    public float AlertUpdateBehaviour()
+    /// <summary>
+    /// For detecting and updating the alert state
+    /// </summary>
+    /// <returns></returns>
+    public NPC_AlertState AlertUpdateBehaviour()
     {
-        CameraObject co = sensoryController.FindPlayerCamera();
-
-        if (co)
+        SmartObject so = FindSSHackingCamera();
+        //will need to change this in to detecting any suspicious item
+        if (so)
         {
-            if (alertValue < 1f)
+            if (alertValue < alert_SpottedThresshold)
             {
                 UpdateAlertValue(1f);
-                if (alertValue >= 1f)
-                {
-                    sensoryController.AddSS(new SensorySource_Visual(co.Position, 100f));
-                }
+
             }
         }
         else
         {
-            if (alertValue > 0f)
+            if (IsRoaming)
             {
-                UpdateAlertValue(-1f);
+                if (alertValue > 0f)
+                {
+                    UpdateAlertValue(-1f);
+                }
+            }
+        }
+        if (IsRoaming)
+        {
+            if (alertValue >= alert_SpottedThresshold)
+            {
+                return NPC_AlertState.Spotted;
+            }
+            else if (alertValue >= alert_SuspiciousThresshold)
+            {
+                return NPC_AlertState.Suspicious;
             }
         }
 
-        return alertValue;
+        return blackboardAlertState;
+    }
+
+    public CameraObject FindSSHackingCamera()
+    {
+        return sensoryController.FindHackingCamera();
     }
 
     public void ResetAlert()
@@ -349,7 +407,7 @@ public class NpcController : MonoBehaviour
     TaskEvent InitialiseTask(TaskEvent taskEvent)
     {
         //setting the position to the task object's interaction point
-        if (taskEvent is { HasObject: true, Position: { magnitude: <= .1f } })
+        if (taskEvent is {HasObject: true, Position: {magnitude: <= .1f}})
         {
             taskEvent.Position = taskEvent.TaskSmartObject.InteractPosition;
         }

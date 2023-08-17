@@ -30,7 +30,7 @@ public class NpcSensoryController : MonoBehaviour
         
     }
 
-    public void AddSS(SensorySource ss)
+    public void AddSS(SensorySource ss,bool setToSus = true)
     {
         if (currentSS==null)
         {
@@ -40,7 +40,11 @@ public class NpcSensoryController : MonoBehaviour
         {
             currentSS = SensorySource.Compare(currentSS, ss);
         }
-        npcController.SetAlertState(NPC_AlertState.Suspicious,1);
+
+        if (setToSus)
+        {
+            npcController.SetMinAlertValue(NPC_AlertState.Suspicious);
+        }
     }
 
     public void PopCurrentSS()
@@ -71,7 +75,7 @@ public class NpcSensoryController : MonoBehaviour
     /// TODO: one for if the camera is hacking
     /// </summary>
     /// <returns></returns>
-    public CameraObject FindPlayerCamera()
+    public CameraObject FindHackingCamera()
     {
         foreach (SmartObject smartObject in losObjects)
         {

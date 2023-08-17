@@ -73,6 +73,10 @@ MonoBehaviour:
   - rid: 3923952843446550530
   - rid: 3923952843446550531
   - rid: 3923952843446550532
+  - rid: 8796965340025978880
+  - rid: 8796965340025978881
+  - rid: 8796965340025978882
+  - rid: 8796965340025978883
   treeState: 0
   blackboard:
     alertState: 0
@@ -85,8 +89,8 @@ MonoBehaviour:
     flag_wait: 0
     wait_startTime: 0
     wait_duration: 0
-  viewPosition: {x: -505.6, y: 93.6, z: 0}
-  viewScale: {x: 0.375937, y: 0.375937, z: 1}
+  viewPosition: {x: -165.6, y: -480.8, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -368,7 +372,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 384b940002a702ac3b7f6649381e688a
-        position: {x: 1141.6001, y: 951.6}
+        position: {x: 1091.2, y: 950.4001}
         blackboard:
           alertState: 0
           health: 0
@@ -469,7 +473,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ffb35a5fdbac8098785f6ea5af05cb7d
-        position: {x: 779, y: 788}
+        position: {x: 620.7999, y: 932.00006}
         blackboard:
           alertState: 0
           health: 0
@@ -484,14 +488,14 @@ MonoBehaviour:
         name: A_Update_SensoryDetection
         description: 
         drawGizmos: 0
-        returnFailureOnDetected: 0
+        returnFailureOnDetected: 1
     - rid: 3923952843446550529
       type: {class: A_Update_SensoryDetection, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 7c55cf040fe5a90c599c471045ce6a08
-        position: {x: 1398, y: 820}
+        position: {x: 1242.4, y: 964.3999}
         blackboard:
           alertState: 0
           health: 0
@@ -978,7 +982,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e42d32e76e84eb24f9fd5bfd5ff9b736
-        position: {x: 1217.6001, y: 1109.2001}
+        position: {x: 1091.2001, y: 1110.4}
         blackboard:
           alertState: 0
           health: 0
@@ -1111,8 +1115,8 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 8796965059076030487
+        - rid: 8796965340025978880
         - rid: 8796965059076030490
-        - rid: 3923952843446550528
     - rid: 8796965059076030487
       type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -1144,7 +1148,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 5ef87d35900f79048bc32547ad6f69d1
-        position: {x: 628.8001, y: 788.4}
+        position: {x: 840.8001, y: 788.8}
         blackboard:
           alertState: 0
           health: 0
@@ -1183,8 +1187,8 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 8796965059076030492
+        - rid: 8796965340025978882
         - rid: 8796965059076030493
-        - rid: 3923952843446550529
     - rid: 8796965059076030492
       type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -1216,7 +1220,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c0f11a301320df445bb7aad73236930f
-        position: {x: 1248.0001, y: 820.4}
+        position: {x: 1448.8003, y: 821.6001}
         blackboard:
           alertState: 0
           health: 0
@@ -1463,5 +1467,95 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
         name: Action_Investigate
+        description: 
+        drawGizmos: 0
+    - rid: 8796965340025978880
+      type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 1c983d83cfe8d3c45880a6ea93210c58
+        position: {x: 659.4, y: 788.8}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Selector
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 3923952843446550528
+        - rid: 8796965340025978881
+    - rid: 8796965340025978881
+      type: {class: Action_CreateSSFromVisual, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 45e89d29f5f0a0c419bf4f6fa4573d4c
+        position: {x: 840.8001, y: 931.99994}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Action_CreateSSFromVisual
+        description: 
+        drawGizmos: 0
+    - rid: 8796965340025978882
+      type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 23a9cce7a76d62e4eb47c451a3eb2b24
+        position: {x: 1270.8, y: 821.6}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Selector
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 3923952843446550529
+        - rid: 8796965340025978883
+    - rid: 8796965340025978883
+      type: {class: Action_CreateSSFromVisual, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: bfb40382a3b5e21468989eaa2932d5bd
+        position: {x: 1448.8, y: 964.8001}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+        name: Action_CreateSSFromVisual
         description: 
         drawGizmos: 0

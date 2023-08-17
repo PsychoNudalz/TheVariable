@@ -9,6 +9,9 @@ public class A_Update_SensoryDetection : ActionNode
     [SerializeField]
     private bool returnFailureOnDetected = false;
 
+    // [SerializeField]
+    // private bool returnFailureOnDetected = false;
+
     protected override void OnStart()
     {
     }
@@ -19,10 +22,16 @@ public class A_Update_SensoryDetection : ActionNode
 
     protected override State OnUpdate()
     {
-        float f = context.NpcController.AlertUpdateBehaviour();
-        if (returnFailureOnDetected & f >= 1)
+        NPC_AlertState returnState = context.NpcController.AlertUpdateBehaviour();
+
+        if (returnState != blackboard.alertState)
         {
-            return State.Failure;
+            ChangeAlertState(returnState);
+            
+            if (returnFailureOnDetected)
+            {
+                return State.Failure;
+            }
         }
 
         return State.Running;

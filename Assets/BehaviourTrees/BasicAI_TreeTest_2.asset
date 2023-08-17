@@ -48,7 +48,6 @@ MonoBehaviour:
   - rid: 8796965059076030478
   - rid: 8796965059076030479
   - rid: 8796965059076030481
-  - rid: 8796965059076030482
   - rid: 8796965059076030483
   - rid: 8796965059076030484
   - rid: 8796965059076030485
@@ -65,7 +64,6 @@ MonoBehaviour:
   - rid: 8796965059076030499
   - rid: 8796965059076030500
   - rid: 8796965064170012672
-  - rid: 8796965064170012673
   - rid: 8796965064170012674
   - rid: 8796965064170012675
   - rid: 3923952843446550528
@@ -89,8 +87,8 @@ MonoBehaviour:
     flag_wait: 0
     wait_startTime: 0
     wait_duration: 0
-  viewPosition: {x: -165.6, y: -480.8, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+  viewPosition: {x: -1533.6, y: -390.4, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -447,7 +445,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0ff5508c9b471b6b78ea1210a1202dbc
-        position: {x: 2427, y: 1064}
+        position: {x: 2445.6, y: 1055.2001}
         blackboard:
           alertState: 0
           health: 0
@@ -463,10 +461,10 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         speed: 5
-        stoppingDistance: 1
+        stoppingDistance: 2
         updateRotation: 1
         acceleration: 40
-        tolerance: 1
+        tolerance: 2
     - rid: 3923952843446550528
       type: {class: A_Update_SensoryDetection, ns: , asm: Assembly-CSharp}
       data:
@@ -489,6 +487,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         returnFailureOnDetected: 1
+        returnTrueAfterUpdate: 0
     - rid: 3923952843446550529
       type: {class: A_Update_SensoryDetection, ns: , asm: Assembly-CSharp}
       data:
@@ -511,13 +510,14 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         returnFailureOnDetected: 0
+        returnTrueAfterUpdate: 0
     - rid: 3923952843446550530
       type: {class: Action_ResetAlert, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 0fa3918e7551c12c2a07442ee225ab17
-        position: {x: 2727, y: 1064}
+        position: {x: 3021.0325, y: 1063.9998}
         blackboard:
           alertState: 0
           health: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6dee9bf53c85d46e99fa60682059bcab
-        position: {x: 2802, y: 920}
+        position: {x: 3096.2324, y: 919.9999}
         blackboard:
           alertState: 0
           health: 0
@@ -916,7 +916,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 33764ee97d0718448b13fe7a9cb1eba0
-        position: {x: 2877, y: 1064}
+        position: {x: 3171.4324, y: 1063.9998}
         blackboard:
           alertState: 0
           health: 0
@@ -938,7 +938,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 48215e69efa86e64cb060afc6c208883
-        position: {x: 2246, y: 1118}
+        position: {x: 2246.4, y: 1054.4}
         blackboard:
           alertState: 0
           health: 0
@@ -983,29 +983,6 @@ MonoBehaviour:
         started: 0
         guid: e42d32e76e84eb24f9fd5bfd5ff9b736
         position: {x: 1091.2001, y: 1110.4}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-        name: Action_SetWait
-        description: 
-        drawGizmos: 0
-        duration: 1
-        playWaitAnimation: 0
-    - rid: 8796965059076030482
-      type: {class: Action_SetWait, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: b2b6da5434b2116419d3a0ebdcd99cad
-        position: {x: 2652, y: 1202}
         blackboard:
           alertState: 0
           health: 0
@@ -1384,7 +1361,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0db0abcf96b2f3441a27a9bffeea4958
-        position: {x: 2577, y: 920}
+        position: {x: 2655, y: 924}
         blackboard:
           alertState: 0
           health: 0
@@ -1402,31 +1379,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
-        - rid: 8796965064170012673
-    - rid: 8796965064170012673
-      type: {class: Parallel, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: dc058001b76960049804693b02ff1774
-        position: {x: 2577, y: 1064}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-        name: Parallel
-        description: 
-        drawGizmos: 0
-        children:
         - rid: 8796965064170012675
-        - rid: 8796965059076030482
     - rid: 8796965064170012674
       type: {class: Assign_SensorySource, ns: , asm: Assembly-CSharp}
       data:
@@ -1454,7 +1407,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c35a0730c39c36548a56a9550de20b02
-        position: {x: 2503, y: 1202}
+        position: {x: 2655.2, y: 1072.8}
         blackboard:
           alertState: 0
           health: 0
@@ -1469,6 +1422,7 @@ MonoBehaviour:
         name: Action_Investigate
         description: 
         drawGizmos: 0
+        investigate_TimeRange: {x: 3, y: 10}
     - rid: 8796965340025978880
       type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:

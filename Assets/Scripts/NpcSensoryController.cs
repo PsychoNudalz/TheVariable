@@ -71,8 +71,8 @@ public class NpcSensoryController : MonoBehaviour
     }
     
     /// <summary>
-    /// Find camera that is controlled the player
-    /// TODO: one for if the camera is hacking
+    /// Find camera that is hacking
+    /// 
     /// </summary>
     /// <returns></returns>
     public CameraObject FindHackingCamera()
@@ -90,4 +90,28 @@ public class NpcSensoryController : MonoBehaviour
 
         return null;
     }
+    
+    /// <summary>
+    /// Find camera that is controlled the player or hacking
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public CameraObject[] FindActiveCameras()
+    {
+        List<CameraObject> cameras = new List<CameraObject>();
+        foreach (SmartObject smartObject in losObjects)
+        {
+            if (smartObject is CameraObject cameraObject)
+            {
+                if (cameraObject.IsHacking||cameraObject.IsPlayerControl)
+                {
+                    cameras.Add(cameraObject);
+                }
+            }
+        }
+
+        return cameras.ToArray();
+    }
+    
+
 }

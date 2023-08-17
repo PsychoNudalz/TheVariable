@@ -24,7 +24,7 @@ public class UI_Alert : MonoBehaviour
 
     private Material alertMaterial;
     private static readonly int AlertStrength = Shader.PropertyToID("_AlertStrength");
-    private Camera world;
+    private Camera worldCamera;
 
     public bool isActive => gameObject.activeSelf;
 
@@ -36,7 +36,7 @@ public class UI_Alert : MonoBehaviour
         }
 
         SetAlertStrength(0f);
-        world = Camera.main;
+        worldCamera = Camera.main;
         alertTransform = alertSprite.transform;
     }
     
@@ -49,7 +49,7 @@ public class UI_Alert : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        alertTransform.forward = -(world.transform.forward);
+        alertTransform.forward = ((worldCamera.transform.position) - alertTransform.position).normalized;
         alertTransform.localScale = new Vector3(GetScale(),GetScale(),GetScale());
     }
     public void SetAlertPosition(Vector3 worldPosition)
@@ -85,7 +85,7 @@ public class UI_Alert : MonoBehaviour
 
     float GetScale()
     {
-        float distance = Vector3.Distance(world.transform.position, alertTransform.position);
+        float distance = Vector3.Distance(worldCamera.transform.position, alertTransform.position);
         float factor = Math.Clamp(distance / distanceRange.y, 0f, 1f);
         return (scaleRange.y - scaleRange.x) * factor + scaleRange.x;
     }

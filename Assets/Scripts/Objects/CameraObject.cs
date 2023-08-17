@@ -84,13 +84,13 @@ public class CameraObject : SmartObject
 
     private const int CameraPriority = 10;
 
-    private bool playerControl = false;
+    private bool isPlayerControl = false;
     public override Vector3 Position => camera_transform.position;
     public override Vector3 Forward => camera_transform.forward;
 
     public override Vector3 ColliderPosition => mainCollider.transform.position;
 
-    public bool PlayerControl => playerControl;
+    public bool IsPlayerControl => isPlayerControl;
 
     public bool IsHacking => cameraHackState == CameraHackState.Hacking;
 
@@ -196,7 +196,7 @@ public class CameraObject : SmartObject
             }
         }
 
-        playerControl = b;
+        isPlayerControl = b;
     }
 
     public void ThroughWallEffect_Activate()

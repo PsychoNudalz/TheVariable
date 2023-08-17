@@ -3,12 +3,15 @@
 [System.Serializable]
 public class SensorySource
 {
+    protected SmartObject smartObject = null;
     protected Vector3 position;
     protected float strength;
 
     public Vector3 Position => position;
 
     public float Strength => strength;
+
+    public SmartObject SmartObject => smartObject;
 
     public SensorySource(Vector3 position, float strength)
     {
@@ -52,6 +55,7 @@ public class SensorySource_Audio : SensorySource
     {
         this.position = so.Position;
         this.strength = strength;
+        smartObject = so;
     }
 }
 
@@ -68,5 +72,6 @@ public class SensorySource_Visual : SensorySource
     {
         this.position = so.Position;
         this.strength = strength;
+        smartObject = so;
     }
 }

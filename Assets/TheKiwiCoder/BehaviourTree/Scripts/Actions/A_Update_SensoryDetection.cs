@@ -9,6 +9,9 @@ public class A_Update_SensoryDetection : ActionNode
     [SerializeField]
     private bool returnFailureOnDetected = false;
 
+    
+    [SerializeField]
+    private bool returnTrueAfterUpdate = false;
     // [SerializeField]
     // private bool returnFailureOnDetected = false;
 
@@ -24,6 +27,10 @@ public class A_Update_SensoryDetection : ActionNode
     {
         NPC_AlertState returnState = context.NpcController.AlertUpdateBehaviour();
 
+        if (returnTrueAfterUpdate)
+        {
+            return  State.Success;
+        }
         if (returnState != blackboard.alertState)
         {
             ChangeAlertState(returnState);

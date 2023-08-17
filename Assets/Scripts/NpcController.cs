@@ -138,15 +138,15 @@ public class NpcController : MonoBehaviour
 
                 break;
             case NPC_AlertState.Suspicious:
-                alertValue = Math.Max(alertValue, alert_SuspiciousThresshold+thresholdOffset);
+                alertValue = Math.Max(alertValue, alert_SuspiciousThresshold + thresholdOffset);
 
                 break;
             case NPC_AlertState.Spotted:
-                alertValue = Math.Max(alertValue, alert_SpottedThresshold+thresholdOffset);
+                alertValue = Math.Max(alertValue, alert_SpottedThresshold + thresholdOffset);
 
                 break;
             case NPC_AlertState.Hunt:
-                alertValue = Math.Max(alertValue, alert_SuspiciousThresshold+thresholdOffset);
+                alertValue = Math.Max(alertValue, alert_SuspiciousThresshold + thresholdOffset);
                 break;
         }
     }
@@ -192,14 +192,13 @@ public class NpcController : MonoBehaviour
     /// <returns></returns>
     public NPC_AlertState AlertUpdateBehaviour()
     {
-        SmartObject so = FindSSHackingCamera();
+        SmartObject so = FindSS_HackingCamera();
         //will need to change this in to detecting any suspicious item
         if (so)
         {
             if (alertValue < alert_SpottedThresshold)
             {
                 UpdateAlertValue(1f);
-
             }
         }
         else
@@ -212,24 +211,55 @@ public class NpcController : MonoBehaviour
                 }
             }
         }
+
         if (IsRoaming)
         {
-            if (alertValue >= alert_SpottedThresshold)
-            {
-                return NPC_AlertState.Spotted;
-            }
-            else if (alertValue >= alert_SuspiciousThresshold)
-            {
-                return NPC_AlertState.Suspicious;
-            }
+            return EvaluateAlertValue();
         }
 
         return blackboardAlertState;
     }
 
-    public CameraObject FindSSHackingCamera()
+    public NPC_AlertState EvaluateAlertValue()
+    {
+        if (alertValue >= alert_SpottedThresshold)
+        {
+            {
+                return NPC_AlertState.Spotted;
+            }
+        }
+        else if (alertValue >= alert_SuspiciousThresshold)
+        {
+            {
+                return NPC_AlertState.Suspicious;
+            }
+        }
+
+        //TODO: might need to check back on this to find if the world is in alert or not
+        switch (blackboardAlertState)
+        {
+            case NPC_AlertState.Peace:
+                return NPC_AlertState.Peace;
+                break;
+            case NPC_AlertState.Alert:
+                return NPC_AlertState.Alert;
+                break;
+            default:
+                return NPC_AlertState.Peace;
+                break;
+        }
+
+        return blackboardAlertState;
+    }
+
+    public CameraObject FindSS_HackingCamera()
     {
         return sensoryController.FindHackingCamera();
+    }
+
+    public CameraObject[] FindSS_ActiveCameras()
+    {
+        return sensoryController.FindActiveCameras();
     }
 
     public void ResetAlert()
@@ -239,7 +269,7 @@ public class NpcController : MonoBehaviour
     }
 
 
-    private void UpdateAlertValue(float multiplier)
+    public void UpdateAlertValue(float multiplier)
     {
         alertValue = Math.Clamp(alertValue + peaceToAlertSpeed * multiplier * Time.deltaTime, 0f, 1f);
         UpdateAlertUI();

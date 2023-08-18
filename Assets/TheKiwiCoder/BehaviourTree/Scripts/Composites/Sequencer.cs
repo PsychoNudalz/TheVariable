@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheKiwiCoder {
+    /// <summary>
+    /// Update nodes from left to right, move when node is successful.  Will fail when a child fails 
+    /// </summary>
     [System.Serializable]
     public class Sequencer : CompositeNode {
         protected int current;

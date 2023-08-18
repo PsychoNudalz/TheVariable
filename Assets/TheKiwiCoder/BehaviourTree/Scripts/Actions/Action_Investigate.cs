@@ -21,12 +21,14 @@ public class Action_Investigate : ActionNode
     private float investigate_Time = 0;
 
     private float investigate_StartTime = 0;
+    private bool isPlayerSpotted = false;
 
     protected override void OnStart()
     {
         blackboard.currentSensorySource = context.NpcController.GetCurrentSS;
         investigate_StartTime = Time.time;
         investigate_Time = Random.Range(investigate_TimeRange.x, investigate_TimeRange.y);
+        isPlayerSpotted = false;
     }
 
     protected override void OnStop()
@@ -34,8 +36,13 @@ public class Action_Investigate : ActionNode
         if (started)
         {
             context.NpcController.RemoveCurrentSensorySource();
-            blackboard.currentSensorySource = null;
+
+            if (!isPlayerSpotted)
+            {
+                blackboard.currentSensorySource = null;
+            }
         }
+        
     }
 
     protected override State OnUpdate()
@@ -51,6 +58,8 @@ public class Action_Investigate : ActionNode
                 if (returnState != blackboard.alertState)
                 {
                     ChangeAlertState(returnState,false);
+                    isPlayerSpotted = true;
+
                     return State.Failure;
                 }
             }

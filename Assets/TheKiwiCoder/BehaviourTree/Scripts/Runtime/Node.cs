@@ -155,6 +155,7 @@ namespace TheKiwiCoder
             {
                 context.NpcController.Set_MinAlertValue(alertState);
             }
+            context.NpcController.UpdateAlertUI();
         }
         
         protected void Clear_Blackboard_Items()

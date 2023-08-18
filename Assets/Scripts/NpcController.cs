@@ -307,7 +307,7 @@ public class NpcController : MonoBehaviour
         UpdateAlertUI();
     }
 
-    private void UpdateAlertUI()
+    public void UpdateAlertUI()
     {
         uiController.AlertManager_SetAlert(this, alertValue);
     }

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheKiwiCoder {
+    /// <summary>
+    /// Finds the first successful child node, moved from failed nodes left to right 
+    /// </summary>
     [System.Serializable]
     public class Selector : CompositeNode {
         protected int current;

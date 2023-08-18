@@ -98,8 +98,8 @@ public class UI_Alert : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
             SetAlertStrength(0);
+            gameObject.SetActive(false);
         }
     }
 

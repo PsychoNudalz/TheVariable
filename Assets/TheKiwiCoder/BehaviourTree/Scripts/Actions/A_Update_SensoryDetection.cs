@@ -33,7 +33,7 @@ public class A_Update_SensoryDetection : ActionNode
         }
         if (returnState != blackboard.alertState)
         {
-            ChangeAlertState(returnState);
+            ChangeAlertState(returnState,false);
             
             if (returnFailureOnDetected)
             {

@@ -113,7 +113,7 @@ public class NpcController : MonoBehaviour
     }
 
 
-    public void SetAlertState(NPC_AlertState npcAlertState, float alert = 0)
+    public void Set_AlertState(NPC_AlertState npcAlertState, float alert = 0)
     {
         alertValue += alert;
         UpdateAlertValue(1f);
@@ -121,13 +121,45 @@ public class NpcController : MonoBehaviour
         blackboardAlertState = npcAlertState;
     }
 
-    public void SetMinAlertValue(NPC_AlertState npcAlertState)
+    public void Override_AlertValue(float f)
+    {
+        Debug.Log($"Override NPC alert from: {alertValue} --> {f}");
+        alertValue = f;
+    }
+
+    public void Override_AlertValue(NPC_AlertState npcAlertState)
+    {
+        switch (npcAlertState)
+        {
+            case NPC_AlertState.Peace:
+                Override_AlertValue(0f);
+                break;
+            case NPC_AlertState.Alert:
+                Override_AlertValue(0f);
+
+                break;
+            case NPC_AlertState.Suspicious:
+                Override_AlertValue(alert_SuspiciousThresshold);
+
+                break;
+            case NPC_AlertState.Spotted:
+                Override_AlertValue(alert_SpottedThresshold);
+
+                break;
+            case NPC_AlertState.Hunt:
+                Override_AlertValue(alert_SuspiciousThresshold);
+
+                break;
+        }
+    }
+
+    public void Set_MinAlertValue(NPC_AlertState npcAlertState)
     {
         // alertValue += alert;
         // UpdateAlertValue(1f);
         // Debug.Log($"Controller change NPC state from: {blackboardAlertState} --> {npcAlertState}");
         // blackboardAlertState = npcAlertState;
-        float thresholdOffset = .1f;
+        float thresholdOffset = .01f;
         switch (npcAlertState)
         {
             case NPC_AlertState.Peace:

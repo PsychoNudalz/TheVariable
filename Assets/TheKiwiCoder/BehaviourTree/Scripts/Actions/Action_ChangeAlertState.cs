@@ -8,7 +8,7 @@ public class Action_ChangeAlertState : ActionNode
 
     protected override void OnStart()
     {
-        ChangeAlertState(newState);
+        ChangeAlertState(newState,true);
     }
 
     protected override void OnStop()

@@ -142,10 +142,19 @@ namespace TheKiwiCoder
 
             return false;
         }
-        public void ChangeAlertState(NPC_AlertState alertState)
+        public void ChangeAlertState(NPC_AlertState alertState,bool overrideValue)
         {
             Debug.Log($"Node change NPC state: {blackboard.alertState} --> {alertState}");
             blackboard.alertState = alertState;
+            if (overrideValue)
+            {
+                context.NpcController.Override_AlertValue(alertState);
+                
+            }
+            else
+            {
+                context.NpcController.Set_MinAlertValue(alertState);
+            }
         }
         
         protected void Clear_Blackboard_Items()

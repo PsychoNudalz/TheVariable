@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7404821235453158281
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1320077873986614606, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Test_Ron
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.7526723
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.4350176
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[0].duration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[0].taskName
+      value: TaskPoint_Oven_Bake Pie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[1].duration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[1].taskName
+      value: TaskPoint_Oven_Bake Pie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[2].duration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[2].taskName
+      value: Test 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[3].duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[3].taskName
+      value: TaskPoint_Interact_Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[1].startTime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[2].startTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[3].startTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[0].taskObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[1].taskObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[2].taskObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[3].position.x
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[3].position.z
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[3].taskObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[0].itemsConsumeOnUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[1].itemsConsumeOnUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[0].requiredItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[1].requiredItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[0].requiredItems.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[1].requiredItems.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931100631368753877, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d592768ee8c68c46b55655de0bab15b, type: 2}
+    - target: {fileID: 7931100631368753877, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3a3ca1609f329c647b3d8b3e4d3b04c0, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d069e2915b6eb7046a856e3c59f0a699, type: 3}

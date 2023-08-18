@@ -43,7 +43,7 @@ public class NpcSensoryController : MonoBehaviour
 
         if (setToSus)
         {
-            npcController.SetMinAlertValue(NPC_AlertState.Suspicious);
+            npcController.Set_MinAlertValue(NPC_AlertState.Suspicious);
         }
     }
 

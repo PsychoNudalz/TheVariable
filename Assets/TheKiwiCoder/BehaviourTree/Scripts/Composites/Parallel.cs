@@ -3,32 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace TheKiwiCoder {
+namespace TheKiwiCoder
+{
     [System.Serializable]
-    public class Parallel : CompositeNode {
+    public class Parallel : CompositeNode
+    {
         List<State> childrenLeftToExecute = new List<State>();
 
-        protected override void OnStart() {
+        [SerializeField]
+        private bool abortOnSuccess = false;
+
+        protected override void OnStart()
+        {
             childrenLeftToExecute.Clear();
-            children.ForEach(a => {
-                childrenLeftToExecute.Add(State.Running);
-            });
+            children.ForEach(a => { childrenLeftToExecute.Add(State.Running); });
         }
 
-        protected override void OnStop() {
+        protected override void OnStop()
+        {
         }
 
-        protected override State OnUpdate() {
+        protected override State OnUpdate()
+        {
             bool stillRunning = false;
-            for (int i = 0; i < childrenLeftToExecute.Count(); ++i) {
-                if (childrenLeftToExecute[i] == State.Running) {
+            for (int i = 0; i < childrenLeftToExecute.Count(); ++i)
+            {
+                if (childrenLeftToExecute[i] == State.Running)
+                {
                     var status = children[i].Update();
-                    if (status == State.Failure) {
+                    if (status == State.Failure)
+                    {
                         AbortRunningChildren();
                         return State.Failure;
                     }
+                    else if (abortOnSuccess && status == State.Success)
+                    {
+                        AbortRunningChildren();
+                        return State.Success;
+                    }
 
-                    if (status == State.Running) {
+                    if (status == State.Running)
+                    {
                         stillRunning = true;
                     }
 
@@ -39,9 +54,12 @@ namespace TheKiwiCoder {
             return stillRunning ? State.Running : State.Success;
         }
 
-        void AbortRunningChildren() {
-            for (int i = 0; i < childrenLeftToExecute.Count(); ++i) {
-                if (childrenLeftToExecute[i] == State.Running) {
+        void AbortRunningChildren()
+        {
+            for (int i = 0; i < childrenLeftToExecute.Count(); ++i)
+            {
+                if (childrenLeftToExecute[i] == State.Running)
+                {
                     children[i].Abort();
                 }
             }

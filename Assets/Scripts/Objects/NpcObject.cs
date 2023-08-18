@@ -37,7 +37,8 @@ public class NpcObject : SmartObject
 
     public void Hack_SetAlertState(NPC_AlertState state)
     {
-        controller.SetAlertState(state);
+        controller.Override_AlertValue(state);
+        controller.Set_AlertState(state);
     }
 
 

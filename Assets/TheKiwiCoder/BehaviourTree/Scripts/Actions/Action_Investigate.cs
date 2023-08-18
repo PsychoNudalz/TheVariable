@@ -13,7 +13,13 @@ public class Action_Investigate : ActionNode
     [SerializeField]
     private Vector2 investigate_TimeRange = new Vector2(3, 10);
 
+    [SerializeField]
+    float alertBuildup = 1f;
+
+    [SerializeField]
+    private bool returnFailureOnTimeExpire = true;
     private float investigate_Time = 0;
+
     private float investigate_StartTime = 0;
 
     protected override void OnStart()
@@ -25,8 +31,11 @@ public class Action_Investigate : ActionNode
 
     protected override void OnStop()
     {
-        context.NpcController.RemoveCurrentSensorySource();
-        blackboard.currentSensorySource = null;
+        if (started)
+        {
+            context.NpcController.RemoveCurrentSensorySource();
+            blackboard.currentSensorySource = null;
+        }
     }
 
     protected override State OnUpdate()
@@ -36,17 +45,25 @@ public class Action_Investigate : ActionNode
             //While the AI is investigating
             if (context.NpcController.FindSS_ActiveCameras().Length > 0)
             {
-                context.NpcController.UpdateAlertValue(2f);
+                context.NpcController.UpdateAlertValue(alertBuildup);
                 NPC_AlertState returnState = context.NpcController.EvaluateAlertValue();
 
                 if (returnState != blackboard.alertState)
                 {
-                    ChangeAlertState(returnState);
+                    ChangeAlertState(returnState,false);
                     return State.Failure;
                 }
             }
 
-            return State.Running;
+            if (returnFailureOnTimeExpire)
+            {
+                return State.Failure;
+
+            }
+            else
+            {
+                return State.Running;
+            }
         }
 
         return State.Success;

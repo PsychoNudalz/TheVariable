@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /// <summary>
@@ -11,8 +12,13 @@ using UnityEngine.UI;
 public class UI_Alert : MonoBehaviour
 {
     [SerializeField]
-    private SpriteRenderer alertSprite;
+    private SpriteRenderer susSprite;
 
+    [SerializeField]
+    private SpriteRenderer spottedSprite;
+
+    [SerializeField]
+    private Transform alertTransform;
     [Header("Sized")]
     [SerializeField]
     private Vector2 distanceRange = new Vector2(0,10);
@@ -20,7 +26,6 @@ public class UI_Alert : MonoBehaviour
     [SerializeField]
     private Vector2 scaleRange = new Vector2(.3f,10f);
 
-    private Transform alertTransform;
 
     private Material alertMaterial;
     private static readonly int AlertStrength = Shader.PropertyToID("_AlertStrength");
@@ -30,14 +35,14 @@ public class UI_Alert : MonoBehaviour
 
     private void Awake()
     {
-        if (alertSprite)
+        if (susSprite)
         {
-            alertMaterial = alertSprite.material;
+            alertMaterial = susSprite.material;
         }
 
         SetAlertStrength(0f);
         worldCamera = Camera.main;
-        alertTransform = alertSprite.transform;
+        spottedSprite.gameObject.SetActive(false);
     }
     
     // Start is called before the first frame update
@@ -49,8 +54,11 @@ public class UI_Alert : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        alertTransform.forward = ((worldCamera.transform.position) - alertTransform.position).normalized;
-        alertTransform.localScale = new Vector3(GetScale(),GetScale(),GetScale());
+        Vector3 transformForward = ((-worldCamera.transform.position)+alertTransform.position).normalized;
+        alertTransform.forward = transformForward;
+        
+        Vector3 transformLocalScale = new Vector3(GetScale(),GetScale(),GetScale());
+        alertTransform.localScale = transformLocalScale;
     }
     public void SetAlertPosition(Vector3 worldPosition)
     {
@@ -60,7 +68,19 @@ public class UI_Alert : MonoBehaviour
 
     public void SetAlertStrength(float value)
     {
-        alertSprite.material.SetFloat(AlertStrength, value);
+        if (value < 1f)
+        {
+            susSprite.gameObject.SetActive(true);
+            spottedSprite.gameObject.SetActive(false);
+            susSprite.material.SetFloat(AlertStrength, value);
+        }
+        else
+        {
+            susSprite.gameObject.SetActive(false);
+            spottedSprite.gameObject.SetActive(true);
+            susSprite.material.SetFloat(AlertStrength, 1f);
+
+        }
     }
 
 

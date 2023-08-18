@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.data[1].taskName
-      value: TaskPoint_Oven_Bake Pie
+      value: Sleep
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -114,8 +114,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
+      propertyPath: schedule.Array.data[0].startTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
       propertyPath: schedule.Array.data[1].startTime
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -159,13 +164,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
+      propertyPath: schedule.Array.data[0].taskSmartObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[1].taskSmartObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
       propertyPath: schedule.Array.data[0].itemsConsumeOnUse
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.data[1].itemsConsumeOnUse
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -175,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.data[1].requiredItems.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}

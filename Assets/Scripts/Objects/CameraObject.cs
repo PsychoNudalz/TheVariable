@@ -44,16 +44,25 @@ public class CameraObject : SmartObject
     private float throughWallEffect_TimeNow = 0;
     private bool throughWallEffect_Active = false;
 
+    [SerializeField]
+    private Renderer cameraRenderer;
+
+    [SerializeField]
+    private Material lockedOutMaterial;
+
+    private Material[] originalMaterials;
+
     [Serializable]
-    enum CameraHackState
+    enum CameraState
     {
         None,
-        Hacking
+        Hacking,
+        Locked
     }
 
     [Header("Hacking")]
     [SerializeField]
-    private CameraHackState cameraHackState = CameraHackState.None;
+    private CameraState cameraState = CameraState.None;
 
     private Coroutine hackCoroutine;
 
@@ -66,6 +75,8 @@ public class CameraObject : SmartObject
     private float cameraHack_Time = 0;
     private float cameraHack_TimeNow = 0;
 
+    [Header("Locking")]
+    private float cameraLock_Time = 0;
 
     [Space(10)]
     [Header("Components")]
@@ -92,7 +103,10 @@ public class CameraObject : SmartObject
 
     public bool IsPlayerControl => isPlayerControl;
 
-    public bool IsHacking => cameraHackState == CameraHackState.Hacking;
+    public bool IsHacking => cameraState == CameraState.Hacking;
+    public bool IsLocked => cameraState == CameraState.Locked;
+
+    public float CameraLockTime => cameraLock_Time;
 
     protected override void AwakeBehaviour()
     {
@@ -100,8 +114,10 @@ public class CameraObject : SmartObject
         originalFOV = camera.m_Lens.FieldOfView;
         SetActive(false);
         hackLine.gameObject.SetActive(false);
-        
-
+        if (cameraRenderer)
+        {
+            originalMaterials = cameraRenderer.materials;
+        }
     }
 
     protected override void StartBehaviour()
@@ -115,22 +131,35 @@ public class CameraObject : SmartObject
             ThroughWallEffect_Update();
         }
 
-        switch (cameraHackState)
+        switch (cameraState)
         {
-            case CameraHackState.None:
+            case CameraState.None:
                 break;
-            case CameraHackState.Hacking:
+            case CameraState.Hacking:
                 if (hackLine && hackTarget)
                 {
                     if (cameraHack_TimeNow > 0)
                     {
                         cameraHack_TimeNow -= Time.deltaTime;
                     }
-                    hackLine.SetPosition(0, Position+new Vector3(0,-.2f,0));
+
+                    hackLine.SetPosition(0, Position + new Vector3(0, -.2f, 0));
                     hackLine.SetPosition(1, hackTarget.position);
-                    hackLine.material.SetVector("_Effect_Animation_Position",hackLine.transform.position);
-                    hackLine.material.SetFloat("_Effect_Animation_Distance",(Position-hackTarget.position).magnitude);
-                    hackLine.material.SetFloat("_Effect_Animation_Value",1-(cameraHack_TimeNow/cameraHack_Time));
+                    hackLine.material.SetVector("_Effect_Animation_Position", hackLine.transform.position);
+                    hackLine.material.SetFloat("_Effect_Animation_Distance",
+                        (Position - hackTarget.position).magnitude);
+                    hackLine.material.SetFloat("_Effect_Animation_Value", 1 - (cameraHack_TimeNow / cameraHack_Time));
+                }
+
+                break;
+            case CameraState.Locked:
+                if (cameraLock_Time > 0)
+                {
+                    cameraLock_Time -= Time.deltaTime;
+                }
+                else
+                {
+                    Set_Lock(false);
                 }
 
                 break;
@@ -229,7 +258,7 @@ public class CameraObject : SmartObject
 
     public void StartHack(SmartObject target, int index)
     {
-        if (cameraHackState != CameraHackState.None)
+        if (cameraState != CameraState.None)
         {
             Debug.Log($"{name} state not none");
             return;
@@ -255,7 +284,7 @@ public class CameraObject : SmartObject
     // }
     IEnumerator HackRoutine(SmartObject target, int index)
     {
-        cameraHackState = CameraHackState.Hacking;
+        cameraState = CameraState.Hacking;
         hackLine.gameObject.SetActive(true);
         hackTarget = target.transform;
         float time = target.Hacks[index].HackTime;
@@ -263,8 +292,45 @@ public class CameraObject : SmartObject
         cameraHack_TimeNow = time;
         yield return new WaitForSeconds(time);
         target.ActivateHack(index);
-        cameraHackState = CameraHackState.None;
+        cameraState = CameraState.None;
         hackTarget = null;
         hackLine.gameObject.SetActive(false);
+    }
+
+    public void Set_Lock(bool b, float duration = 0f)
+    {
+        Set_LockMaterial(b);
+        if (b)
+        {
+            if (hackCoroutine != null)
+            {
+                StopCoroutine(hackCoroutine);
+                hackCoroutine = null;
+            }
+            cameraState = CameraState.Locked;
+            cameraLock_Time += duration;
+        }
+        else
+        {
+            cameraState = CameraState.None;
+        }
+    }
+
+    void Set_LockMaterial(bool b)
+    {
+        if (b)
+        {
+            for (var i = 0; i < cameraRenderer.materials.Length; i++)
+            {
+                cameraRenderer.materials[i] = lockedOutMaterial;
+            }
+        }
+        else
+        {
+            for (var i = 0; i < cameraRenderer.materials.Length; i++)
+            {
+                cameraRenderer.materials[i] = originalMaterials[i];
+            }
+        }
     }
 }

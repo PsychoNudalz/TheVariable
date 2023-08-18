@@ -402,6 +402,8 @@ MonoBehaviour:
   zoomSpeed: 1
   throughWallEffect: {fileID: 2812268136883804289}
   throughWallEffect_Time: 1
+  cameraRenderer: {fileID: 5103197614238685720}
+  lockedOutMaterial: {fileID: 2100000, guid: 7a1630b3f045988479418dce49b703fa, type: 2}
   cameraHackState: 0
   hackLine: {fileID: 6230879108543905253}
   cameraBody: {fileID: 5103197614238685720}

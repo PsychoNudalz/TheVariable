@@ -7,7 +7,10 @@ using TheKiwiCoder;
 public class Action_LockCamera : ActionNode
 {
     [SerializeField]
+    private float lockDuration = 5f;
+    [SerializeField]
     private CameraObject cameraToLock;
+    
 
     protected override void OnStart()
     {
@@ -33,8 +36,9 @@ public class Action_LockCamera : ActionNode
         {
             return State.Failure;
         }
+        
+        cameraToLock.Set_Lock(true,lockDuration);
 
-        //TODO: camera lock method
         if (cameraToLock.IsPlayerControl)
         {
             return State.Success;

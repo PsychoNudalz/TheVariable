@@ -234,7 +234,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (cameraMode != CameraMode.Free)
+        if (cameraMode == CameraMode.SelectHack)
         {
             return;
         }
@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (cameraMode != CameraMode.Free)
+        if (cameraMode == CameraMode.SelectHack)
         {
             return;
         }

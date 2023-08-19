@@ -35,7 +35,7 @@ public class UI_HackAbilityDisplay : MonoBehaviour
             var uiHackAbilityButton = buttons[index];
             if (index < currentSO.Hacks.Length)
             {
-                uiHackAbilityButton.SetActive(true,currentSO.Hacks[index].ToString());
+                uiHackAbilityButton.SetActive(true,currentSO.Hacks[index]);
             }
             else
             {

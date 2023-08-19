@@ -27,6 +27,10 @@ public class Hack_Camera_Switch : HackAbility
     /// <returns></returns>
     public override int Hack(HackContext hackContext)
     {
+        if (!CanHack())
+        {
+            return -1;
+        }
         this.context = hackContext;
         //implementation of the hack
         if (context.SmartObjects[0] is CameraObject co)
@@ -44,8 +48,20 @@ public class Hack_Camera_Switch : HackAbility
         else
         {
             Debug.LogError("Camera switch target is not a camera!");
+            return 1;
+
         }
 
         return 0;
+    }
+
+    public override bool CanHack()
+    {
+        if (smartObject is CameraObject co)
+        {
+            return !co.IsLocked;
+        }
+        
+        return base.CanHack();
     }
 }

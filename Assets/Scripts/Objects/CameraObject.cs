@@ -279,11 +279,11 @@ public class CameraObject : SmartObject
 
     public void StartHack(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
     {
-        if (cameraState != CameraState.None)
-        {
-            Debug.Log($"{name} state not none");
-            return;
-        }
+        // if (cameraState != CameraState.None)
+        // {
+        //     Debug.Log($"{name} state not none");
+        //     return;
+        // }
 
         if (index < 0)
         {

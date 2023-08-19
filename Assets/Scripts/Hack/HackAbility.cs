@@ -54,11 +54,17 @@ public abstract class HackAbility:ScriptableObject
     protected string HackName;
 
     [SerializeField]
-    private float hackTime = 1f;
+    protected float hackTime = 1f;
 
     [SerializeField]
-    private int hackCost = 1;
-    
+    protected int hackCost = 1;
+
+    protected SmartObject smartObject;
+
+    public virtual void Initialise(SmartObject smartObject)
+    {
+        this.smartObject = smartObject;
+    }
     protected abstract void AwakeBehaviour();
     protected abstract void StartBehaviour();
     protected abstract void UpdateBehaviour();
@@ -72,7 +78,9 @@ public abstract class HackAbility:ScriptableObject
 
     public float HackTime => hackTime;
 
-    public int hackCost1 => hackCost;
+    public int HackCost => hackCost;
+
+    public bool IsHackable => CanHack();
 
     protected HackAbility()
     {
@@ -82,7 +90,7 @@ public abstract class HackAbility:ScriptableObject
     public bool IsActive => isActive;
 
     /// <summary>
-    /// The main hacking procedure. 0: no error, 1: error
+    /// The main hacking procedure. 0: no error, 1: error, -1: failed can hack
     /// </summary>
     /// <param name="hackContext"></param>
     /// <returns>0: no error, 1: error</returns>
@@ -113,5 +121,10 @@ public abstract class HackAbility:ScriptableObject
     IEnumerator DelayHack()
     {
         yield return new WaitForSeconds(hackTime);
+    }
+
+    public virtual bool CanHack()
+    {
+        return true;
     }
 }

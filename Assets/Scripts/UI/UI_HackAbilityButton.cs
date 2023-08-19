@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -26,11 +27,22 @@ public class UI_HackAbilityButton : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text;
 
+    [SerializeField]
+    GameObject lockGO;
+
     private Vector2 dotDir = default;
 
-    private bool isActive = true;
 
-    public bool IsActive => isActive;
+    enum ActiveState_Enum
+    {
+        InActive,
+        Active,
+        HackFail
+    }
+
+    private ActiveState_Enum activeState = ActiveState_Enum.InActive;
+
+    public bool IsActive => activeState == ActiveState_Enum.Active;
 
     public Vector2 GetDotDir()
     {
@@ -47,20 +59,36 @@ public class UI_HackAbilityButton : MonoBehaviour
     {
     }
 
-    public void SetActive(bool b, string hackName = "No Hack")
+    public void SetActive(bool b, bool canHack = true, string hackName = "No Hack")
     {
         OnHover(false);
         if (b)
         {
             gameObject.SetActive(true);
+            if (!canHack)
+            {
+                lockGO.SetActive(true);
+                activeState = ActiveState_Enum.HackFail;
+            }
+            else
+            {
+                lockGO.SetActive(false);
+                activeState = ActiveState_Enum.Active;
+            }
         }
         else
         {
+            lockGO.SetActive(false);
             gameObject.SetActive(false);
+            activeState = ActiveState_Enum.InActive;
         }
 
-        isActive = b;
         UpdateButton(hackName);
+    }
+
+    public void SetActive(bool b, HackAbility hackAbility)
+    {
+        SetActive(b, hackAbility.CanHack(), hackAbility.hackName);
     }
 
     public void SetDisplay(UI_HackAbilityDisplay display, int i)

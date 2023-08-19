@@ -61,16 +61,18 @@ public abstract class SmartObject : MonoBehaviour
         {
             highlightEffect = GetComponent<HighlightEffect>();
         }
-        
+
         //Initialise Hacks
-        if (hacks.Length > 0 && hacks[0] == null)
+        for (var i = 0; i < hacks.Length; i++)
         {
-            for (var i = 0; i < hacks.Length; i++)
+            HackAbility hackAbility = hacks[i];
+            if (hackAbility)
             {
-                HackAbility hackAbility = hacks[i];
                 hackAbility = HackManager.GetHack(hackAbility.hackName);
-                hacks[i] = hackAbility ;
+                hackAbility.Initialise(this);
+                hacks[i] = hackAbility;
             }
+            
         }
 
         AwakeBehaviour();
@@ -118,7 +120,7 @@ public abstract class SmartObject : MonoBehaviour
     /// </summary>
     /// <param name="i"></param>
     /// <returns></returns>
-    public virtual int ActivateHack(int i,HackContext_Enum[] hackContextEnum = default)
+    public virtual int ActivateHack(int i, HackContext_Enum[] hackContextEnum = default)
     {
         if (CheckHackIndex(i))
         {
@@ -126,7 +128,7 @@ public abstract class SmartObject : MonoBehaviour
             return 1;
         }
 
-        hacks[i].Hack(new HackContext(new[] {this},hackContextEnum));
+        hacks[i].Hack(new HackContext(new[] {this}, hackContextEnum));
         return 0;
     }
 
@@ -137,9 +139,8 @@ public abstract class SmartObject : MonoBehaviour
             HackAbility hackAbility = hacks[index];
             if (typeof(T) == hackAbility.GetType())
             {
-               return ActivateHack(index,hackContextEnum);
+                return ActivateHack(index, hackContextEnum);
             }
-
         }
 
         return 1;
@@ -165,12 +166,10 @@ public abstract class SmartObject : MonoBehaviour
             {
                 return index;
             }
-
         }
 
         return -1;
     }
-    
 
 
     [ContextMenu("Test hack 0")]

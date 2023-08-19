@@ -70,6 +70,10 @@ public class CameraManager : MonoBehaviour
     /// <returns></returns>
     public CameraObject ChangeCamera(CameraObject newCamera, CameraObject oldCamera)
     {
+        // if (newCamera.IsLocked)
+        // {
+        //     return oldCamera;
+        // }
         oldCamera.SetActive(false);
         newCamera.SetActive(true);
         return newCamera;

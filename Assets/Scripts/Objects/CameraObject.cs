@@ -170,6 +170,10 @@ public class CameraObject : SmartObject
     private void HackLine_Update()
     {
         hackLine.SetPosition(0, Position + new Vector3(0, -.2f, 0));
+        if (!hackTarget)
+        {
+            return;
+        }
         hackLine.SetPosition(1, hackTarget.position);
         hackLine.material.SetVector("_Effect_Animation_Position", hackLine.transform.position);
         hackLine.material.SetFloat("_Effect_Animation_Distance",
@@ -273,7 +277,7 @@ public class CameraObject : SmartObject
         throughWallEffect.overlay = Mathf.Sin(throughWallEffect_TimeNow * 2 * Mathf.PI);
     }
 
-    public void StartHack(SmartObject target, int index)
+    public void StartHack(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
     {
         if (cameraState != CameraState.None)
         {
@@ -287,19 +291,15 @@ public class CameraObject : SmartObject
             return;
         }
 
-        hackCoroutine = StartCoroutine(HackRoutine(target, index));
+        hackCoroutine = StartCoroutine(HackRoutine(target, index,hackContextEnum));
     }
-
-    // IEnumerator HackRoutine(float time, SmartObject target, int index)
-    // {
-    //     cameraHackState = CameraHackState.Hacking;
-    //
-    //     yield return new WaitForSeconds(time);
-    //     target.ActivateHack(index);
-    //     cameraHackState = CameraHackState.None;
-    //
-    // }
-    IEnumerator HackRoutine(SmartObject target, int index)
+    IEnumerator HackRoutine(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
+    {
+        Hack_Initialise(target, index);
+        yield return new WaitForSeconds(target.Hacks[index].HackTime);
+        Hack_Activation(target, index,hackContextEnum);
+    }
+    private void Hack_Initialise(SmartObject target, int index)
     {
         cameraState = CameraState.Hacking;
         hackLine.gameObject.SetActive(true);
@@ -307,8 +307,12 @@ public class CameraObject : SmartObject
         float time = target.Hacks[index].HackTime;
         cameraHack_Time = time;
         cameraHack_TimeNow = time;
-        yield return new WaitForSeconds(time);
-        target.ActivateHack(index);
+    }
+    
+
+    private void Hack_Activation(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
+    {
+        target.ActivateHack(index,hackContextEnum);
         cameraState = CameraState.None;
         hackTarget = null;
         // hackLine.gameObject.SetActive(false);
@@ -320,6 +324,8 @@ public class CameraObject : SmartObject
         Set_LockMaterial(b);
         if (b)
         {
+            HackLine_Reset();
+
             if (hackCoroutine != null)
             {
                 StopCoroutine(hackCoroutine);
@@ -336,7 +342,6 @@ public class CameraObject : SmartObject
         {
             cameraState = CameraState.None;
             playerController.ActivateLockout(this);
-            HackLine_Reset();
             
 
         }

@@ -2172,7 +2172,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c884fd4d2a4763d4480bed5f50efeee6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3314,7 +3314,7 @@ MonoBehaviour:
   currentCamera: {fileID: 1449924170}
   uiController: {fileID: 1620352249}
   rotateMultiplier: 0.1
-  rotateMultiplier_joystick: 0.2
+  rotateMultiplier_joystick: 1
   zoomMultiplier: 20
   zoomMultiplier_joystick: 1
   selectedObject: {fileID: 0}

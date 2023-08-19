@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+[Serializable]
+public enum HackContext_Enum
+{
+    None,
+    Camera_notPushToStack
+}
 [Serializable]
 public struct HackContext
 {
@@ -12,11 +19,23 @@ public struct HackContext
     //1: Object (Camera) where the hack is coming from
     private SmartObject[] smartObjects;
 
+    private HackContext_Enum[] hackContextEnum ;
+    
     public SmartObject[] SmartObjects => smartObjects;
+
+    public HackContext_Enum[] HackContextEnum => hackContextEnum;
+
 
     public HackContext(SmartObject[] smartObjects)
     {
         this.smartObjects = smartObjects;
+        hackContextEnum = new HackContext_Enum[]{HackContext_Enum.None} ;
+    }
+
+    public HackContext(SmartObject[] smartObjects, HackContext_Enum[] hackContextEnum)
+    {
+        this.smartObjects = smartObjects;
+        this.hackContextEnum = hackContextEnum;
     }
 }
 

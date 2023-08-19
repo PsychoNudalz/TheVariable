@@ -12,6 +12,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_AlertManager alertManager;
 
+    [SerializeField]
+    private UI_LockOutScreen lockOutScreen;
+
     public static UIController current;
 
     private void Awake()
@@ -63,5 +66,10 @@ public class UIController : MonoBehaviour
     public void AlertManager_SetAlert(NpcController npc, float value)
     {
         alertManager.UpdateAlert(npc, value);
+    }
+
+    public void LockoutScreen_SetActive(bool b, CameraObject cameraObject = null)
+    {
+        lockOutScreen.SetActive(b,cameraObject);
     }
 }

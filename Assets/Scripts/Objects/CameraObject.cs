@@ -90,6 +90,8 @@ public class CameraObject : SmartObject
     [SerializeField]
     Collider mainCollider;
 
+     PlayerController playerController;
+
 
     private Vector3 cameraOrientation = default;
 
@@ -107,6 +109,7 @@ public class CameraObject : SmartObject
     public bool IsLocked => cameraState == CameraState.Locked;
 
     public float CameraLockTime => cameraLock_Time;
+    public String CameraLockTime_String => Get_CameraLockTime_String();
 
     protected override void AwakeBehaviour()
     {
@@ -122,6 +125,7 @@ public class CameraObject : SmartObject
 
     protected override void StartBehaviour()
     {
+        playerController = PlayerController.current;
     }
 
     protected override void UpdateBehaviour()
@@ -143,12 +147,7 @@ public class CameraObject : SmartObject
                         cameraHack_TimeNow -= Time.deltaTime;
                     }
 
-                    hackLine.SetPosition(0, Position + new Vector3(0, -.2f, 0));
-                    hackLine.SetPosition(1, hackTarget.position);
-                    hackLine.material.SetVector("_Effect_Animation_Position", hackLine.transform.position);
-                    hackLine.material.SetFloat("_Effect_Animation_Distance",
-                        (Position - hackTarget.position).magnitude);
-                    hackLine.material.SetFloat("_Effect_Animation_Value", 1 - (cameraHack_TimeNow / cameraHack_Time));
+                    HackLine_Update();
                 }
 
                 break;
@@ -166,6 +165,24 @@ public class CameraObject : SmartObject
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private void HackLine_Update()
+    {
+        hackLine.SetPosition(0, Position + new Vector3(0, -.2f, 0));
+        hackLine.SetPosition(1, hackTarget.position);
+        hackLine.material.SetVector("_Effect_Animation_Position", hackLine.transform.position);
+        hackLine.material.SetFloat("_Effect_Animation_Distance",
+            (Position - hackTarget.position).magnitude);
+        hackLine.material.SetFloat("_Effect_Animation_Value", 1 - (cameraHack_TimeNow / cameraHack_Time));
+    }
+
+    public void HackLine_Reset()
+    {
+        cameraHack_TimeNow = 0;
+        cameraHack_Time = 0;
+        hackLine.gameObject.SetActive(false);
+        HackLine_Update();
     }
 
     public override void Interact(NpcController npc)
@@ -294,7 +311,8 @@ public class CameraObject : SmartObject
         target.ActivateHack(index);
         cameraState = CameraState.None;
         hackTarget = null;
-        hackLine.gameObject.SetActive(false);
+        // hackLine.gameObject.SetActive(false);
+        HackLine_Reset();
     }
 
     public void Set_Lock(bool b, float duration = 0f)
@@ -309,10 +327,18 @@ public class CameraObject : SmartObject
             }
             cameraState = CameraState.Locked;
             cameraLock_Time += duration;
+            if (isPlayerControl)
+            {
+                playerController.ActivateLockout(this);
+            }
         }
         else
         {
             cameraState = CameraState.None;
+            playerController.ActivateLockout(this);
+            HackLine_Reset();
+            
+
         }
     }
 
@@ -332,5 +358,11 @@ public class CameraObject : SmartObject
                 cameraRenderer.materials[i] = originalMaterials[i];
             }
         }
+    }
+
+    String Get_CameraLockTime_String()
+    {
+        double seconds = Math.Floor((cameraLock_Time % 1f) * 100);
+        return string.Concat(cameraLock_Time.ToString("0"), ":",seconds.ToString("0"));
     }
 }

@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     enum CameraMode
     {
         Free,
-        SelectHack
+        SelectHack,
+        LockedOut
     }
 
     private ControlMode controlMode = ControlMode.MK;
@@ -91,11 +92,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Rotating camera
-        if (cameraMode == CameraMode.Free && controlMode == ControlMode.Controller)
+        if (cameraMode != CameraMode.LockedOut)
         {
-            if (lookValue.magnitude > 0.01f * rotateMultiplier_joystick)
+            if (cameraMode == CameraMode.Free && controlMode == ControlMode.Controller)
             {
-                UpdateCamera(lookValue);
+                if (lookValue.magnitude > 0.01f * rotateMultiplier_joystick)
+                {
+                    UpdateCamera(lookValue);
+                }
             }
         }
 
@@ -147,6 +151,12 @@ public class PlayerController : MonoBehaviour
             case CameraMode.SelectHack:
                 uiController.HacksDisplay_UpdateDir(selectDir);
                 break;
+            case CameraMode.LockedOut:
+                if (!currentCamera.IsLocked)
+                {
+                    DeactivateLockout();
+                }
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -156,7 +166,7 @@ public class PlayerController : MonoBehaviour
     //Player Input
     public void OnLook(InputValue inputValue)
     {
-        if (cameraMode == CameraMode.SelectHack)
+        if (cameraMode != CameraMode.Free)
         {
             return;
         }
@@ -168,7 +178,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnLook_Joystick(InputValue inputValue)
     {
-        if (cameraMode == CameraMode.SelectHack)
+        if (cameraMode != CameraMode.Free)
         {
             return;
         }
@@ -386,5 +396,18 @@ public class PlayerController : MonoBehaviour
 
             Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.red, Time.deltaTime);
         }
+    }
+
+    public void ActivateLockout(CameraObject cameraObject)
+    {
+        uiController.LockoutScreen_SetActive(true,cameraObject);
+        OnSelectCancel();
+        cameraMode = CameraMode.LockedOut;
+    }
+    
+    public void DeactivateLockout()
+    {
+        uiController.LockoutScreen_SetActive(false);
+        cameraMode = CameraMode.Free;
     }
 }

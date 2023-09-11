@@ -71,7 +71,7 @@ public class NpcController : MonoBehaviour
 
     [Header("Components")]
     [SerializeField]
-    private NpcVisualController visualController;
+    private NpcEffectsController effectsController;
 
     [SerializeField]
     NpcLifeSystem lifeSystem;
@@ -93,7 +93,7 @@ public class NpcController : MonoBehaviour
 
     public List<TaskEvent> Schedule => schedule;
 
-    public NpcVisualController VisualController => visualController;
+    public NpcEffectsController EffectsController => effectsController;
 
     public BehaviourTreeRunner TreeRunner => treeRunner;
 
@@ -536,9 +536,9 @@ public class NpcController : MonoBehaviour
 
     public void PlayAnimation(NpcAnimation npcAnimation)
     {
-        if (visualController)
+        if (effectsController)
         {
-            visualController.PlayAnimation(npcAnimation);
+            effectsController.PlayAnimation(npcAnimation);
         }
     }
 

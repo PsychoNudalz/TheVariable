@@ -10,6 +10,9 @@ using UnityEngine.VFX;
 public class EffectPlayer : MonoBehaviour
 {
     [SerializeField]
+    private Sound[] sounds;
+
+    [SerializeField]
     ParticleSystem[] particleSystems;
 
     [SerializeField]
@@ -19,7 +22,7 @@ public class EffectPlayer : MonoBehaviour
     UnityEvent[] unityEvents;
 
     [SerializeField]
-    [TextArea(5,20)]
+    [TextArea(5, 20)]
     private string Notes;
 
     public void PlayPS(int index)
@@ -61,6 +64,22 @@ public class EffectPlayer : MonoBehaviour
         if (index < unityEvents.Length)
         {
             unityEvents[index].Invoke();
+        }
+    }
+
+    public void Sound_Play(int index)
+    {
+        if (index < sounds.Length)
+        {
+            sounds[index].PlayF();
+        }
+    }
+
+    public void Sound_Stop(int index)
+    {
+        if (index < sounds.Length)
+        {
+            sounds[index].Stop();
         }
     }
 }

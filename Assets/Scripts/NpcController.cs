@@ -588,4 +588,23 @@ public class NpcController : MonoBehaviour
             bodyCollider.height = originalHeight;
         }
     }
+    //
+    // public void ChangeStateEffect(NPC_AlertState alertState)
+    // {
+    //     switch (alertState)
+    //     {
+    //         case NPC_AlertState.Peace:
+    //             break;
+    //         case NPC_AlertState.Alert:
+    //             break;
+    //         case NPC_AlertState.Suspicious:
+    //             break;
+    //         case NPC_AlertState.Spotted:
+    //             break;
+    //         case NPC_AlertState.Hunt:
+    //             break;
+    //         default:
+    //             throw new ArgumentOutOfRangeException(nameof(alertState), alertState, null);
+    //     }
+    // }
 }

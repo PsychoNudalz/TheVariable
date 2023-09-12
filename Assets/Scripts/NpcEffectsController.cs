@@ -9,6 +9,7 @@ public enum NpcAnimation
     Walk,
     Interact,
     PickUp,
+    Suspicious,
     Dead
 }
 
@@ -35,7 +36,11 @@ public class NpcEffectsController : MonoBehaviour
     private float animationTime_Current = .5f;
 
     [Header("Sounds")]
-    private Sound sfx_Kneel;
+    [SerializeField]
+    private SoundAbstract sfx_Kneel;
+
+    [SerializeField]
+    private SoundAbstract sfx_Suspicious;
 
     private void Awake()
     {
@@ -60,8 +65,6 @@ public class NpcEffectsController : MonoBehaviour
 
     public void PlayAnimation(NpcAnimation npcAnimation)
     {
-
-
         switch (npcAnimation)
         {
             case NpcAnimation.Idle:
@@ -80,6 +83,7 @@ public class NpcEffectsController : MonoBehaviour
                 {
                     sfx_Kneel.PlayF();
                 }
+
                 animator.Play("NPC_PickUp");
 
                 break;
@@ -87,12 +91,18 @@ public class NpcEffectsController : MonoBehaviour
                 animator.Play("NPC_Dead");
 
                 break;
+            case NpcAnimation.Suspicious:
+                if (sfx_Suspicious)
+                {
+                    sfx_Suspicious.Play();
+                }
+                break;
             default:
                 animator.Play("NPC_Idle");
                 break;
         }
-        animationTime_Current = 0;
 
+        animationTime_Current = 0;
         // if (!(animationTime_Current > .2f && animationTime_Current < .9f))
         // {
         // }
@@ -110,5 +120,9 @@ public class NpcEffectsController : MonoBehaviour
         {
             material.SetFloat("_MoveValue", animationTime_Current);
         }
+    }
+
+    public void PlaySound_Sus()
+    {
     }
 }

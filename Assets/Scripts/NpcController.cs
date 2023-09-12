@@ -101,6 +101,9 @@ public class NpcController : MonoBehaviour
 
     public Vector3 AlertPosition => alertPosition.position;
     public float Health => lifeSystem.Health;
+    /// <summary>
+    /// If the NPC is freely moving around
+    /// </summary>
     public bool IsRoaming => blackboardAlertState is NPC_AlertState.Peace or NPC_AlertState.Alert;
 
 

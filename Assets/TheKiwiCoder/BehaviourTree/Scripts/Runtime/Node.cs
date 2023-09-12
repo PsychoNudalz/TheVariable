@@ -146,6 +146,10 @@ namespace TheKiwiCoder
         {
             Debug.Log($"Node change NPC state: {blackboard.alertState} --> {alertState}");
             blackboard.alertState = alertState;
+            if (alertState == NPC_AlertState.Suspicious)
+            {
+                GameManager.Alert_Suspicious();
+            }
             if (overrideValue)
             {
                 context.NpcController.Override_AlertValue(alertState);

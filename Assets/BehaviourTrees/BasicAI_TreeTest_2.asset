@@ -88,6 +88,7 @@ MonoBehaviour:
   - rid: 8796965355488280593
   - rid: 8796965355488280594
   - rid: 270282241434451969
+  - rid: 270282241434451971
   treeState: 0
   blackboard:
     alertState: 0
@@ -101,8 +102,8 @@ MonoBehaviour:
     wait_startTime: 0
     wait_duration: 0
     cameraToLock: {fileID: 0}
-  viewPosition: {x: -453.6, y: 122.4, z: 0}
-  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
+  viewPosition: {x: -1756.8, y: -153.6, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -131,6 +132,29 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         animation: 4
+    - rid: 270282241434451971
+      type: {class: PlayAnimation, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 69dda092581f6084c9c98046a403225a
+        position: {x: 2830.4, y: 774.39996}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          cameraToLock: {fileID: 0}
+        name: PlayAnimation
+        description: 
+        drawGizmos: 0
+        animation: 5
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -1697,6 +1721,7 @@ MonoBehaviour:
         children:
         - rid: 8796965355488280586
         - rid: 8796965355488280588
+        - rid: 270282241434451971
     - rid: 8796965355488280586
       type: {class: Action_SetWait, ns: , asm: Assembly-CSharp}
       data:

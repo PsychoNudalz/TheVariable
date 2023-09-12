@@ -10,6 +10,7 @@ public enum NpcAnimation
     Interact,
     PickUp,
     Suspicious,
+    Spotted,
     Dead
 }
 
@@ -41,6 +42,8 @@ public class NpcEffectsController : MonoBehaviour
 
     [SerializeField]
     private SoundAbstract sfx_Suspicious;
+    [SerializeField]
+    private SoundAbstract sfx_Spotted;
 
     private void Awake()
     {
@@ -97,6 +100,13 @@ public class NpcEffectsController : MonoBehaviour
                     sfx_Suspicious.Play();
                 }
                 break;
+            case NpcAnimation.Spotted:
+                if (sfx_Spotted)
+                {
+                    sfx_Spotted.Play();
+                }
+                break;
+
             default:
                 animator.Play("NPC_Idle");
                 break;

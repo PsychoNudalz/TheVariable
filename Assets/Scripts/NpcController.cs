@@ -185,6 +185,11 @@ public class NpcController : MonoBehaviour
 
     private void Awake()
     {
+
+        if (!effectsController)
+        {
+            effectsController = GetComponent<NpcEffectsController>();
+        }
         //Initialising schedule
         for (var i = 0; i < schedule.Count; i++)
         {

@@ -10,7 +10,7 @@ using UnityEngine.VFX;
 public class EffectPlayer : MonoBehaviour
 {
     [SerializeField]
-    private Sound[] sounds;
+    private SoundAbstract[] sounds;
 
     [SerializeField]
     ParticleSystem[] particleSystems;

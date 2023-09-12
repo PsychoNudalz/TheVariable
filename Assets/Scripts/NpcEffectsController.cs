@@ -34,6 +34,8 @@ public class NpcEffectsController : MonoBehaviour
     [Range(0f, 1f)]
     private float animationTime_Current = .5f;
 
+    [Header("Sounds")]
+    private Sound sfx_Kneel;
 
     private void Awake()
     {
@@ -74,6 +76,10 @@ public class NpcEffectsController : MonoBehaviour
 
                 break;
             case NpcAnimation.PickUp:
+                if (sfx_Kneel)
+                {
+                    sfx_Kneel.PlayF();
+                }
                 animator.Play("NPC_PickUp");
 
                 break;

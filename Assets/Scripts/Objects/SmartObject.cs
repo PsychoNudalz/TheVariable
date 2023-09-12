@@ -32,7 +32,7 @@ public abstract class SmartObject : MonoBehaviour
     [Range(0f, 1f)]
     private float audioDistract_Dampen = 1f;
 
-    [SerializeField]
+    // [SerializeField]
     LayerMask audioDistraction_LayerMask;
 
     [SerializeField]
@@ -61,6 +61,8 @@ public abstract class SmartObject : MonoBehaviour
         {
             highlightEffect = GetComponent<HighlightEffect>();
         }
+        
+        audioDistraction_LayerMask = LayerMask.GetMask("Npc","Object");
 
         //Initialise Hacks
         for (var i = 0; i < hacks.Length; i++)

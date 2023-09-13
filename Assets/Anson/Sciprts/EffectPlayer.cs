@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -81,5 +82,13 @@ public class EffectPlayer : MonoBehaviour
         {
             sounds[index].Stop();
         }
+    }
+
+    public void Reset()
+    {
+        sounds = Array.Empty<SoundAbstract>();
+        unityEvents = Array.Empty<UnityEvent>();
+        particleSystems = Array.Empty<ParticleSystem>();
+        visualEffects = Array.Empty<VisualEffect>();
     }
 }

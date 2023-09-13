@@ -23,7 +23,12 @@ public class NpcEffectsController : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    [Header("Material  Effect")]
+
+    private NpcAnimation currentAnimation;
+    private string currentAnimationString;
+
+    [Header("Material Effect")]
+    [Header("Animations")]
     [SerializeField]
     private Renderer renderer;
 
@@ -36,18 +41,48 @@ public class NpcEffectsController : MonoBehaviour
     [Range(0f, 1f)]
     private float animationTime_Current = .5f;
 
+    [Header("Secondary")]
+    [SerializeField]
+    private GameObject secondary_GO;
+
+    private Animator secondary_Animator;
+    private Renderer secondary_Renderer;
+    private Material[] secondary_Materials;
+
     [Header("Sounds")]
     [SerializeField]
     private SoundAbstract sfx_Kneel;
 
     [SerializeField]
     private SoundAbstract sfx_Suspicious;
+
     [SerializeField]
     private SoundAbstract sfx_Spotted;
 
     private void Awake()
     {
         materials = renderer.materials;
+
+
+        //Duplicate animator
+        DuplicateAndSetSecondarySkin();
+    }
+
+    public void DuplicateAndSetSecondarySkin()
+    {
+        secondary_GO = Instantiate(animator.gameObject, animator.transform.parent);
+        secondary_Animator = secondary_GO.GetComponent<Animator>();
+        secondary_Renderer = secondary_GO.GetComponentInChildren<SkinnedMeshRenderer>();
+        secondary_Materials = secondary_Renderer.materials;
+        if (secondary_GO.TryGetComponent(out EffectPlayer effectPlayer))
+        {
+            effectPlayer.Reset();
+        }
+
+        foreach (Material secondaryMaterial in secondary_Materials)
+        {
+            secondaryMaterial.SetInt("_IsSecondary", 1);
+        }
     }
 
     // Start is called before the first frame update
@@ -68,17 +103,18 @@ public class NpcEffectsController : MonoBehaviour
 
     public void PlayAnimation(NpcAnimation npcAnimation)
     {
+        // string newAnimation = "";
         switch (npcAnimation)
         {
             case NpcAnimation.Idle:
-                animator.Play("NPC_Idle");
+                PlayAnimator("NPC_Idle");
                 break;
             case NpcAnimation.Walk:
-                animator.Play("NPC_Walk");
+                PlayAnimator("NPC_Walk");
 
                 break;
             case NpcAnimation.Interact:
-                animator.Play("NPC_Interact");
+                PlayAnimator("NPC_Interact");
 
                 break;
             case NpcAnimation.PickUp:
@@ -87,11 +123,11 @@ public class NpcEffectsController : MonoBehaviour
                     sfx_Kneel.PlayF();
                 }
 
-                animator.Play("NPC_PickUp");
+                PlayAnimator("NPC_PickUp");
 
                 break;
             case NpcAnimation.Dead:
-                animator.Play("NPC_Dead");
+                PlayAnimator("NPC_Dead");
 
                 break;
             case NpcAnimation.Suspicious:
@@ -99,34 +135,58 @@ public class NpcEffectsController : MonoBehaviour
                 {
                     sfx_Suspicious.Play();
                 }
+
                 break;
             case NpcAnimation.Spotted:
                 if (sfx_Spotted)
                 {
                     sfx_Spotted.Play();
                 }
+
                 break;
 
             default:
-                animator.Play("NPC_Idle");
+                PlayAnimator("NPC_Idle");
                 break;
         }
 
+        currentAnimation = npcAnimation;
         animationTime_Current = 0;
-        // if (!(animationTime_Current > .2f && animationTime_Current < .9f))
-        // {
-        // }
+        UpdateMaterial();
+    }
+
+    /// <summary>
+    /// This sets the animation for the main and secondary animator
+    /// </summary>
+    /// <param name="stateName"></param>
+    private void PlayAnimator(string stateName)
+    {
+        if (animationTime_Current > .9f)
+        {
+            secondary_Renderer.enabled = true;
+
+            secondary_Animator.Play(currentAnimationString);
+        }
+
+        currentAnimationString = stateName;
+        animator.Play(stateName);
     }
 
     public void UpdateMaterial()
     {
         if (animationTime_Current > 1)
         {
+            secondary_Renderer.enabled = false;
             return;
         }
 
         animationTime_Current += Time.deltaTime / animationTime;
         foreach (Material material in materials)
+        {
+            material.SetFloat("_MoveValue", animationTime_Current);
+        }
+
+        foreach (Material material in secondary_Materials)
         {
             material.SetFloat("_MoveValue", animationTime_Current);
         }

@@ -7,9 +7,9 @@ using TheKiwiCoder;
 public class A_Update_SensoryDetection : ActionNode
 {
     [SerializeField]
-    private bool returnFailureOnDetected = false;
+    private bool returnFailureOnStateChange = false;
 
-    
+
     [SerializeField]
     private bool returnTrueAfterUpdate = false;
     // [SerializeField]
@@ -25,17 +25,31 @@ public class A_Update_SensoryDetection : ActionNode
 
     protected override State OnUpdate()
     {
-        NPC_AlertState returnState = context.NpcController.AlertUpdateBehaviour();
+        SmartObject foundCamera = context.NpcController.Update_SensoryController(out SensorySource ss);
+        NPC_AlertState returnState;
+        if (foundCamera)
+        {
+            returnState = context.NpcController.Update_AlertValue(foundCamera);
+            if (ss != null)
+            {
+                blackboard.currentSensorySource = ss;
+            }
+        }
+        else
+        {
+            returnState = context.NpcController.Update_AlertValue();
+        }
 
         if (returnTrueAfterUpdate)
         {
-            return  State.Success;
+            return State.Success;
         }
+
         if (returnState != blackboard.alertState)
         {
-            ChangeAlertState(returnState,false);
-            
-            if (returnFailureOnDetected)
+            ChangeAlertState(returnState, false);
+
+            if (returnFailureOnStateChange)
             {
                 return State.Failure;
             }

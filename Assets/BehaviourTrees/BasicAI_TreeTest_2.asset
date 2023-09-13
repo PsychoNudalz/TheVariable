@@ -89,6 +89,7 @@ MonoBehaviour:
   - rid: 8796965355488280594
   - rid: 270282241434451969
   - rid: 270282241434451971
+  - rid: 270282263272095744
   treeState: 0
   blackboard:
     alertState: 0
@@ -102,8 +103,8 @@ MonoBehaviour:
     wait_startTime: 0
     wait_duration: 0
     cameraToLock: {fileID: 0}
-  viewPosition: {x: -1290.4, y: -9.6, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: -1199.2, y: -298.4, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -155,6 +156,29 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         animation: 5
+    - rid: 270282263272095744
+      type: {class: Action_ChangeAlertState, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 945434890e6f83d4abb98b2accc63e7c
+        position: {x: 3644.1416, y: 742.4}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          cameraToLock: {fileID: 0}
+        name: Action_ChangeAlertState
+        description: 
+        drawGizmos: 0
+        newState: 0
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -566,7 +590,7 @@ MonoBehaviour:
         name: A_Update_SensoryDetection
         description: 
         drawGizmos: 0
-        returnFailureOnDetected: 1
+        returnFailureOnStateChange: 0
         returnTrueAfterUpdate: 0
     - rid: 3923952843446550529
       type: {class: A_Update_SensoryDetection, ns: , asm: Assembly-CSharp}
@@ -590,7 +614,7 @@ MonoBehaviour:
         name: A_Update_SensoryDetection
         description: 
         drawGizmos: 0
-        returnFailureOnDetected: 0
+        returnFailureOnStateChange: 0
         returnTrueAfterUpdate: 0
     - rid: 3923952843446550530
       type: {class: Action_ResetAlert, ns: , asm: Assembly-CSharp}
@@ -1640,7 +1664,7 @@ MonoBehaviour:
         name: A_Update_SensoryDetection
         description: 
         drawGizmos: 0
-        returnFailureOnDetected: 0
+        returnFailureOnStateChange: 0
         returnTrueAfterUpdate: 0
     - rid: 8796965355488280581
       type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
@@ -1719,9 +1743,9 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
+        - rid: 270282241434451971
         - rid: 8796965355488280586
         - rid: 8796965355488280588
-        - rid: 270282241434451971
     - rid: 8796965355488280586
       type: {class: Action_SetWait, ns: , asm: Assembly-CSharp}
       data:
@@ -1918,13 +1942,14 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 8796965355488280594
+        - rid: 270282263272095744
     - rid: 8796965355488280594
       type: {class: Action_SetWait, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 826b377e64036694192522f7302216f1
-        position: {x: 3556.7998, y: 718.3999}
+        position: {x: 3450.11, y: 742.88605}
         blackboard:
           alertState: 0
           health: 0

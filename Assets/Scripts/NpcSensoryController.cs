@@ -5,6 +5,9 @@ using UnityEngine;
 using Debug = System.Diagnostics.Debug;
 
 
+/// <summary>
+/// This should only be accessed by the NPC controller
+/// </summary>
 public class NpcSensoryController : MonoBehaviour
 {
     [SerializeField]
@@ -92,7 +95,7 @@ public class NpcSensoryController : MonoBehaviour
     }
     
     /// <summary>
-    /// Find camera that is controlled the player or hacking
+    /// Find cameras that is controlled the player or hacking
     /// 
     /// </summary>
     /// <returns></returns>
@@ -103,7 +106,7 @@ public class NpcSensoryController : MonoBehaviour
         {
             if (smartObject is CameraObject cameraObject)
             {
-                if (cameraObject.IsHacking||cameraObject.IsPlayerControl)
+                if (!cameraObject.IsLocked&&(cameraObject.IsHacking||cameraObject.IsPlayerControl))
                 {
                     cameras.Add(cameraObject);
                 }

@@ -196,12 +196,12 @@ public abstract class SmartObject : MonoBehaviour
         foreach (RaycastHit hit in castHits)
         {
             collider = hit.collider;
-            if (collider.TryGetComponent(out NpcSensoryController npcSensoryController))
+            if (collider.TryGetComponent(out NpcController npcController))
             {
                 SensorySource_Audio newSSA = new SensorySource_Audio(InteractPosition, audioDistract_Strength);
-                newSSA.AdjustStrength(npcSensoryController.transform.position, audioDistraction_LayerMask,
+                newSSA.AdjustStrength(npcController.transform.position, audioDistraction_LayerMask,
                     audioDistract_Dampen);
-                npcSensoryController.AddSS(newSSA);
+                npcController.AddSensorySource(newSSA);
             }
         }
     }

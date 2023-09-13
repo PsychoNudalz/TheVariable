@@ -226,13 +226,37 @@ public class NpcController : MonoBehaviour
         // AlertUpdateBehaviour();
     }
 
+
     /// <summary>
-    /// For detecting and updating the alert state
+    /// Update the Sensory Controller
     /// </summary>
     /// <returns></returns>
-    public NPC_AlertState AlertUpdateBehaviour()
+    public SmartObject Update_SensoryController(out SensorySource ss)
     {
-        SmartObject so = FindSS_HackingCamera();
+        SmartObject so = FindSS_ClosestActiveCamera();
+        ss = null;
+        if (so)
+        {
+            if (GetCurrentSS.SmartObject.Equals(so))
+            {
+                return so;
+            }
+            
+            ss = new SensorySource_Visual(so, 100);
+            AddSensorySource(ss);
+            return so;
+
+        }
+
+        return so;
+    }
+    
+    /// <summary>
+    ///  updating the alert state
+    /// </summary>
+    /// <returns></returns>
+    public NPC_AlertState Update_AlertValue(SmartObject so = null)
+    {
         //will need to change this in to detecting any suspicious item
         if (so)
         {
@@ -300,6 +324,29 @@ public class NpcController : MonoBehaviour
     public CameraObject[] FindSS_ActiveCameras()
     {
         return sensoryController.FindActiveCameras();
+    }
+
+    public CameraObject FindSS_ClosestActiveCamera()
+    {
+        CameraObject[] cameras = FindSS_ActiveCameras();
+        if (cameras.Length == 0)
+        {
+            return null;
+        }
+        float maxDist = Mathf.Infinity;
+        int x = 0;
+        for ( int i = 0;i < cameras.Length; i++)
+        {
+            var c = cameras[i];
+            float distance = Vector3.Distance(c.Position, transform.position);
+            if (distance < maxDist)
+            {
+                maxDist = distance;
+                x = i;
+            }
+        }
+
+        return cameras[x];
     }
 
     public void ResetAlert()

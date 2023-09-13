@@ -6,6 +6,9 @@ using TheKiwiCoder;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Investigating the current Sensory Source, increases alert value if player is nearby or controlling the investigated camera
+/// </summary>
 [System.Serializable]
 public class Action_Investigate : ActionNode
 {
@@ -18,6 +21,7 @@ public class Action_Investigate : ActionNode
 
     [SerializeField]
     private bool returnFailureOnTimeExpire = true;
+
     private float investigate_Time = 0;
 
     private float investigate_StartTime = 0;
@@ -42,7 +46,6 @@ public class Action_Investigate : ActionNode
                 blackboard.currentSensorySource = null;
             }
         }
-        
     }
 
     protected override State OnUpdate()
@@ -52,12 +55,13 @@ public class Action_Investigate : ActionNode
             //While the AI is investigating
             if (context.NpcController.FindSS_ActiveCameras().Length > 0)
             {
+                // if(blackboard.currentSensorySource)
                 context.NpcController.UpdateAlertValue(alertBuildup);
                 NPC_AlertState returnState = context.NpcController.EvaluateAlertValue();
 
                 if (returnState != blackboard.alertState)
                 {
-                    ChangeAlertState(returnState,false);
+                    ChangeAlertState(returnState, false);
                     isPlayerSpotted = true;
 
                     return State.Failure;
@@ -67,7 +71,6 @@ public class Action_Investigate : ActionNode
             if (returnFailureOnTimeExpire)
             {
                 return State.Failure;
-
             }
             else
             {

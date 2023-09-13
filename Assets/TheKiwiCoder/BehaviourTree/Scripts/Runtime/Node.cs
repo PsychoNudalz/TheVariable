@@ -19,6 +19,7 @@ namespace TheKiwiCoder
         public State state = State.Running;
 
         public bool IsRunning => state == State.Running;
+
         [HideInInspector]
         public bool started = false;
 
@@ -34,8 +35,7 @@ namespace TheKiwiCoder
         [HideInInspector]
         public Blackboard blackboard;
 
-        [HideInInspector]
-        public Vector3 agent_Position => context.transform.position;
+        [HideInInspector] public Vector3 agent_Position => context.transform.position;
 
 
         [TextArea]
@@ -104,7 +104,6 @@ namespace TheKiwiCoder
                 // }
                 // node.started = false;
                 // node.state = State.Running;
-
             });
         }
 
@@ -115,7 +114,7 @@ namespace TheKiwiCoder
         protected abstract void OnStart();
         protected abstract void OnStop();
         protected abstract State OnUpdate();
-        
+
         //Shared Methods
         protected State IsAlive()
         {
@@ -142,7 +141,13 @@ namespace TheKiwiCoder
 
             return false;
         }
-        public void ChangeAlertState(NPC_AlertState alertState,bool overrideValue)
+
+        /// <summary>
+        /// Change Alert State
+        /// </summary>
+        /// <param name="alertState"></param>
+        /// <param name="overrideValue"> if the alert value be override to use the minimum alert value, or the maximum between it and current  </param>
+        public void ChangeAlertState(NPC_AlertState alertState, bool overrideValue)
         {
             Debug.Log($"Node change NPC state: {blackboard.alertState} --> {alertState}");
             blackboard.alertState = alertState;
@@ -150,18 +155,19 @@ namespace TheKiwiCoder
             {
                 GameManager.Alert_Suspicious();
             }
+
             if (overrideValue)
             {
                 context.NpcController.Override_AlertValue(alertState);
-                
             }
             else
             {
                 context.NpcController.Set_MinAlertValue(alertState);
             }
+
             context.NpcController.UpdateAlertUI();
         }
-        
+
         protected void Clear_Blackboard_Items()
         {
             blackboard.missingItem = ItemName.None;
@@ -185,10 +191,5 @@ namespace TheKiwiCoder
 
             return $"{n}: missing child node. \nDescription: {node.description}";
         }
-
-
     }
-    
-    
-
 }

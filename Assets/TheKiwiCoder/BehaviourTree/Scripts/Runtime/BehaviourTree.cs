@@ -75,9 +75,28 @@ namespace TheKiwiCoder {
             });
         }
 
+        
         public void CleanTree()
         {
+            int errorCount = 0;
+            List<Node> allNodesList = new List<Node>(nodes);
             
+            //TODO:Need to do tree traversal to find all connecting nodes
+            //
+            // foreach (Node node in nodes)
+            // {
+            //     foreach (Node n in GetChildren(node))
+            //     {
+            //         if (allNodesList.Contains(n))
+            //         {
+            //             allNodesList.Remove(node);
+            //         }
+            //     }
+            //
+            // }
+
+            errorCount = allNodesList.Count;
+            Debug.LogError($"Tree Clean Results: {errorCount} nodes without parents");
         }
     }
 }

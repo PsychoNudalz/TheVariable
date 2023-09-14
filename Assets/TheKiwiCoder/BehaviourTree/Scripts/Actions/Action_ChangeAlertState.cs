@@ -5,10 +5,11 @@ using TheKiwiCoder;
 public class Action_ChangeAlertState : ActionNode
 {
     public NPC_AlertState newState;
+    public bool overrideAlertValue = true;
 
     protected override void OnStart()
     {
-        ChangeAlertState(newState,true);
+        ChangeAlertState(newState,overrideAlertValue);
     }
 
     protected override void OnStop()

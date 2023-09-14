@@ -138,6 +138,7 @@ namespace TheKiwiCoder {
             evt.menu.AppendAction($"Create Script.../New Action Node", (a) => CreateNewScript(scriptFileAssets[0]));
             evt.menu.AppendAction($"Create Script.../New Composite Node", (a) => CreateNewScript(scriptFileAssets[1]));
             evt.menu.AppendAction($"Create Script.../New Decorator Node", (a) => CreateNewScript(scriptFileAssets[2]));
+            evt.menu.AppendAction($"Clean Tree", (a) => CleanTree());
             evt.menu.AppendSeparator();
 
             Vector2 nodePosition = this.ChangeCoordinatesTo(contentViewContainer, evt.localMousePosition);
@@ -187,6 +188,12 @@ namespace TheKiwiCoder {
             SelectFolder($"{settings.newNodeBasePath}/{template.subFolder}");
             var templatePath = AssetDatabase.GetAssetPath(template.templateFile);
             ProjectWindowUtil.CreateScriptAssetFromTemplateFile(templatePath, template.defaultFileName);
+        }
+
+        void CleanTree()
+        {
+            Debug.LogWarning("Cleaning tree");
+            serializer.tree.CleanTree();
         }
 
         void CreateNode(System.Type type, Vector2 position) {

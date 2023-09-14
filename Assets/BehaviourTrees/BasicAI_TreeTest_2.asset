@@ -80,11 +80,12 @@ MonoBehaviour:
   - rid: 8796965355488280590
   - rid: 8796965355488280591
   - rid: 8796965355488280592
-  - rid: 8796965355488280593
   - rid: 8796965355488280594
   - rid: 270282241434451969
   - rid: 270282241434451971
   - rid: 270282263272095744
+  - rid: 270282284141379585
+  - rid: 270282284141379586
   treeState: 0
   blackboard:
     alertState: 0
@@ -101,8 +102,8 @@ MonoBehaviour:
     player_LastKnown_Position: {x: 0, y: 0, z: 0}
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
-  viewPosition: {x: -586.4, y: 200, z: 0}
-  viewScale: {x: 0.375937, y: 0.375937, z: 1}
+  viewPosition: {x: -3520.8, y: -407.2, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -186,6 +187,64 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         newState: 0
+        overrideAlertValue: 1
+    - rid: 270282284141379585
+      type: {class: Update_SensoryDetection, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 161573a47d41e6a4fa50cfe0c7a9e921
+        position: {x: 527.2, y: 650.42255}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+        name: Update_SensoryDetection
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 8796965059076030487
+        returnFailureOnStateChange: 1
+        returnTrueAfterUpdate: 0
+    - rid: 270282284141379586
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7e3d710720739ce4d8891148249d12b1
+        position: {x: 3556, y: 612}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+        name: Sequencer
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 8796965355488280594
+        - rid: 270282263272095744
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -448,7 +507,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 566ce45b1199719d79b4ece2359ba2eb
-        position: {x: 553.60004, y: 494.40002}
+        position: {x: 547.5659, y: 494.39978}
         blackboard:
           alertState: 0
           health: 0
@@ -470,7 +529,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         child:
-          rid: 8796965059076030486
+          rid: 270282284141379585
         checkType: 0000000001000000
         alertStates: 00000000
     - rid: 3923952595406684161
@@ -626,7 +685,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ffb35a5fdbac8098785f6ea5af05cb7d
-        position: {x: 620.7999, y: 932.00006}
+        position: {x: 1106.8, y: 1517.6001}
         blackboard:
           alertState: 0
           health: 0
@@ -1138,6 +1197,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         newState: 0
+        overrideAlertValue: 1
     - rid: 8796965059076030478
       type: {class: SetPosition_SensorySource, ns: , asm: Assembly-CSharp}
       data:
@@ -1252,7 +1312,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3632127eeaf73114e8cdebbb31d7c954
-        position: {x: 553.30005, y: 633.6001}
+        position: {x: 1039.6001, y: 1219.2001}
         blackboard:
           alertState: 0
           health: 0
@@ -1272,7 +1332,6 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
-        - rid: 8796965059076030487
         - rid: 8796965340025978880
         abortOnSuccess: 0
     - rid: 8796965059076030487
@@ -1560,7 +1619,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1c983d83cfe8d3c45880a6ea93210c58
-        position: {x: 659.4, y: 788.8}
+        position: {x: 1145.2002, y: 1374.4001}
         blackboard:
           alertState: 0
           health: 0
@@ -1588,7 +1647,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 45e89d29f5f0a0c419bf4f6fa4573d4c
-        position: {x: 860.03906, y: 931.99994}
+        position: {x: 1346, y: 1517.6001}
         blackboard:
           alertState: 0
           health: 0
@@ -1943,6 +2002,7 @@ MonoBehaviour:
 '
         drawGizmos: 0
         newState: 0
+        overrideAlertValue: 1
     - rid: 8796965355488280591
       type: {class: Action_ChangeAlertState, ns: , asm: Assembly-CSharp}
       data:
@@ -1969,6 +2029,7 @@ MonoBehaviour:
         description: Hunt
         drawGizmos: 0
         newState: 4
+        overrideAlertValue: 1
     - rid: 8796965355488280592
       type: {class: Check_General, ns: , asm: Assembly-CSharp}
       data:
@@ -1995,37 +2056,9 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         child:
-          rid: 8796965355488280593
+          rid: 270282284141379586
         checkType: 0000000001000000
         alertStates: 04000000
-    - rid: 8796965355488280593
-      type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: bf0c6125c90ef7740889ef3f205fe8b6
-        position: {x: 3556, y: 599}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToLock: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-        name: Selector
-        description: 
-        drawGizmos: 0
-        children:
-        - rid: 8796965355488280594
-        - rid: 270282263272095744
     - rid: 8796965355488280594
       type: {class: Action_SetWait, ns: , asm: Assembly-CSharp}
       data:

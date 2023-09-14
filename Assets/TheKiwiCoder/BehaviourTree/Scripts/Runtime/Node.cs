@@ -143,7 +143,8 @@ namespace TheKiwiCoder
         }
 
         /// <summary>
-        /// Change Alert State
+        /// Change blackboard Alert State and update alert value
+        /// Handles events for when the state changes
         /// </summary>
         /// <param name="alertState"></param>
         /// <param name="overrideValue"> if the alert value be override to use the minimum alert value, or the maximum between it and current  </param>
@@ -154,6 +155,11 @@ namespace TheKiwiCoder
             if (alertState == NPC_AlertState.Suspicious)
             {
                 GameManager.Alert_Suspicious();
+            }
+
+            if (alertState == NPC_AlertState.Spotted)
+            {
+                context.NpcController.SpotPlayer();
             }
 
             if (overrideValue)

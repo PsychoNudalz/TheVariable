@@ -237,7 +237,8 @@ public class NpcController : MonoBehaviour
         ss = null;
         if (so)
         {
-            if (GetCurrentSS.SmartObject.Equals(so))
+            SensorySource sensorySource = GetCurrentSS;
+            if (sensorySource!=null&&so.Equals(sensorySource.SmartObject))
             {
                 return so;
             }
@@ -365,6 +366,15 @@ public class NpcController : MonoBehaviour
     public void UpdateAlertUI()
     {
         uiController.AlertManager_SetAlert(this, alertValue);
+    }
+
+    public void SpotPlayer()
+    {
+        SensorySource ss = sensoryController.GetCurrentSS;
+        if (ss != null&&ss.SmartObject is CameraObject co)
+        {
+            NpcKnowledgeSystem.SpottedPlayer(co.Position,co,Time.time);
+        }
     }
 
     public bool HasTasksQueued()
@@ -635,6 +645,9 @@ public class NpcController : MonoBehaviour
             bodyCollider.height = originalHeight;
         }
     }
+    
+    
+    
     //
     // public void ChangeStateEffect(NPC_AlertState alertState)
     // {

@@ -49,6 +49,8 @@ public class A_Update_SensoryDetection : ActionNode
         {
             ChangeAlertState(returnState, false);
 
+            //Update 
+            
             if (returnFailureOnStateChange)
             {
                 return State.Failure;

@@ -103,8 +103,8 @@ MonoBehaviour:
     wait_startTime: 0
     wait_duration: 0
     cameraToLock: {fileID: 0}
-  viewPosition: {x: -1065.6, y: -254.4, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: -1741.6, y: -151.2, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -1792,7 +1792,7 @@ MonoBehaviour:
         name: Action_LockCamera
         description: 
         drawGizmos: 0
-        lockDuration: 5
+        lockDuration: 2
         cameraToLock: {fileID: 0}
     - rid: 8796965355488280588
       type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
@@ -1965,5 +1965,5 @@ MonoBehaviour:
         name: Action_SetWait
         description: 
         drawGizmos: 0
-        duration: 1
+        duration: 2
         playWaitAnimation: 0

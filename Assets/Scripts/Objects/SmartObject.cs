@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using HighlightPlus;
 using UnityEngine;
+using UnityEngine.VFX;
 
 /// <summary>
 /// Objects that Both player and npc can interact with and investigate 
@@ -37,6 +38,9 @@ public abstract class SmartObject : MonoBehaviour
 
     [SerializeField]
     private ParticleSystem audioDistract_PS;
+
+    [SerializeField]
+    private VisualEffect audioDistract_VE;
 
     public virtual Vector3 Position => transform.position;
     public virtual Vector3 Forward => transform.forward;
@@ -185,6 +189,11 @@ public abstract class SmartObject : MonoBehaviour
         if (audioDistract_PS)
         {
             audioDistract_PS.Play();
+        }
+
+        if (audioDistract_VE)
+        {
+            audioDistract_VE.Play();
         }
 
         // SensorySource_Audio newSSA = new SensorySource_Audio(InteractPosition, audioDistract_Strength);

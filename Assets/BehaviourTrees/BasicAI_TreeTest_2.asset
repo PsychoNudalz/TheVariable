@@ -47,17 +47,12 @@ MonoBehaviour:
   - rid: 8796965059076030478
   - rid: 8796965059076030479
   - rid: 8796965059076030481
-  - rid: 8796965059076030483
-  - rid: 8796965059076030484
   - rid: 8796965059076030485
   - rid: 8796965059076030486
   - rid: 8796965059076030487
-  - rid: 8796965059076030490
   - rid: 8796965059076030491
   - rid: 8796965059076030492
   - rid: 8796965059076030493
-  - rid: 8796965059076030494
-  - rid: 8796965059076030495
   - rid: 8796965059076030497
   - rid: 8796965059076030498
   - rid: 8796965059076030499
@@ -103,8 +98,11 @@ MonoBehaviour:
     wait_startTime: 0
     wait_duration: 0
     cameraToLock: {fileID: 0}
-  viewPosition: {x: -1741.6, y: -151.2, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+    player_LastKnown_Position: {x: 0, y: 0, z: 0}
+    player_LastKnown_Camera: {fileID: 0}
+    player_LastKnown_Time: 0
+  viewPosition: {x: -586.4, y: 200, z: 0}
+  viewScale: {x: 0.375937, y: 0.375937, z: 1}
   references:
     version: 2
     RefIds:
@@ -114,7 +112,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c74f9c5759d7dd44eafb428e4834bf63
-        position: {x: 1599.2, y: 1068.4}
+        position: {x: 1672.7997, y: 867.93427}
         blackboard:
           alertState: 0
           health: 0
@@ -127,6 +125,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: 'Suspicious
 
 '
@@ -152,6 +153,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: PlayAnimation
         description: 
         drawGizmos: 0
@@ -175,6 +179,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_ChangeAlertState
         description: 
         drawGizmos: 0
@@ -198,6 +205,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: RootNode_Test
         description: 
         drawGizmos: 0
@@ -222,6 +232,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Seq_Wonder
         description: 
         drawGizmos: 0
@@ -248,6 +261,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -275,6 +291,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: RandomPosition
         description: 
         drawGizmos: 0
@@ -299,6 +318,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Sequencer
         description: 'Find and pick up Item
 
@@ -327,6 +349,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_LocateItem
         description: 
         drawGizmos: 0
@@ -349,6 +374,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -376,6 +404,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_PickUpItem
         description: 
         drawGizmos: 0
@@ -401,11 +432,14 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Check_General
         description: 
         drawGizmos: 0
         child:
-          rid: 8796965059076030484
+          rid: 8796965059076030485
         checkType: 00000000
         alertStates: 
     - rid: 3923952595406684160
@@ -427,6 +461,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: 'Peace
 
 '
@@ -455,12 +492,15 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Alert
         description: 
         drawGizmos: 0
         child:
           rid: 8796965059076030491
-        checkType: 0000000002000000
+        checkType: 0000000001000000
         alertStates: 01000000
     - rid: 3923952595406684162
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
@@ -481,6 +521,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Seq_Alert
         description: 
         drawGizmos: 0
@@ -505,11 +548,14 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Suspicious
         description: 
         drawGizmos: 1
         child:
-          rid: 8796965059076030494
+          rid: 3923952595406684170
         checkType: 0000000001000000
         alertStates: 02000000
     - rid: 3923952595406684170
@@ -518,7 +564,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a5ec2e022c9a5855ab12558e21f6240b
-        position: {x: 2003.2003, y: 877.6}
+        position: {x: 2076.7996, y: 652.7344}
         blackboard:
           alertState: 0
           health: 0
@@ -531,6 +577,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Seq_Sus
         description: 
         drawGizmos: 0
@@ -547,7 +596,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0ff5508c9b471b6b78ea1210a1202dbc
-        position: {x: 2268.7998, y: 1200.3999}
+        position: {x: 2342.3994, y: 999.93427}
         blackboard:
           alertState: 0
           health: 0
@@ -560,6 +609,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -587,6 +639,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: A_Update_SensoryDetection
         description: 
         drawGizmos: 0
@@ -611,6 +666,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: A_Update_SensoryDetection
         description: 
         drawGizmos: 0
@@ -622,7 +680,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0fa3918e7551c12c2a07442ee225ab17
-        position: {x: 2629.5999, y: 1217.2002}
+        position: {x: 2703.1995, y: 1016.7343}
         blackboard:
           alertState: 0
           health: 0
@@ -635,6 +693,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_ResetAlert
         description: 
         drawGizmos: 0
@@ -644,7 +705,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6dee9bf53c85d46e99fa60682059bcab
-        position: {x: 2629.5999, y: 1067.6}
+        position: {x: 2703.1995, y: 867.1343}
         blackboard:
           alertState: 0
           health: 0
@@ -657,6 +718,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -669,7 +733,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1abab597542181148a16022aa8e25788
-        position: {x: 2153.6, y: 1069.2}
+        position: {x: 2227.1995, y: 868.7343}
         blackboard:
           alertState: 0
           health: 0
@@ -682,6 +746,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -707,6 +774,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Selector
         description: 
         drawGizmos: 0
@@ -732,6 +802,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_Dead
         description: 
         drawGizmos: 0
@@ -754,6 +827,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Selector
         description: 
         drawGizmos: 0
@@ -779,6 +855,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_SetTaskToTarget
         description: 
         drawGizmos: 0
@@ -801,6 +880,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Seq_Task
         description: 
         drawGizmos: 0
@@ -828,6 +910,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Sequencer
         description: Deposit and do task
         drawGizmos: 0
@@ -853,6 +938,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_DepositItem
         description: 
         drawGizmos: 0
@@ -875,6 +963,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_DoTask
         description: 
         drawGizmos: 0
@@ -897,6 +988,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Repeat
         description: 
         drawGizmos: 0
@@ -923,6 +1017,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Move_TaskWait
         description: 
         drawGizmos: 0
@@ -951,6 +1048,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -965,7 +1065,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e6b622b48ebfe1d4bb55898b9ccd39d7
-        position: {x: 1674.4, y: 1294.8}
+        position: {x: 1747.9996, y: 1094.3345}
         blackboard:
           alertState: 0
           health: 0
@@ -978,6 +1078,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_DropItem
         description: 
         drawGizmos: 0
@@ -1000,6 +1103,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Peace
         description: 
         drawGizmos: 0
@@ -1012,7 +1118,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 33764ee97d0718448b13fe7a9cb1eba0
-        position: {x: 2780, y: 1217.2002}
+        position: {x: 2853.5994, y: 1016.7343}
         blackboard:
           alertState: 0
           health: 0
@@ -1025,6 +1131,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_ChangeAlertState
         description: 
         drawGizmos: 0
@@ -1035,7 +1144,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 48215e69efa86e64cb060afc6c208883
-        position: {x: 2069.6, y: 1200.3999}
+        position: {x: 2143.1995, y: 999.93427}
         blackboard:
           alertState: 0
           health: 0
@@ -1048,6 +1157,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: SetPosition_SensorySource
         description: 
         drawGizmos: 0
@@ -1070,6 +1182,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_SetWait
         description: 
         drawGizmos: 0
@@ -1094,66 +1209,21 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_SetWait
         description: 
         drawGizmos: 0
         duration: 1
         playWaitAnimation: 0
-    - rid: 8796965059076030483
-      type: {class: A_Check_Alive, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 2a78128529747984fa36036dcbde199e
-        position: {x: 2227.2, y: 89.599976}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToLock: {fileID: 0}
-        name: A_Check_Alive
-        description: 
-        drawGizmos: 0
-    - rid: 8796965059076030484
-      type: {class: Parallel, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 2bbe336121669c14c82a365ac0009477
-        position: {x: 2076.7998, y: -42.400024}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToLock: {fileID: 0}
-        name: Parallel
-        description: 
-        drawGizmos: 0
-        children:
-        - rid: 8796965059076030485
-        - rid: 8796965059076030483
-        abortOnSuccess: 0
     - rid: 8796965059076030485
       type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 71fe19c33e5db374ba976ff72f96131f
-        position: {x: 2076.7998, y: 64.80005}
+        position: {x: 2076.8, y: 99.80002}
         blackboard:
           alertState: 0
           health: 0
@@ -1166,6 +1236,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Repeat
         description: 
         drawGizmos: 0
@@ -1192,13 +1265,15 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Parallel
         description: 
         drawGizmos: 0
         children:
         - rid: 8796965059076030487
         - rid: 8796965340025978880
-        - rid: 8796965059076030490
         abortOnSuccess: 0
     - rid: 8796965059076030487
       type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
@@ -1219,6 +1294,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Repeat
         description: 
         drawGizmos: 0
@@ -1226,29 +1304,6 @@ MonoBehaviour:
           rid: 8796965059076030467
         restartOnSuccess: 1
         restartOnFailure: 0
-    - rid: 8796965059076030490
-      type: {class: A_Check_AlertState, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 5ef87d35900f79048bc32547ad6f69d1
-        position: {x: 840.8001, y: 788.8}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToLock: {fileID: 0}
-        name: A_Check_AlertState
-        description: 
-        drawGizmos: 0
-        alertStates: 00000000
     - rid: 8796965059076030491
       type: {class: Parallel, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -1268,13 +1323,15 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Parallel
         description: 
         drawGizmos: 0
         children:
         - rid: 8796965059076030492
         - rid: 8796965340025978882
-        - rid: 8796965059076030493
         abortOnSuccess: 0
     - rid: 8796965059076030492
       type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
@@ -1295,6 +1352,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Repeat
         description: 
         drawGizmos: 0
@@ -1321,66 +1381,20 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: A_Check_AlertState
         description: 
         drawGizmos: 0
         alertStates: 01000000
-    - rid: 8796965059076030494
-      type: {class: Parallel, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 0d5e3dee78c33864c92b25b5c852f23c
-        position: {x: 2077.0083, y: 605.9999}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToLock: {fileID: 0}
-        name: Parallel
-        description: 
-        drawGizmos: 0
-        children:
-        - rid: 3923952595406684170
-        - rid: 8796965059076030495
-        abortOnSuccess: 0
-    - rid: 8796965059076030495
-      type: {class: A_Check_AlertState, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 88fe53ba5f4ecb84088b555e8696349e
-        position: {x: 2201.0083, y: 756.3999}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToLock: {fileID: 0}
-        name: A_Check_AlertState
-        description: 
-        drawGizmos: 0
-        alertStates: 02000000
     - rid: 8796965059076030497
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 101968442bb554a4a9a2be50e7fc8c8a
-        position: {x: 1920, y: 1068.4}
+        position: {x: 1993.5995, y: 867.93427}
         blackboard:
           alertState: 0
           health: 0
@@ -1393,6 +1407,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: 'Drop Item and Move
 
 
@@ -1409,7 +1426,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b1f4b5b5aea173147ae2381ba980c832
-        position: {x: 1824.8002, y: 1294.0002}
+        position: {x: 1898.3995, y: 1093.5344}
         blackboard:
           alertState: 0
           health: 0
@@ -1422,6 +1439,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_StopMove
         description: 
         drawGizmos: 0
@@ -1431,7 +1451,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 28fdbe2c82fc1e74891d2ba80b73b550
-        position: {x: 1974.3999, y: 1294.8}
+        position: {x: 2047.9996, y: 1094.3345}
         blackboard:
           alertState: 0
           health: 0
@@ -1444,6 +1464,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_SetWait
         description: 
         drawGizmos: 0
@@ -1455,7 +1478,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0db0abcf96b2f3441a27a9bffeea4958
-        position: {x: 2429.6003, y: 1078}
+        position: {x: 2503.1995, y: 877.5343}
         blackboard:
           alertState: 0
           health: 0
@@ -1468,6 +1491,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: 'Investigation
 
 '
@@ -1481,7 +1507,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 90375661213613644ac74e4c08e10611
-        position: {x: 1749.6002, y: 1068.4}
+        position: {x: 1823.1996, y: 867.93427}
         blackboard:
           alertState: 0
           health: 0
@@ -1494,6 +1520,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Assign_SensorySource
         description: 
         drawGizmos: 0
@@ -1503,7 +1532,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c35a0730c39c36548a56a9550de20b02
-        position: {x: 2341.5999, y: 1395.6001}
+        position: {x: 2415.1995, y: 1195.1345}
         blackboard:
           alertState: 0
           health: 0
@@ -1516,6 +1545,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_Investigate
         description: 
         drawGizmos: 0
@@ -1541,6 +1573,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Selector
         description: 
         drawGizmos: 0
@@ -1553,7 +1588,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 45e89d29f5f0a0c419bf4f6fa4573d4c
-        position: {x: 840.8001, y: 931.99994}
+        position: {x: 860.03906, y: 931.99994}
         blackboard:
           alertState: 0
           health: 0
@@ -1566,6 +1601,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_CreateSSFromVisual
         description: 
         drawGizmos: 0
@@ -1588,6 +1626,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Selector
         description: 
         drawGizmos: 0
@@ -1613,6 +1654,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_CreateSSFromVisual
         description: 
         drawGizmos: 0
@@ -1622,7 +1666,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 603a81069ad81cf4c88969b8a2a7cb26
-        position: {x: 2429.6003, y: 1234}
+        position: {x: 2503.1995, y: 1033.5344}
         blackboard:
           alertState: 0
           health: 0
@@ -1635,6 +1679,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Parallel
         description: 
         drawGizmos: 0
@@ -1648,7 +1695,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 353d5e153503ba946baa1afd2225ffb1
-        position: {x: 2504.7998, y: 1395.6001}
+        position: {x: 2578.3994, y: 1195.1345}
         blackboard:
           alertState: 0
           health: 0
@@ -1661,6 +1708,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: A_Update_SensoryDetection
         description: 
         drawGizmos: 0
@@ -1685,6 +1735,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Selector
         description: 
         drawGizmos: 0
@@ -1713,6 +1766,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Spotted
         description: 
         drawGizmos: 0
@@ -1739,6 +1795,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -1765,6 +1824,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_SetWait
         description: 
         drawGizmos: 0
@@ -1789,6 +1851,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_LockCamera
         description: 
         drawGizmos: 0
@@ -1813,6 +1878,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Selector
         description: 
         drawGizmos: 0
@@ -1838,6 +1906,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -1863,6 +1934,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_ChangeAlertState
         description: 'Peace
 
@@ -1888,6 +1962,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_ChangeAlertState
         description: Hunt
         drawGizmos: 0
@@ -1911,6 +1988,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Hunt
         description: 
         drawGizmos: 0
@@ -1937,6 +2017,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Selector
         description: 
         drawGizmos: 0
@@ -1962,6 +2045,9 @@ MonoBehaviour:
           wait_startTime: 0
           wait_duration: 0
           cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
         name: Action_SetWait
         description: 
         drawGizmos: 0

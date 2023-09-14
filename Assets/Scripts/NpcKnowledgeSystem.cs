@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A system that shares data to all NPCs
+/// </summary>
 public class NpcKnowledgeSystem : MonoBehaviour
 {
     static Vector3 player_LastKnown_Position = new Vector3();

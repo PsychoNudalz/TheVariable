@@ -31,6 +31,13 @@ public class Check_General : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //Testing
+        // if (alertStates.Length > 0 && alertStates[0] == NPC_AlertState.Alert)
+        // {
+        //     Debug.Log("Test");
+        // }
+        //Testing
+
         State checkState = State.Success;
         foreach (DecoratorCheckType type in checkType)
         {
@@ -64,6 +71,7 @@ public class Check_General : DecoratorNode
 
                 break;
             case DecoratorCheckType.Detection:
+                Debug.LogError("Detection check not implemented");
                 break;
             case DecoratorCheckType.AlertState:
                 if (!AllowedState(alertStates))

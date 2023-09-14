@@ -30,5 +30,11 @@ namespace TheKiwiCoder {
         public CameraObject cameraToLock = null;
         // public ItemName MissingItem => missingItems[0];
         // protected bool foundAllItems =>
+        
+        
+        public Vector3 player_LastKnown_Position = new Vector3();
+        public CameraObject player_LastKnown_Camera;
+
+        public float player_LastKnown_Time = 0;
     }
 }

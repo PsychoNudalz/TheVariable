@@ -233,7 +233,7 @@ public class NpcController : MonoBehaviour
     /// <returns></returns>
     public SmartObject Update_SensoryController(out SensorySource ss)
     {
-        SmartObject so = FindSS_ClosestActiveCamera();
+        SmartObject so = FindSS_ClosestCamera_Hacking();
         ss = null;
         if (so)
         {
@@ -327,16 +327,36 @@ public class NpcController : MonoBehaviour
         return sensoryController.FindActiveCameras();
     }
 
-    public CameraObject FindSS_ClosestActiveCamera()
+    /// <summary>
+    /// Find the closest active camera, hacking and player control
+    /// </summary>
+    /// <returns></returns>
+    public CameraObject FindSS_ClosestCamera_Active()
     {
         CameraObject[] cameras = FindSS_ActiveCameras();
+        return FindSsClosestCamera(cameras);
+    }
+
+    /// <summary>
+    /// Find the closest hacking camera
+    /// </summary>
+    /// <returns></returns>
+    public CameraObject FindSS_ClosestCamera_Hacking()
+    {
+        CameraObject[] cameras = FindSS_ActiveCameras();
+        return FindSsClosestCamera(cameras);
+    }
+
+    private CameraObject FindSsClosestCamera(CameraObject[] cameras)
+    {
         if (cameras.Length == 0)
         {
             return null;
         }
+
         float maxDist = Mathf.Infinity;
         int x = 0;
-        for ( int i = 0;i < cameras.Length; i++)
+        for (int i = 0; i < cameras.Length; i++)
         {
             var c = cameras[i];
             float distance = Vector3.Distance(c.Position, transform.position);

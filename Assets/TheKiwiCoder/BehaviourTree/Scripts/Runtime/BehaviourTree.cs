@@ -74,5 +74,10 @@ namespace TheKiwiCoder {
                 node.blackboard = blackboard;
             });
         }
+
+        public void CleanTree()
+        {
+            
+        }
     }
 }

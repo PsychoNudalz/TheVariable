@@ -108,6 +108,8 @@ public class CameraObject : SmartObject
     public bool IsHacking => cameraState == CameraState.Hacking;
     public bool IsLocked => cameraState == CameraState.Locked;
 
+    public bool IsDetectable => !IsLocked && (IsPlayerControl || IsHacking);
+
     public float CameraLockTime => cameraLock_Time;
     public String CameraLockTime_String => Get_CameraLockTime_String();
 

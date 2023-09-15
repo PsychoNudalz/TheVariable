@@ -101,6 +101,7 @@ public class NpcController : MonoBehaviour
 
     public Vector3 AlertPosition => alertPosition.position;
     public float Health => lifeSystem.Health;
+
     /// <summary>
     /// If the NPC is freely moving around
     /// </summary>
@@ -188,11 +189,11 @@ public class NpcController : MonoBehaviour
 
     private void Awake()
     {
-
         if (!effectsController)
         {
             effectsController = GetComponent<NpcEffectsController>();
         }
+
         //Initialising schedule
         for (var i = 0; i < schedule.Count; i++)
         {
@@ -230,28 +231,39 @@ public class NpcController : MonoBehaviour
     /// <summary>
     /// Update the Sensory Controller
     /// </summary>
+    /// <param name="ss"></param>
+    /// <param name="detectPlayerControl">if finding camera includes player control or not</param>
     /// <returns></returns>
-    public SmartObject Update_SensoryController(out SensorySource ss)
+    public SmartObject Update_SensoryController(out SensorySource ss, bool detectPlayerControl)
     {
-        SmartObject so = FindSS_ClosestCamera_Hacking();
+        SmartObject so;
+        if (detectPlayerControl)
+        {
+            so = FindSS_ClosestCamera_Active();
+
+        }
+        else
+        {
+            so = FindSS_ClosestCamera_Hacking();
+        }
+
         ss = null;
         if (so)
         {
             SensorySource sensorySource = GetCurrentSS;
-            if (sensorySource!=null&&so.Equals(sensorySource.SmartObject))
+            if (sensorySource != null && so.Equals(sensorySource.SmartObject))
             {
                 return so;
             }
-            
+
             ss = new SensorySource_Visual(so, 100);
             AddSensorySource(ss);
             return so;
-
         }
 
         return so;
     }
-    
+
     /// <summary>
     ///  updating the alert state
     /// </summary>
@@ -322,6 +334,11 @@ public class NpcController : MonoBehaviour
         return sensoryController.FindHackingCamera();
     }
 
+    public CameraObject[] FindSS_HackingCameras()
+    {
+        return sensoryController.FindHackingCameras();
+    }
+
     public CameraObject[] FindSS_ActiveCameras()
     {
         return sensoryController.FindActiveCameras();
@@ -343,7 +360,7 @@ public class NpcController : MonoBehaviour
     /// <returns></returns>
     public CameraObject FindSS_ClosestCamera_Hacking()
     {
-        CameraObject[] cameras = FindSS_ActiveCameras();
+        CameraObject[] cameras = FindSS_HackingCameras();
         return FindSsClosestCamera(cameras);
     }
 
@@ -391,9 +408,9 @@ public class NpcController : MonoBehaviour
     public void SpotPlayer()
     {
         SensorySource ss = sensoryController.GetCurrentSS;
-        if (ss != null&&ss.SmartObject is CameraObject co)
+        if (ss != null && ss.SmartObject is CameraObject co)
         {
-            NpcKnowledgeSystem.SpottedPlayer(co.Position,co,Time.time);
+            NpcKnowledgeSystem.SpottedPlayer(co.Position, co, Time.time);
         }
     }
 
@@ -554,7 +571,7 @@ public class NpcController : MonoBehaviour
     TaskEvent InitialiseTask(TaskEvent taskEvent)
     {
         //setting the position to the task object's interaction point
-        if (taskEvent is {HasObject: true, Position: {magnitude: <= .1f}})
+        if (taskEvent is { HasObject: true, Position: { magnitude: <= .1f } })
         {
             taskEvent.Position = taskEvent.TaskSmartObject.InteractPosition;
         }
@@ -665,9 +682,8 @@ public class NpcController : MonoBehaviour
             bodyCollider.height = originalHeight;
         }
     }
-    
-    
-    
+
+
     //
     // public void ChangeStateEffect(NPC_AlertState alertState)
     // {

@@ -51,7 +51,12 @@ public class Check_General : DecoratorNode
 
         if (child != null)
         {
-            return child.Update();
+            State childState = child.Update();
+            if (childState == State.Failure)
+            {
+                Abort();
+            }
+            return childState;
         }
         else
         {

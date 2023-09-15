@@ -12,6 +12,9 @@ public class Update_SensoryDetection : DecoratorNode
 
     [SerializeField]
     private bool returnTrueAfterUpdate = false;
+
+    [SerializeField]
+    private bool detectPlayerControl = false;
     protected override void OnStart() {
     }
 
@@ -19,7 +22,7 @@ public class Update_SensoryDetection : DecoratorNode
     }
 
     protected override State OnUpdate() {
-        SmartObject foundCamera = context.NpcController.Update_SensoryController(out SensorySource ss);
+        SmartObject foundCamera = context.NpcController.Update_SensoryController(out SensorySource ss,detectPlayerControl);
         NPC_AlertState returnState;
         if (foundCamera)
         {
@@ -47,6 +50,7 @@ public class Update_SensoryDetection : DecoratorNode
             
             if (returnFailureOnStateChange)
             {
+                Abort();
                 return State.Failure;
             }
         }

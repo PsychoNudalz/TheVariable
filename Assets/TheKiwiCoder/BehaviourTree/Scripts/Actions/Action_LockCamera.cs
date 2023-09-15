@@ -14,10 +14,9 @@ public class Action_LockCamera : ActionNode
 
     protected override void OnStart()
     {
-        if (blackboard.currentSensorySource is {SmartObject: CameraObject co})
+        if (blackboard.cameraToInvestigate)
         {
-            blackboard.cameraToLock = co;
-            cameraToLock = blackboard.cameraToLock;
+            cameraToLock = blackboard.cameraToInvestigate;
         }
         else
         {
@@ -28,6 +27,10 @@ public class Action_LockCamera : ActionNode
 
     protected override void OnStop()
     {
+        if (started)
+        {
+            blackboard.cameraToInvestigate = null;
+        }
     }
 
     protected override State OnUpdate()

@@ -12,6 +12,9 @@ public class A_Update_SensoryDetection : ActionNode
 
     [SerializeField]
     private bool returnTrueAfterUpdate = false;
+    
+    [SerializeField]
+    private bool detectPlayerControl = false;
     // [SerializeField]
     // private bool returnFailureOnDetected = false;
 
@@ -25,7 +28,7 @@ public class A_Update_SensoryDetection : ActionNode
 
     protected override State OnUpdate()
     {
-        SmartObject foundCamera = context.NpcController.Update_SensoryController(out SensorySource ss);
+        SmartObject foundCamera = context.NpcController.Update_SensoryController(out SensorySource ss,detectPlayerControl);
         NPC_AlertState returnState;
         if (foundCamera)
         {

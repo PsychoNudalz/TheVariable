@@ -42,6 +42,9 @@ public abstract class SmartObject : MonoBehaviour
     [SerializeField]
     private VisualEffect audioDistract_VE;
 
+    [SerializeField]
+    private SoundAbstract audioDistract_SFX;
+
     public virtual Vector3 Position => transform.position;
     public virtual Vector3 Forward => transform.forward;
     public virtual Vector3 ColliderPosition => transform.forward;
@@ -196,6 +199,11 @@ public abstract class SmartObject : MonoBehaviour
             audioDistract_VE.Play();
         }
 
+        if (audioDistract_SFX)
+        {
+            audioDistract_SFX.Play();
+        }
+
         // SensorySource_Audio newSSA = new SensorySource_Audio(InteractPosition, audioDistract_Strength);
 
 
@@ -207,7 +215,7 @@ public abstract class SmartObject : MonoBehaviour
             collider = hit.collider;
             if (collider.TryGetComponent(out NpcController npcController))
             {
-                SensorySource_Audio newSSA = new SensorySource_Audio(InteractPosition, audioDistract_Strength);
+                SensorySource_Audio newSSA = new SensorySource_Audio(this, audioDistract_Strength);
                 newSSA.AdjustStrength(npcController.transform.position, audioDistraction_LayerMask,
                     audioDistract_Dampen);
                 npcController.AddSensorySource(newSSA);

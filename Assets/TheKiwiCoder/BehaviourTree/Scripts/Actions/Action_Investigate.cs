@@ -33,6 +33,10 @@ public class Action_Investigate : ActionNode
         investigate_StartTime = Time.time;
         investigate_Time = Random.Range(investigate_TimeRange.x, investigate_TimeRange.y);
         isPlayerSpotted = false;
+        if (blackboard.currentSensorySource is { SmartObject: CameraObject co })
+        {
+            blackboard.cameraToInvestigate = co;
+        }
     }
 
     protected override void OnStop()
@@ -50,10 +54,14 @@ public class Action_Investigate : ActionNode
 
     protected override State OnUpdate()
     {
+        if (!blackboard.cameraToInvestigate)
+        {
+            return State.Failure;
+        }
         if (Time.time - investigate_StartTime <= investigate_Time)
         {
             //While the AI is investigating
-            if (context.NpcController.FindSS_ActiveCameras().Length > 0)
+            if (blackboard.cameraToInvestigate&&blackboard.cameraToInvestigate.IsDetectable)
             {
                 // if(blackboard.currentSensorySource)
                 context.NpcController.UpdateAlertValue(alertBuildup);
@@ -63,7 +71,6 @@ public class Action_Investigate : ActionNode
                 {
                     ChangeAlertState(returnState, false);
                     isPlayerSpotted = true;
-
                     return State.Failure;
                 }
             }

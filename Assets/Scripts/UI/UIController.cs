@@ -70,6 +70,7 @@ public class UIController : MonoBehaviour
 
     public void LockoutScreen_SetActive(bool b, CameraObject cameraObject = null)
     {
+        
         lockOutScreen.SetActive(b,cameraObject);
     }
 }

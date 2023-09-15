@@ -422,9 +422,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e903e5f97da3caaea730c63e6787b23, type: 2}
   audioDistract_Range: 10
   audioDistract_Strength: 1
-  audioDistract_Dampen: 1
+  audioDistract_Dampen: 0.5
   audioDistract_PS: {fileID: 0}
   audioDistract_VE: {fileID: 5828431194569870934}
+  audioDistract_SFX: {fileID: 0}
   camera: {fileID: 3915646344706757922}
   camera_transform: {fileID: 3915646344706757923}
   xClamp: {x: -90, y: 90}

@@ -41,6 +41,10 @@ public class UI_LockOutScreen : MonoBehaviour
 
     public void SetActive(bool b, CameraObject cameraObject =null)
     {
+        if (gameObject.activeSelf == b)
+        {
+            return;
+        }
         gameObject.SetActive(b);
         connectedCamera = cameraObject;
     }

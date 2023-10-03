@@ -28,6 +28,11 @@ public class ItemObject : SmartObject
     [SerializeField]
     private GameObject modelGO;
 
+    [SerializeField]
+    private SoundAbstract sfx_PickUp;
+    [SerializeField]
+    private SoundAbstract sfx_Drop;
+
     public virtual bool IsFree => currentTask == null&&itemState == ItemState.Idle;
     private TaskEvent currentTask;
     public ItemName Name => name;
@@ -65,6 +70,10 @@ public class ItemObject : SmartObject
         transform.parent = npc.transform;
         transform.position = npc.PickUpPosition;
         modelGO.SetActive(true);
+        if (sfx_PickUp)
+        {
+            sfx_PickUp.PlayF();
+        }
         return true;
     }
 
@@ -118,6 +127,10 @@ public class ItemObject : SmartObject
 
         transform.parent = null;
         modelGO.SetActive(true);
+        if (sfx_Drop)
+        {
+            sfx_Drop.PlayF();
+        }
     }
 
     public virtual void Destroy()

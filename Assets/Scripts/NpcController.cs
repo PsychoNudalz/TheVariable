@@ -228,40 +228,51 @@ public class NpcController : MonoBehaviour
     }
 
 
+    // public SmartObject Update_SensoryController()
+    // {
+    //     
+    // }
+    //
     /// <summary>
     /// Update the Sensory Controller
     /// </summary>
     /// <param name="ss"></param>
     /// <param name="detectPlayerControl">if finding camera includes player control or not</param>
     /// <returns></returns>
-    public SmartObject Update_SensoryController(out SensorySource ss, bool detectPlayerControl)
+    public SmartObject Evaluate_Senses(out SensorySource ss, bool detectPlayerControl)
     {
-        SmartObject so;
+        CameraObject co;
         if (detectPlayerControl)
         {
-            so = FindSS_ClosestCamera_Active();
-
+            co = FindSS_ClosestCamera_Active();
         }
         else
         {
-            so = FindSS_ClosestCamera_Hacking();
+            co = FindSS_ClosestCamera_Hacking();
         }
-
+    
         ss = null;
-        if (so)
+        if (co)
         {
+            //Create Visual if detected new camera
             SensorySource sensorySource = GetCurrentSS;
-            if (sensorySource != null && so.Equals(sensorySource.SmartObject))
+            if (sensorySource != null && co.Equals(sensorySource.SmartObject))
             {
-                return so;
+                //If new camera is the same as the old one
+                return co;
             }
-
-            ss = new SensorySource_Visual(so, 100);
+    
+            ss = CreateSSFromCamera(co);
             AddSensorySource(ss);
-            return so;
+            return co;
         }
+    
+        return co;
+    }
 
-        return so;
+    private static SensorySource_Visual CreateSSFromCamera( CameraObject co)
+    {
+        return new SensorySource_Visual(co, 100);
     }
 
     /// <summary>
@@ -410,7 +421,7 @@ public class NpcController : MonoBehaviour
         SensorySource ss = sensoryController.GetCurrentSS;
         if (ss != null && ss.SmartObject is CameraObject co)
         {
-            NpcKnowledgeSystem.SpottedPlayer(co.Position, co, Time.time);
+            GlobalKnowledgeSystem.SpottedPlayer(co.Position, co, Time.time);
         }
     }
 
@@ -658,6 +669,7 @@ public class NpcController : MonoBehaviour
     public void AddSensorySource(SensorySource ss)
     {
         sensoryController.AddSS(ss);
+        Set_MinAlertValue(NPC_AlertState.Suspicious);
     }
 
     public void RemoveCurrentSensorySource()

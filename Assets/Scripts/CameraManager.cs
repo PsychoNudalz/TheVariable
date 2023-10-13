@@ -76,6 +76,7 @@ public class CameraManager : MonoBehaviour
         // }
         oldCamera.SetActive(false);
         newCamera.SetActive(true);
+        GlobalKnowledgeSystem.UpdatePlayerCamera(newCamera);
         return newCamera;
     }
 

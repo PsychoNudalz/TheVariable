@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
+/// <summary>
+/// Preset settings to add to hacking context and ability
+/// </summary>
 [Serializable]
 public enum HackContext_Enum
 {

@@ -96,11 +96,14 @@ MonoBehaviour:
     player_LastKnown_Position: {x: 0, y: 0, z: 0}
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
-  viewPosition: {x: -431.2, y: 241.6, z: 0}
-  viewScale: {x: 0.2842624, y: 0.2842624, z: 1}
+    hackingCameras: []
+  viewPosition: {x: -1008, y: 418, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 270282241434451969
       type: {class: PlayAnimation, ns: , asm: Assembly-CSharp}
       data:
@@ -123,6 +126,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: 'Suspicious
 
 '
@@ -151,6 +155,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: PlayAnimation
         description: 
         drawGizmos: 0
@@ -177,6 +182,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_ChangeAlertState
         description: 
         drawGizmos: 0
@@ -234,6 +240,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -322,6 +329,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Selector
         description: 
         drawGizmos: 0
@@ -350,6 +358,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_SetWait
         description: 
         drawGizmos: 0
@@ -377,6 +386,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Check_SSChange
         description: 
         drawGizmos: 0
@@ -404,6 +414,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: RootNode_Test
         description: 
         drawGizmos: 0
@@ -431,6 +442,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Seq_Wonder
         description: 
         drawGizmos: 0
@@ -460,6 +472,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -490,6 +503,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: RandomPosition
         description: 
         drawGizmos: 0
@@ -517,6 +531,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Sequencer
         description: 'Find and pick up Item
 
@@ -548,6 +563,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_LocateItem
         description: 
         drawGizmos: 0
@@ -573,6 +589,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -603,6 +620,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_PickUpItem
         description: 
         drawGizmos: 0
@@ -615,7 +633,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 13185d4e6ffc4566297835aa8323b529
-        position: {x: 2076.7998, y: -153.59998}
+        position: {x: 2078, y: -155.7489}
         blackboard:
           alertState: 0
           health: 0
@@ -631,6 +649,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Check_General
         description: 
         drawGizmos: 0
@@ -660,6 +679,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: 'Peace
 
 '
@@ -691,6 +711,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Alert
         description: 
         drawGizmos: 0
@@ -720,6 +741,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Seq_Alert
         description: 
         drawGizmos: 0
@@ -747,6 +769,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Suspicious
         description: 
         drawGizmos: 1
@@ -776,6 +799,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Seq_Sus
         description: 
         drawGizmos: 0
@@ -808,6 +832,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -838,6 +863,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_ResetAlert
         description: 
         drawGizmos: 0
@@ -863,6 +889,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -891,6 +918,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -919,11 +947,14 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Selector
         description: 
         drawGizmos: 0
         children:
         - rid: 3923952594555502592
+        - rid: 3923952594555502592
+        - rid: 8796965019197636611
         - rid: 8796965019197636611
     - rid: 8796965019197636611
       type: {class: Action_Dead, ns: , asm: Assembly-CSharp}
@@ -947,6 +978,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_Dead
         description: 
         drawGizmos: 0
@@ -972,6 +1004,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Selector
         description: 
         drawGizmos: 0
@@ -1000,6 +1033,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_SetTaskToTarget
         description: 
         drawGizmos: 0
@@ -1025,6 +1059,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Seq_Task
         description: 
         drawGizmos: 0
@@ -1055,6 +1090,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Sequencer
         description: Deposit and do task
         drawGizmos: 0
@@ -1083,6 +1119,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_DepositItem
         description: 
         drawGizmos: 0
@@ -1108,6 +1145,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_DoTask
         description: 
         drawGizmos: 0
@@ -1133,6 +1171,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Repeat
         description: 
         drawGizmos: 0
@@ -1162,6 +1201,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Move_TaskWait
         description: 
         drawGizmos: 0
@@ -1193,6 +1233,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: MoveToPosition
         description: 
         drawGizmos: 0
@@ -1223,6 +1264,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_DropItem
         description: 
         drawGizmos: 0
@@ -1248,6 +1290,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Peace
         description: 
         drawGizmos: 0
@@ -1276,6 +1319,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_ChangeAlertState
         description: 
         drawGizmos: 0
@@ -1303,6 +1347,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: SetPosition_SensorySource
         description: 
         drawGizmos: 0
@@ -1328,6 +1373,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_SetWait
         description: 
         drawGizmos: 0
@@ -1355,6 +1401,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_SetWait
         description: 
         drawGizmos: 0
@@ -1382,6 +1429,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Repeat
         description: 
         drawGizmos: 0
@@ -1411,6 +1459,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Repeat
         description: 
         drawGizmos: 0
@@ -1440,6 +1489,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Repeat
         description: 
         drawGizmos: 0
@@ -1469,6 +1519,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: 'Drop Item and Move
 
 
@@ -1501,6 +1552,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_StopMove
         description: 
         drawGizmos: 0
@@ -1526,6 +1578,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_SetWait
         description: 
         drawGizmos: 0
@@ -1553,6 +1606,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: 'Investigation
 
 '
@@ -1582,6 +1636,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Assign_SensorySource
         description: 
         drawGizmos: 0
@@ -1607,6 +1662,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_Investigate
         description: 
         drawGizmos: 0
@@ -1635,12 +1691,14 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Selector
         description: 
         drawGizmos: 0
         children:
         - rid: 3923952595406684160
         - rid: 3923952595406684161
+        - rid: 3923952595406684169
         - rid: 3923952595406684169
         - rid: 8796965355488280584
         - rid: 8796965355488280592
@@ -1666,6 +1724,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Spotted
         description: 
         drawGizmos: 0
@@ -1695,6 +1754,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -1724,6 +1784,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_SetWait
         description: 
         drawGizmos: 0
@@ -1751,6 +1812,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_LockCamera
         description: 
         drawGizmos: 0
@@ -1778,6 +1840,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Selector
         description: 
         drawGizmos: 0
@@ -1806,6 +1869,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Sequencer
         description: 
         drawGizmos: 0
@@ -1834,6 +1898,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_ChangeAlertState
         description: 'Peace
 
@@ -1863,6 +1928,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_ChangeAlertState
         description: Hunt
         drawGizmos: 0
@@ -1890,6 +1956,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Hunt
         description: 
         drawGizmos: 0
@@ -1919,6 +1986,7 @@ MonoBehaviour:
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
+          hackingCameras: []
         name: Action_SetWait
         description: 
         drawGizmos: 0

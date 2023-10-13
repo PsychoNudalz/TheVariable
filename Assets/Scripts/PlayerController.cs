@@ -399,6 +399,8 @@ public class PlayerController : MonoBehaviour
             AddCurrentCameraToStack();
         }
         currentCamera = cameraManager.ChangeCamera(cameraObject, currentCamera);
+        
+        
         if (pushToStack)
         {
             AddCurrentCameraToStack();

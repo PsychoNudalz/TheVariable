@@ -33,7 +33,7 @@ public class NpcSensoryController : MonoBehaviour
         
     }
 
-    public void AddSS(SensorySource ss,bool setToSus = true)
+    public void AddSS(SensorySource ss)
     {
         if (currentSS==null)
         {
@@ -44,10 +44,7 @@ public class NpcSensoryController : MonoBehaviour
             currentSS = SensorySource.Compare(currentSS, ss);
         }
 
-        if (setToSus)
-        {
-            npcController.Set_MinAlertValue(NPC_AlertState.Suspicious);
-        }
+
     }
 
     public void PopCurrentSS()

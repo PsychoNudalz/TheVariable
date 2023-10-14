@@ -361,6 +361,15 @@ public class PlayerController : MonoBehaviour
         cameraManager.ActiveThroughWalls(currentCamera.Position, camera_CastRange);
     }
 
+    public void OnHoldHack(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            print("Override to set hacking");
+            currentCamera.Override_IsHacking();
+        }
+    }
+
     private void SelectHack(Vector2 dir)
     {
         int hackIndex = uiController.HacksDisplay_SelectHack(dir);

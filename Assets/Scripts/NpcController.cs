@@ -120,7 +120,7 @@ public class NpcController : MonoBehaviour
     public void Set_AlertState(NPC_AlertState npcAlertState, float alert = 0)
     {
         alertValue += alert;
-        UpdateAlertValue(1f);
+        Change_AlertValue(1f);
         Debug.Log($"Controller change NPC state from: {blackboardAlertState} --> {npcAlertState}");
         blackboardAlertState = npcAlertState;
     }
@@ -250,77 +250,52 @@ public class NpcController : MonoBehaviour
         {
             co = FindSS_ClosestCamera_Hacking();
         }
-    
+
         ss = null;
-        if (co)
-        {
-            //Create Visual if detected new camera
-            SensorySource sensorySource = GetCurrentSS;
-            if (sensorySource != null && co.Equals(sensorySource.SmartObject))
-            {
-                //If new camera is the same as the old one
-                return co;
-            }
-    
-            ss = CreateSSFromCamera(co);
-            AddSensorySource(ss);
-            return co;
-        }
-    
+
+
         return co;
     }
 
-    private static SensorySource_Visual CreateSSFromCamera( CameraObject co)
+    public SensorySource_Visual AddCameraToSS(CameraObject co)
     {
-        return new SensorySource_Visual(co, 100);
+        SensorySource sensorySource = GetCurrentSS;
+        if (sensorySource != null && co.Equals(sensorySource.SmartObject))
+        {
+            //If new camera is the same as the old one
+            return null;
+        }
+
+        //Create Visual if detected new camera
+        SensorySource_Visual ss = new SensorySource_Visual(co, 100);
+        AddSensorySource(ss);
+        return ss;
     }
 
     /// <summary>
-    ///  updating the alert state
+    ///  updating the alert value and change alert state
     /// </summary>
     /// <returns></returns>
-    public NPC_AlertState Update_AlertValue(SmartObject so = null)
+    public NPC_AlertState Update_AlertValue(float multiplier)
     {
         //will need to change this in to detecting any suspicious item
-        if (so)
+        if (alertValue >= 0f)
         {
-            if (alertValue < alert_SpottedThresshold)
-            {
-                UpdateAlertValue(1f);
-            }
-        }
-        else
-        {
-            if (IsRoaming)
-            {
-                if (alertValue > 0f)
-                {
-                    UpdateAlertValue(-1f);
-                }
-            }
+            Change_AlertValue(multiplier);
         }
 
-        if (IsRoaming)
-        {
-            return EvaluateAlertValue();
-        }
-
-        return blackboardAlertState;
+        return EvaluateAlertValue();
     }
 
     public NPC_AlertState EvaluateAlertValue()
     {
         if (alertValue >= alert_SpottedThresshold)
         {
-            {
-                return NPC_AlertState.Spotted;
-            }
+            return NPC_AlertState.Spotted;
         }
         else if (alertValue >= alert_SuspiciousThresshold)
         {
-            {
-                return NPC_AlertState.Suspicious;
-            }
+            return NPC_AlertState.Suspicious;
         }
 
         //TODO: might need to check back on this to find if the world is in alert or not
@@ -405,7 +380,7 @@ public class NpcController : MonoBehaviour
     }
 
 
-    public void UpdateAlertValue(float multiplier)
+    void Change_AlertValue(float multiplier)
     {
         alertValue = Math.Clamp(alertValue + peaceToAlertSpeed * multiplier * Time.deltaTime, 0f, 1f);
         UpdateAlertUI();

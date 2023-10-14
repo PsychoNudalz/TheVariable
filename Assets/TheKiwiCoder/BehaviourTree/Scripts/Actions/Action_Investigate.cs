@@ -64,8 +64,8 @@ public class Action_Investigate : ActionNode
             if (blackboard.cameraToInvestigate&&blackboard.cameraToInvestigate.IsDetectable)
             {
                 // if(blackboard.currentSensorySource)
-                context.NpcController.UpdateAlertValue(alertBuildup);
-                NPC_AlertState returnState = context.NpcController.EvaluateAlertValue();
+                
+                NPC_AlertState returnState = context.NpcController.Update_AlertValue(alertBuildup);
 
                 if (returnState != blackboard.alertState)
                 {

@@ -32,6 +32,10 @@ namespace TheKiwiCoder
         [HideInInspector]
         public Context context;
 
+        
+        [HideInInspector]
+        public NpcController npcController => context.NpcController;
+        
         [HideInInspector]
         public Blackboard blackboard;
 

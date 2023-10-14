@@ -372,4 +372,12 @@ public class CameraObject : SmartObject
         double seconds = Math.Floor((cameraLock_Time % 1f) * 100);
         return string.Concat(cameraLock_Time.ToString("0"), ":",seconds.ToString("0"));
     }
+
+    public void Override_IsHacking()
+    {
+        if (!IsHacking)
+        {
+            cameraState = CameraState.Hacking;
+        }
+    }
 }

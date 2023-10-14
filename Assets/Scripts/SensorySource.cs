@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 
+
+/// <summary>
+/// Deals with information regarding sensory items
+/// </summary>
 [System.Serializable]
-public class SensorySource
+public abstract class SensorySource
 {
     protected SmartObject smartObject = null;
     protected Vector3 position;
@@ -43,6 +47,9 @@ public class SensorySource
     }
 }
 
+/// <summary>
+/// Deals with audio based sensor, area of effect
+/// </summary>
 [System.Serializable]
 public class SensorySource_Audio : SensorySource
 {
@@ -58,7 +65,13 @@ public class SensorySource_Audio : SensorySource
         smartObject = so;
     }
 }
-
+/// <summary>
+/// Deals with visual based sensor
+/// Eg,
+/// hacking cameras
+/// found items on the floor
+/// dead bodies
+/// </summary>
 [System.Serializable]
 public class SensorySource_Visual : SensorySource
 {

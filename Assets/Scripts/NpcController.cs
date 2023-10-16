@@ -643,8 +643,10 @@ public class NpcController : MonoBehaviour
 
     public void AddSensorySource(SensorySource ss)
     {
-        sensoryController.AddSS(ss);
-        Set_MinAlertValue(NPC_AlertState.Suspicious);
+        if (sensoryController.AddSS(ss))
+        {
+            Set_MinAlertValue(NPC_AlertState.Suspicious);
+        }
     }
 
     public void RemoveCurrentSensorySource()

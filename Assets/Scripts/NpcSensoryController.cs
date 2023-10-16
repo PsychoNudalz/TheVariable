@@ -33,15 +33,30 @@ public class NpcSensoryController : MonoBehaviour
         
     }
 
-    public void AddSS(SensorySource ss)
+    /// <summary>
+    /// Add new Sensory source
+    /// Return true if the new source is set
+    /// </summary>
+    /// <param name="ss"></param>
+    public bool AddSS(SensorySource ss)
     {
         if (currentSS==null)
         {
             currentSS = ss;
+            return true;
         }
         else
         {
-            currentSS = SensorySource.Compare(currentSS, ss);
+            ss = SensorySource.Compare(currentSS, ss);
+            if (ss.Equals(currentSS))
+            {
+                return false;
+            }
+            else
+            {
+                currentSS = ss;
+                return true;
+            }
         }
 
 

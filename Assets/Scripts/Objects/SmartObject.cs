@@ -215,7 +215,7 @@ public abstract class SmartObject : MonoBehaviour
             collider = hit.collider;
             if (collider.TryGetComponent(out NpcController npcController))
             {
-                SensorySource_Audio newSSA = new SensorySource_Audio(this, audioDistract_Strength);
+                    SensorySource_Audio newSSA = new SensorySource_Audio(this, audioDistract_Strength);
                 newSSA.AdjustStrength(npcController.transform.position, audioDistraction_LayerMask,
                     audioDistract_Dampen);
                 npcController.AddSensorySource(newSSA);

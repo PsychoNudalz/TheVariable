@@ -163,7 +163,7 @@ public class NpcController : MonoBehaviour
         // UpdateAlertValue(1f);
         // Debug.Log($"Controller change NPC state from: {blackboardAlertState} --> {npcAlertState}");
         // blackboardAlertState = npcAlertState;
-        float thresholdOffset = .01f;
+        float thresholdOffset = .1f;
         switch (npcAlertState)
         {
             case NPC_AlertState.Peace:

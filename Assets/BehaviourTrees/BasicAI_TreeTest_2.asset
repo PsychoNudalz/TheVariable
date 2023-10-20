@@ -105,8 +105,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -734.4, y: -44, z: 0}
-  viewScale: {x: 0.375937, y: 0.375937, z: 1}
+  viewPosition: {x: -1009, y: -349, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -1912,7 +1912,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         investigate_TimeRange: {x: 3, y: 10}
-        alertBuildup: 0.1
+        alertBuildup: 0.5
         returnFailureOnTimeExpire: 0
     - rid: 8796965355488280581
       type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}

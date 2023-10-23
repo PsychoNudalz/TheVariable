@@ -3,13 +3,13 @@ using UnityEngine;
 namespace Task
 {
     /// <summary>
-    /// Keeps tracks of world times
-    /// Handles tasks
+    /// Keeps tracks of world ticks
+    /// Handles tasks and task Objects, allows NPC to query task object locations
     /// </summary>
     public class TaskManager : MonoBehaviour
     {
         [SerializeField]
-        private int currentTick;
+        private int currentTick; 
 
         [Space(15)]
         [SerializeField]

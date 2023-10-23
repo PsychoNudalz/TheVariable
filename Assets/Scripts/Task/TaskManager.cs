@@ -11,7 +11,8 @@ namespace Task
         [SerializeField]
         private int currentTick; 
 
-        [Space(15)]
+        [Space(10)]
+        [Header("Tick Settings")]
         [SerializeField]
         private int TickLoop = 48;
 
@@ -19,7 +20,9 @@ namespace Task
         private float TimePerTick = 30;
         
         
-        [Space(15)]
+        [Space(10)]
+        [Header("Task Settings")]
+
 
 
         private float timePerTickCurrent;
@@ -63,6 +66,11 @@ namespace Task
             }
 
             return i;
+        }
+
+        public float TickToRealTime(float tickTime)
+        {
+            return tickTime * TimePerTick;
         }
     }
 }

@@ -197,7 +197,7 @@ public class NpcController : MonoBehaviour
         //Initialising schedule
         for (var i = 0; i < schedule.Count; i++)
         {
-            schedule[i] = InitialiseTask(schedule[i]);
+            // schedule[i] = InitialiseTask(schedule[i]);
         }
 
         SortSchedule();
@@ -490,6 +490,12 @@ public class NpcController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if the NPC can start task
+    /// returns items if there's missing item
+    /// </summary>
+    /// <param name="items">returns missing item</param>
+    /// <returns>can the NPC start the task</returns>
     public bool CanStartCurrentTask(out ItemName[] items)
     {
         items = Array.Empty<ItemName>();
@@ -516,7 +522,7 @@ public class NpcController : MonoBehaviour
                 currentTask.TaskSmartObject.Interact(this);
             }
 
-            return currentTask.Duration;
+            return  TaskManager.current.TickToRealTime(currentTask.Duration);
         }
     }
 
@@ -540,7 +546,7 @@ public class NpcController : MonoBehaviour
     [ContextMenu("Add test task")]
     public void AddTestTask()
     {
-        AddTask(new TaskEvent("Eat Food", 0, new Vector3(10, 0, 10), Random.Range(1f, 4f)));
+        AddTask(new TaskEvent());
     }
 
     [ContextMenu("Sort Schedule")]
@@ -549,21 +555,21 @@ public class NpcController : MonoBehaviour
         schedule = schedule.OrderBy(o => o.StartTime).ToList();
     }
 
-    /// <summary>
-    /// Initialise the position of the task
-    /// </summary>
-    /// <param name="taskEvent"></param>
-    /// <returns></returns>
-    TaskEvent InitialiseTask(TaskEvent taskEvent)
-    {
-        //setting the position to the task object's interaction point
-        if (taskEvent is { HasObject: true, Position: { magnitude: <= .1f } })
-        {
-            taskEvent.Position = taskEvent.TaskSmartObject.InteractPosition;
-        }
-
-        return taskEvent;
-    }
+    // /// <summary>
+    // /// Initialise the position of the task
+    // /// </summary>
+    // /// <param name="taskEvent"></param>
+    // /// <returns></returns>
+    // TaskEvent InitialiseTask(TaskEvent taskEvent)
+    // {
+    //     //setting the position to the task object's interaction point
+    //     if (taskEvent is { HasObject: true})
+    //     {
+    //         taskEvent.Position = taskEvent.TaskSmartObject.InteractPosition;
+    //     }
+    //
+    //     return taskEvent;
+    // }
 
     public bool UpdateTaskFromSchedule(int Tick)
     {

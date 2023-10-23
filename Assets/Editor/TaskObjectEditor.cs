@@ -30,8 +30,7 @@ public class TaskObjectEditor : SmartObjectEditor
         {
             string finalName = string.Concat(taskSmartObject.name, "_", taskName);
 
-            taskSmartObject.AddAvailableTask(new TaskEvent(finalName, taskSmartObject, startTime, taskSmartObject.InteractPosition,
-                duration));
+            taskSmartObject.AddAvailableTask(new TaskEvent());
             SetDirty();
         }
 

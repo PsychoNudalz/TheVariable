@@ -12,6 +12,8 @@ public class MoveToPosition : ActionNode
     public float acceleration = 40.0f;
     public float tolerance = 1.0f;
 
+
+    private float pendingTimeOut = 2f;
     protected override void OnStart()
     {
         context.agent.stoppingDistance = stoppingDistance;
@@ -20,7 +22,6 @@ public class MoveToPosition : ActionNode
         context.agent.updateRotation = updateRotation;
         context.agent.acceleration = acceleration;
         started = false; //Assume false unless the update starts and the path is valid
-
     }
 
     protected override void OnStop()
@@ -40,6 +41,12 @@ public class MoveToPosition : ActionNode
         // }
         if (context.agent.pathPending)
         {
+            pendingTimeOut -= Time.deltaTime;
+            if (pendingTimeOut < 0)
+            {
+                pendingTimeOut = 2f;
+                return State.Failure;
+            }
             return State.Running;
         }
 

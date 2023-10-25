@@ -78,6 +78,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1018537626749534209, guid: bf14e7fadeb340d489d49ca62f61c691,
         type: 3}
+      propertyPath: m_Carve
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1018537626749534209, guid: bf14e7fadeb340d489d49ca62f61c691,
+        type: 3}
       propertyPath: m_Center.y
       value: 1
       objectReference: {fileID: 0}

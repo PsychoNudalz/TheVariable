@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.2
+    agentRadius: 0.3
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.06666667
+    cellSize: 0.1
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -1417,8 +1417,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211623370}
-  m_LocalRotation: {x: 1.1368684e-13, y: -1, z: -1.7110063e-19, w: -0.0000014603136}
-  m_LocalPosition: {x: -3.5000355, y: 2.687, z: 11.716975}
+  m_LocalRotation: {x: 8.038886e-14, y: -0.7071058, z: 8.038862e-14, w: -0.70710784}
+  m_LocalPosition: {x: -12.716938, y: 2.687, z: -23.000055}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5496,6 +5496,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae17a8b9ad08b619801e8ff45a069cc, type: 3}
+--- !u!114 &863619635 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7079652780803480491, guid: bae17a8b9ad08b619801e8ff45a069cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 863619634}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131f9f65807596549a6571148598d615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &880247612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7738,6 +7750,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1416098605}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1416098607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3524749186710788573, guid: 3e0022fff1c153cb88049db3b2ed83b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1416098605}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131f9f65807596549a6571148598d615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1449924169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3915646345386012472, guid: 6b8031b96a3d95549a06fe14865b31cc,
@@ -7876,7 +7900,7 @@ PrefabInstance:
     - target: {fileID: 8400038469038462663, guid: c16e43a382036dd4abaaed4c404a826f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8400038469038462681, guid: c16e43a382036dd4abaaed4c404a826f,
         type: 3}
@@ -7980,14 +8004,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
         type: 3}
+      propertyPath: schedule.Array.data[2].startTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
+        type: 3}
+      propertyPath: schedule.Array.data[0].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 6f3f627e4c5f30040bd9103ac77de5f3,
+        type: 2}
+    - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
+        type: 3}
       propertyPath: schedule.Array.data[0].taskSmartObject
       value: 
       objectReference: {fileID: 1849470176}
     - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
         type: 3}
+      propertyPath: schedule.Array.data[1].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 71a75433c46ab0e4796b14e4422013d4,
+        type: 2}
+    - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
+        type: 3}
       propertyPath: schedule.Array.data[1].taskSmartObject
       value: 
       objectReference: {fileID: 142016516}
+    - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
+        type: 3}
+      propertyPath: schedule.Array.data[2].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 388216322653f3a48833f5e1dcd79ae5,
+        type: 2}
     - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
         type: 3}
       propertyPath: schedule.Array.data[2].taskSmartObject
@@ -9191,6 +9238,13 @@ MonoBehaviour:
   currentTick: 0
   TickLoop: 10
   TimePerTick: 5
+  allTaskSmartObjects:
+  - {fileID: 1416098607}
+  - {fileID: 863619635}
+  - {fileID: 142016516}
+  - {fileID: 562293745}
+  - {fileID: 1565837354}
+  - {fileID: 1849470176}
 --- !u!1001 &1670296043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10392,7 +10446,7 @@ PrefabInstance:
     - target: {fileID: 8400038469038462663, guid: 0f511cf63453f1e4e9908c1d59150171,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8400038469038462681, guid: 0f511cf63453f1e4e9908c1d59150171,
         type: 3}
@@ -11121,7 +11175,7 @@ GameObject:
   - component: {fileID: 2057865258}
   - component: {fileID: 2057865257}
   - component: {fileID: 2057865256}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11783,7 +11837,7 @@ PrefabInstance:
     - target: {fileID: 8400038469038462663, guid: c16e43a382036dd4abaaed4c404a826f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8400038469038462681, guid: c16e43a382036dd4abaaed4c404a826f,
         type: 3}
@@ -11887,14 +11941,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
         type: 3}
+      propertyPath: schedule.Array.data[2].startTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
+        type: 3}
+      propertyPath: schedule.Array.data[0].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 6f3f627e4c5f30040bd9103ac77de5f3,
+        type: 2}
+    - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
+        type: 3}
       propertyPath: schedule.Array.data[0].taskSmartObject
       value: 
       objectReference: {fileID: 1849470176}
     - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
         type: 3}
+      propertyPath: schedule.Array.data[1].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 71a75433c46ab0e4796b14e4422013d4,
+        type: 2}
+    - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
+        type: 3}
       propertyPath: schedule.Array.data[1].taskSmartObject
       value: 
       objectReference: {fileID: 142016516}
+    - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
+        type: 3}
+      propertyPath: schedule.Array.data[2].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 388216322653f3a48833f5e1dcd79ae5,
+        type: 2}
     - target: {fileID: 8400038469038462686, guid: c16e43a382036dd4abaaed4c404a826f,
         type: 3}
       propertyPath: schedule.Array.data[2].taskSmartObject

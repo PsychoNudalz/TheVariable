@@ -517,7 +517,7 @@ public class NpcController : MonoBehaviour
         }
         else
         {
-            if (currentTask.HasObject)
+            if (currentTask.HasObjectSet)
             {
                 currentTask.TaskSmartObject.Interact(this);
             }
@@ -534,7 +534,7 @@ public class NpcController : MonoBehaviour
         }
 
         TaskEvent task = currentTask;
-        if (task.HasObject)
+        if (task.HasObjectSet)
         {
             task.TaskSmartObject.FinishTask(this, task, isInterrupt);
         }

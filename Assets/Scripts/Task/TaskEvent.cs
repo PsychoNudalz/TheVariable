@@ -30,6 +30,8 @@ namespace Task
         private TaskSmartObject taskSmartObject;
 
 
+        public TaskDescription TaskDescription => taskDescription;
+
         public int StartTime => startTime;
 
         // public bool IsNull => taskName.Equals("");
@@ -42,7 +44,7 @@ namespace Task
         public float Duration => taskDescription.Duration;
         public string TaskName => taskDescription.TaskName;
         public TaskSmartObject TaskSmartObject => taskSmartObject;
-        public bool HasObject => taskSmartObject != null;
+        public bool HasObjectSet => taskSmartObject != null;
         public Vector3 Position
         {
             get => taskSmartObject.Position;
@@ -119,6 +121,11 @@ namespace Task
             }
             items = temp.ToArray();
             return flag;
+        }
+
+        public void SetTaskObject(TaskSmartObject taskSmartObject)
+        {
+            this.taskSmartObject = taskSmartObject;
         }
     }
 }

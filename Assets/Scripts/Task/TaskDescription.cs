@@ -20,14 +20,14 @@ using UnityEngine;
 [Serializable]
 public class TaskDescription : ScriptableObject
 {
-    [SerializeField]
-    private string taskName;
+    // [SerializeField]
+    // private string taskName;
 
     // [SerializeField]
     // private TaskEnum taskEnum;
 
     [SerializeField]
-    float duration;
+    float duration = 1;
 
     [SerializeField]
     private ItemName[] requiredItems;
@@ -35,7 +35,7 @@ public class TaskDescription : ScriptableObject
     [SerializeField]
     private bool itemsConsumeOnUse;
 
-    public string TaskName => taskName;
+    public string TaskName => name;
 
     public float Duration => duration;
 
@@ -45,11 +45,32 @@ public class TaskDescription : ScriptableObject
 
     public TaskDescription()
     {
-        taskName = "";
+        // taskName = "";
         // taskEnum = TaskEnum.NONE;
         duration = 0;
         requiredItems = Array.Empty<ItemName>();
         itemsConsumeOnUse = false;
+    }
+
+    /// <summary>
+    /// Override equals
+    /// compare based on name
+    /// if compare string, it is NOT case sensitive
+    /// </summary>
+    /// <param name="other"></param>
+    /// <returns></returns>
+    public override bool Equals(object other)
+    {
+        if (other is TaskDescription td)
+        {
+            return td.name.Equals(name);
+        }
+
+        if (other is string s)
+        {
+            return s.ToUpper().Equals(name.ToUpper());
+        }
+        return base.Equals(other);
     }
 
     // TaskEnum autoFindTaskEnum(string s)

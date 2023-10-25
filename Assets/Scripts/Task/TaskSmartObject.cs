@@ -2,14 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Task
 {
     public class TaskSmartObject : SmartObject
     {
+        [FormerlySerializedAs("availableTasks")]
         [Header("Tasks")]
         [SerializeField]
-        TaskEvent[] availableTasks = Array.Empty<TaskEvent>();
+        TaskDescription associateTask;
 
         [SerializeField]
         private List<ItemObject> currentItems;
@@ -22,16 +24,12 @@ namespace Task
 
         public bool InUse => inUse;
 
-        public TaskEvent[] AvailableTasks => availableTasks;
+        public TaskDescription AssociateTask => associateTask;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-        }
 
-        // Update is called once per frame
-        void Update()
+        private void OnDrawGizmos()
         {
+            Gizmos.DrawCube(InteractPosition,new Vector3(.5f,.5f,.5f));
         }
 
         protected override void AwakeBehaviour()
@@ -93,6 +91,15 @@ namespace Task
             }
         }
 
+        public override bool Equals(object other)
+        {
+            if (other is TaskDescription td)
+            {
+                return associateTask.Equals(td);
+            }
+            return base.Equals(other);
+        }
+
         private void RemoveUsedItems(TaskEvent taskEvent)
         {
             ItemObject itemToRemove = null;
@@ -125,17 +132,17 @@ namespace Task
             }
         }
 
-        public virtual void AddAvailableTask(TaskEvent taskEvent)
-        {
-            List<TaskEvent> temp = new List<TaskEvent>(availableTasks);
-            temp.Add(taskEvent);
-            availableTasks = temp.ToArray();
-        }
+        // public virtual void ReplaceAvailableTask(TaskEvent taskEvent)
+        // {
+        //     List<TaskEvent> temp = new List<TaskEvent>(associateTask);
+        //     temp.Add(taskEvent);
+        //     associateTask = temp.ToArray();
+        // }
 
-        public virtual TaskEvent GetTaskEvent(int i = 0)
-        {
-            return availableTasks[i];
-        }
+        // public virtual TaskEvent GetTaskEvent(int i = 0)
+        // {
+        //     return associateTask[i];
+        // }
 
         public bool HasItem(ItemName item)
         {

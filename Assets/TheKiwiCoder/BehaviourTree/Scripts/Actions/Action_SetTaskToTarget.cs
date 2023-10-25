@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Task;
 using UnityEngine;
 using TheKiwiCoder;
 
@@ -10,7 +11,19 @@ public class Action_SetTaskToTarget : ActionNode
     {
         if (context.NpcController.HasTasksQueued())
         {
-            blackboard.moveToPosition = context.NpcController.GetCurrentTask().Position;
+            TaskEvent currentTask = context.NpcController.GetCurrentTask();
+            TaskSmartObject foundTask = TaskManager.QueryTask(agent_Position,currentTask.TaskDescription);
+            if (foundTask)
+            {
+                currentTask.SetTaskObject(foundTask);
+                blackboard.moveToPosition = currentTask.Position;
+
+            }
+
+            else
+            {
+                started = false;
+            }
         }
         else
         {

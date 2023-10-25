@@ -108,9 +108,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
+      propertyPath: associateTask
+      value: 
+      objectReference: {fileID: 11400000, guid: 388216322653f3a48833f5e1dcd79ae5,
+        type: 2}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
       propertyPath: availableTasks.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: associateTask.taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 388216322653f3a48833f5e1dcd79ae5,
+        type: 2}
     - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: availableTasks.Array.data[0].duration

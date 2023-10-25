@@ -128,7 +128,7 @@ namespace Task
 
             foreach (TaskSmartObject taskSmartObject in currentAllTaskSmartObjects)
             {
-                if (taskSmartObject.Equals(taskDescription))
+                if (taskSmartObject.Equals(taskDescription)&&!taskSmartObject.InUse)
                 {
                     if (!NavMesh.CalculatePath(castPosition, taskSmartObject.Position, NavMesh.AllAreas, path))
                     {

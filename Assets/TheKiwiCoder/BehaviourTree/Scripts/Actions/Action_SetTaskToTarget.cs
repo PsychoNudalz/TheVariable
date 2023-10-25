@@ -4,6 +4,10 @@ using Task;
 using UnityEngine;
 using TheKiwiCoder;
 
+
+/// <summary>
+/// Queries task and set found task object to target location
+/// </summary>
 [System.Serializable]
 public class Action_SetTaskToTarget : ActionNode
 {

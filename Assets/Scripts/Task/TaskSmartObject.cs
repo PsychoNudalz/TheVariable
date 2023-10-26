@@ -14,6 +14,12 @@ namespace Task
         TaskDescription associateTask;
 
         [SerializeField]
+        private NpcAnimation interactAnimation = NpcAnimation.Interact;
+
+        [SerializeField]
+        private Transform moveModelToTransform = null;
+
+        [SerializeField]
         private List<ItemObject> currentItems;
 
         private bool inUse = false;
@@ -26,10 +32,18 @@ namespace Task
 
         public TaskDescription AssociateTask => associateTask;
 
+        [Header("Header")]
+        [SerializeField]
+        private bool Enable_Debug = true;
+
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawCube(InteractPosition,new Vector3(.5f,.5f,.5f));
+            if (Enable_Debug)
+            {
+                Gizmos.color = new Color(.5f,.5f,.5f,.5f);
+                Gizmos.DrawCube(InteractPosition+new Vector3(0f,.1f,0f),new Vector3(.25f,.25f,.25f));
+            }
         }
 
         protected override void AwakeBehaviour()
@@ -59,7 +73,8 @@ namespace Task
         /// <param name="npc"></param>
         public override void Interact(NpcController npc)
         {
-            npc.PlayAnimation(NpcAnimation.Interact);
+            npc.PlayAnimation(interactAnimation);
+            //TODO: implement animation move model to transform
             RemoveUsedItems(npc.GetCurrentTask());
             inUse = true;
             controller?.OnInteract();

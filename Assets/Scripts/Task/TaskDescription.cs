@@ -33,7 +33,7 @@ public class TaskDescription : ScriptableObject
     private ItemName[] requiredItems;
 
     [SerializeField]
-    private bool itemsConsumeOnUse;
+    private bool itemsConsumeOnUse = true;
 
     public string TaskName => name;
 
@@ -47,9 +47,6 @@ public class TaskDescription : ScriptableObject
     {
         // taskName = "";
         // taskEnum = TaskEnum.NONE;
-        duration = 0;
-        requiredItems = Array.Empty<ItemName>();
-        itemsConsumeOnUse = false;
     }
 
     /// <summary>

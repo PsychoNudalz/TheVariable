@@ -233,9 +233,12 @@ MonoBehaviour:
   audioDistract_PS: {fileID: 3198370827053217686}
   audioDistract_VE: {fileID: 0}
   audioDistract_SFX: {fileID: 0}
-  availableTasks: []
+  associateTask: {fileID: 0}
+  interactAnimation: 2
+  moveModelToTransform: {fileID: 0}
   currentItems: []
   controller: {fileID: 0}
+  Enable_Debug: 1
 --- !u!114 &127775623659055012
 MonoBehaviour:
   m_ObjectHideFlags: 0

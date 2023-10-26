@@ -229,13 +229,15 @@ MonoBehaviour:
   audioDistract_Range: 10
   audioDistract_Strength: 10
   audioDistract_Dampen: 0.75
-  audioDistraction_LayerMask:
-    serializedVersion: 2
-    m_Bits: 768
   audioDistract_PS: {fileID: 3198370827053217686}
-  availableTasks: []
+  audioDistract_VE: {fileID: 0}
+  audioDistract_SFX: {fileID: 0}
+  associateTask: {fileID: 0}
+  interactAnimation: 2
+  moveModelToTransform: {fileID: 0}
   currentItems: []
   controller: {fileID: 0}
+  Enable_Debug: 1
 --- !u!114 &127775623659055012
 MonoBehaviour:
   m_ObjectHideFlags: 0

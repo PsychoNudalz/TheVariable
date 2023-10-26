@@ -12,6 +12,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: associateTask
+      value: 
+      objectReference: {fileID: 11400000, guid: 8fe6480ebc2a30d448d6d9ef0a7537e8,
+        type: 2}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_RootOrder
@@ -157,6 +163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Prop_BathroomSink_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fc17381147e73e8439e21050fdf974e0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc17381147e73e8439e21050fdf974e0, type: 3}

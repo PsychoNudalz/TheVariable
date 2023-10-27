@@ -101,6 +101,7 @@ MonoBehaviour:
   - rid: 466623466926768135
   - rid: 466623466926768136
   - rid: 466623466926768139
+  - rid: 466623466926768141
   treeState: 0
   blackboard:
     alertState: 0
@@ -118,8 +119,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -1383.2, y: -126.4, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: -1200, y: 12, z: 0}
+  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
   references:
     version: 2
     RefIds:
@@ -188,7 +189,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 69dda092581f6084c9c98046a403225a
-        position: {x: 2850.4, y: 760.8}
+        position: {x: 2982.4, y: 760}
         blackboard:
           alertState: 0
           health: 0
@@ -688,7 +689,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1bb60f0214f7b5a4d9ecbf853cce32cf
-        position: {x: 3283.2, y: 1045.6}
+        position: {x: 3221.6, y: 1046.4}
         blackboard:
           alertState: 0
           health: 0
@@ -1044,6 +1045,34 @@ MonoBehaviour:
         name: SetPosition_ActiveCamera
         description: 
         drawGizmos: 0
+    - rid: 466623466926768141
+      type: {class: Action_SetWait, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 332b9fbed09f5484bb28f31ea98415ee
+        position: {x: 3132.8005, y: 761.6}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          moveToPosition: {x: 0, y: 0, z: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          cameraToInvestigate: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Action_SetWait
+        description: 
+        drawGizmos: 0
+        duration: 1
+        playWaitAnimation: 0
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -2386,7 +2415,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 270282241434451971
-        - rid: 8796965355488280586
+        - rid: 466623466926768141
         - rid: 8796965355488280588
     - rid: 8796965355488280586
       type: {class: Action_SetWait, ns: , asm: Assembly-CSharp}
@@ -2394,7 +2423,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 29151917c3dde2145ba95caeb2f48913
-        position: {x: 2999.9998, y: 760.8}
+        position: {x: 3372, y: 1046.4}
         blackboard:
           alertState: 0
           health: 0
@@ -2422,7 +2451,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c34a00b1545911b46992503fa2d84f4d
-        position: {x: 3465.3713, y: 1046.4}
+        position: {x: 3521.1133, y: 1046.4}
         blackboard:
           alertState: 0
           health: 0
@@ -2502,6 +2531,7 @@ MonoBehaviour:
         children:
         - rid: 466623466926768136
         - rid: 466623464268365825
+        - rid: 8796965355488280586
         - rid: 8796965355488280587
         - rid: 8796965355488280590
     - rid: 8796965355488280590
@@ -2510,7 +2540,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: afb2fdbedab54af48bebabf6120a5fdf
-        position: {x: 3638.9714, y: 1046.4}
+        position: {x: 3694.7134, y: 1046.4}
         blackboard:
           alertState: 0
           health: 0

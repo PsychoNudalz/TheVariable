@@ -12,7 +12,7 @@ public class SetPosition_ActiveCamera : ActionNode
         if (co)
         {
             blackboard.moveToPosition = co.InteractPosition;
-
+            blackboard.cameraToInvestigate = co;
         }
         else
         {

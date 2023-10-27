@@ -323,13 +323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTask:
-    taskName: 
-    taskSmartObject: {fileID: 0}
+    taskDescription: {fileID: 0}
     startTime: -1
-    position: {x: 0, y: 0, z: 0}
-    duration: 1
-    requiredItems: 
-    itemsConsumeOnUse: 0
   taskQueue: []
   schedule: []
   pickedUpItem: {fileID: 0}
@@ -360,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1320077875191089360}
   renderer: {fileID: 7931100631368753877}
-  animationTime: 1
+  animationTime: 0.7
   animationTime_Current: 1
   secondary_GO: {fileID: 0}
   sfx_Kneel: {fileID: 6216932588744336200}
@@ -389,6 +384,9 @@ MonoBehaviour:
   audioDistract_Strength: 1
   audioDistract_Dampen: 1
   audioDistract_PS: {fileID: 0}
+  audioDistract_VE: {fileID: 0}
+  audioDistract_SFX: {fileID: 0}
+  Enable_Debug: 1
 --- !u!114 &4527088458200361262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2304,25 +2302,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6959349595756863656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2202455951231104387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d3620ffef86954391083e75d551c71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 2523649706584075972}
-  - {fileID: 6216932588744336200}
-  particleSystems: []
-  visualEffects: []
-  unityEvents: []
-  Notes: 
 --- !u!114 &968537587771709399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2494,6 +2473,25 @@ MonoBehaviour:
   hitFxFadeOutDuration: 0.25
   hitFxColor: {r: 1, g: 1, b: 1, a: 1}
   hitFxRadius: 0.5
+--- !u!114 &6959349595756863656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202455951231104387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d3620ffef86954391083e75d551c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 2523649706584075972}
+  - {fileID: 6216932588744336200}
+  particleSystems: []
+  visualEffects: []
+  unityEvents: []
+  Notes: 
 --- !u!137 &7931100631368753877 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -269875310634046969, guid: f6395086a7866af4bad3937fa04f8b98,

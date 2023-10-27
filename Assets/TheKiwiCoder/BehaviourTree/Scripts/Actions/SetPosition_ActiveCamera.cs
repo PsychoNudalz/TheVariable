@@ -4,13 +4,15 @@ using UnityEngine;
 using TheKiwiCoder;
 
 [System.Serializable]
-public class SetPosition_HackingCamera : ActionNode
+public class SetPosition_ActiveCamera : ActionNode
 {
     protected override void OnStart()
     {
-        if (blackboard.hackingCameras.Length>0)
+        CameraObject co = context.NpcController.FindSS_ClosestCamera_Active();
+        if (co)
         {
-            blackboard.moveToPosition = context.NpcController.FindSS_ClosestCamera_Hacking().InteractPosition;
+            blackboard.moveToPosition = co.InteractPosition;
+
         }
         else
         {

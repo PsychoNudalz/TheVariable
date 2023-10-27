@@ -6,12 +6,9 @@ using TheKiwiCoder;
 [System.Serializable]
 public class A_Update_Sensory : ActionNode
 {
-    [SerializeField]
-    private bool returnFailureOnStateChange = false;
-
 
     [SerializeField]
-    private bool returnTrueAfterUpdate = false;
+    private bool returnSuccessAfterUpdate = false;
     
     [SerializeField]
     private bool detectPlayerControl = false;
@@ -61,6 +58,12 @@ public class A_Update_Sensory : ActionNode
         //         return State.Failure;
         //     }
         // }
+        if (returnSuccessAfterUpdate)
+        {
+            // blackboard.hackingCameras = context.NpcController.FindSS_HackingCameras();
+
+            return State.Success;
+        }
 
         return State.Running;
     }

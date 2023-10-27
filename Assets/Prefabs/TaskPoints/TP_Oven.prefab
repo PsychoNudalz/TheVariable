@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d2cff3c8977f949a467da1504f15c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 50
+  baseDamage: 0
   friendlyFire: 0
   needLOS: 1
   LOSoffset: {x: 0, y: 0, z: 0}
@@ -24648,6 +24648,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TP_Oven
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652534463580910449, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5516242744945134291, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}

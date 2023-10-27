@@ -24,6 +24,13 @@ public class Action_CreateSSFromVisual : ActionNode
     }
 
     protected override State OnUpdate() {
-        return State.Success;
+        if (started)
+        {
+            return State.Success;
+        }
+        else
+        {
+            return State.Failure;
+        }
     }
 }

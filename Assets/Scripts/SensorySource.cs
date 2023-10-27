@@ -60,7 +60,7 @@ public class SensorySource_Audio : SensorySource
     }
     public SensorySource_Audio(SmartObject so, float strength) : base(so.Position, strength)
     {
-        this.position = so.Position;
+        this.position = so.InteractPosition;
         this.strength = strength;
         smartObject = so;
     }
@@ -83,7 +83,7 @@ public class SensorySource_Visual : SensorySource
 
     public SensorySource_Visual(SmartObject so, float strength) : base(so.Position, strength)
     {
-        this.position = so.Position;
+        this.position = so.InteractPosition;
         this.strength = strength;
         smartObject = so;
     }

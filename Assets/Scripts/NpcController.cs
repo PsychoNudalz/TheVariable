@@ -164,6 +164,10 @@ public class NpcController : MonoBehaviour
         // Debug.Log($"Controller change NPC state from: {blackboardAlertState} --> {npcAlertState}");
         // blackboardAlertState = npcAlertState;
         float thresholdOffset = .1f;
+        // if (blackboardAlertState == NPC_AlertState.Spotted)
+        // {
+        //     print("NPC is in spotted");
+        // }
         switch (npcAlertState)
         {
             case NPC_AlertState.Peace:
@@ -182,7 +186,7 @@ public class NpcController : MonoBehaviour
 
                 break;
             case NPC_AlertState.Hunt:
-                alertValue = Math.Max(alertValue, alert_SuspiciousThresshold + thresholdOffset);
+                alertValue = Math.Max(alertValue, alert_SpottedThresshold + thresholdOffset);
                 break;
         }
     }

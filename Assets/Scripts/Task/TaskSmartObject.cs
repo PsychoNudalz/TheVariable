@@ -32,19 +32,7 @@ namespace Task
 
         public TaskDescription AssociateTask => associateTask;
 
-        [Header("Header")]
-        [SerializeField]
-        private bool Enable_Debug = true;
 
-
-        private void OnDrawGizmos()
-        {
-            if (Enable_Debug)
-            {
-                Gizmos.color = new Color(.5f,.5f,.5f,.5f);
-                Gizmos.DrawCube(InteractPosition+new Vector3(0f,.1f,0f),new Vector3(.25f,.25f,.25f));
-            }
-        }
 
         protected override void AwakeBehaviour()
         {

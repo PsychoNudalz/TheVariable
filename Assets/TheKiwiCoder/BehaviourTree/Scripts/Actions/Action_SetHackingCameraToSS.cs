@@ -6,12 +6,14 @@ using TheKiwiCoder;
 [System.Serializable]
 public class Action_SetHackingCameraToSS : ActionNode
 {
+    [SerializeField]
+    private bool overrideCurrentSS = false;
     protected override void OnStart()
     {
         CameraObject closestHackingCamera = context.NpcController.FindSS_ClosestCamera_Hacking();
         if (closestHackingCamera)
         {
-            SensorySource_Visual ssv = npcController.AddCameraToSS(closestHackingCamera);
+            SensorySource_Visual ssv = npcController.AddCameraToSS(closestHackingCamera, overrideCurrentSS);
             if (ssv.Equals(npcController.GetCurrentSS))
             {
                 blackboard.currentSensorySource = npcController.GetCurrentSS;

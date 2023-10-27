@@ -2834,7 +2834,7 @@ PrefabInstance:
     - target: {fileID: 3915646345386012472, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14
+      value: -15.75
       objectReference: {fileID: 0}
     - target: {fileID: 3915646345386012472, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
@@ -12756,7 +12756,7 @@ PrefabInstance:
     - target: {fileID: 8400038469038462686, guid: 0f511cf63453f1e4e9908c1d59150171,
         type: 3}
       propertyPath: schedule.Array.data[0].startTime
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8400038469038462686, guid: 0f511cf63453f1e4e9908c1d59150171,
         type: 3}

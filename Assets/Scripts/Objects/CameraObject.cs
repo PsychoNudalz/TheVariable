@@ -83,12 +83,13 @@ public class CameraObject : SmartObject
     [SerializeField]
     private Renderer cameraBody;
 
-    [FormerlySerializedAs("collider")]
     [SerializeField]
     private Collider disableCollider;
 
     [SerializeField]
     Collider mainCollider;
+
+
 
      PlayerController playerController;
 

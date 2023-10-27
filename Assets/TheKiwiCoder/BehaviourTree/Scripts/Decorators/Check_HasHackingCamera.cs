@@ -13,6 +13,13 @@ public class Check_HasHackingCamera : DecoratorNode
     }
 
     protected override State OnUpdate() {
-        return State.Success;
+        if (blackboard.hackingCameras.Length > 0)
+        {
+            return child.Update();
+        }
+        else
+        {
+            return State.Failure;
+        }
     }
 }

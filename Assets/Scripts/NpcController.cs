@@ -261,12 +261,15 @@ public class NpcController : MonoBehaviour
         return co;
     }
 
-    public SensorySource_Visual AddCameraToSS(CameraObject co)
+    public SensorySource_Visual AddCameraToSS(CameraObject co, bool overrideSS)
     {
         SensorySource sensorySource = GetCurrentSS;
-        if (sensorySource != null && co.Equals(sensorySource.SmartObject))
+        if (!overrideSS && sensorySource != null && co.Equals(sensorySource.SmartObject))
         {
             //If new camera is the same as the old one
+            return null;
+        }else if (overrideSS&& sensorySource != null &&co.Equals(sensorySource.SmartObject))
+        {
             return null;
         }
 

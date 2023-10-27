@@ -51,7 +51,22 @@ public abstract class SmartObject : MonoBehaviour
     public Vector3 InteractPosition => InteractPointPosition();
 
     public HackAbility[] Hacks => hacks;
+    [Header("Debug")]
+    [SerializeField]
+    private bool Enable_Debug = true;
 
+
+    private void OnDrawGizmos()
+    {
+        if (Enable_Debug)
+        {
+            Gizmos.color = new Color(.5f,.5f,.5f,.5f);
+            if (interactPoint)
+            {
+                Gizmos.DrawCube(InteractPosition+new Vector3(0f,.1f,0f),new Vector3(.25f,.25f,.25f));
+            }
+        }
+    }
     protected virtual Vector3 InteractPointPosition()
     {
         if (!interactPoint)

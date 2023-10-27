@@ -55,6 +55,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300002, guid: 773fa55be186bfc46910c191c5c57d8f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6646103902147460616, guid: e174d5cfe989b2d489effe71d00e121a,
+        type: 3}
+    - target: {fileID: 2300006, guid: 773fa55be186bfc46910c191c5c57d8f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -2321238257405752166, guid: e174d5cfe989b2d489effe71d00e121a,
+        type: 3}
+    - target: {fileID: 2300008, guid: 773fa55be186bfc46910c191c5c57d8f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -2321238257405752166, guid: e174d5cfe989b2d489effe71d00e121a,
+        type: 3}
+    - target: {fileID: 2300010, guid: 773fa55be186bfc46910c191c5c57d8f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -2321238257405752166, guid: e174d5cfe989b2d489effe71d00e121a,
+        type: 3}
+    - target: {fileID: 2300012, guid: 773fa55be186bfc46910c191c5c57d8f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -2321238257405752166, guid: e174d5cfe989b2d489effe71d00e121a,
+        type: 3}
+    - target: {fileID: 2300014, guid: 773fa55be186bfc46910c191c5c57d8f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -501539644813368577, guid: e174d5cfe989b2d489effe71d00e121a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 773fa55be186bfc46910c191c5c57d8f, type: 3}
 --- !u!1001 &5226661043665433281
@@ -64,6 +94,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1018537626749534209, guid: bf14e7fadeb340d489d49ca62f61c691,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1018537626749534209, guid: bf14e7fadeb340d489d49ca62f61c691,
+        type: 3}
+      propertyPath: m_Extents.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -1018537626749534209, guid: bf14e7fadeb340d489d49ca62f61c691,
+        type: 3}
+      propertyPath: m_Extents.z
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1133380092596901160, guid: bf14e7fadeb340d489d49ca62f61c691,
         type: 3}
       propertyPath: m_RootOrder

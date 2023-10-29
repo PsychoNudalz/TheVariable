@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public enum NpcAnimation
 {
+    None,
     Idle,
     Walk,
     Interact,
@@ -22,6 +24,9 @@ public class NpcEffectsController : MonoBehaviour
 {
     [SerializeField]
     private Animator animator;
+
+    [SerializeField]
+    private NavMeshAgent navMeshAgent;
 
 
     private NpcAnimation currentAnimation;
@@ -59,6 +64,9 @@ public class NpcEffectsController : MonoBehaviour
     [SerializeField]
     private SoundAbstract sfx_Spotted;
 
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+
     private void Awake()
     {
         materials = renderer.materials;
@@ -66,6 +74,10 @@ public class NpcEffectsController : MonoBehaviour
 
         //Duplicate animator
         DuplicateAndSetSecondarySkin();
+        if (!navMeshAgent)
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
+        }
     }
 
     public void DuplicateAndSetSecondarySkin()
@@ -172,24 +184,63 @@ public class NpcEffectsController : MonoBehaviour
         animator.Play(stateName);
     }
 
+    /// <summary>
+    ///  Move the Character's transform and play new animation, would default to it's current animation if none is supplied
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="rotation"></param>
+    /// <param name="animation"></param>
+    public void MoveTransform(Vector3 position, Quaternion rotation, NpcAnimation animation)
+    {
+        navMeshAgent.enabled = false;
+        originalPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        originalRotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z,
+            transform.rotation.w);
+        // originalRotation = transform.localToWorldMatrix * originalRotation;
+        transform.position = position;
+        transform.rotation = rotation;
+
+        LockSecondary_GO_Transform();
+
+        if (animation == NpcAnimation.None)
+        {
+            animation = currentAnimation;
+        }
+
+        PlayAnimation(animation);
+        navMeshAgent.enabled = true;
+    }
+
+    private void LockSecondary_GO_Transform()
+    {
+        secondary_GO.transform.position = originalPosition;
+        secondary_GO.transform.rotation = originalRotation;
+    }
+
     public void UpdateMaterial()
     {
         if (animationTime_Current > 1)
         {
             secondary_Renderer.enabled = false;
-            return;
+            originalPosition = transform.position;
+            originalRotation = transform.rotation;
         }
 
-        animationTime_Current += Time.deltaTime / animationTime;
-        foreach (Material material in materials)
+        else
         {
-            material.SetFloat("_MoveValue", animationTime_Current);
+            animationTime_Current += Time.deltaTime / animationTime;
+            foreach (Material material in materials)
+            {
+                material.SetFloat("_MoveValue", animationTime_Current);
+            }
+
+            foreach (Material material in secondary_Materials)
+            {
+                material.SetFloat("_MoveValue", animationTime_Current);
+            }
         }
 
-        foreach (Material material in secondary_Materials)
-        {
-            material.SetFloat("_MoveValue", animationTime_Current);
-        }
+        LockSecondary_GO_Transform();
     }
 
     public void PlaySound_Sus()

@@ -61,7 +61,8 @@ namespace Task
         /// <param name="npc"></param>
         public override void Interact(NpcController npc)
         {
-            npc.PlayAnimation(interactAnimation);
+            npc.MoveTransform(InteractPosition,InteractRotation,interactAnimation);
+
             //TODO: implement animation move model to transform
             RemoveUsedItems(npc.GetCurrentTask());
             inUse = true;
@@ -96,6 +97,10 @@ namespace Task
 
         public override bool Equals(object other)
         {
+            if (!associateTask)
+            {
+                return false;
+            }
             if (other is TaskDescription td)
             {
                 return associateTask.Equals(td);

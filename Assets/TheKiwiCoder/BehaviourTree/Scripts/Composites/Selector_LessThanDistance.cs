@@ -23,6 +23,6 @@ public class Selector_LessThanDistance : Selector_TrueFalse
 
     protected override State OnUpdate()
     {
-        return TrueOrFalse(Vector3.Distance(agent_Position, blackboard.moveToPosition) < distance);
+        return TrueOrFalse(Vector3.Distance(agent_Position, blackboard.targetPosition) < distance);
     }
 }

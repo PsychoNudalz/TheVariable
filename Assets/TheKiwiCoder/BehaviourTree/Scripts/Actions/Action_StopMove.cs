@@ -13,12 +13,12 @@ public class Action_StopMove : ActionNode
      float acceleration = 40.0f;
     protected override void OnStart()
     {
-        blackboard.moveToPosition = agent_Position;
+        blackboard.targetPosition = agent_Position;
         context.agent.stoppingDistance = stoppingDistance;
         context.agent.speed = speed;
         context.agent.updateRotation = updateRotation;
         context.agent.acceleration = acceleration;
-        context.agent.SetDestination(blackboard.moveToPosition);
+        context.agent.SetDestination(blackboard.targetPosition);
         context.NpcController.PlayAnimation(NpcAnimation.Idle);
 
         

@@ -23,7 +23,8 @@ public class RandomPosition : ActionNode
         pos.x = Random.Range(min.x, max.x);
         pos.z = Random.Range(min.y, max.y);
         pos += agent_Position;
-        blackboard.moveToPosition = pos;
+        blackboard.targetPosition = pos;
+        blackboard.targetRotation = Random.rotation;
         return State.Success;
     }
 }

@@ -137,7 +137,7 @@ namespace Task
 
                     if (path.status == NavMeshPathStatus.PathComplete)
                     {
-                        Debug.Log("PathComplete");
+                        // Debug.Log("PathComplete");
                         pathLength = 0;
                         for (int i = 1; i < path.corners.Length; i++)
                         {

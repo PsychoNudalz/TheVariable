@@ -48,7 +48,9 @@ public abstract class SmartObject : MonoBehaviour
     public virtual Vector3 Position => transform.position;
     public virtual Vector3 Forward => transform.forward;
     public virtual Vector3 ColliderPosition => transform.forward;
+    public Transform InteractTransform => InteractPointTransform();
     public Vector3 InteractPosition => InteractPointPosition();
+    public Quaternion InteractRotation => InteractPointTransform().rotation;
 
     public HackAbility[] Hacks => hacks;
     [Header("Debug")]
@@ -75,6 +77,15 @@ public abstract class SmartObject : MonoBehaviour
         }
 
         return interactPoint.position;
+    }
+    protected virtual Transform InteractPointTransform()
+    {
+        if (!interactPoint)
+        {
+            return transform;
+        }
+
+        return interactPoint;
     }
 
     private void Awake()

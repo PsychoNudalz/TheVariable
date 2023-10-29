@@ -232,12 +232,12 @@ MonoBehaviour:
   audioDistract_PS: {fileID: 0}
   audioDistract_VE: {fileID: 5065817386987346973}
   audioDistract_SFX: {fileID: 0}
+  Enable_Debug: 1
   associateTask: {fileID: 0}
-  interactAnimation: 2
+  interactAnimation: 3
   moveModelToTransform: {fileID: 0}
   currentItems: []
   controller: {fileID: 0}
-  Enable_Debug: 1
 --- !u!114 &127775623659055012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,14 +335,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607850883106544561}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000035762784}
   m_LocalPosition: {x: 0, y: 0.1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 219764443607572837}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1943058111114039371
 GameObject:
   m_ObjectHideFlags: 0

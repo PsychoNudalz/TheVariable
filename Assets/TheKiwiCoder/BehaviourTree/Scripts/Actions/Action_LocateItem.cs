@@ -19,7 +19,7 @@ public class Action_LocateItem : ActionNode
         }
         else
         {
-            blackboard.moveToPosition = blackboard.locatedItem.Position;
+            blackboard.targetPosition = blackboard.locatedItem.Position;
         }
     }
 

@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1320077875191089360}
+  navMeshAgent: {fileID: 1320077873986614604}
   renderer: {fileID: 7931100631368753877}
   animationTime: 0.7
   animationTime_Current: 1
@@ -1523,7 +1524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &274886032517865494
 Transform:
   m_ObjectHideFlags: 0

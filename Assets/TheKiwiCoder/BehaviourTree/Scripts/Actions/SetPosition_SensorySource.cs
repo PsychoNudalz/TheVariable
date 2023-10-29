@@ -8,7 +8,14 @@ public class SetPosition_SensorySource : ActionNode
 {
     protected override void OnStart()
     {
-        blackboard.moveToPosition = blackboard.currentSensorySource.Position;
+        blackboard.targetPosition = blackboard.currentSensorySource.Position;
+        SmartObject so = blackboard.currentSensorySource.SmartObject;
+        if (so )
+        {
+            blackboard.targetRotation = so.InteractRotation;
+
+        }
+
     }
 
     protected override void OnStop()

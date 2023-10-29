@@ -15,7 +15,8 @@ namespace TheKiwiCoder {
         public float health;
         public float healthThreshold = 0;
 
-        public Vector3 moveToPosition;
+        public Vector3 targetPosition;
+        public Quaternion targetRotation;
         public ItemName missingItem = ItemName.None;
         public ItemObject locatedItem;
         public ItemObject pickedUpItem;

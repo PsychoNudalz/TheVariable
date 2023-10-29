@@ -33,7 +33,7 @@ public class Move_TaskWait : MoveToPosition
             }
             else
             {
-                context.agent.SetDestination(blackboard.moveToPosition);
+                context.agent.SetDestination(blackboard.targetPosition);
 
 
             }

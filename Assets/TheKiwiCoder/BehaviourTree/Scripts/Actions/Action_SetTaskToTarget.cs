@@ -20,7 +20,7 @@ public class Action_SetTaskToTarget : ActionNode
             if (foundTask)
             {
                 currentTask.SetTaskObject(foundTask);
-                blackboard.moveToPosition = currentTask.Position;
+                blackboard.targetPosition = currentTask.Position;
 
             }
 

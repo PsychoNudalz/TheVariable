@@ -18,7 +18,7 @@ public class MoveToPosition : ActionNode
     {
         context.agent.stoppingDistance = stoppingDistance;
         context.agent.speed = speed;
-        context.agent.destination = blackboard.moveToPosition;
+        context.agent.destination = blackboard.targetPosition;
         context.agent.updateRotation = updateRotation;
         context.agent.acceleration = acceleration;
         started = false; //Assume false unless the update starts and the path is valid

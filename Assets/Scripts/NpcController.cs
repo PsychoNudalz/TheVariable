@@ -527,6 +527,7 @@ public class NpcController : MonoBehaviour
             if (currentTask.HasObjectSet)
             {
                 currentTask.TaskSmartObject.Interact(this);
+
             }
 
             return  TaskManager.current.TickToRealTime(currentTask.Duration);
@@ -642,6 +643,20 @@ public class NpcController : MonoBehaviour
             effectsController.PlayAnimation(npcAnimation);
         }
     }
+    /// <summary>
+    ///  Move the Character's transform and play new animation, would default to it's current animation if none is supplied
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="rotation"></param>
+    /// <param name="animation"></param>
+    public void MoveTransform(Vector3 position, Quaternion rotation, NpcAnimation animation = NpcAnimation.None)
+    {
+        if (effectsController)
+        {
+            effectsController.MoveTransform(position,rotation,animation);
+        }
+    }
+
 
     public void ClearTasks()
     {

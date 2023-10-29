@@ -89,15 +89,9 @@ MonoBehaviour:
   - rid: 466623177365389312
   - rid: 210857227049238528
   - rid: 466623464268365825
-  - rid: 466623464268365826
   - rid: 466623464268365829
   - rid: 466623464268365830
-  - rid: 466623466926768129
-  - rid: 466623466926768130
-  - rid: 466623466926768131
-  - rid: 466623466926768132
   - rid: 466623466926768133
-  - rid: 466623466926768134
   - rid: 466623466926768135
   - rid: 466623466926768136
   - rid: 466623466926768139
@@ -107,7 +101,8 @@ MonoBehaviour:
     alertState: 0
     health: 0
     healthThreshold: 0.9
-    moveToPosition: {x: 0, y: 0, z: 0}
+    targetPosition: {x: 0, y: 0, z: 0}
+    targetRotation: {x: 0, y: 0, z: 0, w: 0}
     missingItem: 0
     locatedItem: {fileID: 0}
     pickedUpItem: {fileID: 0}
@@ -119,8 +114,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -1200, y: 12, z: 0}
-  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
+  viewPosition: {x: 320, y: -374.4, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -135,7 +130,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -165,7 +161,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -194,7 +191,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -221,7 +219,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -249,7 +248,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -279,7 +279,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -308,7 +309,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -336,7 +338,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -364,7 +367,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -394,7 +398,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -422,7 +427,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -452,7 +458,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -479,7 +486,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -512,7 +520,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -545,7 +554,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -578,7 +588,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -608,7 +619,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -635,7 +647,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -661,7 +674,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -694,7 +708,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -714,35 +729,6 @@ MonoBehaviour:
         updateRotation: 1
         acceleration: 40
         tolerance: 1
-    - rid: 466623464268365826
-      type: {class: Parallel, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 9f2692891a193a445a52bf85c4bd18e1
-        position: {x: 2656.3733, y: 1396.7998}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToInvestigate: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-          hackingCameras: []
-        name: Parallel
-        description: 
-        drawGizmos: 0
-        children:
-        - rid: 466623466926768131
-        abortOnSuccess: 1
     - rid: 466623464268365829
       type: {class: Action_ClearSS, ns: , asm: Assembly-CSharp}
       data:
@@ -754,7 +740,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -780,7 +767,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -795,118 +783,6 @@ MonoBehaviour:
         name: Action_ClearSS
         description: 
         drawGizmos: 0
-    - rid: 466623466926768129
-      type: {class: Check_HasHackingCamera, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 8423a39ef211c2d498c425cc6a1d8675
-        position: {x: 2731.5732, y: 1628.7997}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToInvestigate: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-          hackingCameras: []
-        name: Check_HasHackingCamera
-        description: 
-        drawGizmos: 0
-        child:
-          rid: 466623466926768134
-    - rid: 466623466926768130
-      type: {class: Action_ClearSS, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: e4c3818a89e5d674db77989f974ca360
-        position: {x: 2708.3733, y: 1819.1998}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToInvestigate: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-          hackingCameras: []
-        name: Action_ClearSS
-        description: 
-        drawGizmos: 0
-    - rid: 466623466926768131
-      type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 71bc3e5ff3097564d8d02ccca7d71e2c
-        position: {x: 2750.7734, y: 1515.9998}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToInvestigate: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-          hackingCameras: []
-        name: Repeat
-        description: 
-        drawGizmos: 0
-        child:
-          rid: 466623466926768129
-        restartOnSuccess: 0
-        restartOnFailure: 1
-    - rid: 466623466926768132
-      type: {class: Action_ChangeAlertState, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: d0dc7e101b65b5d47b5385ca594f2688
-        position: {x: 2858.7732, y: 1819.1998}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToInvestigate: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-          hackingCameras: []
-        name: Action_ChangeAlertState
-        description: 
-        drawGizmos: 0
-        newState: 2
-        overrideAlertValue: 0
     - rid: 466623466926768133
       type: {class: Action_ChangeAlertState, ns: , asm: Assembly-CSharp}
       data:
@@ -918,7 +794,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -935,47 +812,19 @@ MonoBehaviour:
         drawGizmos: 0
         newState: 0
         overrideAlertValue: 1
-    - rid: 466623466926768134
-      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 39569fcb64784fe41b2e2f64f603680f
-        position: {x: 2751.5732, y: 1731.1998}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          cameraToInvestigate: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-          hackingCameras: []
-        name: Sequencer
-        description: 
-        drawGizmos: 0
-        children:
-        - rid: 466623466926768130
-        - rid: 466623466926768132
     - rid: 466623466926768135
       type: {class: SetPosition_CameraToInvestigate, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 6e2e60e130dd351489725eef7246f23f
-        position: {x: 2906.8, y: 1184.4307}
+        position: {x: 2893.5996, y: 1200.8003}
         blackboard:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -996,12 +845,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 517f05a3e07b8b747acaf9c5f4a0d707
-        position: {x: 3071.3582, y: 1022.3999}
+        position: {x: 3057.5996, y: 1038.4001}
         blackboard:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1025,12 +875,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 766e7451a99bba846a9b742381affb77
-        position: {x: 3150.4, y: 1184.8}
+        position: {x: 3136.7996, y: 1200.8003}
         blackboard:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1056,7 +907,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1084,7 +936,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1112,7 +965,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1142,7 +996,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1173,7 +1028,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1201,7 +1057,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1233,7 +1090,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1259,7 +1117,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1290,7 +1149,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1319,7 +1179,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1349,7 +1210,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1381,7 +1243,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1411,7 +1274,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1439,7 +1303,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1469,7 +1334,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1502,7 +1368,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1533,7 +1400,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1562,7 +1430,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1591,7 +1460,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1621,7 +1491,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1647,7 +1518,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1676,7 +1548,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1702,7 +1575,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1734,7 +1608,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1763,7 +1638,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1789,7 +1665,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1815,7 +1692,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1845,7 +1723,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1877,7 +1756,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1908,7 +1788,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1934,7 +1815,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1963,7 +1845,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -1991,7 +1874,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2017,7 +1901,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2045,7 +1930,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2073,7 +1959,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2103,7 +1990,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2133,7 +2021,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2163,7 +2052,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2196,7 +2086,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2222,7 +2113,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2250,7 +2142,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2280,7 +2173,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2306,7 +2200,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2335,7 +2230,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2368,7 +2264,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2398,7 +2295,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2428,7 +2326,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2456,7 +2355,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2484,7 +2384,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2513,7 +2414,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2545,7 +2447,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2575,7 +2478,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2603,7 +2507,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}
@@ -2633,7 +2538,8 @@ MonoBehaviour:
           alertState: 0
           health: 0
           healthThreshold: 0
-          moveToPosition: {x: 0, y: 0, z: 0}
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
           missingItem: 0
           locatedItem: {fileID: 0}
           pickedUpItem: {fileID: 0}

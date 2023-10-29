@@ -11,7 +11,9 @@ public class SetPosition_ActiveCamera : ActionNode
         CameraObject co = context.NpcController.FindSS_ClosestCamera_Active();
         if (co)
         {
-            blackboard.moveToPosition = co.InteractPosition;
+            blackboard.targetPosition = co.InteractPosition;
+            blackboard.targetRotation = co.InteractRotation;
+
             blackboard.cameraToInvestigate = co;
         }
         else

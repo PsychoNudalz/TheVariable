@@ -9,7 +9,8 @@ public class SetPosition_CameraToInvestigate : ActionNode
     protected override void OnStart() {
         if (blackboard.cameraToInvestigate)
         {
-            blackboard.moveToPosition = blackboard.cameraToInvestigate.InteractPosition;
+            blackboard.targetPosition = blackboard.cameraToInvestigate.InteractPosition;
+            blackboard.targetRotation = blackboard.cameraToInvestigate.InteractRotation;
         }
         else
         {

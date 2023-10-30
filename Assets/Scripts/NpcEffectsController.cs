@@ -278,10 +278,10 @@ public class NpcEffectsController : MonoBehaviour
         else
         {
             animationTime_Current += Time.deltaTime / animationTime;
-            float offset = 0;
+            float offset = 1.1f;
             foreach (Material material in materials)
             {
-                material.SetFloat("_MoveValue", animationTime_Current+offset);
+                material.SetFloat("_MoveValue", animationTime_Current*offset);
             }
 
             foreach (Material material in secondary_Materials)

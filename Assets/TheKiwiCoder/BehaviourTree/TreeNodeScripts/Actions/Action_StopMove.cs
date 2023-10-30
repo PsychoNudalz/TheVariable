@@ -10,9 +10,9 @@ public class Action_StopMove : MoveToPosition
     {
         blackboard.targetPosition = agent_Position;
         context.agent.stoppingDistance = stoppingDistance;
-        context.agent.speed = speed;
+        // context.agent.speed = speed;
         context.agent.updateRotation = updateRotation;
-        context.agent.acceleration = acceleration;
+        // context.agent.acceleration = acceleration;
         context.agent.SetDestination(blackboard.targetPosition);
         if (playIdleAnimationOnStop)
         {

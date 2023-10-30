@@ -118,8 +118,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: 1016, y: -883, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+  viewPosition: {x: 220, y: -114.4, z: 0}
+  viewScale: {x: 0.375937, y: 0.375937, z: 1}
   references:
     version: 2
     RefIds:
@@ -150,6 +150,12 @@ MonoBehaviour:
         name: Action_StopMove
         description: 
         drawGizmos: 0
+        speed: 5
+        stoppingDistance: 0.1
+        updateRotation: 1
+        acceleration: 40
+        tolerance: 1
+        playIdleAnimationOnStop: 0
     - rid: 210857227049238528
       type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -2229,6 +2235,12 @@ MonoBehaviour:
         name: Action_StopMove
         description: 
         drawGizmos: 0
+        speed: 5
+        stoppingDistance: 0.1
+        updateRotation: 1
+        acceleration: 40
+        tolerance: 1
+        playIdleAnimationOnStop: 1
     - rid: 8796965059076030499
       type: {class: Action_SetWait, ns: , asm: Assembly-CSharp}
       data:

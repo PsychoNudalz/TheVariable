@@ -127,7 +127,7 @@ public class NpcEffectsController : MonoBehaviour
     {
     }
 
-    public void PlayAnimation(NpcAnimation npcAnimation)
+    void PlayAnimation(NpcAnimation npcAnimation)
     {
         // string newAnimation = "";
         switch (npcAnimation)
@@ -192,7 +192,7 @@ public class NpcEffectsController : MonoBehaviour
                 PlayAnimator("NPC_Idle");
                 break;
         }
-
+        Debug.Log($"{name} change animation: {currentAnimation} -> {npcAnimation}");
         currentAnimation = npcAnimation;
         animationTime_Current = 0;
         UpdateMaterial();
@@ -226,13 +226,27 @@ public class NpcEffectsController : MonoBehaviour
     /// <param name="animation"></param>
     public void MoveTransform(Vector3 position, Quaternion rotation, NpcAnimation animation)
     {
-        originalPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        originalRotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z,
-            transform.rotation.w);
-        // originalRotation = transform.localToWorldMatrix * originalRotation;
+        if(currentAnimation.Equals(animation))
+        {
+            Debug.Log($"{name} same animation: {currentAnimation}");
+
+        }
+        //Void the call to change animation if it was called with the same animation at a short distance
+        float distance = Vector3.Distance(transform.position,position);
+        if(currentAnimation.Equals(animation)&&(distance<1f))
+        {
+            return;
+        }
+        if (!isInAnimation||(isInAnimation&&animationTime_Current>.5f)||(Vector3.Distance(originalPosition,transform.position)>2f))
+        {
+            originalPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            originalRotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z,
+                transform.rotation.w);
+            // originalRotation = transform.localToWorldMatrix * originalRotation;
+        }
+
         transform.position = position;
         transform.rotation = rotation;
-
         LockSecondary_GO_Transform();
 
         if (animation == NpcAnimation.None)
@@ -264,9 +278,10 @@ public class NpcEffectsController : MonoBehaviour
         else
         {
             animationTime_Current += Time.deltaTime / animationTime;
+            float offset = 0;
             foreach (Material material in materials)
             {
-                material.SetFloat("_MoveValue", animationTime_Current);
+                material.SetFloat("_MoveValue", animationTime_Current+offset);
             }
 
             foreach (Material material in secondary_Materials)

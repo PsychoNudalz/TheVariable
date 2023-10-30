@@ -651,7 +651,7 @@ public class NpcController : MonoBehaviour
     {
         if (effectsController)
         {
-            effectsController.PlayAnimation(npcAnimation);
+            effectsController.MoveTransform(transform.position,transform.rotation,npcAnimation);
         }
     }
     /// <summary>

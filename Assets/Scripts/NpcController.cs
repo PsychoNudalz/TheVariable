@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Task;
 using TheKiwiCoder;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -88,6 +89,8 @@ public class NpcController : MonoBehaviour
 
     [SerializeField]
     private CapsuleCollider bodyCollider;
+    [SerializeField]
+    private NavMeshAgent navMeshAgent;
 
     public List<TaskEvent> TaskQueue => taskQueue;
 
@@ -209,6 +212,11 @@ public class NpcController : MonoBehaviour
         {
             originalBodyCenter = bodyCollider.center;
             originalHeight = bodyCollider.height;
+        }
+        
+        if (!navMeshAgent)
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
         }
     }
 
@@ -524,10 +532,11 @@ public class NpcController : MonoBehaviour
         }
         else
         {
+            navMeshAgent.enabled = false;
+
             if (currentTask.HasObjectSet)
             {
                 currentTask.TaskSmartObject.Interact(this);
-
             }
 
             return  TaskManager.current.TickToRealTime(currentTask.Duration);
@@ -546,6 +555,8 @@ public class NpcController : MonoBehaviour
         {
             task.TaskSmartObject.FinishTask(this, task, isInterrupt);
         }
+
+        navMeshAgent.enabled = true;
 
         RemoveTask();
         return task.Duration;

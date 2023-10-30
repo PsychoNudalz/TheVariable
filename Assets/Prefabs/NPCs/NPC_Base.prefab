@@ -341,6 +341,7 @@ MonoBehaviour:
   treeRunner: {fileID: 1320077873986614605}
   uiController: {fileID: 0}
   bodyCollider: {fileID: 1320077873986614611}
+  navMeshAgent: {fileID: 1320077873986614604}
 --- !u!114 &1320077873986614614
 MonoBehaviour:
   m_ObjectHideFlags: 0

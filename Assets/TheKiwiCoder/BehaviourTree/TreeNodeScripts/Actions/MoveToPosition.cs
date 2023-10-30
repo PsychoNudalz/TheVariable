@@ -11,7 +11,7 @@ public class MoveToPosition : ActionNode
     public bool updateRotation = true;
     public float acceleration = 40.0f;
     public float tolerance = 1.0f;
-
+    public bool playIdleAnimationOnStop = true;
 
     private float pendingTimeOut = 2f;
     protected override void OnStart()
@@ -29,7 +29,10 @@ public class MoveToPosition : ActionNode
         if (started)
         {
             started = false;
-            context.NpcController.PlayAnimation(NpcAnimation.Idle);
+            if (playIdleAnimationOnStop)
+            {
+                context.NpcController.PlayAnimation(NpcAnimation.Idle);
+            }
         }
     }
 

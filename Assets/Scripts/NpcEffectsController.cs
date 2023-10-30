@@ -26,6 +26,7 @@ public enum NpcAnimation
 /// </summary>
 public class NpcEffectsController : MonoBehaviour
 {
+    private bool isInAnimation = false;
     [SerializeField]
     private Animator animator;
 
@@ -68,7 +69,10 @@ public class NpcEffectsController : MonoBehaviour
     [SerializeField]
     private SoundAbstract sfx_Spotted;
 
+    [SerializeField]
     private Vector3 originalPosition;
+
+    [SerializeField]
     private Quaternion originalRotation;
 
     private void Awake()
@@ -110,15 +114,17 @@ public class NpcEffectsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (secondary_Renderer.enabled)
+        if (isInAnimation)
         {
+
             UpdateSecondary_GO();
+            UpdateMaterial();
+
         }
     }
 
     private void FixedUpdate()
     {
-        UpdateMaterial();
     }
 
     public void PlayAnimation(NpcAnimation npcAnimation)
@@ -190,6 +196,7 @@ public class NpcEffectsController : MonoBehaviour
         currentAnimation = npcAnimation;
         animationTime_Current = 0;
         UpdateMaterial();
+        isInAnimation = true;
     }
 
     /// <summary>
@@ -201,9 +208,11 @@ public class NpcEffectsController : MonoBehaviour
         if (animationTime_Current > .9f)
         {
             secondary_Renderer.enabled = true;
-
+            secondary_GO.SetActive(true);
             secondary_Animator.Play(currentAnimationString);
         }
+
+        LockSecondary_GO_Transform();
 
         currentAnimationString = stateName;
         animator.Play(stateName);
@@ -217,7 +226,6 @@ public class NpcEffectsController : MonoBehaviour
     /// <param name="animation"></param>
     public void MoveTransform(Vector3 position, Quaternion rotation, NpcAnimation animation)
     {
-        navMeshAgent.enabled = false;
         originalPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         originalRotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z,
             transform.rotation.w);
@@ -233,7 +241,6 @@ public class NpcEffectsController : MonoBehaviour
         }
 
         PlayAnimation(animation);
-        navMeshAgent.enabled = true;
     }
 
     private void LockSecondary_GO_Transform()
@@ -242,11 +249,16 @@ public class NpcEffectsController : MonoBehaviour
         secondary_GO.transform.rotation = originalRotation;
     }
 
-    public void UpdateMaterial()
+    void UpdateMaterial()
     {
-        if (animationTime_Current > 1)
+        if (animationTime_Current > 1f)
         {
+            isInAnimation = false;
             secondary_Renderer.enabled = false;
+            secondary_GO.SetActive(false);
+            originalPosition = transform.position;
+            originalRotation = transform.rotation;
+            LockSecondary_GO_Transform();
         }
 
         else
@@ -266,14 +278,10 @@ public class NpcEffectsController : MonoBehaviour
 
     void UpdateSecondary_GO()
     {
-        if (animationTime_Current > 1)
+        if (secondary_GO.activeSelf)
         {
-            originalPosition = transform.position;
-            originalRotation = transform.rotation;
-            
+            LockSecondary_GO_Transform();
         }
-
-        LockSecondary_GO_Transform();
     }
 
     public void PlaySound_Sus()

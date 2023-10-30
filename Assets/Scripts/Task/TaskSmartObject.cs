@@ -65,7 +65,7 @@ namespace Task
         public override void Interact(NpcController npc)
         {
             //Feels like this should be in the task object visual controller but cba to move it there
-            if (animationPoint)
+            if (!animationPoint)
             {
                 npc.MoveTransform(InteractPosition,InteractRotation,interactAnimation);
             }

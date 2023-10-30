@@ -505,6 +505,18 @@ public class NpcController : MonoBehaviour
         }
     }
 
+    public TaskEvent PeakNextTask()
+    {
+        if (taskQueue.Count >= 2)
+        {
+            return taskQueue[1];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     /// <summary>
     /// Check if the NPC can start task
     /// returns items if there's missing item

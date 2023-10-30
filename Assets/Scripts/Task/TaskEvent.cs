@@ -127,5 +127,10 @@ namespace Task
         {
             this.taskSmartObject = taskSmartObject;
         }
+
+        public override string ToString()
+        {
+            return TaskName;
+        }
     }
 }

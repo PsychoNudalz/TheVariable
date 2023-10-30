@@ -118,7 +118,7 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: 220, y: -114.4, z: 0}
+  viewPosition: {x: 391.2, y: -150.4, z: 0}
   viewScale: {x: 0.375937, y: 0.375937, z: 1}
   references:
     version: 2
@@ -150,10 +150,8 @@ MonoBehaviour:
         name: Action_StopMove
         description: 
         drawGizmos: 0
-        speed: 5
         stoppingDistance: 0.1
         updateRotation: 1
-        acceleration: 40
         tolerance: 1
         playIdleAnimationOnStop: 0
     - rid: 210857227049238528
@@ -761,10 +759,8 @@ MonoBehaviour:
         name: MoveToPosition
         description: 
         drawGizmos: 0
-        speed: 5
         stoppingDistance: 0.1
         updateRotation: 1
-        acceleration: 40
         tolerance: 0.1
         playIdleAnimationOnStop: 1
     - rid: 466623464268365829
@@ -1138,10 +1134,8 @@ MonoBehaviour:
         name: MoveToPosition
         description: 
         drawGizmos: 0
-        speed: 5
         stoppingDistance: 0.1
         updateRotation: 1
-        acceleration: 40
         tolerance: 0.1
         playIdleAnimationOnStop: 1
     - rid: 2809099641645694982
@@ -1261,10 +1255,8 @@ MonoBehaviour:
         name: MoveToPosition
         description: 
         drawGizmos: 0
-        speed: 5
         stoppingDistance: 0.1
         updateRotation: 1
-        acceleration: 40
         tolerance: 0.1
         playIdleAnimationOnStop: 0
     - rid: 2809100001274232834
@@ -1513,10 +1505,8 @@ MonoBehaviour:
         name: MoveToPosition
         description: 
         drawGizmos: 0
-        speed: 5
         stoppingDistance: 1
         updateRotation: 1
-        acceleration: 40
         tolerance: 0.1
         playIdleAnimationOnStop: 1
     - rid: 3923952843446550531
@@ -1870,10 +1860,8 @@ MonoBehaviour:
         name: Move_TaskWait
         description: 
         drawGizmos: 0
-        speed: 5
         stoppingDistance: 0.1
         updateRotation: 1
-        acceleration: 40
         tolerance: 1
         playIdleAnimationOnStop: 0
         taskWaitDistance: 2
@@ -1904,10 +1892,8 @@ MonoBehaviour:
         name: MoveToPosition
         description: 
         drawGizmos: 0
-        speed: 5
         stoppingDistance: 0.5
         updateRotation: 1
-        acceleration: 40
         tolerance: 0.5
         playIdleAnimationOnStop: 0
     - rid: 8796965059076030466
@@ -2235,10 +2221,8 @@ MonoBehaviour:
         name: Action_StopMove
         description: 
         drawGizmos: 0
-        speed: 5
         stoppingDistance: 0.1
         updateRotation: 1
-        acceleration: 40
         tolerance: 1
         playIdleAnimationOnStop: 1
     - rid: 8796965059076030499

@@ -3101,6 +3101,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8370501660360052031, guid: e1a362c09bf54004896cfb62f51fbccf,
+        type: 3}
+      propertyPath: schedule.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370501660360052031, guid: e1a362c09bf54004896cfb62f51fbccf,
+        type: 3}
+      propertyPath: schedule.Array.data[3].startTime
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1a362c09bf54004896cfb62f51fbccf, type: 3}
 --- !u!1001 &367761290

@@ -11,6 +11,7 @@ using TheKiwiCoder;
 [System.Serializable]
 public class Action_SetTaskToTarget : ActionNode
 {
+    private TaskEvent lastTaskEvent;
     protected override void OnStart()
     {
         if (context.NpcController.HasTasksQueued())
@@ -26,7 +27,21 @@ public class Action_SetTaskToTarget : ActionNode
 
             else
             {
+                //If not task object is found
+                
+                Debug.LogWarning($"{name}: Failed to find task {currentTask}");
+                lastTaskEvent = currentTask;
                 started = false;
+                
+                //skips current task if it overlaps with next task if it can't find the task object
+                TaskEvent peakNextTask = context.NpcController.PeakNextTask();
+                if (peakNextTask!=null)
+                {
+                    if (TaskManager.Tick >= peakNextTask.StartTime)
+                    {
+                        context.NpcController.RemoveTask();
+                    }
+                }
             }
         }
         else

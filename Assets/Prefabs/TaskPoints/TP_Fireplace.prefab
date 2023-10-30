@@ -18,6 +18,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c47b71181e06c4248a6ff52550be8d74,
         type: 2}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: interactAnimation
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: useAnimationPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_RootOrder

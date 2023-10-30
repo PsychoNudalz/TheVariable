@@ -13,6 +13,10 @@ public enum NpcAnimation
     PickUp,
     Suspicious,
     Spotted,
+    Sit,
+    Eat,
+    LayDown,
+    Guard,
     Dead
 }
 
@@ -106,6 +110,10 @@ public class NpcEffectsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (secondary_Renderer.enabled)
+        {
+            UpdateSecondary_GO();
+        }
     }
 
     private void FixedUpdate()
@@ -118,6 +126,8 @@ public class NpcEffectsController : MonoBehaviour
         // string newAnimation = "";
         switch (npcAnimation)
         {
+            case NpcAnimation.None:
+                break;
             case NpcAnimation.Idle:
                 PlayAnimator("NPC_Idle");
                 break;
@@ -148,6 +158,7 @@ public class NpcEffectsController : MonoBehaviour
                     sfx_Suspicious.Play();
                 }
 
+                PlayAnimator("NPC_Sus");
                 break;
             case NpcAnimation.Spotted:
                 if (sfx_Spotted)
@@ -155,8 +166,22 @@ public class NpcEffectsController : MonoBehaviour
                     sfx_Spotted.Play();
                 }
 
+                PlayAnimator("NPC_Spotted");
+
                 break;
 
+            case NpcAnimation.Sit:
+                PlayAnimator("NPC_Sit");
+                break;
+            case NpcAnimation.Eat:
+                PlayAnimator("NPC_Eat");
+                break;
+            case NpcAnimation.LayDown:
+                PlayAnimator("NPC_LayDown");
+                break;
+            case NpcAnimation.Guard:
+                PlayAnimator("NPC_Guard");
+                break;
             default:
                 PlayAnimator("NPC_Idle");
                 break;
@@ -222,8 +247,6 @@ public class NpcEffectsController : MonoBehaviour
         if (animationTime_Current > 1)
         {
             secondary_Renderer.enabled = false;
-            originalPosition = transform.position;
-            originalRotation = transform.rotation;
         }
 
         else
@@ -238,6 +261,16 @@ public class NpcEffectsController : MonoBehaviour
             {
                 material.SetFloat("_MoveValue", animationTime_Current);
             }
+        }
+    }
+
+    void UpdateSecondary_GO()
+    {
+        if (animationTime_Current > 1)
+        {
+            originalPosition = transform.position;
+            originalRotation = transform.rotation;
+            
         }
 
         LockSecondary_GO_Transform();

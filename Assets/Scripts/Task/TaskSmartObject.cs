@@ -17,9 +17,6 @@ namespace Task
         private NpcAnimation interactAnimation = NpcAnimation.Interact;
 
         [SerializeField]
-        private Transform moveModelToTransform = null;
-
-        [SerializeField]
         private List<ItemObject> currentItems;
 
         private bool inUse = false;
@@ -27,6 +24,12 @@ namespace Task
         [Header("Components")]
         [SerializeField]
         private TaskObjectController controller;
+
+        [Header("Animation")]
+        [SerializeField]
+        private bool useAnimationPoint = false;
+        [SerializeField]
+        private Transform animationPoint;
 
         public bool InUse => inUse;
 
@@ -61,12 +64,19 @@ namespace Task
         /// <param name="npc"></param>
         public override void Interact(NpcController npc)
         {
-            npc.MoveTransform(InteractPosition,InteractRotation,interactAnimation);
-
-            //TODO: implement animation move model to transform
+            //Feels like this should be in the task object visual controller but cba to move it there
+            if (animationPoint)
+            {
+                npc.MoveTransform(InteractPosition,InteractRotation,interactAnimation);
+            }
+            else
+            {
+                npc.MoveTransform(animationPoint.position,animationPoint.rotation,interactAnimation);
+            }
+            
             RemoveUsedItems(npc.GetCurrentTask());
             inUse = true;
-            controller?.OnInteract();
+            controller?.OnInteract(npc);
         }
 
         /// <summary>
@@ -83,7 +93,9 @@ namespace Task
 
         public virtual void FinishTask(NpcController npc, TaskEvent taskEvent, bool isInterrupt = false)
         {
-            npc.PlayAnimation(NpcAnimation.Idle);
+            // npc.PlayAnimation(NpcAnimation.Idle);
+            npc.MoveTransform(InteractPosition,InteractRotation,NpcAnimation.Idle);
+
             inUse = false;
             if (isInterrupt)
             {

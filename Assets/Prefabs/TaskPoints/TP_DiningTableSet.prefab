@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6988012253810616809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TP_DiningTableSet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,6 +193,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6988012253810616809}
     m_Modifications:
+    - target: {fileID: 2134962476098585590, guid: f581c9c69f776b64387456f216c9e467,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4959519421693671997, guid: f581c9c69f776b64387456f216c9e467,
         type: 3}
       propertyPath: m_RootOrder
@@ -252,6 +257,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GO_DiningTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315989599635569862, guid: f581c9c69f776b64387456f216c9e467,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f581c9c69f776b64387456f216c9e467, type: 3}

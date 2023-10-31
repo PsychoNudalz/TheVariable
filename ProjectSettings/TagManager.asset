@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - CCTV
+  - NPC
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - UI_World
   - VisionCone
   - Ground
-  - 
+  - Environment_Trigger
   - 
   - 
   - 

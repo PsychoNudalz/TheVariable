@@ -148,6 +148,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6619643399178367472, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7184558919918143579, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_Center.z
@@ -165,6 +170,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f64ec6eb2b81604ab51f063b9e51632, type: 3}
+--- !u!1 &1275158387446224568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1943058111114039371, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+    type: 3}
+  m_PrefabInstance: {fileID: 812166095266072307}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6861257198710575927
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275158387446224568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 0.5, z: 0.6}
 --- !u!4 &5533129963439539177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5155711866920568090, guid: 4f64ec6eb2b81604ab51f063b9e51632,
@@ -244,6 +268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_DeskChair_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 18e8f9d7005d872409fc12d3adbc5740,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18e8f9d7005d872409fc12d3adbc5740, type: 3}
 --- !u!1001 &4628816189370322203
@@ -318,6 +347,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Prop_Desk_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7990d37c7fcaa349b8c041eb6e565ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7990d37c7fcaa349b8c041eb6e565ad, type: 3}
@@ -394,6 +428,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_DeskChair_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 18e8f9d7005d872409fc12d3adbc5740,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18e8f9d7005d872409fc12d3adbc5740, type: 3}
 --- !u!1001 &6742778299507733284
@@ -468,6 +507,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Prop_DeskChair_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 18e8f9d7005d872409fc12d3adbc5740,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18e8f9d7005d872409fc12d3adbc5740, type: 3}

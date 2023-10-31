@@ -69,6 +69,8 @@ public class PlayerController : MonoBehaviour
     private LayerMask selectorLayer;
 
     [SerializeField]
+    private bool detectCameraThroughWalls = false;
+    [SerializeField]
     private LayerMask cameraLayer;
 
     [SerializeField]
@@ -469,29 +471,32 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (!detectedSOHit)
+        if (detectCameraThroughWalls)
         {
-            //Finding cameras
-            if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, cameraLayer))
+            if (!detectedSOHit)
             {
-                CameraObject cameraObject = hit.collider.GetComponentInParent<CameraObject>();
-                if (cameraObject)
+                //Finding cameras
+                if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, cameraLayer))
                 {
-                    if (!cameraObject.Equals(selectedObject))
+                    CameraObject cameraObject = hit.collider.GetComponentInParent<CameraObject>();
+                    if (cameraObject)
                     {
-                        if (selectedObject)
+                        if (!cameraObject.Equals(selectedObject))
                         {
-                            selectedObject.OnSelect_Exit();
+                            if (selectedObject)
+                            {
+                                selectedObject.OnSelect_Exit();
+                            }
+
+                            selectedObject = cameraObject;
+                            selectedObject.OnSelect_Enter();
                         }
 
-                        selectedObject = cameraObject;
-                        selectedObject.OnSelect_Enter();
+                        detectedSOHit = true;
+
+                        Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.yellow,
+                            Time.deltaTime);
                     }
-
-                    detectedSOHit = true;
-
-                    Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.yellow,
-                        Time.deltaTime);
                 }
             }
         }

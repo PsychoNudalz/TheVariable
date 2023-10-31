@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 796035885203335439}
   m_Layer: 8
   m_Name: NPC_Base
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,8 +325,10 @@ MonoBehaviour:
   currentTask:
     taskDescription: {fileID: 0}
     startTime: -1
+    taskQueryType: 0
   taskQueue: []
   schedule: []
+  randomTasks: []
   pickedUpItem: {fileID: 0}
   itemHoldingPoint: {fileID: 6239586647801190416}
   alertValue: 0

@@ -73,8 +73,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Chair_02
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 037022e88885e6e408fe896d2d51e489,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 037022e88885e6e408fe896d2d51e489, type: 3}
+--- !u!1 &281733178044179769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 037022e88885e6e408fe896d2d51e489,
+    type: 3}
+  m_PrefabInstance: {fileID: 1092548441219717224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1355872134522553510
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281733178044179769}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4190257175820495050, guid: 037022e88885e6e408fe896d2d51e489, type: 3}
 --- !u!1001 &3833149682791178991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202,6 +227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6619643399178367472, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7184558919918143579, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}

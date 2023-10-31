@@ -70,7 +70,12 @@ PrefabInstance:
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.size
-      value: 5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -119,6 +124,12 @@ PrefabInstance:
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.data[4].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c1962452e9dfaf40ac0abcb84470dd3,
+        type: 2}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[0].taskDescription
       value: 
       objectReference: {fileID: 11400000, guid: 3c1962452e9dfaf40ac0abcb84470dd3,
         type: 2}

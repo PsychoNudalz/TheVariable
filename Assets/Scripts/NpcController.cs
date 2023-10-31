@@ -38,6 +38,10 @@ public class NpcController : MonoBehaviour
     [Tooltip("This is the schedule")]
     private List<TaskEvent> schedule = new List<TaskEvent>();
 
+    [SerializeField]
+    [Tooltip("This is the random task it can do")]
+    private List<TaskEvent> randomTasks = new List<TaskEvent>();
+
     [Header("Item")]
     [SerializeField]
     private ItemObject pickedUpItem;
@@ -95,6 +99,8 @@ public class NpcController : MonoBehaviour
     public List<TaskEvent> TaskQueue => taskQueue;
 
     public List<TaskEvent> Schedule => schedule;
+
+    public List<TaskEvent> RandomTasks => randomTasks;
 
     public NpcEffectsController EffectsController => effectsController;
 
@@ -510,6 +516,18 @@ public class NpcController : MonoBehaviour
         if (taskQueue.Count >= 2)
         {
             return taskQueue[1];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public TaskEvent PickRandomTask()
+    {
+        if (randomTasks.Count > 0)
+        {
+            return randomTasks[Random.Range(0, randomTasks.Count - 1)];
         }
         else
         {

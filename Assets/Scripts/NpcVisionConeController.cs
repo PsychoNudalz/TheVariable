@@ -67,7 +67,7 @@ public class NpcVisionConeController : MonoBehaviour
                     }
                     else
                     {
-                        //Remaining out of LOS
+                        //Remaining out of LOS, detected is null
                         Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
                     }
                 }
@@ -77,12 +77,12 @@ public class NpcVisionConeController : MonoBehaviour
 
                     if (smartObject.Equals(detected))
                     {
-                        Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
+                        Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
                     }
                     else
                     {
                         allLoSSmartObjects.Remove(smartObject);
-                        Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
+                        Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
                     }
                 }
             }

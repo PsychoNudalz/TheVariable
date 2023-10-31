@@ -26,6 +26,9 @@ namespace Task
         [SerializeField]
         private int startTime;
 
+        [SerializeField]
+        private TaskQueryType taskQueryType = TaskQueryType.Closest;
+
         // [SerializeField]
         private TaskSmartObject taskSmartObject;
 
@@ -40,6 +43,7 @@ namespace Task
 
         public bool ItemsConsumeOnUse => taskDescription.ItemsConsumeOnUse;
 
+        public TaskQueryType TaskQueryType => taskQueryType;
 
         public float Duration => taskDescription.Duration;
         public string TaskName => taskDescription.TaskName;

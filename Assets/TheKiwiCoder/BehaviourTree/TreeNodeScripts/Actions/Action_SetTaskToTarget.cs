@@ -17,7 +17,7 @@ public class Action_SetTaskToTarget : ActionNode
         if (context.NpcController.HasTasksQueued())
         {
             TaskEvent currentTask = context.NpcController.GetCurrentTask();
-            TaskSmartObject foundTask = TaskManager.QueryTask(agent_Position,currentTask.TaskDescription);
+            TaskSmartObject foundTask = TaskManager.QueryTask(agent_Position,currentTask.TaskDescription,currentTask.TaskQueryType);
             if (foundTask)
             {
                 currentTask.SetTaskObject(foundTask);

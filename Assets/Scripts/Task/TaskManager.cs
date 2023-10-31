@@ -1,8 +1,17 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Task
 {
+    public enum TaskQueryType
+    {
+        Closest,
+        Random
+    }
+
     /// <summary>
     /// Keeps tracks of world ticks
     /// Handles tasks and task Objects, allows NPC to query task object locations
@@ -104,54 +113,81 @@ namespace Task
         /// <param name="originPosition"></param>
         /// <param name="taskDescription"></param>
         /// <returns></returns>
-        public static TaskSmartObject QueryTask(Vector3 originPosition, TaskDescription taskDescription)
+        public static TaskSmartObject QueryTask(Vector3 originPosition, TaskDescription taskDescription,
+            TaskQueryType taskQueryType)
         {
             TaskSmartObject[] currentAllTaskSmartObjects = current.allTaskSmartObjects;
             if (currentAllTaskSmartObjects.Length == 0)
+            {
+                Debug.LogError("No task object in Task Manager");
+                return null;
+            }
+
+
+            List<TaskSmartObject> matchingSmartObjects = new List<TaskSmartObject>();
+            foreach (TaskSmartObject taskSmartObject in currentAllTaskSmartObjects)
+            {
+                if (taskSmartObject.Equals(taskDescription) && !taskSmartObject.InUse)
+                {
+                    matchingSmartObjects.Add(taskSmartObject);
+                }
+            }
+
+            if (matchingSmartObjects.Count == 0)
             {
                 return null;
             }
 
             TaskSmartObject mostCompatibleTSO = null;
-            float currentDistance = Mathf.Infinity;
 
-            NavMeshPath path = new NavMeshPath();
-            float pathLength = 0;
-
-            LayerMask layerMask = LayerMask.GetMask("Ground");
-            Vector3 castPosition = originPosition;
-
-            if (Physics.Raycast(originPosition, Vector3.down, out RaycastHit hit, 5, layerMask))
+            switch (taskQueryType)
             {
-                castPosition = hit.point;
-            }
+                case TaskQueryType.Closest:
+                    float currentDistance = Mathf.Infinity;
+                    NavMeshPath path = new NavMeshPath();
+                    float pathLength = 0;
 
-            foreach (TaskSmartObject taskSmartObject in currentAllTaskSmartObjects)
-            {
-                if (taskSmartObject.Equals(taskDescription)&&!taskSmartObject.InUse)
-                {
-                    if (!NavMesh.CalculatePath(castPosition, taskSmartObject.Position, NavMesh.AllAreas, path))
+                    LayerMask layerMask = LayerMask.GetMask("Ground");
+                    Vector3 castPosition = originPosition;
+
+                    if (Physics.Raycast(originPosition, Vector3.down, out RaycastHit hit, 5, layerMask))
                     {
-                        NavMesh.CalculatePath(castPosition, taskSmartObject.InteractPosition, NavMesh.AllAreas, path);
+                        castPosition = hit.point;
                     }
 
-                    if (path.status == NavMeshPathStatus.PathComplete)
+                    foreach (TaskSmartObject taskSmartObject in matchingSmartObjects)
                     {
-                        // Debug.Log("PathComplete");
-                        pathLength = 0;
-                        for (int i = 1; i < path.corners.Length; i++)
+                        if (!NavMesh.CalculatePath(castPosition, taskSmartObject.Position, NavMesh.AllAreas, path))
                         {
-                            pathLength += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+                            NavMesh.CalculatePath(castPosition, taskSmartObject.InteractPosition, NavMesh.AllAreas,
+                                path);
                         }
 
-                        if (pathLength < currentDistance)
+                        if (path.status == NavMeshPathStatus.PathComplete)
                         {
-                            currentDistance = pathLength;
-                            mostCompatibleTSO = taskSmartObject;
+                            // Debug.Log("PathComplete");
+                            pathLength = 0;
+                            for (int i = 1; i < path.corners.Length; i++)
+                            {
+                                pathLength += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+                            }
+
+                            if (pathLength < currentDistance)
+                            {
+                                currentDistance = pathLength;
+                                mostCompatibleTSO = taskSmartObject;
+                            }
                         }
                     }
-                }
+
+                    break;
+                case TaskQueryType.Random:
+                    mostCompatibleTSO = matchingSmartObjects[Random.Range(0, matchingSmartObjects.Count - 1)];
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(taskQueryType), taskQueryType, null);
             }
+
 
             return mostCompatibleTSO;
         }

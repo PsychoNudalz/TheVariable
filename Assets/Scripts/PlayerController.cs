@@ -470,10 +470,10 @@ public class PlayerController : MonoBehaviour
         //Finding Smart Objects, excluding cameras
         if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, selectorLayer))
         {
-            selectStickyTime_Now = selectStickyTime;
             SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
             if (smartObject)
             {
+                selectStickyTime_Now = selectStickyTime;
                 if (!smartObject.Equals(selectedObject))
                 {
                     if (selectedObject)

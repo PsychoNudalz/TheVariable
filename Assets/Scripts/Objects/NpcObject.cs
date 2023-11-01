@@ -6,15 +6,26 @@ public class NpcObject : SmartObject
 {
     private NpcController controller;
 
+    [Header("Eye Camera")]
     [SerializeField]
     private CameraController cameraController;
 
+    [SerializeField]
+    private Transform eyeLocation;
     public NpcController Controller => controller;
     public CameraController Camera => cameraController;
 
     protected override void AwakeBehaviour()
     {
         controller = GetComponent<NpcController>();
+        if (cameraController)
+        {
+            if (eyeLocation)
+            {
+                cameraController.transform.SetParent(eyeLocation);
+                cameraController.transform.localPosition = new Vector3();
+            }
+        }
     }
 
     protected override void StartBehaviour()

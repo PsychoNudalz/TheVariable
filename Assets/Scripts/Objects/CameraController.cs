@@ -224,7 +224,9 @@ public class CameraController:MonoBehaviour
         float zoomRotateMultiplier = Mathf.Lerp(1, .2f, zoomLevel);
         cameraOrientation.x = Mathf.Clamp(cameraOrientation.x - vertical * zoomRotateMultiplier, xClamp.x, xClamp.y);
         cameraOrientation.y += horizontal * zoomRotateMultiplier;
+        cameraOrientation.y = Mathf.Clamp(cameraOrientation.y, yClamp.x, yClamp.y);
         camera_transform.localEulerAngles = cameraOrientation;
+
     }
 
     public void UpdateZoom(float zoomAmount)

@@ -37,11 +37,10 @@ public class Action_Investigate : ActionNode
         {
             blackboard.cameraToInvestigate = co.CameraController;
         }
-        // TODO: Add NPC
-        // if (blackboard.currentSensorySource is { SmartObject: NpcObject npc })
-        // {
-        //     blackboard.cameraToInvestigate = co.CameraController;
-        // }
+        if (blackboard.currentSensorySource is { SmartObject: NpcObject npc })
+        {
+            blackboard.cameraToInvestigate = npc.Camera;
+        }
     }
 
     protected override void OnStop()

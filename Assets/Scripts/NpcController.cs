@@ -292,6 +292,24 @@ public class NpcController : MonoBehaviour
         AddSensorySource(ss);
         return ss;
     }
+    
+    public SensorySource_Visual AddNPCToSS(NpcObject npc, bool overrideSS)
+    {
+        SensorySource sensorySource = GetCurrentSS;
+        if (!overrideSS && sensorySource != null && npc.Equals(sensorySource.SmartObject))
+        {
+            //If new camera is the same as the old one
+            return null;
+        }else if (overrideSS&& sensorySource != null &&npc.Equals(sensorySource.SmartObject))
+        {
+            return null;
+        }
+
+        //Create Visual if detected new camera
+        SensorySource_Visual ss = new SensorySource_Visual(npc, 100);
+        AddSensorySource(ss);
+        return ss;
+    }
 
     /// <summary>
     ///  updating the alert value and change alert state

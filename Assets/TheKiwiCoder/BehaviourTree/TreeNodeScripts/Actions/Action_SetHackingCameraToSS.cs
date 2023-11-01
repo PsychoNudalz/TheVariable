@@ -11,14 +11,25 @@ public class Action_SetHackingCameraToSS : ActionNode
     protected override void OnStart()
     {
         CameraController closestHackingCamera = context.NpcController.FindSS_ClosestCamera_Hacking();
-        if (closestHackingCamera && closestHackingCamera.ConnectedSo is CameraObject co)
+        if (closestHackingCamera)
         {
-            //TODO: add NPC
-            SensorySource_Visual ssv = npcController.AddCameraToSS(co, overrideCurrentSS);
-            if (ssv.Equals(npcController.GetCurrentSS))
+
+            if (closestHackingCamera.ConnectedSo is CameraObject co)
             {
-                blackboard.currentSensorySource = npcController.GetCurrentSS;
-                blackboard.cameraToInvestigate = closestHackingCamera;
+                SensorySource_Visual ssv = npcController.AddCameraToSS(co, overrideCurrentSS);
+                if (ssv.Equals(npcController.GetCurrentSS))
+                {
+                    blackboard.currentSensorySource = npcController.GetCurrentSS;
+                    blackboard.cameraToInvestigate = closestHackingCamera;
+                }
+            }else if (closestHackingCamera.ConnectedSo is NpcObject npc)
+            {
+                SensorySource_Visual ssv = npcController.AddNPCToSS(npc, overrideCurrentSS);
+                if (ssv.Equals(npcController.GetCurrentSS))
+                {
+                    blackboard.currentSensorySource = npcController.GetCurrentSS;
+                    blackboard.cameraToInvestigate = closestHackingCamera;
+                }
             }
             else
             {

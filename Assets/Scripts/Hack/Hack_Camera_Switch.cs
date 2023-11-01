@@ -31,11 +31,12 @@ public class Hack_Camera_Switch : HackAbility
         {
             return -1;
         }
+
         this.context = hackContext;
         //implementation of the hack
         if (context.SmartObjects[0] is CameraObject co)
         {
-            if (hackContext.HackContextEnum is {Length: > 0} &&
+            if (hackContext.HackContextEnum is { Length: > 0 } &&
                 hackContext.HackContextEnum.Contains(HackContext_Enum.Camera_notPushToStack))
             {
                 PlayerController.current.ChangeCamera(co.CameraController, false);
@@ -45,11 +46,14 @@ public class Hack_Camera_Switch : HackAbility
                 PlayerController.current.ChangeCamera(co.CameraController);
             }
         }
+        else if (context.SmartObjects[0] is NpcObject npc)
+        {
+            PlayerController.current.ChangeCamera(npc.Camera, false);
+        }
         else
         {
             Debug.LogError("Camera switch target is not a camera!");
             return 1;
-
         }
 
         return 0;
@@ -61,7 +65,7 @@ public class Hack_Camera_Switch : HackAbility
         {
             return !co.CameraController.IsLocked;
         }
-        
+
         return base.CanHack();
     }
 }

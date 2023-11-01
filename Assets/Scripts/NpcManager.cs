@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class NpcManager : MonoBehaviour
 {
-    //TODO: Add in NPC controller class
     [SerializeField]
     private List<NpcController> npcs;
 

@@ -6,7 +6,11 @@ public class NpcObject : SmartObject
 {
     private NpcController controller;
 
+    [SerializeField]
+    private CameraController cameraController;
+
     public NpcController Controller => controller;
+    public CameraController Camera => cameraController;
 
     protected override void AwakeBehaviour()
     {

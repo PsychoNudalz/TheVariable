@@ -101,7 +101,14 @@ public class NpcSensoryController : MonoBehaviour
                     return cameraObject.CameraController;
                 }
             }
-            //TODO: add in checks for NPCSmartObject Next
+            
+            if (smartObject is NpcObject npc)
+            {
+                if (npc.Camera.IsHacking)
+                {
+                    return npc.Camera;
+                }
+            }
         }
 
         return null;

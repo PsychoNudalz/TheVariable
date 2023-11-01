@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private SoundAbstract sfx_Suspicious;
 
-
+    private static float currentTimeScale => Time.timeScale;
+    private static float hackSlowScale = .1f;
     private void Awake()
     {
         if (!GM)
@@ -51,5 +52,15 @@ public class GameManager : MonoBehaviour
 
         GM.suspicious_LastTime = Time.time;
 
+    }
+
+    public static void SlowTimeForHack()
+    {
+        Time.timeScale = hackSlowScale;
+    }
+
+    public static void ResetTimeScale()
+    {
+        Time.timeScale = 1;
     }
 }

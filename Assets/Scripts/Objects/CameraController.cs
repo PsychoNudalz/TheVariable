@@ -23,6 +23,8 @@ public class CameraController:MonoBehaviour
 
     [SerializeField]
     private Vector2 xClamp = new Vector2(-90f, 90f);
+    [SerializeField]
+    private Vector2 yClamp = new Vector2(-120f, 120f);
 
     [Header("Zoom")]
     [SerializeField]
@@ -222,7 +224,7 @@ public class CameraController:MonoBehaviour
         float zoomRotateMultiplier = Mathf.Lerp(1, .2f, zoomLevel);
         cameraOrientation.x = Mathf.Clamp(cameraOrientation.x - vertical * zoomRotateMultiplier, xClamp.x, xClamp.y);
         cameraOrientation.y += horizontal * zoomRotateMultiplier;
-        camera_transform.eulerAngles = cameraOrientation;
+        camera_transform.localEulerAngles = cameraOrientation;
     }
 
     public void UpdateZoom(float zoomAmount)

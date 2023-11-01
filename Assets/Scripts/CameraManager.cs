@@ -12,10 +12,14 @@ public class CameraManager : MonoBehaviour
     [SerializeField]
     private List<CameraObject> cameraObjects;
 
+    [SerializeField]
+    private CameraController startingCamera;
 
     public List<CameraController> AllCameras => allCameras;
 
     public List<CameraObject> CameraObjects => cameraObjects;
+
+    public CameraController StartingCamera => startingCamera;
 
     private void Awake()
     {
@@ -26,10 +30,7 @@ public class CameraManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (allCameras.Count > 0)
-        {
-            allCameras[0].SetActive(true);
-        }
+
     }
 
     // Update is called once per frame

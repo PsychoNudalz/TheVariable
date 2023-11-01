@@ -76,6 +76,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float camera_CastRange = 20f;
 
+    [SerializeField]
+    private float selectStickyTime = 1f;
+    private float selectStickyTime_Now = 1f;
+
 
     private Vector2 lookValue;
 
@@ -93,7 +97,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        ChangeCamera(cameraManager.AllCameras[0]);
+        CameraController cameraController = cameraManager.StartingCamera;
+        if (cameraController)
+        {
+            ChangeCamera(cameraController);
+        }
+        else
+        {
+            ChangeCamera(cameraManager.AllCameras[0]);
+        }
     }
 
     // Update is called once per frame
@@ -382,6 +394,7 @@ public class PlayerController : MonoBehaviour
 
         cameraMode = CameraMode.Free;
         uiController.HacksDisplay_SetActive(false);
+        GameManager.ResetTimeScale();
     }
 
 
@@ -390,6 +403,7 @@ public class PlayerController : MonoBehaviour
         cameraMode = CameraMode.SelectHack;
         selectDir = Vector2.zero;
         uiController.HacksDisplay_SetActive(true, selectedObject);
+        GameManager.SlowTimeForHack();
     }
     //Player Input END
 
@@ -456,6 +470,7 @@ public class PlayerController : MonoBehaviour
         //Finding Smart Objects, excluding cameras
         if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, selectorLayer))
         {
+            selectStickyTime_Now = selectStickyTime;
             SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
             if (smartObject)
             {
@@ -475,6 +490,7 @@ public class PlayerController : MonoBehaviour
                     Time.deltaTime);
             }
         }
+
 
         if (detectCameraThroughWalls)
         {
@@ -508,14 +524,33 @@ public class PlayerController : MonoBehaviour
 
         if (!detectedSOHit)
         {
-            //TODO - might need to check if it is worth disabling the hack wheel when it can't detect it no more
             if (selectedObject)
             {
-                selectedObject.OnSelect_Exit();
-                selectedObject = null;
+                selectStickyTime_Now -= Time.deltaTime;
+            }
+            
+            if (selectStickyTime_Now < 0f)
+            {
+                //TODO - might need to check if it is worth disabling the hack wheel when it can't detect it no more
+                if (selectedObject)
+                {
+                    selectedObject.OnSelect_Exit();
+                    selectedObject = null;
+                }
+                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.red, Time.deltaTime);
+
+            }
+            else if(selectedObject)
+            {
+                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.blue, Time.deltaTime);
+                Debug.DrawLine(currentCamera.Position, selectedObject.Position, Color.cyan, Time.deltaTime);
+
+            }
+            else
+            {
+                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.red, Time.deltaTime);
             }
 
-            Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.red, Time.deltaTime);
         }
     }
 
@@ -524,6 +559,7 @@ public class PlayerController : MonoBehaviour
         uiController.LockoutScreen_SetActive(true, CameraController);
         OnSelectCancel();
         cameraMode = CameraMode.LockedOut;
+        
     }
 
     public void DeactivateLockout()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
@@ -13,6 +14,9 @@ public class DoorController : MonoBehaviour
 
     [SerializeField]
     private List<Collider> enteredEntities;
+
+    [SerializeField]
+    private bool lockOpen = false;
 
     private void Awake()
     {
@@ -36,6 +40,10 @@ public class DoorController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (lockOpen)
+        {
+            return;
+        }
         if (tagList.Contains(other.tag))
         {
             animator.SetBool("Open", true);
@@ -46,6 +54,10 @@ public class DoorController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (lockOpen)
+        {
+            return;
+        }
         if (tagList.Contains(other.tag))
         {
             enteredEntities.Remove(other);
@@ -55,5 +67,17 @@ public class DoorController : MonoBehaviour
 
             }
         }
+    }
+
+    public void LockOpen()
+    {
+        if (lockOpen)
+        {
+            return;
+        }
+        Debug.Log($"Door {name} lock open");
+        lockOpen = true;
+        animator.SetBool("Open", true);
+
     }
 }

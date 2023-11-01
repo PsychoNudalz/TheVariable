@@ -24,27 +24,8 @@ public abstract class SmartObject : MonoBehaviour
 
     [Header("Audio Distract")]
     [SerializeField]
-    private float audioDistract_Range = 10f;
-
-    [SerializeField]
-    private float audioDistract_Strength = 1f;
-
-    [SerializeField]
-    [Range(0f, 1f)]
-    private float audioDistract_Dampen = 1f;
-
-    // [SerializeField]
-    LayerMask audioDistraction_LayerMask;
-
-    [SerializeField]
-    private ParticleSystem audioDistract_PS;
-
-    [SerializeField]
-    private VisualEffect audioDistract_VE;
-
-    [SerializeField]
-    private SoundAbstract audioDistract_SFX;
-
+    private SO_AudioDistraction audioDistract;
+    
     public virtual Vector3 Position => transform.position;
     public virtual Vector3 Forward => transform.forward;
     public virtual Vector3 ColliderPosition => transform.forward;
@@ -95,7 +76,6 @@ public abstract class SmartObject : MonoBehaviour
             highlightEffect = GetComponent<HighlightEffect>();
         }
         
-        audioDistraction_LayerMask = LayerMask.GetMask("Npc","Object");
 
         //Initialise Hacks
         for (var i = 0; i < hacks.Length; i++)
@@ -108,6 +88,11 @@ public abstract class SmartObject : MonoBehaviour
                 hacks[i] = hackAbility;
             }
             
+        }
+
+        if (!audioDistract)
+        {
+            audioDistract = GetComponent<SO_AudioDistraction>();
         }
 
         AwakeBehaviour();
@@ -215,37 +200,15 @@ public abstract class SmartObject : MonoBehaviour
 
     public virtual void CreateAudioDistraction()
     {
-        if (audioDistract_PS)
+
+        if (audioDistract)
         {
-            audioDistract_PS.Play();
+            audioDistract.CreateAudioDistraction(this,transform.position);
         }
-
-        if (audioDistract_VE)
+        else
         {
-            audioDistract_VE.Play();
+            Debug.Log($"{name}: Does not allow audio distraction");
         }
-
-        if (audioDistract_SFX)
-        {
-            audioDistract_SFX.Play();
-        }
-
-        // SensorySource_Audio newSSA = new SensorySource_Audio(InteractPosition, audioDistract_Strength);
-
-
-        RaycastHit[] castHits = Physics.SphereCastAll(transform.position, audioDistract_Range, Vector3.up, 0,
-            audioDistraction_LayerMask);
-        Collider collider;
-        foreach (RaycastHit hit in castHits)
-        {
-            collider = hit.collider;
-            if (collider.TryGetComponent(out NpcController npcController))
-            {
-                    SensorySource_Audio newSSA = new SensorySource_Audio(this, audioDistract_Strength);
-                newSSA.AdjustStrength(npcController.transform.position, audioDistraction_LayerMask,
-                    audioDistract_Dampen);
-                npcController.AddSensorySource(newSSA);
-            }
-        }
+       
     }
 }

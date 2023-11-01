@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 219764443607572836}
   - component: {fileID: 127775623659055012}
   - component: {fileID: 7184558919918143579}
+  - component: {fileID: 286815960618585298}
   m_Layer: 7
   m_Name: TP_Base
   m_TagString: Untagged
@@ -227,16 +228,10 @@ MonoBehaviour:
   highlightEffect: {fileID: 219764443607572827}
   hacks:
   - {fileID: 11400000, guid: 62c1bc74d9bcfe1f2b0d78dfdad6f9b0, type: 2}
-  audioDistract_Range: 10
-  audioDistract_Strength: 10
-  audioDistract_Dampen: 0.75
-  audioDistract_PS: {fileID: 0}
-  audioDistract_VE: {fileID: 5065817386987346973}
-  audioDistract_SFX: {fileID: 0}
+  audioDistract: {fileID: 0}
   Enable_Debug: 1
   associateTask: {fileID: 0}
   interactAnimation: 3
-  moveModelToTransform: {fileID: 0}
   currentItems: []
   controller: {fileID: 0}
   useAnimationPoint: 0
@@ -283,6 +278,24 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.5, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &286815960618585298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219764443607572839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350fd39f14f010f49b1650e4be2580c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioDistract_Range: 10
+  audioDistract_Strength: 1
+  audioDistract_Dampen: 0.7
+  audioDistract_PS: {fileID: 0}
+  audioDistract_VE: {fileID: 5065817386987346973}
+  audioDistract_SFX: {fileID: 0}
 --- !u!1 &414467088825717663
 GameObject:
   m_ObjectHideFlags: 0

@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 2617819239995198200}
   - component: {fileID: 7101816993292373045}
   - component: {fileID: 3399867990514886041}
+  - component: {fileID: 3017447997709266215}
   m_Layer: 7
   m_Name: Item_Base
   m_TagString: Untagged
@@ -402,12 +403,8 @@ MonoBehaviour:
   interactPoint: {fileID: 0}
   highlightEffect: {fileID: 2617819239995198200}
   hacks: []
-  audioDistract_Range: 10
-  audioDistract_Strength: 1
-  audioDistract_Dampen: 1
-  audioDistract_PS: {fileID: 0}
-  audioDistract_VE: {fileID: 0}
-  audioDistract_SFX: {fileID: 0}
+  audioDistract: {fileID: 3017447997709266215}
+  Enable_Debug: 1
   name: 0
   modelGO: {fileID: 129341653907168838}
   sfx_PickUp: {fileID: 8225671244461350736}
@@ -428,6 +425,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3017447997709266215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977700637173320418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350fd39f14f010f49b1650e4be2580c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8485705617526002947
 GameObject:
   m_ObjectHideFlags: 0

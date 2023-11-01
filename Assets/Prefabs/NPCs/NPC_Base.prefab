@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 1320077873986614604}
   - component: {fileID: 3788546991272533903}
   - component: {fileID: 796035885203335439}
+  - component: {fileID: 3326811676266680409}
   m_Layer: 8
   m_Name: NPC_Base
   m_TagString: NPC
@@ -386,12 +387,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a091bba9597a0893096d89ebc6844685, type: 2}
   - {fileID: 11400000, guid: 7ceabf8282161728eafb23bcd1b368b4, type: 2}
   - {fileID: 11400000, guid: 61b2998df6d350798acd07c6fd8cac76, type: 2}
-  audioDistract_Range: 10
-  audioDistract_Strength: 1
-  audioDistract_Dampen: 1
-  audioDistract_PS: {fileID: 0}
-  audioDistract_VE: {fileID: 0}
-  audioDistract_SFX: {fileID: 0}
+  audioDistract: {fileID: 0}
   Enable_Debug: 1
 --- !u!114 &4527088458200361262
 MonoBehaviour:
@@ -701,6 +697,18 @@ MonoBehaviour:
   hitFxFadeOutDuration: 0.25
   hitFxColor: {r: 1, g: 1, b: 1, a: 1}
   hitFxRadius: 0.5
+--- !u!114 &3326811676266680409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320077873986614606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350fd39f14f010f49b1650e4be2580c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1320077875737293229
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,384 +1,67 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
-using HighlightPlus;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
-using UnityEngine.Serialization;
 
+/// <summary>
+/// Smart object that contains a camera 
+/// </summary>
+[RequireComponent(typeof(CameraController) )]
 public class CameraObject : SmartObject
 {
-    [Header("Camera")]
-    [Header("Movement")]
     [SerializeField]
-    private CinemachineVirtualCamera camera;
+    private CameraController cameraController;
+    public override Vector3 Position => cameraController.Position;
+    public override Vector3 Forward => cameraController.Forward;
 
-    [SerializeField]
-    private Transform camera_transform;
+    public override Vector3 ColliderPosition => cameraController.ColliderPosition;
 
-    [SerializeField]
-    private Vector2 xClamp = new Vector2(-90f, 90f);
+    public CameraController CameraController => cameraController;
+    public bool IsPlayerControl => cameraController.IsPlayerControl;
 
-    [Header("Zoom")]
-    [SerializeField]
-    [Range(0f, 1f)]
-    private float zoomLevel = 0f;
+    public bool IsHacking => cameraController.IsHacking;
+    public bool IsLocked => cameraController.IsLocked;
 
+    public bool IsDetectable => cameraController.IsDetectable;
 
-    [SerializeField]
-    private float zoomFOVMultiplier = .5f;
-
-    private float originalFOV;
-
-    [SerializeField]
-    private float zoomSpeed = 1f;
-
-    [Header("Effects")]
-    [SerializeField]
-    private HighlightEffect throughWallEffect;
-
-    [SerializeField]
-    private float throughWallEffect_Time = 1f;
-
-    private float throughWallEffect_TimeNow = 0;
-    private bool throughWallEffect_Active = false;
-
-    [SerializeField]
-    private Renderer cameraRenderer;
-
-    [SerializeField]
-    private Material lockedOutMaterial;
-
-    private Material[] originalMaterials;
-
-    [Serializable]
-    enum CameraState
-    {
-        None,
-        Hacking,
-        Locked
-    }
-
-    [Header("Hacking")]
-    [SerializeField]
-    private CameraState cameraState = CameraState.None;
-
-    private Coroutine hackCoroutine;
-
-    [SerializeField]
-    private LineRenderer hackLine;
-    // private LineRenderer hackLine_Material;
-
-    // [SerializeField]
-    private Transform hackTarget;
-    private float cameraHack_Time = 0;
-    private float cameraHack_TimeNow = 0;
-
-    [Header("Locking")]
-    private float cameraLock_Time = 0;
-
-    [Space(10)]
-    [Header("Components")]
-    [SerializeField]
-    private Renderer cameraBody;
-
-    [SerializeField]
-    private Collider disableCollider;
-
-    [SerializeField]
-    Collider mainCollider;
-
-
-
-     PlayerController playerController;
-
-
-    private Vector3 cameraOrientation = default;
-
-    private const int CameraPriority = 10;
-
-    private bool isPlayerControl = false;
-    public override Vector3 Position => camera_transform.position;
-    public override Vector3 Forward => camera_transform.forward;
-
-    public override Vector3 ColliderPosition => mainCollider.transform.position;
-
-    public bool IsPlayerControl => isPlayerControl;
-
-    public bool IsHacking => cameraState == CameraState.Hacking;
-    public bool IsLocked => cameraState == CameraState.Locked;
-
-    public bool IsDetectable => !IsLocked && (IsPlayerControl || IsHacking);
-
-    public float CameraLockTime => cameraLock_Time;
-    public String CameraLockTime_String => Get_CameraLockTime_String();
-
+    public float CameraLockTime => cameraController.CameraLockTime;
+    public string CameraLockTime_String => cameraController.CameraLockTime_String;
     protected override void AwakeBehaviour()
     {
-        cameraOrientation = camera_transform.eulerAngles;
-        originalFOV = camera.m_Lens.FieldOfView;
-        SetActive(false);
-        hackLine.gameObject.SetActive(false);
-        if (cameraRenderer)
+        if (!cameraController)
         {
-            originalMaterials = cameraRenderer.materials;
+            cameraController = GetComponent<CameraController>();
         }
     }
 
     protected override void StartBehaviour()
     {
-        playerController = PlayerController.current;
     }
 
     protected override void UpdateBehaviour()
     {
-        if (throughWallEffect_Active)
-        {
-            ThroughWallEffect_Update();
-        }
-
-        switch (cameraState)
-        {
-            case CameraState.None:
-                break;
-            case CameraState.Hacking:
-                if (hackLine && hackTarget)
-                {
-                    if (cameraHack_TimeNow > 0)
-                    {
-                        cameraHack_TimeNow -= Time.deltaTime;
-                    }
-
-                    HackLine_Update();
-                }
-
-                break;
-            case CameraState.Locked:
-                if (cameraLock_Time > 0)
-                {
-                    cameraLock_Time -= Time.deltaTime;
-                }
-                else
-                {
-                    Set_Lock(false);
-                }
-
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
-
-    private void HackLine_Update()
-    {
-        hackLine.SetPosition(0, Position + new Vector3(0, -.2f, 0));
-        if (!hackTarget)
-        {
-            return;
-        }
-        hackLine.SetPosition(1, hackTarget.position);
-        hackLine.material.SetVector("_Effect_Animation_Position", hackLine.transform.position);
-        hackLine.material.SetFloat("_Effect_Animation_Distance",
-            (Position - hackTarget.position).magnitude);
-        hackLine.material.SetFloat("_Effect_Animation_Value", 1 - (cameraHack_TimeNow / cameraHack_Time));
-    }
-
-    public void HackLine_Reset()
-    {
-        cameraHack_TimeNow = 0;
-        cameraHack_Time = 0;
-        hackLine.gameObject.SetActive(false);
-        HackLine_Update();
     }
 
     public override void Interact(NpcController npc)
     {
     }
 
-    private void OnApplicationQuit()
-    {
-        camera.m_Lens.FieldOfView = originalFOV;
-    }
-
-    private void OnDestroy()
-    {
-        camera.m_Lens.FieldOfView = originalFOV;
-    }
-
-    public void RotateCamera(float horizontal, float vertical)
-    {
-        float zoomRotateMultiplier = Mathf.Lerp(1, .2f, zoomLevel);
-        cameraOrientation.x = Mathf.Clamp(cameraOrientation.x - vertical * zoomRotateMultiplier, xClamp.x, xClamp.y);
-        cameraOrientation.y += horizontal * zoomRotateMultiplier;
-        camera_transform.eulerAngles = cameraOrientation;
-    }
-
-    public void UpdateZoom(float zoomAmount)
-    {
-        zoomLevel = Mathf.Clamp(zoomAmount * Time.deltaTime + zoomLevel, 0f, 1f);
-        camera.m_Lens.FieldOfView = Mathf.Lerp(originalFOV, originalFOV * zoomFOVMultiplier, zoomLevel);
-    }
-
     public void SetActive(bool b)
     {
-        if (b)
-        {
-            camera.Priority = CameraPriority;
-            if (disableCollider)
-            {
-                disableCollider.enabled = false;
-            }
-
-            if (cameraBody)
-            {
-                cameraBody.enabled = false;
-            }
-        }
-        else
-        {
-            camera.Priority = -1;
-            if (disableCollider)
-            {
-                disableCollider.enabled = true;
-            }
-
-            if (cameraBody)
-            {
-                cameraBody.enabled = true;
-            }
-        }
-
-        isPlayerControl = b;
+        cameraController.SetActive(b);
     }
 
-    public void ThroughWallEffect_Activate()
+    public void UpdateZoom(float zoom)
     {
-        throughWallEffect_Active = true;
-        throughWallEffect_TimeNow = 0;
-        throughWallEffect.highlighted = true;
+        cameraController.UpdateZoom(zoom);
     }
 
-    void ThroughWallEffect_Update()
+    public void StartHack(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
     {
-        if (!throughWallEffect_Active)
-        {
-            return;
-        }
-
-        if (throughWallEffect_TimeNow > 1)
-        {
-            throughWallEffect_Active = false;
-            throughWallEffect_TimeNow = 0;
-            throughWallEffect.highlighted = false;
-
-            return;
-        }
-
-        throughWallEffect_TimeNow += 1f / throughWallEffect_Time * Time.deltaTime;
-
-        throughWallEffect.overlay = Mathf.Sin(throughWallEffect_TimeNow * 2 * Mathf.PI);
+        cameraController.StartHack(target,index,hackContextEnum);
     }
 
-    public void StartHack(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
+    public void RotateCamera(float rotationX, float rotationY)
     {
-        // if (cameraState != CameraState.None)
-        // {
-        //     Debug.Log($"{name} state not none");
-        //     return;
-        // }
-
-        if (index < 0)
-        {
-            Debug.LogError($"{name} hack on {target.name} index < 0");
-            return;
-        }
-
-        hackCoroutine = StartCoroutine(HackRoutine(target, index,hackContextEnum));
-    }
-    IEnumerator HackRoutine(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
-    {
-        Hack_Initialise(target, index);
-        yield return new WaitForSeconds(target.Hacks[index].HackTime);
-        Hack_Activation(target, index,hackContextEnum);
-    }
-    private void Hack_Initialise(SmartObject target, int index)
-    {
-        cameraState = CameraState.Hacking;
-        hackLine.gameObject.SetActive(true);
-        hackTarget = target.transform;
-        float time = target.Hacks[index].HackTime;
-        cameraHack_Time = time;
-        cameraHack_TimeNow = time;
-    }
-    
-
-    private void Hack_Activation(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
-    {
-        target.ActivateHack(index,hackContextEnum);
-        cameraState = CameraState.None;
-        hackTarget = null;
-        // hackLine.gameObject.SetActive(false);
-        HackLine_Reset();
-    }
-
-    public void Set_Lock(bool b, float duration = 0f)
-    {
-        Set_LockMaterial(b);
-        if (b)
-        {
-            HackLine_Reset();
-
-            if (hackCoroutine != null)
-            {
-                StopCoroutine(hackCoroutine);
-                hackCoroutine = null;
-            }
-            cameraState = CameraState.Locked;
-            cameraLock_Time += duration;
-            if (isPlayerControl)
-            {
-                playerController.ActivateLockout(this);
-            }
-        }
-        else
-        {
-            cameraState = CameraState.None;
-            playerController.ActivateLockout(this);
-            
-
-        }
-    }
-
-    void Set_LockMaterial(bool b)
-    {
-        if (b)
-        {
-            for (var i = 0; i < cameraRenderer.materials.Length; i++)
-            {
-                cameraRenderer.materials[i] = lockedOutMaterial;
-            }
-        }
-        else
-        {
-            for (var i = 0; i < cameraRenderer.materials.Length; i++)
-            {
-                cameraRenderer.materials[i] = originalMaterials[i];
-            }
-        }
-    }
-
-    String Get_CameraLockTime_String()
-    {
-        double seconds = Math.Floor((cameraLock_Time % 1f) * 100);
-        return string.Concat(cameraLock_Time.ToString("0"), ":",seconds.ToString("0"));
-    }
-
-    public void Override_IsHacking()
-    {
-        if (!IsHacking)
-        {
-            cameraState = CameraState.Hacking;
-        }
+        cameraController.RotateCamera(rotationX,rotationY);
     }
 }

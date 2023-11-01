@@ -7,21 +7,28 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField]
-    private List<CameraObject> cameras;
+    private List<CameraController> allCameras;
+    
+    [SerializeField]
+    private List<CameraObject> cameraObjects;
 
-    public List<CameraObject> Cameras => cameras;
+
+    public List<CameraController> AllCameras => allCameras;
+
+    public List<CameraObject> CameraObjects => cameraObjects;
 
     private void Awake()
     {
-        cameras = new List<CameraObject>(GetComponentsInChildren<CameraObject>());
+        allCameras = new List<CameraController>(FindObjectsByType<CameraController>(FindObjectsSortMode.None));
+        cameraObjects = new List<CameraObject>(GetComponentsInChildren<CameraObject>());
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (cameras.Count > 0)
+        if (allCameras.Count > 0)
         {
-            cameras[0].SetActive(true);
+            allCameras[0].SetActive(true);
         }
     }
 
@@ -33,31 +40,31 @@ public class CameraManager : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        for (int i = 0; i < cameras.Count - 1; i++)
+        for (int i = 0; i < allCameras.Count - 1; i++)
         {
-            Gizmos.DrawLine(cameras[i].Position, cameras[i + 1].Position);
+            Gizmos.DrawLine(allCameras[i].Position, allCameras[i + 1].Position);
         }
 
-        if (cameras.Count > 1)
+        if (allCameras.Count > 1)
         {
-            Gizmos.DrawLine(cameras[0].Position, cameras[^1].Position);
+            Gizmos.DrawLine(allCameras[0].Position, allCameras[^1].Position);
         }
     }
 
-    public CameraObject GetNextCamera(CameraObject currentCamera)
+    public CameraController GetNextCamera(CameraController currentCamera)
     {
         currentCamera.SetActive(false);
-        currentCamera = cameras[(cameras.FindLastIndex(a => a.Equals(currentCamera)) + 1) % cameras.Count];
+        currentCamera = allCameras[(allCameras.FindLastIndex(a => a.Equals(currentCamera)) + 1) % allCameras.Count];
         currentCamera.SetActive(true);
 
         return currentCamera;
     }
 
-    public CameraObject GetPrevCamera(CameraObject currentCamera)
+    public CameraController GetPrevCamera(CameraController currentCamera)
     {
         currentCamera.SetActive(false);
         currentCamera =
-            cameras[(cameras.FindLastIndex(a => a.Equals(currentCamera)) - 1 + cameras.Count) % cameras.Count];
+            allCameras[(allCameras.FindLastIndex(a => a.Equals(currentCamera)) - 1 + allCameras.Count) % allCameras.Count];
         currentCamera.SetActive(true);
         return currentCamera;
     }
@@ -68,7 +75,7 @@ public class CameraManager : MonoBehaviour
     /// <param name="newCamera"></param>
     /// <param name="oldCamera"></param>
     /// <returns></returns>
-    public CameraObject ChangeCamera(CameraObject newCamera, CameraObject oldCamera)
+    public CameraController ChangeCamera(CameraController newCamera, CameraController oldCamera)
     {
         // if (newCamera.IsLocked)
         // {
@@ -83,7 +90,7 @@ public class CameraManager : MonoBehaviour
     public void ActiveThroughWalls(Vector3 position, float range)
     {
         List<CameraObject> temp = new List<CameraObject>();
-        foreach (CameraObject cameraObject in cameras)
+        foreach (CameraObject cameraObject in cameraObjects)
         {
             if (Vector3.Distance(cameraObject.Position, position) < range)
             {
@@ -96,9 +103,9 @@ public class CameraManager : MonoBehaviour
 
     private IEnumerator ThroughWallAnimation(CameraObject[] cameras)
     {
-        foreach (CameraObject cameraObject in this.cameras)
+        foreach (CameraObject cameraObject in cameraObjects)
         {
-            cameraObject.ThroughWallEffect_Activate();
+            cameraObject.CameraController.ThroughWallEffect_Activate();
             yield return new WaitForSeconds(.1f);
         }
     }

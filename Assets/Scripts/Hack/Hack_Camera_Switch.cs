@@ -38,11 +38,11 @@ public class Hack_Camera_Switch : HackAbility
             if (hackContext.HackContextEnum is {Length: > 0} &&
                 hackContext.HackContextEnum.Contains(HackContext_Enum.Camera_notPushToStack))
             {
-                PlayerController.current.ChangeCamera(co, false);
+                PlayerController.current.ChangeCamera(co.CameraController, false);
             }
             else
             {
-                PlayerController.current.ChangeCamera(co);
+                PlayerController.current.ChangeCamera(co.CameraController);
             }
         }
         else
@@ -59,7 +59,7 @@ public class Hack_Camera_Switch : HackAbility
     {
         if (smartObject is CameraObject co)
         {
-            return !co.IsLocked;
+            return !co.CameraController.IsLocked;
         }
         
         return base.CanHack();

@@ -10,10 +10,11 @@ public class Action_SetHackingCameraToSS : ActionNode
     private bool overrideCurrentSS = false;
     protected override void OnStart()
     {
-        CameraObject closestHackingCamera = context.NpcController.FindSS_ClosestCamera_Hacking();
-        if (closestHackingCamera)
+        CameraController closestHackingCamera = context.NpcController.FindSS_ClosestCamera_Hacking();
+        if (closestHackingCamera && closestHackingCamera.ConnectedSo is CameraObject co)
         {
-            SensorySource_Visual ssv = npcController.AddCameraToSS(closestHackingCamera, overrideCurrentSS);
+            //TODO: add NPC
+            SensorySource_Visual ssv = npcController.AddCameraToSS(co, overrideCurrentSS);
             if (ssv.Equals(npcController.GetCurrentSS))
             {
                 blackboard.currentSensorySource = npcController.GetCurrentSS;

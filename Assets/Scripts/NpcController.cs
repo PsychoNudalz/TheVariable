@@ -259,7 +259,7 @@ public class NpcController : MonoBehaviour
     /// <returns></returns>
     public SmartObject Evaluate_Senses(out SensorySource ss, bool detectPlayerControl)
     {
-        CameraObject co;
+        CameraController co;
         if (detectPlayerControl)
         {
             co = FindSS_ClosestCamera_Active();
@@ -272,7 +272,7 @@ public class NpcController : MonoBehaviour
         ss = null;
 
 
-        return co;
+        return co.ConnectedSo;
     }
 
     public SensorySource_Visual AddCameraToSS(CameraObject co, bool overrideSS)
@@ -336,17 +336,17 @@ public class NpcController : MonoBehaviour
         return blackboardAlertState;
     }
 
-    public CameraObject FindSS_HackingCamera()
+    public CameraController FindSS_HackingCamera()
     {
         return sensoryController.FindHackingCamera();
     }
 
-    public CameraObject[] FindSS_HackingCameras()
+    public CameraController[] FindSS_HackingCameras()
     {
         return sensoryController.FindHackingCameras();
     }
 
-    public CameraObject[] FindSS_ActiveCameras()
+    public CameraController[] FindSS_ActiveCameras()
     {
         return sensoryController.FindActiveCameras();
     }
@@ -355,9 +355,9 @@ public class NpcController : MonoBehaviour
     /// Find the closest active camera, hacking and player control
     /// </summary>
     /// <returns></returns>
-    public CameraObject FindSS_ClosestCamera_Active()
+    public CameraController FindSS_ClosestCamera_Active()
     {
-        CameraObject[] cameras = FindSS_ActiveCameras();
+        CameraController[] cameras = FindSS_ActiveCameras();
         return FindSsClosestCamera(cameras);
     }
 
@@ -365,13 +365,13 @@ public class NpcController : MonoBehaviour
     /// Find the closest hacking camera
     /// </summary>
     /// <returns></returns>
-    public CameraObject FindSS_ClosestCamera_Hacking()
+    public CameraController FindSS_ClosestCamera_Hacking()
     {
-        CameraObject[] cameras = FindSS_HackingCameras();
+        CameraController[] cameras = FindSS_HackingCameras();
         return FindSsClosestCamera(cameras);
     }
 
-    private CameraObject FindSsClosestCamera(CameraObject[] cameras)
+    private CameraController FindSsClosestCamera(CameraController[] cameras)
     {
         if (cameras.Length == 0)
         {
@@ -417,8 +417,9 @@ public class NpcController : MonoBehaviour
         SensorySource ss = sensoryController.GetCurrentSS;
         if (ss != null && ss.SmartObject is CameraObject co)
         {
-            GlobalKnowledgeSystem.SpottedPlayer(co.Position, co, Time.time);
+            GlobalKnowledgeSystem.SpottedPlayer(co.Position, co.CameraController, Time.time);
         }
+        //TODO: do the same for NPC smart object
     }
 
     public bool HasTasksQueued()

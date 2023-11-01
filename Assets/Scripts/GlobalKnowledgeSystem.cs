@@ -8,16 +8,16 @@ using UnityEngine;
 public class GlobalKnowledgeSystem
 {
     [Header("Current")]
-    static CameraObject player_Camera;
+    static CameraController player_Camera;
     
     [Header("Last Known")]
     static Vector3 player_LastKnown_Position = new Vector3();
-    static CameraObject player_LastKnown_Camera;
+    static CameraController player_LastKnown_Camera;
     static float player_LastKnown_Time = 0;
 
     public static Vector3 PlayerLastKnownPosition => player_LastKnown_Position;
 
-    public static CameraObject PlayerLastKnownCamera => player_LastKnown_Camera;
+    public static CameraController PlayerLastKnownCamera => player_LastKnown_Camera;
 
     public static float PlayerLastKnownTime => player_LastKnown_Time;
 
@@ -31,14 +31,14 @@ public class GlobalKnowledgeSystem
     {
     }
 
-    public static void SpottedPlayer(Vector3 position, CameraObject cameraObject, float time)
+    public static void SpottedPlayer(Vector3 position, CameraController CameraObject, float time)
     {
         player_LastKnown_Position = position;
-        player_LastKnown_Camera = cameraObject;
+        player_LastKnown_Camera = CameraObject;
         player_LastKnown_Time = time;
     }
 
-    public static void UpdatePlayerCamera(CameraObject newCamera)
+    public static void UpdatePlayerCamera(CameraController newCamera)
     {
         player_Camera = newCamera;
     }

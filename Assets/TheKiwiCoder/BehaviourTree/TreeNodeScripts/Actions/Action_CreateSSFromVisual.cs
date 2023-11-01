@@ -8,7 +8,7 @@ public class Action_CreateSSFromVisual : ActionNode
 {
     protected override void OnStart()
     {
-        SmartObject so = context.NpcController.FindSS_HackingCamera();
+        SmartObject so = context.NpcController.FindSS_HackingCamera().ConnectedSo;
         if (so)
         {
             context.NpcController.AddSensorySource(new SensorySource_Visual(so,100));

@@ -68,9 +68,9 @@ public class UIController : MonoBehaviour
         alertManager.UpdateAlert(npc, value);
     }
 
-    public void LockoutScreen_SetActive(bool b, CameraObject cameraObject = null)
+    public void LockoutScreen_SetActive(bool b, CameraController cameraController = null)
     {
         
-        lockOutScreen.SetActive(b,cameraObject);
+        lockOutScreen.SetActive(b,cameraController);
     }
 }

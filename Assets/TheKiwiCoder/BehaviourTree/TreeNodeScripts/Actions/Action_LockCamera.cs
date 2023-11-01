@@ -9,7 +9,7 @@ public class Action_LockCamera : ActionNode
     [SerializeField]
     private float lockDuration = 5f;
     [SerializeField]
-    private CameraObject cameraToLock;
+    private CameraController cameraToLock;
     
 
     protected override void OnStart()

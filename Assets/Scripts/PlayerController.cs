@@ -36,13 +36,13 @@ public class PlayerController : MonoBehaviour
     private CameraManager cameraManager;
 
     [SerializeField]
-    private CameraObject currentCamera;
+    private CameraController currentCamera;
 
     [SerializeField]
-    private List<CameraObject> cameraStack = new List<CameraObject>(10);
+    private List<CameraController> cameraStack = new List<CameraController>(10);
 
     private int cameraStackIndex = 0;
-    CameraObject currentCameraFromStack => cameraStack[cameraStackIndex];
+    CameraController currentCameraFromStack => cameraStack[cameraStackIndex];
 
     [SerializeField]
     private UIController uiController;
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        ChangeCamera(cameraManager.Cameras[0]);
+        ChangeCamera(cameraManager.AllCameras[0]);
     }
 
     // Update is called once per frame
@@ -287,7 +287,7 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchToStackCamera()
     {
-        currentCamera.StartHack(currentCameraFromStack, currentCamera.GetHackIndex<Hack_Camera_Switch>(),
+        currentCamera.StartHack(currentCameraFromStack.ConnectedSo, currentCamera.ConnectedSo.GetHackIndex<Hack_Camera_Switch>(),
             new HackContext_Enum[1]
             {
                 HackContext_Enum.Camera_notPushToStack
@@ -394,22 +394,27 @@ public class PlayerController : MonoBehaviour
     //Player Input END
 
 
-    public void ChangeCamera(CameraObject cameraObject, bool pushToStack = true)
+    public void ChangeCamera(CameraController cameraController, bool pushToStack = true)
     {
-        // if (!cameraObject.IsLocked)
+        // if (!CameraController.IsLocked)
         // {
-        //     currentCamera = cameraManager.ChangeCamera(cameraObject, currentCamera);
+        //     currentCamera = cameraManager.ChangeCamera(CameraController, currentCamera);
         // }
         // else
         // {
-        //     Debug.Log($"{cameraObject} is locked.");
+        //     Debug.Log($"{CameraController} is locked.");
         // }
+        if (cameraController.ConnectedSo is NpcObject)
+        {
+            //NPC cameras does not get pushed to stack
+            pushToStack = false;
+        }
 
         if (pushToStack&&cameraStackIndex > 0)
         {
             AddCurrentCameraToStack();
         }
-        currentCamera = cameraManager.ChangeCamera(cameraObject, currentCamera);
+        currentCamera = cameraManager.ChangeCamera(cameraController, currentCamera);
         
         
         if (pushToStack)
@@ -514,9 +519,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ActivateLockout(CameraObject cameraObject)
+    public void ActivateLockout(CameraController CameraController)
     {
-        uiController.LockoutScreen_SetActive(true, cameraObject);
+        uiController.LockoutScreen_SetActive(true, CameraController);
         OnSelectCancel();
         cameraMode = CameraMode.LockedOut;
     }

@@ -28,15 +28,15 @@ namespace TheKiwiCoder {
         [Space(5)]
         public SensorySource currentSensorySource = null;
 
-        public CameraObject cameraToInvestigate = null;
+        public CameraController cameraToInvestigate = null;
         // public ItemName MissingItem => missingItems[0];
         // protected bool foundAllItems =>
         
         //NPC's knowledge system
         public Vector3 player_LastKnown_Position = new Vector3();
-        public CameraObject player_LastKnown_Camera;
+        public CameraController player_LastKnown_Camera;
         public float player_LastKnown_Time = 0;
-        public CameraObject[] hackingCameras;
+        public CameraController[] hackingCameras;
         // public CameraObject 
     }
 }

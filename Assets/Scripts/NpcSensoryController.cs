@@ -72,13 +72,13 @@ public class NpcSensoryController : MonoBehaviour
         return GetCamera();
     }
     
-    public CameraObject GetCamera()
+    public CameraController GetCamera()
     {
         foreach (SmartObject smartObject in losObjects)
         {
             if (smartObject is CameraObject cameraObject)
             {
-                return cameraObject;
+                return cameraObject.CameraController;
             }
         }
 
@@ -90,7 +90,7 @@ public class NpcSensoryController : MonoBehaviour
     /// 
     /// </summary>
     /// <returns></returns>
-    public CameraObject FindHackingCamera()
+    public CameraController FindHackingCamera()
     {
         foreach (SmartObject smartObject in losObjects)
         {
@@ -98,24 +98,25 @@ public class NpcSensoryController : MonoBehaviour
             {
                 if (cameraObject.IsHacking)
                 {
-                    return cameraObject;
+                    return cameraObject.CameraController;
                 }
             }
+            //TODO: add in checks for NPCSmartObject Next
         }
 
         return null;
     }
     
-    public CameraObject[] FindHackingCameras()
+    public CameraController[] FindHackingCameras()
     {
-        List<CameraObject> cameras = new List<CameraObject>();
+        List<CameraController> cameras = new List<CameraController>();
         foreach (SmartObject smartObject in losObjects)
         {
             if (smartObject is CameraObject cameraObject)
             {
                 if (cameraObject.IsHacking)
                 {
-                    cameras.Add(cameraObject);
+                    cameras.Add(cameraObject.CameraController);
                 }
             }
         }
@@ -128,16 +129,16 @@ public class NpcSensoryController : MonoBehaviour
     /// 
     /// </summary>
     /// <returns></returns>
-    public CameraObject[] FindActiveCameras()
+    public CameraController[] FindActiveCameras()
     {
-        List<CameraObject> cameras = new List<CameraObject>();
+        List<CameraController> cameras = new List<CameraController>();
         foreach (SmartObject smartObject in losObjects)
         {
             if (smartObject is CameraObject cameraObject)
             {
                 if (!cameraObject.IsLocked&&(cameraObject.IsHacking||cameraObject.IsPlayerControl))
                 {
-                    cameras.Add(cameraObject);
+                    cameras.Add(cameraObject.CameraController);
                 }
             }
         }

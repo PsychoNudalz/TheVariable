@@ -35,8 +35,13 @@ public class Action_Investigate : ActionNode
         isPlayerSpotted = false;
         if (blackboard.currentSensorySource is { SmartObject: CameraObject co })
         {
-            blackboard.cameraToInvestigate = co;
+            blackboard.cameraToInvestigate = co.CameraController;
         }
+        // TODO: Add NPC
+        // if (blackboard.currentSensorySource is { SmartObject: NpcObject npc })
+        // {
+        //     blackboard.cameraToInvestigate = co.CameraController;
+        // }
     }
 
     protected override void OnStop()

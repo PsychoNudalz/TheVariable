@@ -8,13 +8,12 @@ public class SetPosition_ActiveCamera : ActionNode
 {
     protected override void OnStart()
     {
-        CameraObject co = context.NpcController.FindSS_ClosestCamera_Active();
-        if (co)
+        CameraController cc = context.NpcController.FindSS_ClosestCamera_Active();
+        if (cc && cc.ConnectedSo is CameraObject co)
         {
             blackboard.targetPosition = co.InteractPosition;
             blackboard.targetRotation = co.InteractRotation;
-
-            blackboard.cameraToInvestigate = co;
+            blackboard.cameraToInvestigate = cc;
         }
         else
         {
@@ -22,14 +21,17 @@ public class SetPosition_ActiveCamera : ActionNode
         }
     }
 
-    protected override void OnStop() {
+    protected override void OnStop()
+    {
     }
 
-    protected override State OnUpdate() {
+    protected override State OnUpdate()
+    {
         if (!started)
         {
             return State.Failure;
         }
+
         return State.Success;
     }
 }

@@ -10,7 +10,7 @@ public class UI_LockOutScreen : MonoBehaviour
     private TextMeshProUGUI text;
 
     [SerializeField]
-    private CameraObject connectedCamera;
+    private CameraController connectedCamera;
     // Start is called before the first frame update
     void Awake()
     {
@@ -39,13 +39,13 @@ public class UI_LockOutScreen : MonoBehaviour
         return connectedCamera.CameraLockTime_String;
     }
 
-    public void SetActive(bool b, CameraObject cameraObject =null)
+    public void SetActive(bool b, CameraController cameraController =null)
     {
         if (gameObject.activeSelf == b)
         {
             return;
         }
         gameObject.SetActive(b);
-        connectedCamera = cameraObject;
+        connectedCamera = cameraController;
     }
 }

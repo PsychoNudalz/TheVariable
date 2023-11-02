@@ -88,7 +88,7 @@ public class UI_HackAbilityButton : MonoBehaviour
 
     public void SetActive(bool b, HackAbility hackAbility)
     {
-        SetActive(b, hackAbility.CanHack(), hackAbility.hackName);
+        SetActive(b, hackAbility.CanHack(), hackAbility.HackName);
     }
 
     public void SetDisplay(UI_HackAbilityDisplay display, int i)

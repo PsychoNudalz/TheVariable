@@ -78,16 +78,21 @@ public abstract class SmartObject : MonoBehaviour
         
 
         //Initialise Hacks
-        for (var i = 0; i < hacks.Length; i++)
+        // for (var i = 0; i < hacks.Length; i++)
+        // {
+        //     HackAbility hackAbility = hacks[i];
+        //     if (hackAbility)
+        //     {
+        //         hackAbility = HackManager.GetHack(hackAbility.HackName);
+        //         hackAbility.Initialise(this);
+        //         hacks[i] = hackAbility;
+        //     }
+        //     
+        // }
+
+        foreach (HackAbility hackAbility in hacks)
         {
-            HackAbility hackAbility = hacks[i];
-            if (hackAbility)
-            {
-                hackAbility = HackManager.GetHack(hackAbility.hackName);
-                hackAbility.Initialise(this);
-                hacks[i] = hackAbility;
-            }
-            
+            hackAbility.Initialise(this);
         }
 
         if (!audioDistract)

@@ -13,6 +13,7 @@ public enum HackContext_Enum
     None,
     Camera_notPushToStack
 }
+
 [Serializable]
 public struct HackContext
 {
@@ -21,8 +22,8 @@ public struct HackContext
     //1: Object (Camera) where the hack is coming from
     private SmartObject[] smartObjects;
 
-    private HackContext_Enum[] hackContextEnum ;
-    
+    private HackContext_Enum[] hackContextEnum;
+
     public SmartObject[] SmartObjects => smartObjects;
 
     public HackContext_Enum[] HackContextEnum => hackContextEnum;
@@ -31,7 +32,7 @@ public struct HackContext
     public HackContext(SmartObject[] smartObjects)
     {
         this.smartObjects = smartObjects;
-        hackContextEnum = new HackContext_Enum[]{HackContext_Enum.None} ;
+        hackContextEnum = new HackContext_Enum[] {HackContext_Enum.None};
     }
 
     public HackContext(SmartObject[] smartObjects, HackContext_Enum[] hackContextEnum)
@@ -49,17 +50,17 @@ public struct HackContext
 /// </summary>
 /// 
 [Serializable]
-public abstract class HackAbility:ScriptableObject
+public abstract class HackAbility : ScriptableObject
 {
-    [SerializeField]
+    // [SerializeField]
     // [HideInInspector]
-    protected string HackName;
+    // protected string HackName;
 
     [SerializeField]
-    protected float hackTime = 1f;
+    protected float hackTime;
 
     [SerializeField]
-    protected int hackCost = 1;
+    protected int hackCost;
 
     protected SmartObject smartObject;
 
@@ -67,27 +68,23 @@ public abstract class HackAbility:ScriptableObject
     {
         this.smartObject = smartObject;
     }
+
     protected abstract void AwakeBehaviour();
     protected abstract void StartBehaviour();
     protected abstract void UpdateBehaviour();
 
     protected bool isActive = false;
-    
+
     [Tooltip("should be left empty by default, this is for keeping track what was the last context for debugging")]
     protected HackContext context = new HackContext(Array.Empty<SmartObject>());
 
-    public string hackName => HackName;
+    public string HackName => ToString();
 
     public float HackTime => hackTime;
 
     public int HackCost => hackCost;
 
     public bool IsHackable => CanHack();
-
-    protected HackAbility()
-    {
-        HackName = ToString();
-    }
 
     public bool IsActive => isActive;
 
@@ -114,15 +111,19 @@ public abstract class HackAbility:ScriptableObject
 
     public override string ToString()
     {
-        string split = GetType().ToString().Substring(5);
+        string split = "";
+        try
+        {
+            split = name.Substring(5);
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
+            split = GetType().ToString().Substring(5);
+        }
+
         split = split.Replace("_", " ");
 
         return split;
-    }
-    
-    IEnumerator DelayHack()
-    {
-        yield return new WaitForSeconds(hackTime);
     }
 
     public virtual bool CanHack()

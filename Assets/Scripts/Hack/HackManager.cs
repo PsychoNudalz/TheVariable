@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Hacks/Manager")]
+
+/// <summary>
+/// Saves list of all hacks in resources
+/// Used to add hack based on hack type and or hack name
+/// </summary>
 public class HackManager : ScriptableObject
 {
     [SerializeField]
@@ -48,7 +52,7 @@ public class HackManager : ScriptableObject
 
         foreach (HackAbility hackAbility in AllHacks)
         {
-            if (hackAbility.hackName.Equals(name))
+            if (hackAbility.HackName.Equals(name))
             {
                 var temp = CreateInstance(hackAbility.GetType());
                 return temp as HackAbility;

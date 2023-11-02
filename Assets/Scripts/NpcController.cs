@@ -76,6 +76,9 @@ public class NpcController : MonoBehaviour
 
     [Header("Components")]
     [SerializeField]
+    private NpcObject npcObject;
+    
+    [SerializeField]
     private NpcEffectsController effectsController;
 
     [SerializeField]
@@ -213,6 +216,11 @@ public class NpcController : MonoBehaviour
             // schedule[i] = InitialiseTask(schedule[i]);
         }
 
+        if (!npcObject)
+        {
+            npcObject = GetComponent<NpcObject>();
+        }
+
         SortSchedule();
         if (bodyCollider)
         {
@@ -300,14 +308,19 @@ public class NpcController : MonoBehaviour
         {
             //If new camera is the same as the old one
             return null;
-        }else if (overrideSS&& sensorySource != null &&npc.Equals(sensorySource.SmartObject))
-        {
-            return null;
         }
+        // else if (overrideSS&& sensorySource != null &&npc.Equals(sensorySource.SmartObject))
+        // {
+        //     return null;
+        // }
 
         //Create Visual if detected new camera
         SensorySource_Visual ss = new SensorySource_Visual(npc, 100);
         AddSensorySource(ss);
+        if (!npcObject.Equals(npc))
+        {
+            npc.Controller.AddNPCToSS(npc, treeRunner);
+        }
         return ss;
     }
 
@@ -714,6 +727,13 @@ public class NpcController : MonoBehaviour
         if (effectsController)
         {
             effectsController.MoveTransform(position,rotation,animation);
+        }
+    }
+    public void MoveTransform(Vector3 position, NpcAnimation animation = NpcAnimation.None)
+    {
+        if (effectsController)
+        {
+            effectsController.MoveTransform(position,transform.rotation,animation);
         }
     }
 

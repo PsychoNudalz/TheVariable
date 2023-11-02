@@ -145,6 +145,7 @@ public class CameraController:MonoBehaviour
     void Start()
     {
         playerController = PlayerController.current;
+        RotateCamera(0,0);
     }
 
     void Update()

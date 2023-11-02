@@ -33,21 +33,20 @@ public class NpcVisionConeController : MonoBehaviour
     public List<SmartObject> AllDetectedSmartObjects => allDetectedSmartObjects;
 
     public List<SmartObject> AllLoSSmartObjects => allLoSSmartObjects;
-    
-    
 
-     static string CameraTag = "CCTV";
 
-     private void Awake()
-     {
-         if (selfSmartObject)
-         {
-             allDetectedSmartObjects.Add(selfSmartObject);
-             allLoSSmartObjects.Add(selfSmartObject);
-         }
-     }
+    // static string CameraTag = "CCTV";
 
-     private void FixedUpdate()
+    private void Awake()
+    {
+        if (selfSmartObject)
+        {
+            allDetectedSmartObjects.Add(selfSmartObject);
+            allLoSSmartObjects.Add(selfSmartObject);
+        }
+    }
+
+    private void FixedUpdate()
     {
         UpdateLoSObjects();
     }
@@ -62,14 +61,26 @@ public class NpcVisionConeController : MonoBehaviour
     {
         foreach (SmartObject smartObject in allDetectedSmartObjects)
         {
-            Vector3 diff = (smartObject.ColliderPosition - eyePositon);
+            Vector3 diff = Vector3.zero;
+            if (smartObject is NpcObject npcObject)
+            {
+                diff = (npcObject.ColliderPosition + new Vector3(0, .5f, 0) - eyePositon);
+            }
+            else
+            {
+                diff = (smartObject.ColliderPosition - eyePositon);
+            }
 
+            diff = diff.normalized;
             // int detectedObjects = Physics.RaycastAll(eyePositon, diff, los_Distance, los_LayerMask).Length;
             RaycastHit hit;
-            bool detectedObjects = Physics.Raycast(eyePositon, diff,out hit, los_Distance, los_LayerMask);
+            bool detectedObjects = Physics.Raycast(eyePositon, diff, out hit, los_Distance, los_LayerMask);
+            Debug.DrawRay(eyePositon, diff * los_Distance, Color.magenta);
 
             if (detectedObjects)
             {
+                Debug.DrawLine(eyePositon, hit.collider.transform.position, Color.cyan);
+
                 SmartObject detected = hit.collider.GetComponentInParent<SmartObject>();
                 if (!allLoSSmartObjects.Contains(smartObject))
                 {
@@ -125,10 +136,11 @@ public class NpcVisionConeController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         SmartObject smartObject = GetSmartObject(other);
-        if (selfSmartObject.Equals(smartObject))
+        if (!smartObject||selfSmartObject.Equals(smartObject))
         {
             return;
         }
+
         if (smartObject)
         {
             if (allDetectedSmartObjects.Contains(smartObject))

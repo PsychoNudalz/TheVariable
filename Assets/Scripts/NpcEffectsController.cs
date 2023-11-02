@@ -192,7 +192,7 @@ public class NpcEffectsController : MonoBehaviour
                 PlayAnimator("NPC_Idle");
                 break;
         }
-        Debug.Log($"{name} change animation: {currentAnimation} -> {npcAnimation}");
+        // Debug.Log($"{name} change animation: {currentAnimation} -> {npcAnimation}");
         currentAnimation = npcAnimation;
         animationTime_Current = 0;
         UpdateMaterial();
@@ -226,11 +226,11 @@ public class NpcEffectsController : MonoBehaviour
     /// <param name="animation"></param>
     public void MoveTransform(Vector3 position, Quaternion rotation, NpcAnimation animation)
     {
-        if(currentAnimation.Equals(animation))
-        {
-            Debug.Log($"{name} same animation: {currentAnimation}");
-
-        }
+        // if(currentAnimation.Equals(animation))
+        // {
+        //     Debug.Log($"{name} same animation: {currentAnimation}");
+        //
+        // }
         //Void the call to change animation if it was called with the same animation at a short distance
         float distance = Vector3.Distance(transform.position,position);
         if(currentAnimation.Equals(animation)&&(distance<1f))

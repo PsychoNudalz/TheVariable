@@ -63,12 +63,22 @@ public class PlayAnimation : ActionNode
                     {
                         if (ss.SmartObject)
                         {
-                            context.NpcController.MoveTransform(ss.SmartObject.InteractPosition,
-                                ss.SmartObject.InteractRotation, animation);
+                            if (ss.SmartObject is NpcObject npcObject)
+                            {
+                                Vector3 dir = (npcObject.Position - agent_Position).normalized;
+                                context.NpcController.MoveTransform(agent_Position,
+                                    Quaternion.AngleAxis(Vector2.Angle(new Vector2(0, 1f), new Vector2(dir.x, dir.z)),
+                                        Vector3.up), animation);
+                            }
+                            else
+                            {
+                                context.NpcController.MoveTransform(agent_Position,
+                                    ss.SmartObject.InteractRotation, animation);
+                            }
                         }
                         else
                         {
-                            context.NpcController.MoveTransform(ss.Position, animation);
+                            context.NpcController.MoveTransform(agent_Position, animation);
                         }
                     }
 

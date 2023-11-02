@@ -133,13 +133,13 @@ public class NpcController : MonoBehaviour
     {
         alertValue += alert;
         Change_AlertValue(1f);
-        Debug.Log($"Controller change NPC state from: {blackboardAlertState} --> {npcAlertState}");
+        Debug.Log($"{name}: Controller change NPC state from: {blackboardAlertState} --> {npcAlertState}");
         blackboardAlertState = npcAlertState;
     }
 
     public void Override_AlertValue(float f)
     {
-        Debug.Log($"Override NPC alert from: {alertValue} --> {f}");
+        // Debug.Log($"Override NPC alert from: {alertValue} --> {f}");
         alertValue = f;
     }
 

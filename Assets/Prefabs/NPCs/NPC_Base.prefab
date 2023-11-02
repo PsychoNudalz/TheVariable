@@ -371,6 +371,7 @@ MonoBehaviour:
   alert_SpottedThresshold: 1
   alertPosition: {fileID: 4776704124699353233}
   deathSizeMultiplier: 0.5
+  npcObject: {fileID: 0}
   effectsController: {fileID: 1320077873986614614}
   lifeSystem: {fileID: 4527088458200361262}
   sensoryController: {fileID: 8123274052060901740}
@@ -847,7 +848,7 @@ MonoBehaviour:
   los_Distance: 15
   los_LayerMask:
     serializedVersion: 2
-    m_Bits: 1664
+    m_Bits: 1920
   eyeTransform: {fileID: 2149476692529430343}
   objectIgnore: {fileID: 1320077873986614613}
   selfSmartObject: {fileID: 1320077873986614613}

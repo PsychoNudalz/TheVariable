@@ -8,13 +8,22 @@ public class MoveToPosition : ActionNode
 {
     // public float speed = 5;
     public float stoppingDistance = 0.1f;
+
     public bool updateRotation = true;
+
     // public float acceleration = 40.0f;
     public float tolerance = 1.0f;
     public bool playIdleAnimationOnStop = true;
-    private const float moveDelay = 1f;
-    private float moveDelay_TimeNow = 0;
-    private float pendingTimeOut = 2f;
+    float pendingTimeOut = 2f;
+
+    private bool samePositionHalt = false;
+    public float samePosition_TimeOut = 1f;
+    float samePosition_TimeOut_Now = 1f;
+    public float samePosition_ResetTime = 1f;
+    float samePosition_ResetTime_Now = 1f;
+    float samePosition_Distance = .5f;
+    private Vector3 lastPosition;
+
     protected override void OnStart()
     {
         context.agent.enabled = true;
@@ -24,9 +33,13 @@ public class MoveToPosition : ActionNode
         context.agent.destination = blackboard.targetPosition;
         context.agent.updateRotation = updateRotation;
         // context.agent.acceleration = acceleration;
-        moveDelay_TimeNow = moveDelay;
+        // moveDelay_TimeNow = moveDelay;
         context.NpcController.PlayAnimation(NpcAnimation.Walk);
-
+        pendingTimeOut = 2f;
+        samePosition_TimeOut = samePosition_ResetTime;
+        samePosition_Distance = .5f * context.agent.speed * Time.deltaTime;
+        samePosition_ResetTime_Now = samePosition_ResetTime;
+        samePosition_TimeOut_Now = samePosition_TimeOut;
     }
 
     protected override void OnStop()
@@ -34,38 +47,49 @@ public class MoveToPosition : ActionNode
         if (started)
         {
             started = false;
-
         }
-        context.agent.enabled = true;
 
+        context.agent.enabled = true;
     }
 
     protected override State OnUpdate()
     {
-        // if (IsAlive() == State.Failure)
-        // {
-        //     return State.Failure;
-        // }
+        if (Vector3.Distance(agent_Position, lastPosition) < samePosition_Distance)
+        {
+            samePosition_TimeOut_Now -= Time.deltaTime;
+            if (samePosition_TimeOut_Now < 0)
+            {
+                context.NpcController.PlayAnimation(NpcAnimation.Idle);
+                DisableAgent();
+                samePosition_ResetTime_Now -= Time.deltaTime;
+                samePositionHalt = true;
+                if (samePosition_ResetTime_Now < 0)
+                {
+                    samePositionHalt = false;
+                    EnableAgent();
+                }
+                else
+                {
+                    return State.Running;
+                }
+            }
+        }
 
-        // if (moveDelay_TimeNow > 0)
-        // {
-        //     context.agent.enabled = false;
-        //     moveDelay_TimeNow -= Time.deltaTime;
-        //     if (moveDelay_TimeNow <= 0)
-        //     {
-        //         EnableAgent();
-        //     }
-        //     return State.Running;
-        // }
-        //
+        else
+        {
+            samePosition_ResetTime_Now = samePosition_ResetTime;
+            samePosition_TimeOut_Now = samePosition_TimeOut;
+        }
+
+
         if (context.agent.pathPending)
         {
             pendingTimeOut -= Time.deltaTime;
             if (pendingTimeOut < 0)
             {
-                pendingTimeOut = 2f;
                 return State.Failure;
             }
+
             return State.Running;
         }
 
@@ -75,6 +99,7 @@ public class MoveToPosition : ActionNode
             {
                 context.NpcController.PlayAnimation(NpcAnimation.Idle);
             }
+
             return State.Success;
         }
 
@@ -82,7 +107,8 @@ public class MoveToPosition : ActionNode
         {
             return State.Failure;
         }
-        
+
+        lastPosition = agent_Position;
         return State.Running;
     }
 
@@ -90,6 +116,9 @@ public class MoveToPosition : ActionNode
     {
         context.agent.enabled = true;
     }
-    
-    
+
+    void DisableAgent()
+    {
+        context.agent.enabled = false;
+    }
 }

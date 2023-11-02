@@ -112,6 +112,8 @@ public class CameraController:MonoBehaviour
     public  Vector3 Forward => camera_transform.forward;
 
     public  Vector3 ColliderPosition => mainCollider.transform.position;
+    public Vector3 InteractPosition => connectedSO.InteractPosition;
+    public Quaternion InteractRotation => connectedSO.InteractRotation;
 
     public bool IsPlayerControl => isPlayerControl;
 

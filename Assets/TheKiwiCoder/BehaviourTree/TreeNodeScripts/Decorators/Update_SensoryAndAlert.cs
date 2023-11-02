@@ -32,7 +32,9 @@ public class Update_SensoryAndAlert : DecoratorNode
         if (blackboard.hackingCameras.Length > 0)
         {
             returnState = context.NpcController.Update_AlertValue(AlertValue_Increase);
-
+            blackboard.player_LastKnown_Camera = blackboard.hackingCameras[0];
+            blackboard.player_LastKnown_Position = blackboard.player_LastKnown_Camera.Position;
+            blackboard.player_LastKnown_Time = Time.time;
         }
         else
         {

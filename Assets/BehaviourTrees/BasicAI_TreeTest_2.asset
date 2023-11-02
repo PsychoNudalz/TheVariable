@@ -102,6 +102,7 @@ MonoBehaviour:
   - rid: 93221689726337026
   - rid: 93221706674733057
   - rid: 93221706674733058
+  - rid: 2403197112933679105
   treeState: 0
   blackboard:
     alertState: 0
@@ -120,8 +121,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: 343.2, y: 463.2, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+  viewPosition: {x: -809.6, y: 128.8, z: 0}
+  viewScale: {x: 0.2842624, y: 0.2842624, z: 1}
   references:
     version: 2
     RefIds:
@@ -300,7 +301,7 @@ MonoBehaviour:
         name: PlayAnimation
         description: 
         drawGizmos: 0
-        animation: 5
+        animation: 6
     - rid: 270282263272095744
       type: {class: Action_ChangeAlertState, ns: , asm: Assembly-CSharp}
       data:
@@ -367,7 +368,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 14547dc360669c64c8883ea85ce4953f
-        position: {x: 2370.4, y: 1147.5999}
+        position: {x: 2519.3662, y: 1286.3999}
         blackboard:
           alertState: 0
           health: 0
@@ -397,7 +398,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b2e26bb4bd059e743989aa940fff200d
-        position: {x: 2428, y: 1282.8}
+        position: {x: 2576.9663, y: 1421.6}
         blackboard:
           alertState: 0
           health: 0
@@ -597,8 +598,8 @@ MonoBehaviour:
         drawGizmos: 0
         child:
           rid: 8796965059076030487
-        AlertValue_Increase: 1
-        AlertValue_Decrease: -1
+        AlertValue_Increase: 0.7
+        AlertValue_Decrease: -0.5
         returnFailureOnStateChange: 1
         returnTrueAfterUpdate: 0
         detectPlayerControl: 0
@@ -642,7 +643,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 627ab46d325d9a04c805be50416fbdf5
-        position: {x: 2344.8, y: 1009.2002}
+        position: {x: 2493.7664, y: 1148}
         blackboard:
           alertState: 0
           health: 0
@@ -665,7 +666,7 @@ MonoBehaviour:
         drawGizmos: 0
         child:
           rid: 270282306868215810
-        AlertValue_Increase: 2
+        AlertValue_Increase: 1.5
         AlertValue_Decrease: 0
         returnFailureOnStateChange: 1
         returnTrueAfterUpdate: 0
@@ -762,7 +763,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a207eba8ee6b2514e8c80b33c4088bcb
-        position: {x: 2103.1995, y: 849.59985}
+        position: {x: 2079.2, y: 849.5999}
         blackboard:
           alertState: 0
           health: 0
@@ -785,7 +786,7 @@ MonoBehaviour:
         drawGizmos: 0
         child:
           rid: 3923952843446550532
-        AlertValue_Increase: 2
+        AlertValue_Increase: 1
         AlertValue_Decrease: 0
         returnFailureOnStateChange: 0
         returnTrueAfterUpdate: 0
@@ -967,7 +968,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 766e7451a99bba846a9b742381affb77
-        position: {x: 3001.2363, y: 1120}
+        position: {x: 3000.8, y: 1120}
         blackboard:
           alertState: 0
           health: 0
@@ -1105,6 +1106,34 @@ MonoBehaviour:
         drawGizmos: 0
         duration: 1
         playWaitAnimation: 0
+    - rid: 2403197112933679105
+      type: {class: PlayAnimation, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 38592d8dcf924da48868ebb5b735d344
+        position: {x: 2343.2, y: 1147.9998}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          cameraToInvestigate: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: PlayAnimation
+        description: 
+        drawGizmos: 0
+        animation: 5
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -1543,7 +1572,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0ff5508c9b471b6b78ea1210a1202dbc
-        position: {x: 2194.8, y: 1127.2}
+        position: {x: 2171.2, y: 1127.2001}
         blackboard:
           alertState: 0
           health: 0
@@ -1564,10 +1593,10 @@ MonoBehaviour:
         name: MoveToPosition
         description: 
         drawGizmos: 0
-        stoppingDistance: 1
+        stoppingDistance: 0.3
         updateRotation: 1
-        tolerance: 0.1
-        playIdleAnimationOnStop: 1
+        tolerance: 0.5
+        playIdleAnimationOnStop: 0
     - rid: 3923952843446550531
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -1604,7 +1633,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1abab597542181148a16022aa8e25788
-        position: {x: 2119.2, y: 971.9998}
+        position: {x: 2095.2, y: 971.99994}
         blackboard:
           alertState: 0
           health: 0
@@ -1954,7 +1983,7 @@ MonoBehaviour:
         stoppingDistance: 0.5
         updateRotation: 1
         tolerance: 0.5
-        playIdleAnimationOnStop: 0
+        playIdleAnimationOnStop: 1
     - rid: 8796965059076030466
       type: {class: Action_DropItem, ns: , asm: Assembly-CSharp}
       data:
@@ -2047,7 +2076,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 48215e69efa86e64cb060afc6c208883
-        position: {x: 1996, y: 1127.2001}
+        position: {x: 1971.9999, y: 1127.2001}
         blackboard:
           alertState: 0
           health: 0
@@ -2343,6 +2372,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
+        - rid: 2403197112933679105
         - rid: 466623170613870603
     - rid: 8796965064170012674
       type: {class: Assign_SensorySource, ns: , asm: Assembly-CSharp}
@@ -2377,7 +2407,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c35a0730c39c36548a56a9550de20b02
-        position: {x: 2277.6, y: 1282.8}
+        position: {x: 2426.5662, y: 1421.6}
         blackboard:
           alertState: 0
           health: 0

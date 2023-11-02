@@ -12,16 +12,16 @@ public class NpcSensoryController : MonoBehaviour
 {
     [SerializeField]
     private NpcController npcController;
+
     private SensorySource currentSS = null;
 
-    public SensorySource GetCurrentSS =>currentSS;
+    public SensorySource GetCurrentSS => currentSS;
 
     [SerializeField]
     private NpcVisionConeController visionConeController;
 
     public List<SmartObject> detectedObjects => visionConeController.AllDetectedSmartObjects;
     public List<SmartObject> losObjects => visionConeController.AllLoSSmartObjects;
-    
 
 
     private void Awake()
@@ -30,7 +30,6 @@ public class NpcSensoryController : MonoBehaviour
         {
             npcController = GetComponent<NpcController>();
         }
-        
     }
 
     /// <summary>
@@ -40,7 +39,7 @@ public class NpcSensoryController : MonoBehaviour
     /// <param name="ss"></param>
     public bool AddSS(SensorySource ss)
     {
-        if (currentSS==null)
+        if (currentSS == null)
         {
             currentSS = ss;
             return true;
@@ -58,8 +57,6 @@ public class NpcSensoryController : MonoBehaviour
                 return true;
             }
         }
-
-
     }
 
     public void PopCurrentSS()
@@ -71,7 +68,7 @@ public class NpcSensoryController : MonoBehaviour
     {
         return GetCamera();
     }
-    
+
     public CameraController GetCamera()
     {
         foreach (SmartObject smartObject in losObjects)
@@ -80,11 +77,16 @@ public class NpcSensoryController : MonoBehaviour
             {
                 return cameraObject.CameraController;
             }
+
+            if (smartObject is NpcObject npc)
+            {
+                return npc.Camera;
+            }
         }
 
         return null;
     }
-    
+
     /// <summary>
     /// Find camera that is hacking
     /// 
@@ -101,7 +103,7 @@ public class NpcSensoryController : MonoBehaviour
                     return cameraObject.CameraController;
                 }
             }
-            
+
             if (smartObject is NpcObject npc)
             {
                 if (npc.Camera.IsHacking)
@@ -113,7 +115,7 @@ public class NpcSensoryController : MonoBehaviour
 
         return null;
     }
-    
+
     public CameraController[] FindHackingCameras()
     {
         List<CameraController> cameras = new List<CameraController>();
@@ -126,11 +128,19 @@ public class NpcSensoryController : MonoBehaviour
                     cameras.Add(cameraObject.CameraController);
                 }
             }
+
+            if (smartObject is NpcObject npc)
+            {
+                if (npc.Camera.IsHacking)
+                {
+                    cameras.Add(npc.Camera);
+                }
+            }
         }
 
         return cameras.ToArray();
     }
-    
+
     /// <summary>
     /// Find cameras that is controlled the player or hacking
     /// 
@@ -143,15 +153,21 @@ public class NpcSensoryController : MonoBehaviour
         {
             if (smartObject is CameraObject cameraObject)
             {
-                if (!cameraObject.IsLocked&&(cameraObject.IsHacking||cameraObject.IsPlayerControl))
+                if (!cameraObject.IsLocked && (cameraObject.IsHacking || cameraObject.IsPlayerControl))
                 {
                     cameras.Add(cameraObject.CameraController);
+                }
+            }
+
+            if (smartObject is NpcObject npc)
+            {
+                if (!npc.Camera.IsLocked && (npc.Camera.IsHacking || npc.Camera.IsPlayerControl))
+                {
+                    cameras.Add(npc.Camera);
                 }
             }
         }
 
         return cameras.ToArray();
     }
-    
-
 }

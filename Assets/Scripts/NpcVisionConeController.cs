@@ -27,13 +27,27 @@ public class NpcVisionConeController : MonoBehaviour
     [SerializeField]
     private SmartObject objectIgnore;
 
+    [SerializeField]
+    private SmartObject selfSmartObject;
+
     public List<SmartObject> AllDetectedSmartObjects => allDetectedSmartObjects;
 
     public List<SmartObject> AllLoSSmartObjects => allLoSSmartObjects;
+    
+    
 
      static string CameraTag = "CCTV";
 
-    private void FixedUpdate()
+     private void Awake()
+     {
+         if (selfSmartObject)
+         {
+             allDetectedSmartObjects.Add(selfSmartObject);
+             allLoSSmartObjects.Add(selfSmartObject);
+         }
+     }
+
+     private void FixedUpdate()
     {
         UpdateLoSObjects();
     }
@@ -81,7 +95,11 @@ public class NpcVisionConeController : MonoBehaviour
                     }
                     else
                     {
-                        allLoSSmartObjects.Remove(smartObject);
+                        if (!smartObject.Equals(selfSmartObject))
+                        {
+                            allLoSSmartObjects.Remove(smartObject);
+                        }
+
                         Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
                     }
                 }
@@ -107,6 +125,10 @@ public class NpcVisionConeController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         SmartObject smartObject = GetSmartObject(other);
+        if (selfSmartObject.Equals(smartObject))
+        {
+            return;
+        }
         if (smartObject)
         {
             if (allDetectedSmartObjects.Contains(smartObject))

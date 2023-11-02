@@ -367,6 +367,10 @@ public class CameraController:MonoBehaviour
 
     void Set_LockMaterial(bool b)
     {
+        if (!cameraRenderer)
+        {
+            return;
+        }
         if (b)
         {
             for (var i = 0; i < cameraRenderer.materials.Length; i++)

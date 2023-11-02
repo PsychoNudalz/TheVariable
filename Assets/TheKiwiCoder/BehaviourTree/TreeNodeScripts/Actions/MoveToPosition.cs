@@ -34,10 +34,7 @@ public class MoveToPosition : ActionNode
         if (started)
         {
             started = false;
-            if (playIdleAnimationOnStop)
-            {
-                context.NpcController.PlayAnimation(NpcAnimation.Idle);
-            }
+
         }
         context.agent.enabled = true;
 
@@ -74,6 +71,10 @@ public class MoveToPosition : ActionNode
 
         if (context.agent.remainingDistance < tolerance)
         {
+            if (playIdleAnimationOnStop)
+            {
+                context.NpcController.PlayAnimation(NpcAnimation.Idle);
+            }
             return State.Success;
         }
 

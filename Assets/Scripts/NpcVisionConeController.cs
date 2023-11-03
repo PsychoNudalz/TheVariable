@@ -75,11 +75,11 @@ public class NpcVisionConeController : MonoBehaviour
             // int detectedObjects = Physics.RaycastAll(eyePositon, diff, los_Distance, los_LayerMask).Length;
             RaycastHit hit;
             bool detectedObjects = Physics.Raycast(eyePositon, diff, out hit, los_Distance, los_LayerMask);
-            Debug.DrawRay(eyePositon, diff * los_Distance, Color.magenta);
+            // Debug.DrawRay(eyePositon, diff * los_Distance, Color.magenta);
 
             if (detectedObjects)
             {
-                Debug.DrawLine(eyePositon, hit.collider.transform.position, Color.cyan);
+                // Debug.DrawLine(eyePositon, hit.collider.transform.position, Color.cyan);
 
                 SmartObject detected = hit.collider.GetComponentInParent<SmartObject>();
                 if (!allLoSSmartObjects.Contains(smartObject))

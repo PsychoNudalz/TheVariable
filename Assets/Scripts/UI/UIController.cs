@@ -55,13 +55,13 @@ public class UIController : MonoBehaviour
         return hackIndex;
     }
     
-    public int HacksDisplay_SelectHack(Vector2 dir, out HackAbility hack)
-    {
-        int hackIndex = hackAbilityDisplay.UpdateDir(dir);
-        hack = hackAbilityDisplay.GetHack(hackIndex);
-        // hackAbilityDisplay.Hack(hackIndex);
-        return hackIndex;
-    }
+    // public int HacksDisplay_SelectHack(Vector2 dir, out HackAbility hack)
+    // {
+    //     int hackIndex = hackAbilityDisplay.UpdateDir(dir);
+    //     hack = hackAbilityDisplay.GetHack(hackIndex);
+    //     // hackAbilityDisplay.Hack(hackIndex);
+    //     return hackIndex;
+    // }
 
     public void AlertManager_SetAlert(NpcController npc, float value)
     {

@@ -103,7 +103,7 @@ public class UI_HackAbilityButton : MonoBehaviour
 
     public void OnHover(bool enter = true)
     {
-        if (enter)
+        if (enter&&activeState != ActiveState_Enum.HackFail)
         {
             buttonImage.color = selectColour;
         }

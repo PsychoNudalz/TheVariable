@@ -7,10 +7,6 @@ using UnityEngine.Serialization;
 
 namespace Task
 {
-
-
-    
-    
     /// <summary>
     /// Identify where the task is, when does it start, how long it is and what TaskObject it is interacting with
     /// Swapped from struct to class as it is 2840 bytes, bigger than the recommended 16 bytes

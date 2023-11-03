@@ -21,10 +21,13 @@ public class CameraManager : MonoBehaviour
 
     public CameraController StartingCamera => startingCamera;
 
+    public static CameraManager current;
+
     private void Awake()
     {
         allCameras = new List<CameraController>(FindObjectsByType<CameraController>(FindObjectsSortMode.None));
         cameraObjects = new List<CameraObject>(GetComponentsInChildren<CameraObject>());
+        current = this;
     }
 
     // Start is called before the first frame update

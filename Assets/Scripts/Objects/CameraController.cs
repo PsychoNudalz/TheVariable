@@ -312,6 +312,13 @@ public class CameraController:MonoBehaviour
             return;
         }
 
+        if (!target.Hacks[index].CanHack())
+        {
+            Debug.LogError($"{name} hack on {target.name} can NOT hack");
+
+            return;
+        }
+
         hackCoroutine = StartCoroutine(HackRoutine(target, index,hackContextEnum));
     }
     IEnumerator HackRoutine(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
@@ -342,29 +349,51 @@ public class CameraController:MonoBehaviour
 
     public void Set_Lock(bool b, float duration = 0f)
     {
+        
+        
         Set_LockMaterial(b);
         if (b)
         {
             HackLine_Reset();
 
-            if (hackCoroutine != null)
-            {
-                StopCoroutine(hackCoroutine);
-                hackCoroutine = null;
-            }
+            CancelHack();
+            
             cameraState = CameraState.Locked;
-            cameraLock_Time += duration;
+            cameraLock_Time  = duration;
             if (isPlayerControl)
             {
                 playerController.ActivateLockout(this);
+                
+                //Changes to the starting camera
+
             }
+            
+            //Return to previous camera if current camera is an NPC camera
+            //Comment: Not too sure if I should do that or just reset it to the starting camera
+            // if (playerController)
+            // {
+            // }
         }
         else
         {
             cameraState = CameraState.None;
-            playerController.ActivateLockout(this);
-            
+            playerController.DeactivateLockout();
+            if (isPlayerControl)
+            {
+                playerController.ChangeCamera(CameraManager.current.StartingCamera);
 
+            }
+
+
+        }
+    }
+
+    private void CancelHack()
+    {
+        if (hackCoroutine != null)
+        {
+            StopCoroutine(hackCoroutine);
+            hackCoroutine = null;
         }
     }
 

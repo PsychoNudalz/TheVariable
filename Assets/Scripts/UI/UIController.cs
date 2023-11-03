@@ -15,6 +15,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_LockOutScreen lockOutScreen;
 
+    [SerializeField]
+    private UI_InvestigateScreen investigateScreen;
+
     public static UIController current;
 
     private void Awake()

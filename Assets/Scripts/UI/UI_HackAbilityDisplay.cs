@@ -43,16 +43,7 @@ public class UI_HackAbilityDisplay : MonoBehaviour
             }
         }
     }
-
-    public void Hack(int i)
-    {
-        if (i == -1)
-        {
-            return;
-        }
-        currentSO.ActivateHack(i);
-    }
-
+    
     public HackAbility GetHack(int i)
     {
         return currentSO.Hacks[i];

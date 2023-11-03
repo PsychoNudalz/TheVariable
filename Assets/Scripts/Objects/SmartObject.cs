@@ -153,7 +153,16 @@ public abstract class SmartObject : MonoBehaviour
             return 1;
         }
 
-        hacks[i].Hack(new HackContext(new[] {this}, hackContextEnum));
+        if (hacks[i].IsHackable)
+        {
+            hacks[i].Hack(new HackContext(new[] {this}, hackContextEnum));
+        }
+        else
+        {
+            Debug.LogError($"{name} active hack index {i} can not hack.");
+            return 2;
+        }
+
         return 0;
     }
 

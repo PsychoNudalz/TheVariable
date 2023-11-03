@@ -60,7 +60,10 @@ public abstract class HackAbility : ScriptableObject
     protected float hackTime;
 
     [SerializeField]
+    private int hackClearance;
+    [SerializeField]
     protected int hackCost;
+    
 
     protected SmartObject smartObject;
 
@@ -81,6 +84,8 @@ public abstract class HackAbility : ScriptableObject
     public string HackName => ToString();
 
     public float HackTime => hackTime;
+
+    public int HackClearance => hackClearance;
 
     public int HackCost => hackCost;
 
@@ -128,6 +133,6 @@ public abstract class HackAbility : ScriptableObject
 
     public virtual bool CanHack()
     {
-        return true;
+        return PlayerController.current.ClearanceLevel>=HackClearance;
     }
 }

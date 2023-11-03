@@ -88,6 +88,13 @@ public class PlayerController : MonoBehaviour
 
     public static PlayerController current;
 
+    //This should be in a separate script but fk it
+    [Header("Player Stats")]
+    [SerializeField]
+    private int clearanceLevel = 0;
+
+    public int ClearanceLevel => clearanceLevel;
+
     private void Awake()
     {
         current = this;
@@ -566,5 +573,14 @@ public class PlayerController : MonoBehaviour
     {
         uiController.LockoutScreen_SetActive(false);
         cameraMode = CameraMode.Free;
+    }
+    
+    
+    //----------------------
+    //Clearance Level
+    public void IncreaseClearanceLevel(int level)
+    {
+        clearanceLevel = Math.Max(clearanceLevel, level);
+        Debug.Log($"Player Level increased to: {clearanceLevel}");
     }
 }

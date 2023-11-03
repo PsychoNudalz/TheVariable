@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Crystal_E_Grey
+  m_Name: Crystal_C_2
   m_Shader: {fileID: -6465566751694194690, guid: bd443388f754ca346b5bd099296f9113,
     type: 3}
   m_ValidKeywords: []
@@ -55,12 +55,12 @@ Material:
     - _MoveValue: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Steps: 6
-    - _VoronoiCellDensity: 2.3
+    - _Steps: 5.41
+    - _VoronoiCellDensity: 10
     m_Colors:
-    - _Base: {r: 0, g: -0.3, b: 0, a: 0}
-    - _Colour_1: {r: 0.94166356, g: 0.94166356, b: 0.94166356, a: 0}
-    - _Colour_2: {r: 0, g: 0, b: 0, a: 0}
-    - _Top: {r: 0, g: 50, b: 0, a: 0}
+    - _Base: {r: 0, g: 1, b: 0, a: 0}
+    - _Colour_1: {r: 0.09424083, g: 0.35602093, b: 1.9999998, a: 0}
+    - _Colour_2: {r: 1, g: 0.90439117, b: 0, a: 0}
+    - _Top: {r: 0, g: -50, b: 0, a: 0}
     - _WorldNormal: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

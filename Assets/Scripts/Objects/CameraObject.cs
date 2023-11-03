@@ -44,24 +44,5 @@ public class CameraObject : SmartObject
     public override void Interact(NpcController npc)
     {
     }
-
-    public void SetActive(bool b)
-    {
-        cameraController.SetActive(b);
-    }
-
-    public void UpdateZoom(float zoom)
-    {
-        cameraController.UpdateZoom(zoom);
-    }
-
-    public void StartHack(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
-    {
-        cameraController.StartHack(target,index,hackContextEnum);
-    }
-
-    public void RotateCamera(float rotationX, float rotationY)
-    {
-        cameraController.RotateCamera(rotationX,rotationY);
-    }
+    
 }

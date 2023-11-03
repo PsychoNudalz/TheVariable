@@ -113,8 +113,5 @@ public class UI_HackAbilityButton : MonoBehaviour
         }
     }
 
-    public void ActivateHack()
-    {
-        display.Hack(index);
-    }
+
 }

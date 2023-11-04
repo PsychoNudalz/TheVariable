@@ -29,7 +29,7 @@ public class Action_SetTaskToTarget : ActionNode
             {
                 //If not task object is found
                 
-                Debug.LogWarning($"{name}: Failed to find task {currentTask}");
+                // Debug.LogWarning($"{name}: Failed to find task {currentTask}");
                 lastTaskEvent = currentTask;
                 started = false;
                 

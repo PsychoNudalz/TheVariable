@@ -11,30 +11,34 @@ public class Update_SensoryAndAlert : DecoratorNode
 
     [SerializeField]
     private float AlertValue_Decrease = -1f;
+
     [SerializeField]
     private bool returnFailureOnStateChange = false;
+
     [SerializeField]
     private bool returnTrueAfterUpdate = false;
-    
-    
+
 
     [SerializeField]
     private bool detectPlayerControl = false;
-    protected override void OnStart() {
+
+    protected override void OnStart()
+    {
     }
 
-    protected override void OnStop() {
+    protected override void OnStop()
+    {
     }
 
-    protected override State OnUpdate() {
+    protected override State OnUpdate()
+    {
         // SmartObject foundCamera = context.NpcController.Evaluate_Senses(out SensorySource ss,detectPlayerControl);
         NPC_AlertState returnState;
         if (blackboard.hackingCameras.Length > 0)
         {
             returnState = context.NpcController.Update_AlertValue(AlertValue_Increase);
-            blackboard.player_LastKnown_Camera = blackboard.hackingCameras[0];
-            blackboard.player_LastKnown_Position = blackboard.player_LastKnown_Camera.Position;
-            blackboard.player_LastKnown_Time = Time.time;
+            // if(blackboard.hackingCameras[0].)
+            Update_LastKnown(blackboard.hackingCameras[0]);
         }
         else
         {
@@ -51,7 +55,7 @@ public class Update_SensoryAndAlert : DecoratorNode
             ChangeAlertState(returnState, false);
 
             //Update 
-            
+
             if (returnFailureOnStateChange)
             {
                 Abort();
@@ -61,4 +65,6 @@ public class Update_SensoryAndAlert : DecoratorNode
 
         return child.Update();
     }
+
+
 }

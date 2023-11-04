@@ -46,6 +46,8 @@ public class Action_Investigate : ActionNode
         {
             blackboard.cameraToInvestigate.Set_Investigate(true);
         }
+        Update_LastKnown(blackboard.cameraToInvestigate);
+
     }
 
     protected override void OnStop()
@@ -80,6 +82,7 @@ public class Action_Investigate : ActionNode
                 
                 NPC_AlertState returnState = context.NpcController.Update_AlertValue(alertBuildup);
 
+                Update_LastKnown(blackboard.cameraToInvestigate);
                 //If the NPC spots the player
                 //TODO: might change this to compare to Spotted state
                 if (returnState != blackboard.alertState)

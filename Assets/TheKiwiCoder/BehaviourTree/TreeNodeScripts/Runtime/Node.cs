@@ -184,7 +184,15 @@ namespace TheKiwiCoder
             blackboard.locatedItem = null;
             blackboard.pickedUpItem = null;
         }
+        protected void Update_LastKnown(CameraController camera)
+        {
+            CameraController blackboardPlayerLastKnownCamera = camera;
+            blackboard.player_LastKnown_Camera = blackboardPlayerLastKnownCamera;
+            blackboard.player_LastKnown_Position = blackboard.player_LastKnown_Camera.Position;
+            blackboard.player_LastKnown_Time = Time.time;
+        }
     }
+    
 
     public class NullNodeException : Exception
     {

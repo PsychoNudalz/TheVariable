@@ -1,0 +1,2 @@
+Since 1.30 UI Particle system has support for Universal Rendering Pipeline since Unity 2019.3 version.
+To install URP support just unpack URPUpgrade package and replace Standard Rendering Pipeline scripts and shaders.

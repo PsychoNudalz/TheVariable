@@ -15,7 +15,8 @@ public class PlayAnimation : ActionNode
         None,
         Interact,
         SensorySource,
-        CameraToInvestigate
+        CameraToInvestigate,
+        CameraToLock
     }
 
     public PlayAnimationOrientation orientation = PlayAnimationOrientation.None;
@@ -56,7 +57,19 @@ public class PlayAnimation : ActionNode
                     }
 
                     break;
+                case PlayAnimationOrientation.CameraToLock:
+                    if (blackboard.cameraToLock)
+                    {
+                        context.NpcController.MoveTransform(blackboard.cameraToLock.ConnectedSo.InteractPosition,
+                            blackboard.cameraToLock.ConnectedSo.InteractRotation, animation);
+                    }
+                    else
+                    {
+                        Debug.LogError("Missing camera to lock");
+                        context.NpcController.PlayAnimation(animation);
+                    }
 
+                    break;
                 case PlayAnimationOrientation.SensorySource:
                     SensorySource ss = blackboard.currentSensorySource;
                     if (ss != null)

@@ -16,7 +16,7 @@ public class UIController : MonoBehaviour
     private UI_LockOutScreen lockOutScreen;
 
     [SerializeField]
-    private UI_InvestigateScreen investigateScreen;
+    private UI_CameraScreen cameraScreen;
 
     public static UIController current;
 
@@ -75,5 +75,10 @@ public class UIController : MonoBehaviour
     {
         
         lockOutScreen.SetActive(b,cameraController);
+    }
+
+    public void CameraScreen_Play(CameraInvestigationMode cameraInvestigationMode)
+    {
+        cameraScreen.PlayAnimation(cameraInvestigationMode);
     }
 }

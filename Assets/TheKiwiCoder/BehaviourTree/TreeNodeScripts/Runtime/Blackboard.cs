@@ -29,6 +29,7 @@ namespace TheKiwiCoder {
         public SensorySource currentSensorySource = null;
 
         public CameraController cameraToInvestigate = null;
+        public CameraController cameraToLock = null;
         // public ItemName MissingItem => missingItems[0];
         // protected bool foundAllItems =>
         

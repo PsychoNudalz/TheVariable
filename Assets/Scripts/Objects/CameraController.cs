@@ -7,11 +7,19 @@ using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.Serialization;
 
+
+public enum CameraInvestigationMode
+{
+    None,
+    Investigated,
+    Spotted
+}
+
 /// <summary>
 /// Handles the controls and behaviour of a camera
 /// Allows NPC to detect and Investigate this
 /// </summary>
-public class CameraController:MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     [Header("Camera")]
     [Header("Movement")]
@@ -23,6 +31,7 @@ public class CameraController:MonoBehaviour
 
     [SerializeField]
     private Vector2 xClamp = new Vector2(-90f, 90f);
+
     [SerializeField]
     private Vector2 yClamp = new Vector2(-120f, 120f);
 
@@ -82,12 +91,15 @@ public class CameraController:MonoBehaviour
     private float cameraHack_TimeNow = 0;
 
     [Header("Locking")]
+    private CameraInvestigationMode investigationMode;
+
     private float cameraLock_Time = 0;
 
     [Space(10)]
     [Header("Components")]
     [SerializeField]
     private SmartObject connectedSO;
+
     [SerializeField]
     private Renderer cameraBody;
 
@@ -98,20 +110,19 @@ public class CameraController:MonoBehaviour
     Collider mainCollider;
 
 
+    PlayerController playerController;
 
-     PlayerController playerController;
+    public SmartObject ConnectedSo => connectedSO;
 
-     public SmartObject ConnectedSo => connectedSO;
-
-     private Vector3 cameraOrientation = default;
+    private Vector3 cameraOrientation = default;
 
     private const int CameraPriority = 10;
 
     private bool isPlayerControl = false;
-    public  Vector3 Position => camera_transform.position;
-    public  Vector3 Forward => camera_transform.forward;
+    public Vector3 Position => camera_transform.position;
+    public Vector3 Forward => camera_transform.forward;
 
-    public  Vector3 ColliderPosition => mainCollider.transform.position;
+    public Vector3 ColliderPosition => mainCollider.transform.position;
     public Vector3 InteractPosition => connectedSO.InteractPosition;
     public Quaternion InteractRotation => connectedSO.InteractRotation;
 
@@ -125,7 +136,6 @@ public class CameraController:MonoBehaviour
     public float CameraLockTime => cameraLock_Time;
     public string CameraLockTime_String => Get_CameraLockTime_String();
 
-    
 
     void Awake()
     {
@@ -147,7 +157,7 @@ public class CameraController:MonoBehaviour
     void Start()
     {
         playerController = PlayerController.current;
-        RotateCamera(0,0);
+        RotateCamera(0, 0);
     }
 
     void Update()
@@ -196,6 +206,7 @@ public class CameraController:MonoBehaviour
         {
             return;
         }
+
         hackLine.SetPosition(1, hackTarget.position);
         hackLine.material.SetVector("_Effect_Animation_Position", hackLine.transform.position);
         hackLine.material.SetFloat("_Effect_Animation_Distance",
@@ -229,7 +240,6 @@ public class CameraController:MonoBehaviour
         cameraOrientation.y += horizontal * zoomRotateMultiplier;
         cameraOrientation.y = Mathf.Clamp(cameraOrientation.y, yClamp.x, yClamp.y);
         camera_transform.localEulerAngles = cameraOrientation;
-
     }
 
     public void UpdateZoom(float zoomAmount)
@@ -268,6 +278,8 @@ public class CameraController:MonoBehaviour
         }
 
         isPlayerControl = b;
+        SetInvestigationMode(investigationMode);
+
     }
 
     public void ThroughWallEffect_Activate()
@@ -298,7 +310,7 @@ public class CameraController:MonoBehaviour
         throughWallEffect.overlay = Mathf.Sin(throughWallEffect_TimeNow * 2 * Mathf.PI);
     }
 
-    public void StartHack(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
+    public void StartHack(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
     {
         // if (cameraState != CameraState.None)
         // {
@@ -319,14 +331,16 @@ public class CameraController:MonoBehaviour
             return;
         }
 
-        hackCoroutine = StartCoroutine(HackRoutine(target, index,hackContextEnum));
+        hackCoroutine = StartCoroutine(HackRoutine(target, index, hackContextEnum));
     }
-    IEnumerator HackRoutine(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
+
+    IEnumerator HackRoutine(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
     {
         Hack_Initialise(target, index);
         yield return new WaitForSeconds(target.Hacks[index].HackTime);
-        Hack_Activation(target, index,hackContextEnum);
+        Hack_Activation(target, index, hackContextEnum);
     }
+
     private void Hack_Initialise(SmartObject target, int index)
     {
         cameraState = CameraState.Hacking;
@@ -336,12 +350,16 @@ public class CameraController:MonoBehaviour
         cameraHack_Time = time;
         cameraHack_TimeNow = time;
     }
-    
 
-    private void Hack_Activation(SmartObject target, int index,HackContext_Enum[] hackContextEnum = default)
+
+    private void Hack_Activation(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
     {
-        target.ActivateHack(index,hackContextEnum);
-        cameraState = CameraState.None;
+        target.ActivateHack(index, hackContextEnum);
+        if (cameraState != CameraState.Locked&&cameraLock_Time<=0f&&investigationMode != CameraInvestigationMode.Spotted)
+        {
+            cameraState = CameraState.None;
+        }
+
         hackTarget = null;
         // hackLine.gameObject.SetActive(false);
         HackLine_Reset();
@@ -349,25 +367,23 @@ public class CameraController:MonoBehaviour
 
     public void Set_Lock(bool b, float duration = 0f)
     {
-        
-        
         Set_LockMaterial(b);
         if (b)
         {
             HackLine_Reset();
 
             CancelHack();
-            
+
+
             cameraState = CameraState.Locked;
-            cameraLock_Time  = duration;
+            cameraLock_Time = duration;
             if (isPlayerControl)
             {
                 playerController.ActivateLockout(this);
-                
-                //Changes to the starting camera
 
+                //Changes to the starting camera
             }
-            
+
             //Return to previous camera if current camera is an NPC camera
             //Comment: Not too sure if I should do that or just reset it to the starting camera
             // if (playerController)
@@ -381,10 +397,30 @@ public class CameraController:MonoBehaviour
             if (isPlayerControl)
             {
                 playerController.ChangeCamera(CameraManager.current.StartingCamera);
-
             }
 
+            SetInvestigationMode(CameraInvestigationMode.None);
+        }
+    }
 
+    public void Set_Investigate(bool b)
+    {
+        if (b)
+        {
+            SetInvestigationMode(CameraInvestigationMode.Investigated);
+        }
+        else
+        {
+            SetInvestigationMode(CameraInvestigationMode.None);
+        }
+    }
+
+    public void SetInvestigationMode(CameraInvestigationMode mode)
+    {
+        investigationMode = mode;
+        if (isPlayerControl)
+        {
+            UIController.current.CameraScreen_Play(mode);
         }
     }
 
@@ -403,6 +439,7 @@ public class CameraController:MonoBehaviour
         {
             return;
         }
+
         if (b)
         {
             for (var i = 0; i < cameraRenderer.materials.Length; i++)
@@ -422,7 +459,7 @@ public class CameraController:MonoBehaviour
     String Get_CameraLockTime_String()
     {
         double seconds = Math.Floor((cameraLock_Time % 1f) * 100);
-        return string.Concat(cameraLock_Time.ToString("0"), ":",seconds.ToString("0"));
+        return string.Concat(cameraLock_Time.ToString("0"), ":", seconds.ToString("0"));
     }
 
     public void Override_IsHacking()

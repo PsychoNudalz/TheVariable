@@ -15,23 +15,27 @@ public class Action_LockCamera : ActionNode
 
     protected override void OnStart()
     {
-        if (blackboard.player_LastKnown_Camera)
+        if (blackboard.cameraToLock)
+        {
+            cameraToLock = blackboard.cameraToLock;
+        }
+        else if (blackboard.player_LastKnown_Camera)
         {
             cameraToLock = blackboard.player_LastKnown_Camera;
-            npcController.MoveTransform(cameraToLock.InteractPosition, cameraToLock.InteractRotation,
-                NpcAnimation.Interact);
         }
         else if (blackboard.cameraToInvestigate)
         {
             cameraToLock = blackboard.cameraToInvestigate;
-            npcController.MoveTransform(cameraToLock.InteractPosition, cameraToLock.InteractRotation,
-                NpcAnimation.Interact);
         }
         else
         {
             started = false;
             return;
         }
+
+        npcController.MoveTransform(cameraToLock.InteractPosition, cameraToLock.InteractRotation,
+            NpcAnimation.Interact);
+        cameraToLock.SetInvestigationMode(CameraInvestigationMode.Spotted);
     }
 
     protected override void OnStop()

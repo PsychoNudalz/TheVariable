@@ -845,7 +845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allDetectedSmartObjects: []
   allLoSSmartObjects: []
-  los_Distance: 15
+  los_Distance: 32
   los_LayerMask:
     serializedVersion: 2
     m_Bits: 1920

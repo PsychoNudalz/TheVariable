@@ -447,6 +447,7 @@ public class PlayerController : MonoBehaviour
         {
             ActivateLockout(currentCamera);
         }
+        // if(currentCamera)
     }
 
     private void AddCurrentCameraToStack()

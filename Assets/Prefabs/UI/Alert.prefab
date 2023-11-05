@@ -134,6 +134,8 @@ MonoBehaviour:
   alertTransform: {fileID: 3891079415719199417}
   distanceRange: {x: 0, y: 10}
   scaleRange: {x: 0.1, y: 0.5}
+  canvasSize: {x: 1280, y: 720}
+  deadZone: 0.2
 --- !u!1 &7554421976403792900
 GameObject:
   m_ObjectHideFlags: 0

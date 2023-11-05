@@ -30,6 +30,10 @@ public class UI_Alert : MonoBehaviour
     private Material alertMaterial;
     private static readonly int AlertStrength = Shader.PropertyToID("_AlertStrength");
     private Camera worldCamera;
+    private  Vector2 canvasSize = new Vector2(1280, 720);
+
+    [SerializeField]
+    private float deadZone = 0.3f;
 
     public bool isActive => gameObject.activeSelf;
 
@@ -43,6 +47,7 @@ public class UI_Alert : MonoBehaviour
         SetAlertStrength(0f);
         worldCamera = Camera.main;
         spottedSprite.gameObject.SetActive(false);
+        canvasSize = new Vector2(Screen.currentResolution.width,Screen.currentResolution.height);
     }
     
     // Start is called before the first frame update
@@ -62,7 +67,13 @@ public class UI_Alert : MonoBehaviour
     }
     public void SetAlertPosition(Vector3 worldPosition)
     {
-        // transform.position = world.WorldToScreenPoint(worldPosition);
+        // Vector3 screenPoint = worldCamera.WorldToViewportPoint(worldPosition);
+        //
+        // screenPoint.x = Mathf.Clamp(screenPoint.x, canvasSize.x * deadZone, canvasSize.x * (1 - deadZone));
+        // // screenPoint.y = Mathf.Clamp(screenPoint.y, canvasSize.y * deadZone, canvasSize.y * (1 - deadZone));
+        //
+        // worldPosition = worldCamera.ViewportToWorldPoint(screenPoint);
+        //
         transform.position = worldPosition;
     }
 

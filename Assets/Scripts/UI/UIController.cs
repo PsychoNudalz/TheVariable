@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -18,6 +19,15 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_CameraScreen cameraScreen;
 
+    [Header("Smaller Components")]
+    [Header("Clearance Level")]
+    [SerializeField]
+    private TextMeshProUGUI clearanceText;
+
+    [SerializeField]
+    private Color[] clearanceColours;
+
+
     public static UIController current;
 
     private void Awake()
@@ -28,6 +38,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         HacksDisplay_SetActive(false);
+        SetClearanceText(0);
     }
 
     // Update is called once per frame
@@ -57,7 +68,7 @@ public class UIController : MonoBehaviour
         // hackAbilityDisplay.Hack(hackIndex);
         return hackIndex;
     }
-    
+
     // public int HacksDisplay_SelectHack(Vector2 dir, out HackAbility hack)
     // {
     //     int hackIndex = hackAbilityDisplay.UpdateDir(dir);
@@ -73,12 +84,25 @@ public class UIController : MonoBehaviour
 
     public void LockoutScreen_SetActive(bool b, CameraController cameraController = null)
     {
-        
-        lockOutScreen.SetActive(b,cameraController);
+        lockOutScreen.SetActive(b, cameraController);
     }
 
     public void CameraScreen_Play(CameraInvestigationMode cameraInvestigationMode)
     {
         cameraScreen.PlayAnimation(cameraInvestigationMode);
+    }
+
+    public void SetClearanceText(int i)
+    {
+        clearanceText.text = i.ToString();
+        try
+        {
+            clearanceText.color = clearanceColours[i];
+        }
+        catch (IndexOutOfRangeException e)
+        {
+            Debug.LogError("Clearance colour out of range");
+            clearanceText.color = Color.white;
+        }
     }
 }

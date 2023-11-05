@@ -94,6 +94,7 @@ public abstract class SmartObject : MonoBehaviour
         {
             hacks[i] = Instantiate(hacks[i]);
             hacks[i].Initialise(this);
+            hacks[i].name = hacks[i].name.Replace("(Clone)","").Trim();
         }
 
         if (!audioDistract)

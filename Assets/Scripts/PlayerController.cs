@@ -583,5 +583,6 @@ public class PlayerController : MonoBehaviour
     {
         clearanceLevel = Math.Max(clearanceLevel, level);
         Debug.Log($"Player Level increased to: {clearanceLevel}");
+        uiController.SetClearanceText(clearanceLevel);
     }
 }

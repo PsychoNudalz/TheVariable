@@ -14,6 +14,7 @@ public class Action_StopMove : MoveToPosition
         context.agent.updateRotation = updateRotation;
         // context.agent.acceleration = acceleration;
         context.agent.SetDestination(blackboard.targetPosition);
+        context.agent.isStopped=true;
         if (playIdleAnimationOnStop)
         {
             context.NpcController.PlayAnimation(NpcAnimation.Idle);

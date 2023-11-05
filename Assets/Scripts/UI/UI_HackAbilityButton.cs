@@ -22,7 +22,7 @@ public class UI_HackAbilityButton : MonoBehaviour
     private UI_HackAbilityDisplay display;
 
     [SerializeField]
-    private Image buttonImage;
+    private Image[] buttonImages;
 
     [SerializeField]
     private TextMeshProUGUI text;
@@ -103,15 +103,19 @@ public class UI_HackAbilityButton : MonoBehaviour
 
     public void OnHover(bool enter = true)
     {
-        if (enter&&activeState != ActiveState_Enum.HackFail)
+        if (enter && activeState != ActiveState_Enum.HackFail)
         {
-            buttonImage.color = selectColour;
+            foreach (Image buttonImage in buttonImages)
+            {
+                buttonImage.color = selectColour;
+            }
         }
         else
         {
-            buttonImage.color = baseColour;
+            foreach (Image buttonImage in buttonImages)
+            {
+                buttonImage.color = baseColour;
+            }
         }
     }
-
-
 }

@@ -110,6 +110,7 @@ MonoBehaviour:
   - rid: 2403197175240327175
   - rid: 2403197175240327176
   - rid: 2403197175240327177
+  - rid: 2403197175240327178
   treeState: 0
   blackboard:
     alertState: 0
@@ -129,8 +130,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -2332, y: -425.6, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: -2235.2, y: -312, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -1165,7 +1166,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: f48aaa3a80958884cbbb19e47faa8d69
-        position: {x: 2873.4277, y: 1300.4001}
+        position: {x: 2834.0322, y: 1284.8002}
         blackboard:
           alertState: 0
           health: 0
@@ -1361,6 +1362,40 @@ MonoBehaviour:
         drawGizmos: 0
         cameraInvestigationMode: 0
         cameraToLock: {fileID: 0}
+    - rid: 2403197175240327178
+      type: {class: Action_StopMove, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d6ff42535d1e0b74399f1fd6a8e66522
+        position: {x: 3021.5994, y: 804.79987}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          cameraToInvestigate: {fileID: 0}
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Action_StopMove
+        description: 
+        drawGizmos: 0
+        stoppingDistance: 10
+        updateRotation: 1
+        tolerance: 1
+        playIdleAnimationOnStop: 1
+        samePosition_TimeOut: 1
+        samePosition_ResetTime: 1
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -2816,7 +2851,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: bf1879c77127d644e872cf5d4a9f5d5c
-        position: {x: 3732.8, y: 604.8}
+        position: {x: 3731.9995, y: 599.1546}
         blackboard:
           alertState: 0
           health: 0
@@ -2843,6 +2878,7 @@ MonoBehaviour:
         - rid: 466623531301208067
         - rid: 466623466926768141
         - rid: 8796965355488280588
+        - rid: 2403197175240327178
     - rid: 8796965355488280586
       type: {class: Action_SetWait, ns: , asm: Assembly-CSharp}
       data:

@@ -7,7 +7,7 @@ using TheKiwiCoder;
 public class MoveToPosition : ActionNode
 {
     // public float speed = 5;
-    public float stoppingDistance = 0.1f;
+    public float stoppingDistance = 0.5f;
 
     public bool updateRotation = true;
 
@@ -27,6 +27,7 @@ public class MoveToPosition : ActionNode
     protected override void OnStart()
     {
         context.agent.enabled = true;
+        context.agent.isStopped=false;
 
         context.agent.stoppingDistance = stoppingDistance;
         // context.agent.speed = speed;

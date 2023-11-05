@@ -6,7 +6,7 @@ using UnityEngine;
 public class UI_AlertManager : MonoBehaviour
 {
     [SerializeField]
-    private UI_Alert uiAlert_GO;
+    private UI_Alert uiAlertGo;
     [SerializeField]
     private Dictionary<NpcController, UI_Alert> npcToAlertMap;
 
@@ -33,7 +33,7 @@ public class UI_AlertManager : MonoBehaviour
         npcToAlertMap = new Dictionary<NpcController, UI_Alert>();
         foreach (NpcController npcController in NpcManager.NPCs)
         {
-            UI_Alert alert = Instantiate(uiAlert_GO,transform).GetComponent<UI_Alert>();
+            UI_Alert alert = Instantiate(uiAlertGo,transform).GetComponent<UI_Alert>();
             npcToAlertMap.Add(npcController,alert);
         }
     }

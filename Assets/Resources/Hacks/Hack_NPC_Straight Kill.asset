@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18d2e03687a234dbb7361d7e945154b, type: 3}
   m_Name: Hack_NPC_Straight Kill
   m_EditorClassIdentifier: 
-  HackName: NPC StraightKill
   hackTime: 5
+  hackClearance: 3
   hackCost: 10

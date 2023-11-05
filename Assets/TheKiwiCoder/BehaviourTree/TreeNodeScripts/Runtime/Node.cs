@@ -186,10 +186,17 @@ namespace TheKiwiCoder
         }
         protected void Update_LastKnown(CameraController camera)
         {
+            if (!camera)
+            {
+                return;
+            }
             CameraController blackboardPlayerLastKnownCamera = camera;
             blackboard.player_LastKnown_Camera = blackboardPlayerLastKnownCamera;
-            blackboard.player_LastKnown_Position = blackboard.player_LastKnown_Camera.Position;
-            blackboard.player_LastKnown_Time = Time.time;
+            if (blackboard.player_LastKnown_Camera)
+            {
+                blackboard.player_LastKnown_Position = blackboard.player_LastKnown_Camera.Position;
+                blackboard.player_LastKnown_Time = Time.time;
+            }
         }
     }
     

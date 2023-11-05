@@ -33,8 +33,12 @@ public class Action_LockCamera : ActionNode
             return;
         }
 
-        npcController.MoveTransform(cameraToLock.InteractPosition, cameraToLock.InteractRotation,
-            NpcAnimation.Interact);
+        if (cameraToLock.ConnectedSo is NpcObject)
+        {
+            npcController.MoveTransform(agent_Position, cameraToLock.InteractRotation,
+                NpcAnimation.Interact);
+        }
+
         cameraToLock.SetInvestigationMode(CameraInvestigationMode.Spotted);
     }
 

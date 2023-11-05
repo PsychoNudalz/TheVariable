@@ -279,7 +279,6 @@ public class CameraController : MonoBehaviour
 
         isPlayerControl = b;
         SetInvestigationMode(investigationMode);
-
     }
 
     public void ThroughWallEffect_Activate()
@@ -317,6 +316,7 @@ public class CameraController : MonoBehaviour
         //     Debug.Log($"{name} state not none");
         //     return;
         // }
+        CancelHack();
 
         if (index < 0)
         {
@@ -355,7 +355,8 @@ public class CameraController : MonoBehaviour
     private void Hack_Activation(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
     {
         target.ActivateHack(index, hackContextEnum);
-        if (cameraState != CameraState.Locked&&cameraLock_Time<=0f&&investigationMode != CameraInvestigationMode.Spotted)
+        if (cameraState != CameraState.Locked && cameraLock_Time <= 0f &&
+            investigationMode != CameraInvestigationMode.Spotted)
         {
             cameraState = CameraState.None;
         }

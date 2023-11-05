@@ -32,10 +32,9 @@ namespace TheKiwiCoder
         [HideInInspector]
         public Context context;
 
-        
-        [HideInInspector]
-        public NpcController npcController => context.NpcController;
-        
+
+        [HideInInspector] public NpcController npcController => context.NpcController;
+
         [HideInInspector]
         public Blackboard blackboard;
 
@@ -184,12 +183,14 @@ namespace TheKiwiCoder
             blackboard.locatedItem = null;
             blackboard.pickedUpItem = null;
         }
+
         protected void Update_LastKnown(CameraController camera)
         {
             if (!camera)
             {
                 return;
             }
+
             CameraController blackboardPlayerLastKnownCamera = camera;
             blackboard.player_LastKnown_Camera = blackboardPlayerLastKnownCamera;
             if (blackboard.player_LastKnown_Camera)
@@ -198,8 +199,15 @@ namespace TheKiwiCoder
                 blackboard.player_LastKnown_Time = Time.time;
             }
         }
+
+        protected Quaternion GetDirectionToNpc(NpcObject npcObject)
+        {
+            Vector3 dir = (npcObject.Position - agent_Position).normalized;
+            return Quaternion.AngleAxis(Vector2.Angle(new Vector2(0, 1f), new Vector2(dir.x, dir.z)),
+                Vector3.up);
+        }
     }
-    
+
 
     public class NullNodeException : Exception
     {

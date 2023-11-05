@@ -47,8 +47,17 @@ public class PlayAnimation : ActionNode
                 case PlayAnimationOrientation.CameraToInvestigate:
                     if (blackboard.cameraToInvestigate)
                     {
-                        context.NpcController.MoveTransform(blackboard.cameraToInvestigate.ConnectedSo.InteractPosition,
-                            blackboard.cameraToInvestigate.ConnectedSo.InteractRotation, animation);
+                        if (blackboard.cameraToInvestigate.ConnectedSo is NpcObject npcObject)
+                        {
+                            context.NpcController.MoveTransform(agent_Position,
+                                GetDirectionToNpc(npcObject), animation);
+                        }
+                        else
+                        {
+                            context.NpcController.MoveTransform(
+                                blackboard.cameraToInvestigate.ConnectedSo.InteractPosition,
+                                blackboard.cameraToInvestigate.ConnectedSo.InteractRotation, animation);
+                        }
                     }
                     else
                     {
@@ -60,8 +69,16 @@ public class PlayAnimation : ActionNode
                 case PlayAnimationOrientation.CameraToLock:
                     if (blackboard.cameraToLock)
                     {
-                        context.NpcController.MoveTransform(blackboard.cameraToLock.ConnectedSo.InteractPosition,
-                            blackboard.cameraToLock.ConnectedSo.InteractRotation, animation);
+                        if (blackboard.cameraToLock.ConnectedSo is NpcObject npcObject)
+                        {
+                            context.NpcController.MoveTransform(agent_Position,
+                                GetDirectionToNpc(npcObject), animation);
+                        }
+                        else
+                        {
+                            context.NpcController.MoveTransform(blackboard.cameraToLock.ConnectedSo.InteractPosition,
+                                blackboard.cameraToLock.ConnectedSo.InteractRotation, animation);
+                        }
                     }
                     else
                     {
@@ -78,10 +95,8 @@ public class PlayAnimation : ActionNode
                         {
                             if (ss.SmartObject is NpcObject npcObject)
                             {
-                                Vector3 dir = (npcObject.Position - agent_Position).normalized;
                                 context.NpcController.MoveTransform(agent_Position,
-                                    Quaternion.AngleAxis(Vector2.Angle(new Vector2(0, 1f), new Vector2(dir.x, dir.z)),
-                                        Vector3.up), animation);
+                                    GetDirectionToNpc(npcObject), animation);
                             }
                             else
                             {

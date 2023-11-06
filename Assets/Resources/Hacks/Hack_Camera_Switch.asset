@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9567478b1dee9eaba033b00499b3d86, type: 3}
   m_Name: Hack_Camera_Switch
   m_EditorClassIdentifier: 
-  HackName: Camera Switch
-  hackTime: 1
+  hackTime: 0.75
+  hackClearance: 0
   hackCost: 0

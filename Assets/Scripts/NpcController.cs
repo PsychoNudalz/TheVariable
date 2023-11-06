@@ -99,6 +99,8 @@ public class NpcController : MonoBehaviour
     [SerializeField]
     private NavMeshAgent navMeshAgent;
 
+    public TaskEvent CurrentTask => currentTask;
+
     public List<TaskEvent> TaskQueue => taskQueue;
 
     public List<TaskEvent> Schedule => schedule;
@@ -122,10 +124,15 @@ public class NpcController : MonoBehaviour
 
     public SensorySource GetCurrentSS => sensoryController.GetCurrentSS;
 
-    NPC_AlertState blackboardAlertState
+    public NPC_AlertState blackboardAlertState
     {
         get => treeRunner.tree.blackboard.alertState;
         set => treeRunner.tree.blackboard.alertState = value;
+    }
+
+    public bool HasCurrentTask()
+    {
+        return !currentTask.IsNull;
     }
 
 

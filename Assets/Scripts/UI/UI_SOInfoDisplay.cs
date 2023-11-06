@@ -18,9 +18,23 @@ public class UI_SOInfoDisplay : MonoBehaviour
 
     [Header("Items")]
     [SerializeField]
+    GameObject itemGroup;
+    [SerializeField]
     private TextMeshProUGUI itemName;
     [SerializeField]
     private TextMeshProUGUI originalItemName;
+
+    [Header("NPC")]
+    [SerializeField]
+    GameObject NPCGroup;
+    [SerializeField]
+    private TextMeshProUGUI NPCState;
+
+    [SerializeField]
+    private TextMeshProUGUI taskName;
+
+    [SerializeField]
+    private TextMeshProUGUI[] scheduleText;
 
     // Start is called before the first frame update
     void Start()
@@ -54,11 +68,43 @@ public class UI_SOInfoDisplay : MonoBehaviour
         if (smartObject)
         {
             currentSO = smartObject;
+            itemGroup.SetActive(false);
+            NPCGroup.SetActive(false);
             if (smartObject is ItemObject itemObject)
             {
                 SOInfo.SetActive(true);
+                itemGroup.SetActive(true);
                 itemName.text = itemObject.CurrentItemName.ToString();
                 originalItemName.text = itemObject.OriginalItemName.ToString();
+            }
+
+            if (smartObject is NpcObject npcObject)
+            {
+                SOInfo.SetActive(true);
+                NPCGroup.SetActive(true);
+                NPCState.text = npcObject.Controller.blackboardAlertState.ToString();
+                if (npcObject.Controller.HasCurrentTask())
+                {
+                    taskName.text = npcObject.Controller.CurrentTask.ToString();
+                }
+                else
+                {
+                    taskName.text = "NULL";
+                }
+
+                for (var i = 0; i < scheduleText.Length; i++)
+                {
+                    var text = scheduleText[i];
+                    if (i < npcObject.Controller.TaskQueue.Count)
+                    {
+                        text.gameObject.SetActive(true);
+                        text.text = npcObject.Controller.TaskQueue[i].ToString();
+                    }
+                    else
+                    {
+                        text.gameObject.SetActive(false);
+                    }
+                }
             }
         }
         else

@@ -45,6 +45,7 @@ namespace Task
         public string TaskName => taskDescription.TaskName;
         public TaskSmartObject TaskSmartObject => taskSmartObject;
         public bool HasObjectSet => taskSmartObject != null;
+        public bool IsNull => taskDescription == null;
         public Vector3 Position
         {
             get => taskSmartObject.Position;

@@ -61,6 +61,11 @@ public class NpcVisionConeController : MonoBehaviour
     {
         foreach (SmartObject smartObject in allDetectedSmartObjects)
         {
+            if (!smartObject)
+            {
+                //TODO: actually remove the null object
+                continue;
+            }
             Vector3 diff = Vector3.zero;
             if (smartObject is NpcObject npcObject)
             {

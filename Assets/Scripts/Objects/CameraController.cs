@@ -377,7 +377,11 @@ public class CameraController : MonoBehaviour
 
 
             cameraState = CameraState.Locked;
-            cameraLock_Time = duration;
+            if (cameraLock_Time <= 0)
+            {
+                cameraLock_Time = duration;
+            }
+
             if (isPlayerControl)
             {
                 playerController.ActivateLockout(this);

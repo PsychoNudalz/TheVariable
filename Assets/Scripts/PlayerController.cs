@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private bool detectCameraThroughWalls = false;
+
     [SerializeField]
     private LayerMask cameraLayer;
 
@@ -78,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float selectStickyTime = 1f;
+
     private float selectStickyTime_Now = 1f;
 
 
@@ -95,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private ItemName copiedItem = ItemName.None;
-    
+
     public int ClearanceLevel => clearanceLevel;
 
     private void Awake()
@@ -116,7 +118,7 @@ public class PlayerController : MonoBehaviour
         {
             ChangeCamera(cameraManager.AllCameras[0]);
         }
-        
+
         CopyItem(ItemName.None);
     }
 
@@ -195,7 +197,6 @@ public class PlayerController : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
     }
 
 
@@ -274,11 +275,10 @@ public class PlayerController : MonoBehaviour
         }
 
         cameraStackIndex--;
-        cameraStackIndex = (int) Math.Clamp(cameraStackIndex, 0, cameraStack.Count - 1);
+        cameraStackIndex = (int)Math.Clamp(cameraStackIndex, 0, cameraStack.Count - 1);
         // ChangeCamera(cameraStack[cameraStackIndex],false);
         // currentCamera = cameraManager.GetNextCamera(currentCamera);
         SwitchToStackCamera();
-
     }
 
     public void OnCamera_Prev()
@@ -299,7 +299,7 @@ public class PlayerController : MonoBehaviour
         }
 
         cameraStackIndex++;
-        cameraStackIndex = (int) Math.Clamp(cameraStackIndex, 0, cameraStack.Count - 1);
+        cameraStackIndex = (int)Math.Clamp(cameraStackIndex, 0, cameraStack.Count - 1);
 
         SwitchToStackCamera();
 
@@ -314,7 +314,8 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchToStackCamera()
     {
-        currentCamera.StartHack(currentCameraFromStack.ConnectedSo, currentCamera.ConnectedSo.GetHackIndex<Hack_Camera_Switch>(),
+        currentCamera.StartHack(currentCameraFromStack.ConnectedSo,
+            currentCamera.ConnectedSo.GetHackIndex<Hack_Camera_Switch>(),
             new HackContext_Enum[1]
             {
                 HackContext_Enum.Camera_notPushToStack
@@ -439,13 +440,14 @@ public class PlayerController : MonoBehaviour
             pushToStack = false;
         }
 
-        if (pushToStack&&cameraStackIndex > 0)
+        if (pushToStack && cameraStackIndex > 0)
         {
             AddCurrentCameraToStack();
         }
+
         currentCamera = cameraManager.ChangeCamera(cameraController, currentCamera);
-        
-        
+
+
         if (pushToStack)
         {
             AddCurrentCameraToStack();
@@ -513,7 +515,8 @@ public class PlayerController : MonoBehaviour
             if (!detectedSOHit)
             {
                 //Finding cameras
-                if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, cameraLayer))
+                if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange,
+                        cameraLayer))
                 {
                     CameraObject cameraObject = hit.collider.GetComponentInParent<CameraObject>();
                     if (cameraObject)
@@ -544,7 +547,7 @@ public class PlayerController : MonoBehaviour
             {
                 selectStickyTime_Now -= Time.deltaTime;
             }
-            
+
             if (selectStickyTime_Now < 0f)
             {
                 //TODO - might need to check if it is worth disabling the hack wheel when it can't detect it no more
@@ -553,20 +556,21 @@ public class PlayerController : MonoBehaviour
                     selectedObject.OnSelect_Exit();
                     selectedObject = null;
                 }
-                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.red, Time.deltaTime);
 
+                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.red,
+                    Time.deltaTime);
             }
-            else if(selectedObject)
+            else if (selectedObject)
             {
-                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.blue, Time.deltaTime);
+                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.blue,
+                    Time.deltaTime);
                 Debug.DrawLine(currentCamera.Position, selectedObject.Position, Color.cyan, Time.deltaTime);
-
             }
             else
             {
-                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.red, Time.deltaTime);
+                Debug.DrawRay(currentCamera.Position, currentCamera.Forward * camera_CastRange, Color.red,
+                    Time.deltaTime);
             }
-
         }
     }
 
@@ -575,7 +579,7 @@ public class PlayerController : MonoBehaviour
         uiController.LockoutScreen_SetActive(true, CameraController);
         OnSelectCancel();
         cameraMode = CameraMode.LockedOut;
-        
+        DecreaseClearanceLevel(1);
     }
 
     public void DeactivateLockout()
@@ -583,8 +587,8 @@ public class PlayerController : MonoBehaviour
         uiController.LockoutScreen_SetActive(false);
         cameraMode = CameraMode.Free;
     }
-    
-    
+
+
     //----------------------
     //Clearance Level
     public void IncreaseClearanceLevel(int level)
@@ -593,7 +597,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"Player Level increased to: {clearanceLevel}");
         uiController.SetClearanceText(clearanceLevel);
     }
-    
+
+    public void DecreaseClearanceLevel(int level)
+    {
+        clearanceLevel = Math.Max(clearanceLevel - level, 0);
+        Debug.Log($"Player Level decreased to: {clearanceLevel}");
+        uiController.SetClearanceText(clearanceLevel);
+    }
+
     //Copy object
     public void CopyItem(ItemName itemName)
     {
@@ -608,6 +619,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
         itemObject.PasteItem(copiedItem);
     }
 }

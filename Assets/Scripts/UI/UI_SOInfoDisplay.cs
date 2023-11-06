@@ -9,10 +9,19 @@ public class UI_SOInfoDisplay : MonoBehaviour
     private GameObject SONamePlate;
     [SerializeField]
     private TextMeshProUGUI SOName_Text;
-[Space(5)]
-[SerializeField]
-// GameObject 
+
+    [Space(5)]
+    [Header("Info Display")]
+    [SerializeField]
+    private GameObject SOInfo;
     private SmartObject currentSO;
+
+    [Header("Items")]
+    [SerializeField]
+    private TextMeshProUGUI itemName;
+    [SerializeField]
+    private TextMeshProUGUI originalItemName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +46,25 @@ public class UI_SOInfoDisplay : MonoBehaviour
         {
             currentSO = null;
             SONamePlate.SetActive(false);
+        }
+    }
+
+    public void ShowInfo(SmartObject smartObject)
+    {
+        if (smartObject)
+        {
+            currentSO = smartObject;
+            if (smartObject is ItemObject itemObject)
+            {
+                SOInfo.SetActive(true);
+                itemName.text = itemObject.CurrentItemName.ToString();
+                originalItemName.text = itemObject.OriginalItemName.ToString();
+            }
+        }
+        else
+        {
+            currentSO = null;
+            SOInfo.SetActive(false);
         }
     }
 }

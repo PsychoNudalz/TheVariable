@@ -55,6 +55,7 @@ public class UIController : MonoBehaviour
     {
         hackAbilityDisplay.gameObject.SetActive(b);
         hackAbilityDisplay.SetObjectToHack(so);
+        infoDisplay.ShowInfo(so);
     }
 
     public int HacksDisplay_UpdateDir(Vector2 dir)

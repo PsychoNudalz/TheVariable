@@ -14,7 +14,8 @@ public enum ItemName
 {
     None,
     Apple,
-    Poison
+    Poison,
+    Wood
 }
 
 public class ItemObject : SmartObject

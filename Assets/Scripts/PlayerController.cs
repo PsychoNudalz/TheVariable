@@ -179,6 +179,8 @@ public class PlayerController : MonoBehaviour
         {
             case CameraMode.Free:
                 RaycastCamera();
+                uiController.SOInfo_Hover(selectedObject);
+
                 break;
             case CameraMode.SelectHack:
                 uiController.HacksDisplay_UpdateDir(selectDir);
@@ -193,6 +195,7 @@ public class PlayerController : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
+        
     }
 
 

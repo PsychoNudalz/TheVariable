@@ -19,6 +19,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_CameraScreen cameraScreen;
 
+    [SerializeField]
+    private UI_SOInfoDisplay infoDisplay;
+
     [Header("Smaller Components")]
     [Header("Clearance Level")]
     [SerializeField]
@@ -69,6 +72,11 @@ public class UIController : MonoBehaviour
         // hack = hackAbilityDisplay.GetHack(hackIndex);
         // hackAbilityDisplay.Hack(hackIndex);
         return hackIndex;
+    }
+
+    public void SOInfo_Hover(SmartObject so)
+    {
+        infoDisplay.SetSO(so);
     }
 
     // public int HacksDisplay_SelectHack(Vector2 dir, out HackAbility hack)

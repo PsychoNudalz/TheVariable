@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4139411143164113552}
   - component: {fileID: 7625079898920672764}
   - component: {fileID: 3913517303742592896}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: vfx_AudioPing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 5
+        m_Name: Size
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:

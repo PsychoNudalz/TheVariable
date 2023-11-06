@@ -26,7 +26,9 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     private Color[] clearanceColours;
-
+    [Header("Copy Item")]
+    [SerializeField]
+    private TextMeshProUGUI itemText;
 
     public static UIController current;
 
@@ -104,5 +106,10 @@ public class UIController : MonoBehaviour
             Debug.LogError("Clearance colour out of range");
             clearanceText.color = Color.white;
         }
+    }
+
+    public void SetItem(ItemName s)
+    {
+        itemText.text = s.ToString();
     }
 }

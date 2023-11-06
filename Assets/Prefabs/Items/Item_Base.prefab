@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 7101816993292373045}
   - component: {fileID: 3399867990514886041}
   - component: {fileID: 3017447997709266215}
+  - component: {fileID: 5403636153326276058}
   m_Layer: 7
   m_Name: Item_Base
   m_TagString: Untagged
@@ -402,10 +403,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactPoint: {fileID: 0}
   highlightEffect: {fileID: 2617819239995198200}
-  hacks: []
+  hacks:
+  - {fileID: 11400000, guid: 83707db5a5e54e7499a55bb98929d3c6, type: 2}
+  - {fileID: 11400000, guid: 8b48f8ad836948544ab3346229b47578, type: 2}
   audioDistract: {fileID: 3017447997709266215}
   Enable_Debug: 1
-  name: 0
+  originalItemName: 0
   modelGO: {fileID: 129341653907168838}
   sfx_PickUp: {fileID: 8225671244461350736}
   sfx_Drop: {fileID: 8816058667633838312}
@@ -437,6 +440,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350fd39f14f010f49b1650e4be2580c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioDistract_Range: 10
+  audioDistract_Strength: 1
+  audioDistract_Dampen: 1
+  audioDistract_PS: {fileID: 0}
+  audioDistract_VE: {fileID: 0}
+  audioDistract_SFX: {fileID: 0}
+--- !u!65 &5403636153326276058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977700637173320418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 0.4, z: 0.4}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8485705617526002947
 GameObject:
   m_ObjectHideFlags: 0

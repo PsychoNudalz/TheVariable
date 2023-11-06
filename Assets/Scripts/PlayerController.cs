@@ -93,6 +93,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private int clearanceLevel = 0;
 
+    [SerializeField]
+    private ItemName copiedItem = ItemName.None;
+    
     public int ClearanceLevel => clearanceLevel;
 
     private void Awake()
@@ -113,6 +116,8 @@ public class PlayerController : MonoBehaviour
         {
             ChangeCamera(cameraManager.AllCameras[0]);
         }
+        
+        CopyItem(ItemName.None);
     }
 
     // Update is called once per frame
@@ -584,5 +589,22 @@ public class PlayerController : MonoBehaviour
         clearanceLevel = Math.Max(clearanceLevel, level);
         Debug.Log($"Player Level increased to: {clearanceLevel}");
         uiController.SetClearanceText(clearanceLevel);
+    }
+    
+    //Copy object
+    public void CopyItem(ItemName itemName)
+    {
+        copiedItem = itemName;
+        uiController.SetItem(itemName);
+    }
+
+    public void PasteItem(ItemObject itemObject)
+    {
+        // itemObject
+        if (copiedItem == ItemName.None)
+        {
+            return;
+        }
+        itemObject.PasteItem(copiedItem);
     }
 }

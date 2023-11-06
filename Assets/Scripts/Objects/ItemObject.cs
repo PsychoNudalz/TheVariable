@@ -23,24 +23,30 @@ public class ItemObject : SmartObject
 
     [Header("Item")]
     [SerializeField]
-    private ItemName name = ItemName.None;
+    private ItemName originalItemName = ItemName.None;
+
+    private ItemName currentItemName = ItemName.None;
 
     [SerializeField]
     private GameObject modelGO;
 
     [SerializeField]
     private SoundAbstract sfx_PickUp;
+
     [SerializeField]
     private SoundAbstract sfx_Drop;
 
-    public virtual bool IsFree => currentTask == null&&itemState == ItemState.Idle;
+    public virtual bool IsFree => currentTask == null && itemState == ItemState.Idle;
     private TaskEvent currentTask;
-    public ItemName Name => name;
+    public ItemName CurrentItemName => currentItemName;
+
+    public ItemName OriginalItemName => originalItemName;
 
     public bool IsUsing => currentTask.Equals(null);
 
     protected override void AwakeBehaviour()
     {
+        currentItemName = originalItemName;
     }
 
     protected override void StartBehaviour()
@@ -65,6 +71,7 @@ public class ItemObject : SmartObject
         {
             return false;
         }
+
         AssignTask(taskEvent);
         itemState = ItemState.PickUp;
         transform.parent = npc.transform;
@@ -74,6 +81,7 @@ public class ItemObject : SmartObject
         {
             sfx_PickUp.PlayF();
         }
+
         return true;
     }
 
@@ -82,18 +90,18 @@ public class ItemObject : SmartObject
         currentTask = taskEvent;
         if (taskEvent != null)
         {
-            Debug.Log($"{name} task assign: {taskEvent.TaskName}");
+            Debug.Log($"{currentItemName} task assign: {taskEvent.TaskName}");
         }
         else
         {
-            Debug.Log($"{name} task assign: null");
+            Debug.Log($"{currentItemName} task assign: null");
         }
     }
 
     public virtual void AssignTask()
     {
         currentTask = null;
-        Debug.Log($"{name} task assign: null");
+        Debug.Log($"{currentItemName} task assign: null");
     }
 
     public virtual void Deposit(TaskSmartObject taskSmartObject)
@@ -107,8 +115,8 @@ public class ItemObject : SmartObject
         {
             transform.parent = null;
         }
-        itemState = ItemState.Using;
 
+        itemState = ItemState.Using;
     }
 
     public virtual void Drop(Vector3 position = default)
@@ -143,7 +151,7 @@ public class ItemObject : SmartObject
     {
         if (other is ItemName n)
         {
-            return name.Equals(n);
+            return currentItemName.Equals(n);
         }
         else
         {
@@ -153,12 +161,17 @@ public class ItemObject : SmartObject
 
     public bool Equals(ItemName n)
     {
-        return name.Equals(n);
+        return currentItemName.Equals(n);
     }
 
 
     public override int GetHashCode()
     {
         return base.GetHashCode();
+    }
+
+    public void PasteItem(ItemName itemName)
+    {
+        currentItemName = itemName;
     }
 }

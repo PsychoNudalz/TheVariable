@@ -148,6 +148,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ResetSave",
+                    "type": "Button",
+                    "id": "f19bc721-dc28-48f8-8d12-dd5cb8facf1b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -698,6 +707,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "ResetLevel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11fbc878-74fa-46a0-a2c6-e9c4dd751d14",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ResetSave",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

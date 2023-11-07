@@ -133,8 +133,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -784, y: -454.4, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: -968, y: -283.2, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -810,7 +810,7 @@ MonoBehaviour:
         drawGizmos: 0
         child:
           rid: 3923952843446550532
-        AlertValue_Increase: 0.25
+        AlertValue_Increase: 0.1
         AlertValue_Decrease: 0
         failureOnStateChange: 0
         successAfterUpdate: 0
@@ -1401,7 +1401,7 @@ MonoBehaviour:
         stoppingDistance: 10
         updateRotation: 1
         tolerance: 1
-        playIdleAnimationOnStop: 1
+        playIdleAnimationOnStop: 0
         samePosition_TimeOut: 1
         samePosition_ResetTime: 1
     - rid: 2403197242897858560
@@ -1766,7 +1766,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 569606bf5613bae48b70f471791f92ce
-        position: {x: 2300.353, y: 1504.3999}
+        position: {x: 2298.3994, y: 1504.7998}
         blackboard:
           alertState: 0
           health: 0

@@ -415,6 +415,14 @@ public class PlayerController : MonoBehaviour
             GameManager.ResetLevel();
         }
     }
+    
+    public void OnResetSave(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            GameManager.ResetSave();
+        }
+    }
 
     private void SelectHack(Vector2 dir)
     {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -141,5 +142,11 @@ public class GameManager : MonoBehaviour
     public static void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public static void ResetSave()
+    {
+        PlayerPrefs.SetFloat("Time",Mathf.Infinity);
+
     }
 }

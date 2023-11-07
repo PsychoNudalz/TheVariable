@@ -13,14 +13,14 @@ public class Update_SensoryAndAlert : DecoratorNode
     private float AlertValue_Decrease = -1f;
 
     [SerializeField]
-    private bool returnFailureOnStateChange = false;
+    private bool failureOnStateChange = false;
 
     [SerializeField]
-    private bool returnTrueAfterUpdate = false;
-
+    private bool successAfterUpdate = false;
 
     [SerializeField]
-    private bool detectPlayerControl = false;
+    private bool failureOnNewCameraDetected;
+
 
     protected override void OnStart()
     {
@@ -39,16 +39,26 @@ public class Update_SensoryAndAlert : DecoratorNode
             returnState = context.NpcController.Update_AlertValue(AlertValue_Increase);
             // if(blackboard.hackingCameras[0].)
             Update_LastKnown(blackboard.hackingCameras[0]);
+            if (failureOnNewCameraDetected)
+            {
+                if (blackboard.currentSensorySource == null || blackboard.currentSensorySource is SensorySource_Audio ||
+                    !(blackboard.currentSensorySource.SmartObject.Equals(blackboard.player_LastKnown_Camera
+                        .ConnectedSo)))
+                {
+                    return State.Failure;
+                }
+            }
         }
         else
         {
             returnState = context.NpcController.Update_AlertValue(AlertValue_Decrease);
         }
 
-        if (returnTrueAfterUpdate)
+        if (successAfterUpdate)
         {
             return State.Success;
         }
+
 
         if (returnState != blackboard.alertState)
         {
@@ -56,7 +66,7 @@ public class Update_SensoryAndAlert : DecoratorNode
 
             //Update 
 
-            if (returnFailureOnStateChange)
+            if (failureOnStateChange)
             {
                 Abort();
                 return State.Failure;
@@ -65,6 +75,4 @@ public class Update_SensoryAndAlert : DecoratorNode
 
         return child.Update();
     }
-
-
 }

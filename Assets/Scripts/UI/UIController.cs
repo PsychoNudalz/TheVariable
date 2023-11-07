@@ -23,6 +23,11 @@ public class UIController : MonoBehaviour
     private UI_SOInfoDisplay infoDisplay;
 
     [Header("Smaller Components")]
+    [Header("Timer")]
+    [SerializeField]
+    private GameObject timerDisplay;
+    [SerializeField]
+    private TextMeshProUGUI timerText;
     [Header("Clearance Level")]
     [SerializeField]
     private TextMeshProUGUI clearanceText;
@@ -120,5 +125,34 @@ public class UIController : MonoBehaviour
     public void SetItem(ItemName s)
     {
         itemText.text = s.ToString();
+    }
+
+    public void StartTimer(float seconds)
+    {
+        Debug.Log("UI start Timer");
+        timerDisplay.SetActive(true);
+        UpdateTimer(seconds);
+    }
+
+    public void UpdateTimer(float seconds)
+    {
+        TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
+        string mili = timeSpan.Milliseconds.ToString();
+        if (mili.Length >= 2)
+        {
+            mili = timeSpan.Milliseconds.ToString().Substring(0, 2);
+        }
+        else
+        {
+            mili = "0" + mili;
+        }
+
+        string sec = timeSpan.Seconds.ToString();
+        if (sec.Length == 1)
+        {
+            sec = "0" + sec;
+        }
+        string timeString = $"0{timeSpan.Minutes}:{sec}:{mili}";
+        timerText.text = timeString;
     }
 }

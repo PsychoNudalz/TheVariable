@@ -13,6 +13,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private SoundAbstract sfx_Suspicious;
 
+    [Space(10)]
+    [Header("Timer")]
+    [SerializeField]
+    [Tooltip("Timer in seconds")]
+    private float globalRealTimer = 300f;
+
+    // [SerializeField]
+    private float globalStartTime = 0f;
+    private float globalTimeRemaining;
+
+    private bool isTimerOn = false;
+    
     private static float currentTimeScale => Time.timeScale;
     private static float hackSlowScale = .1f;
     private void Awake()
@@ -26,18 +38,24 @@ public class GameManager : MonoBehaviour
             Destroy(GM);
             GM = this;
         }
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //TODO:Remove this and move to tutorial
+        StartTimer();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (isTimerOn)
+        {
+            globalTimeRemaining = globalRealTimer - (Time.realtimeSinceStartup - GM.globalStartTime);
+            UIController.current.UpdateTimer(globalTimeRemaining);
+        }
     }
 
     public static void Alert_Suspicious()
@@ -62,5 +80,12 @@ public class GameManager : MonoBehaviour
     public static void ResetTimeScale()
     {
         Time.timeScale = 1;
+    }
+
+    public static void StartTimer()
+    {
+        GM.isTimerOn = true;
+        GM.globalStartTime = Time.realtimeSinceStartup;
+        UIController.current.StartTimer(GM.globalRealTimer);
     }
 }

@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 /// <summary>
 /// Investigating the current Sensory Source, increases alert value if player is nearby or controlling the investigated camera
+/// Failure if the player if found/ state change
 /// </summary>
 [System.Serializable]
 public class Action_Investigate : ActionNode
@@ -20,12 +21,17 @@ public class Action_Investigate : ActionNode
     float alertBuildup = 1f;
 
     [SerializeField]
+    private float decayAmount = 1f;
+
+    [SerializeField]
     private bool returnFailureOnTimeExpire = true;
 
     private float investigate_Time = 0;
 
     private float investigate_StartTime = 0;
     private bool isPlayerSpotted = false;
+
+    // private bool skipRemoveSS = false;
 
     protected override void OnStart()
     {
@@ -37,6 +43,7 @@ public class Action_Investigate : ActionNode
         {
             blackboard.cameraToInvestigate = co.CameraController;
         }
+
         if (blackboard.currentSensorySource is { SmartObject: NpcObject npc })
         {
             blackboard.cameraToInvestigate = npc.Camera;
@@ -46,20 +53,28 @@ public class Action_Investigate : ActionNode
         {
             blackboard.cameraToInvestigate.Set_Investigate(true);
         }
-        Update_LastKnown(blackboard.cameraToInvestigate);
 
+        Update_LastKnown(blackboard.cameraToInvestigate);
+        // skipRemoveSS = true;
     }
 
     protected override void OnStop()
     {
         if (started)
         {
-            context.NpcController.RemoveCurrentSensorySource();
+            // if (!skipRemoveSS)
+            // {
+            if (blackboard.currentSensorySource.Equals(npcController.GetCurrentSS))
+            {
+                context.NpcController.RemoveCurrentSensorySource();
+            }
 
             if (!isPlayerSpotted)
             {
                 blackboard.currentSensorySource = null;
             }
+            // }
+
             if (blackboard.cameraToInvestigate)
             {
                 blackboard.cameraToInvestigate.Set_Investigate(false);
@@ -69,17 +84,17 @@ public class Action_Investigate : ActionNode
 
     protected override State OnUpdate()
     {
-        if (!blackboard.cameraToInvestigate)
-        {
-            return State.Failure;
-        }
+        // if (!blackboard.cameraToInvestigate)
+        // {
+        //     return State.Failure;
+        // }
         if (Time.time - investigate_StartTime <= investigate_Time)
         {
             //While the AI is investigating
-            if (blackboard.cameraToInvestigate&&blackboard.cameraToInvestigate.IsDetectable)
+            if (blackboard.cameraToInvestigate && blackboard.cameraToInvestigate.IsDetectable)
             {
                 // if(blackboard.currentSensorySource)
-                
+
                 NPC_AlertState returnState = context.NpcController.Update_AlertValue(alertBuildup);
 
                 Update_LastKnown(blackboard.cameraToInvestigate);
@@ -89,10 +104,12 @@ public class Action_Investigate : ActionNode
                 {
                     ChangeAlertState(returnState, false);
                     isPlayerSpotted = true;
+                    // skipRemoveSS = true;
                     return State.Failure;
                 }
             }
 
+            blackboard.currentSensorySource.DecayStrength(Time.deltaTime * decayAmount);
             if (returnFailureOnTimeExpire)
             {
                 return State.Failure;
@@ -103,6 +120,7 @@ public class Action_Investigate : ActionNode
             }
         }
 
+        // skipRemoveSS = true;
         return State.Success;
     }
 }

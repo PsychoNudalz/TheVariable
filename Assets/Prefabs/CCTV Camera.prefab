@@ -488,7 +488,7 @@ MonoBehaviour:
   audioDistract_Strength: 1
   audioDistract_Dampen: 1
   audioDistract_PS: {fileID: 0}
-  audioDistract_VE: {fileID: 0}
+  audioDistract_VE: {fileID: 5828431194569870934}
   audioDistract_SFX: {fileID: 0}
 --- !u!114 &3115976637550050552
 MonoBehaviour:
@@ -1126,6 +1126,12 @@ PrefabInstance:
 --- !u!4 &18333319402938682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4139411143164113552, guid: 8256b74b71af8eb479cab236cd369da8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4121645292020290474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &5828431194569870934 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 7625079898920672764, guid: 8256b74b71af8eb479cab236cd369da8,
     type: 3}
   m_PrefabInstance: {fileID: 4121645292020290474}
   m_PrefabAsset: {fileID: 0}

@@ -1,15 +1,17 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 
 
 /// <summary>
 /// Deals with information regarding sensory items
 /// </summary>
 [System.Serializable]
+[CanBeNull]
 public abstract class SensorySource
 {
     protected SmartObject smartObject = null;
-    protected Vector3 position;
-    protected float strength;
+    protected Vector3 position = new Vector3();
+    protected float strength = 1f;
 
     public Vector3 Position => position;
 
@@ -45,13 +47,19 @@ public abstract class SensorySource
 
         return ss2;
     }
-    
+
+    public void DecayStrength(float amount)
+    {
+        strength -= amount;
+    }
 }
 
 /// <summary>
 /// Deals with audio based sensor, area of effect
 /// </summary>
 [System.Serializable]
+[CanBeNull]
+
 public class SensorySource_Audio : SensorySource
 {
     public SensorySource_Audio(Vector3 position, float strength) : base(position, strength)
@@ -74,6 +82,8 @@ public class SensorySource_Audio : SensorySource
 /// dead bodies
 /// </summary>
 [System.Serializable]
+[CanBeNull]
+
 public class SensorySource_Visual : SensorySource
 {
     public SensorySource_Visual(Vector3 position, float strength) : base(position, strength)

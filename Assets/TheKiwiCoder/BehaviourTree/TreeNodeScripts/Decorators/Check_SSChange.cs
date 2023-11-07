@@ -15,6 +15,7 @@ public class Check_SSChange : DecoratorNode
 
     protected override void OnStop() {
         blackboard.resetInvestigationFlag = false;
+        initialSS = null;
     }
 
     protected override State OnUpdate() {
@@ -24,6 +25,20 @@ public class Check_SSChange : DecoratorNode
             Abort();
             return State.Failure;
         }
+
+        //if NPC controller and blackboard de-synced
+        if (initialSS != null && !initialSS.Equals(npcController.GetCurrentSS))
+        {
+            Abort();
+            return State.Failure;
+        }
+
+        if (blackboard.currentSensorySource != null)
+        {
+            initialSS = blackboard.currentSensorySource;
+            Debug.Log($"Current SS: {blackboard.currentSensorySource.SmartObject.ToString()}");
+        }
+
         return child.Update();
     }
 }

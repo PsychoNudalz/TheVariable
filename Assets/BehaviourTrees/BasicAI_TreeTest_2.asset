@@ -133,8 +133,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -968, y: -283.2, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: -277.6, y: -24.8, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -719,7 +719,6 @@ MonoBehaviour:
         children:
         - rid: 8796965064170012674
         - rid: 466623170613870605
-        - rid: 466623466926768133
     - rid: 466623170613870605
       type: {class: Action_SetHackingCameraToSS, ns: , asm: Assembly-CSharp}
       data:
@@ -2897,7 +2896,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c35a0730c39c36548a56a9550de20b02
-        position: {x: 2381.953, y: 1639.6001}
+        position: {x: 2379.2, y: 1640.0002}
         blackboard:
           alertState: 0
           health: 0
@@ -2922,6 +2921,7 @@ MonoBehaviour:
         drawGizmos: 0
         investigate_TimeRange: {x: 4, y: 6}
         alertBuildup: 0.5
+        decayAmount: 5
         returnFailureOnTimeExpire: 0
     - rid: 8796965355488280581
       type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}

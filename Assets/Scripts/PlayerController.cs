@@ -400,6 +400,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnToggleHUD(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            uiController.ToggleHUD();
+        }
+    }
+
+    public void OnResetLevel(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            GameManager.ResetLevel();
+        }
+    }
+
     private void SelectHack(Vector2 dir)
     {
         int hackIndex = uiController.HacksDisplay_SelectHack(dir);

@@ -372,9 +372,7 @@ public class CameraController : MonoBehaviour
         if (b)
         {
             HackLine_Reset();
-
             CancelHack();
-
 
             cameraState = CameraState.Locked;
             if (cameraLock_Time <= 0)
@@ -385,10 +383,12 @@ public class CameraController : MonoBehaviour
             if (isPlayerControl)
             {
                 playerController.ActivateLockout(this);
-
+                if (GameManager.RanOutOfTime)
+                {
+                    GameManager.GameOver();
+                }
                 //Changes to the starting camera
             }
-
             //Return to previous camera if current camera is an NPC camera
             //Comment: Not too sure if I should do that or just reset it to the starting camera
             // if (playerController)

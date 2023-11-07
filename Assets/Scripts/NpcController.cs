@@ -132,6 +132,10 @@ public class NpcController : MonoBehaviour
 
     public bool HasCurrentTask()
     {
+        if (currentTask == null)
+        {
+            return false;
+        }
         return !currentTask.IsNull;
     }
 

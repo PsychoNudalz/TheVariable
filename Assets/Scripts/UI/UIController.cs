@@ -8,6 +8,8 @@ using UnityEngine.Serialization;
 public class UIController : MonoBehaviour
 {
     [SerializeField]
+    private GameObject HUD;
+    [SerializeField]
     private UI_HackAbilityDisplay hackAbilityDisplay;
 
     [SerializeField]
@@ -38,6 +40,10 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI itemText;
 
+    [Header("Game Over")]
+    [SerializeField]
+    private GameObject gameOverScreen;
+
     public static UIController current;
 
     private void Awake()
@@ -49,6 +55,8 @@ public class UIController : MonoBehaviour
     {
         HacksDisplay_SetActive(false);
         SetClearanceText(0);
+        gameOverScreen.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -136,6 +144,12 @@ public class UIController : MonoBehaviour
 
     public void UpdateTimer(float seconds)
     {
+        if (seconds <= 0)
+        {
+            timerText.text = "00:00:00";
+            timerText.color = Color.red;
+            return;
+        }
         TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
         string mili = timeSpan.Milliseconds.ToString();
         if (mili.Length >= 2)
@@ -154,5 +168,20 @@ public class UIController : MonoBehaviour
         }
         string timeString = $"0{timeSpan.Minutes}:{sec}:{mili}";
         timerText.text = timeString;
+    }
+
+    public void ToggleHUD()
+    {
+        HUD.SetActive(!HUD.activeSelf);
+
+    }
+    public void SetHUD(bool b)
+    {
+        HUD.SetActive(b);
+    }
+
+    public void GameOver()
+    {
+        gameOverScreen.SetActive(true);
     }
 }

@@ -61,7 +61,7 @@ public class PlayAnimation : ActionNode
                     }
                     else
                     {
-                        Debug.LogError("Missing camera to investigate");
+                        Debug.LogWarning("Missing camera to investigate");
                         context.NpcController.PlayAnimation(animation);
                     }
 
@@ -82,7 +82,7 @@ public class PlayAnimation : ActionNode
                     }
                     else
                     {
-                        Debug.LogError("Missing camera to lock");
+                        Debug.LogWarning("Missing camera to lock");
                         context.NpcController.PlayAnimation(animation);
                     }
 

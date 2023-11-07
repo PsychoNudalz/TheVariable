@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,10 +24,19 @@ public class GameManager : MonoBehaviour
     private float globalStartTime = 0f;
     private float globalTimeRemaining;
 
-    private bool isTimerOn = false;
+    enum TimerState
+    {
+        None,
+        Started,
+        Finished
+    }
+
+    private TimerState timerState;
     
     private static float currentTimeScale => Time.timeScale;
     private static float hackSlowScale = .1f;
+    public static bool RanOutOfTime => GM.timerState == TimerState.Finished;
+    
     private void Awake()
     {
         if (!GM)
@@ -49,12 +59,16 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (isTimerOn)
+        if (timerState == TimerState.Started)
         {
             globalTimeRemaining = globalRealTimer - (Time.realtimeSinceStartup - GM.globalStartTime);
             UIController.current.UpdateTimer(globalTimeRemaining);
+            if (globalTimeRemaining < 0)
+            {
+                timerState = TimerState.Finished;
+            }
         }
     }
 
@@ -82,10 +96,23 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    
+    
     public static void StartTimer()
     {
-        GM.isTimerOn = true;
+        GM.timerState = TimerState.Started;
         GM.globalStartTime = Time.realtimeSinceStartup;
         UIController.current.StartTimer(GM.globalRealTimer);
+    }
+
+    public static void GameOver()
+    {
+        UIController.current.GameOver();
+        Debug.Log("GAME OVER");
+    }
+
+    public static void ResetLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

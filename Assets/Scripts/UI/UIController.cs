@@ -44,6 +44,12 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private GameObject gameOverScreen;
 
+    [SerializeField]
+    private TextMeshProUGUI playTimeText;
+
+    [SerializeField]
+    private TextMeshProUGUI highScoreText;
+
     public static UIController current;
 
     private void Awake()
@@ -150,6 +156,12 @@ public class UIController : MonoBehaviour
             timerText.color = Color.red;
             return;
         }
+        var timeString = SecondsToString(seconds);
+        timerText.text = timeString;
+    }
+
+    private static string SecondsToString(float seconds)
+    {
         TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
         string mili = timeSpan.Milliseconds.ToString();
         if (mili.Length >= 2)
@@ -166,8 +178,9 @@ public class UIController : MonoBehaviour
         {
             sec = "0" + sec;
         }
+
         string timeString = $"0{timeSpan.Minutes}:{sec}:{mili}";
-        timerText.text = timeString;
+        return timeString;
     }
 
     public void ToggleHUD()
@@ -180,8 +193,10 @@ public class UIController : MonoBehaviour
         HUD.SetActive(b);
     }
 
-    public void GameOver()
+    public void GameOver(float currentTime, float highScore)
     {
         gameOverScreen.SetActive(true);
+        playTimeText.text = SecondsToString(currentTime);
+        highScoreText.text = SecondsToString(highScore);
     }
 }

@@ -6,10 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    enum GameState
+    {
+        None,
+        Tutorial,
+        Free,
+        GameOver,
+        GameWin
+    }
+    
+    
     public static GameManager GM;
-
+    private GameState gameState;
+    
     private float suspicious_LastTime = 0;
     private float suspicious_Cooldown = 5;
+
     [Header("Global Sounds")]
     [SerializeField]
     private SoundAbstract sfx_Suspicious;
@@ -32,11 +44,11 @@ public class GameManager : MonoBehaviour
     }
 
     private TimerState timerState;
-    
+
     private static float currentTimeScale => Time.timeScale;
     private static float hackSlowScale = .1f;
     public static bool RanOutOfTime => GM.timerState == TimerState.Finished;
-    
+
     private void Awake()
     {
         if (!GM)
@@ -48,7 +60,6 @@ public class GameManager : MonoBehaviour
             Destroy(GM);
             GM = this;
         }
-
     }
 
     // Start is called before the first frame update
@@ -83,7 +94,6 @@ public class GameManager : MonoBehaviour
         }
 
         GM.suspicious_LastTime = Time.time;
-
     }
 
     public static void SlowTimeForHack()
@@ -96,8 +106,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    
-    
+
     public static void StartTimer()
     {
         GM.timerState = TimerState.Started;
@@ -107,8 +116,26 @@ public class GameManager : MonoBehaviour
 
     public static void GameOver()
     {
-        UIController.current.GameOver();
+        if (GM.gameState is GameState.GameOver or GameState.GameWin)
+        {
+            return;
+        }
+        //Get Score from player pref
+        float highScore = PlayerPrefs.GetFloat("Time");
+        if (highScore == 0f)
+        {
+            highScore = Mathf.Infinity;
+        }
+        float runTime = Time.realtimeSinceStartup - GM.globalStartTime;
+        if (runTime < highScore)
+        {
+            highScore = runTime;
+            PlayerPrefs.SetFloat("Time",highScore);
+        }
+
+        UIController.current.GameOver(runTime, highScore);
         Debug.Log("GAME OVER");
+        GM.gameState = GameState.GameOver;
     }
 
     public static void ResetLevel()

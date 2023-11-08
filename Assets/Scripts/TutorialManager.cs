@@ -1,67 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Video;
 
+[Serializable]
 public enum TutorialEnum
 {
     Start,
-    HackingControls
+    HackingControls,
+    CameraSwitch
 }
-
-[Serializable]
-public class TutorialInstructions
-{
-    [SerializeField]
-    private TutorialEnum tutorialEnum = TutorialEnum.Start;
-
-    [SerializeField]
-    private string title = "";
-
-    [SerializeField]
-    private VideoClip videoClip = null;
-
-    [SerializeField]
-    [TextAreaAttribute(5, 10)]
-    private string text = "";
-
-    public TutorialEnum TutorialEnum => tutorialEnum;
-
-    public string Title => title;
-
-    public VideoClip VideoClip => videoClip;
-
-    public string Text => text;
-
-    public TutorialInstructions()
-    {
-    }
-
-    public TutorialInstructions(TutorialEnum tutorialEnum, string title, VideoClip videoClip, string text)
-    {
-        this.tutorialEnum = tutorialEnum;
-        this.title = title;
-        this.videoClip = videoClip;
-        this.text = text;
-    }
-
-    public override bool Equals(object obj)
-    {
-        if (obj is TutorialEnum t)
-        {
-            return t.Equals(tutorialEnum);
-        }
-
-        return base.Equals(obj);
-    }
-
-    public bool Equals(TutorialEnum t)
-    {
-        return t.Equals(tutorialEnum);
-    }
-}
+//
+// [Serializable]
+// public class TutorialInstructions1
+// {
+//     
+// }
 
 /// <summary>
 /// Handles saving tutorial content
@@ -74,15 +31,18 @@ public class TutorialManager : MonoBehaviour
     [SerializeField]
     private TutorialInstructions[] tutorials;
 
+    private Queue<TutorialEnum> queue = new Queue<TutorialEnum>();
+
     private UIController uiController;
     private TutorialInstructions currentTutorial;
-    private List<TutorialEnum> alreadyDisplayed;
+    private List<TutorialEnum> alreadyDisplayed = new List<TutorialEnum>();
 
     public static TutorialManager current;
 
     private void Awake()
     {
         current = this;
+        tutorials = Resources.LoadAll("Tutorial", typeof(TutorialInstructions)).Cast<TutorialInstructions>().ToArray();
     }
 
     // Start is called before the first frame update
@@ -90,7 +50,9 @@ public class TutorialManager : MonoBehaviour
     {
         uiController = UIController.current;
         DisplayTutorial(TutorialEnum.Start);
-        OnWindow_Close(null);
+        Close();
+        Display_FirstTime(TutorialEnum.Start);
+        Display_FirstTime(TutorialEnum.HackingControls);
     }
 
     // Update is called once per frame
@@ -138,7 +100,16 @@ public class TutorialManager : MonoBehaviour
 
     public void OnWindow_Close(InputValue inputValue)
     {
+        Close();
+    }
+
+    private void Close()
+    {
         uiController.Tutorial_Close();
+        if (queue.TryDequeue(out TutorialEnum tutorialEnum))
+        {
+            DisplayTutorial(tutorialEnum);
+        }
     }
 
     public void OnWindow_Tutorial(InputValue inputValue)
@@ -156,7 +127,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    public void DisplayTutorial(TutorialEnum tutorialEnum)
+    void DisplayTutorial(TutorialEnum tutorialEnum)
     {
         currentTutorial = null;
         foreach (TutorialInstructions tutorial in tutorials)
@@ -177,11 +148,30 @@ public class TutorialManager : MonoBehaviour
         uiController.Tutorial_Show(currentTutorial.Title, currentTutorial.VideoClip, currentTutorial.Text);
     }
 
+    public void PushStack(TutorialEnum tutorialEnum)
+    {
+        if (!uiController.IsTutorialDisplay)
+        {
+            DisplayTutorial(tutorialEnum);
+        }
+        else
+        {
+            queue.Enqueue(tutorialEnum);
+        }
+
+        // if (stack.Count ==1)
+        // {
+        //     
+        // }
+        //
+    }
+
     public void DisplayTutorial_FirstTime(TutorialEnum tutorialEnum)
     {
         if (!alreadyDisplayed.Contains(tutorialEnum))
         {
             alreadyDisplayed.Add(tutorialEnum);
+            PushStack(tutorialEnum);
         }
     }
 
@@ -189,6 +179,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (current)
         {
+            current.DisplayTutorial_FirstTime(tutorialEnum);
         }
     }
 }

@@ -222,7 +222,11 @@ MonoBehaviour:
   highlightEffect: {fileID: 0}
   hacks:
   - {fileID: 11400000, guid: 0942fb77156740e44a4d5e36c74aa38a, type: 2}
+  onHackActivateEvent:
+    m_PersistentCalls:
+      m_Calls: []
   audioDistract: {fileID: 0}
+  tutorialOnHack: 1
   Enable_Debug: 1
   doorController: {fileID: 0}
 --- !u!65 &4701682398540651832

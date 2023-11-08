@@ -228,7 +228,11 @@ MonoBehaviour:
   highlightEffect: {fileID: 219764443607572827}
   hacks:
   - {fileID: 11400000, guid: 62c1bc74d9bcfe1f2b0d78dfdad6f9b0, type: 2}
+  onHackActivateEvent:
+    m_PersistentCalls:
+      m_Calls: []
   audioDistract: {fileID: 0}
+  tutorialOnHack: 1
   Enable_Debug: 1
   associateTask: {fileID: 0}
   interactAnimation: 3

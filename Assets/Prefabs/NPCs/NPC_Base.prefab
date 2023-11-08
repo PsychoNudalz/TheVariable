@@ -391,7 +391,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a091bba9597a0893096d89ebc6844685, type: 2}
   - {fileID: 11400000, guid: 7ceabf8282161728eafb23bcd1b368b4, type: 2}
   - {fileID: 11400000, guid: 61b2998df6d350798acd07c6fd8cac76, type: 2}
+  onHackActivateEvent:
+    m_PersistentCalls:
+      m_Calls: []
   audioDistract: {fileID: 3326811676266680409}
+  tutorialOnHack: 1
   Enable_Debug: 1
   cameraController: {fileID: 4368685063548143269}
   eyeLocation: {fileID: 1155618031357110923}

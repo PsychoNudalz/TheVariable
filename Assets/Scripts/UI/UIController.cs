@@ -56,6 +56,8 @@ public class UIController : MonoBehaviour
 
     public static UIController current;
 
+    public bool IsTutorialDisplay => tutorialDisplay.gameObject.activeSelf;
+
     private void Awake()
     {
         current = this;

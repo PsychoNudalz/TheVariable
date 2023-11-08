@@ -407,7 +407,11 @@ MonoBehaviour:
   hacks:
   - {fileID: 11400000, guid: 83707db5a5e54e7499a55bb98929d3c6, type: 2}
   - {fileID: 11400000, guid: 8b48f8ad836948544ab3346229b47578, type: 2}
+  onHackActivateEvent:
+    m_PersistentCalls:
+      m_Calls: []
   audioDistract: {fileID: 3017447997709266215}
+  tutorialOnHack: 1
   Enable_Debug: 1
   originalItemName: 0
   modelGO: {fileID: 129341653907168838}

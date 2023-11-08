@@ -31,6 +31,7 @@ public class UI_TutorialDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     public void Display(string title, VideoClip videoClip, string text)
@@ -46,7 +47,7 @@ public class UI_TutorialDisplay : MonoBehaviour
         {
             if (word.Length > 0 && word[0].Equals(prefix_Icon))
             {
-                reconstructedText += ConvertTextToIcon(word) + " ";
+                reconstructedText += " "+ConvertTextToIcon(word) + " ";
             }
             else
             {

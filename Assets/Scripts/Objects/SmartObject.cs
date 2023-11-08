@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using HighlightPlus;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.VFX;
 
 /// <summary>
@@ -22,10 +23,13 @@ public abstract class SmartObject : MonoBehaviour
     [SerializeReference]
     private HackAbility[] hacks = Array.Empty<HackAbility>();
 
+    [SerializeField]
+    private UnityEvent onHackActivateEvent;
+
     [Header("Audio Distract")]
     [SerializeField]
     private SO_AudioDistraction audioDistract;
-    
+
     public virtual Vector3 Position => transform.position;
     public virtual Vector3 Forward => transform.forward;
     public virtual Vector3 ColliderPosition => transform.position;
@@ -34,6 +38,10 @@ public abstract class SmartObject : MonoBehaviour
     public Quaternion InteractRotation => InteractPointTransform().rotation;
 
     public HackAbility[] Hacks => hacks;
+
+    // [Header("Tutorial On Hack")]
+    // [SerializeField]
+    // private TutorialEnum tutorialOnHack = TutorialEnum.HackingControls;
     [Header("Debug")]
     [SerializeField]
     private bool Enable_Debug = true;
@@ -43,13 +51,14 @@ public abstract class SmartObject : MonoBehaviour
     {
         if (Enable_Debug)
         {
-            Gizmos.color = new Color(.5f,.5f,.5f,.5f);
+            Gizmos.color = new Color(.5f, .5f, .5f, .5f);
             if (interactPoint)
             {
-                Gizmos.DrawCube(InteractPosition+new Vector3(0f,.1f,0f),new Vector3(.25f,.25f,.25f));
+                Gizmos.DrawCube(InteractPosition + new Vector3(0f, .1f, 0f), new Vector3(.25f, .25f, .25f));
             }
         }
     }
+
     protected virtual Vector3 InteractPointPosition()
     {
         if (!interactPoint)
@@ -59,6 +68,7 @@ public abstract class SmartObject : MonoBehaviour
 
         return interactPoint.position;
     }
+
     protected virtual Transform InteractPointTransform()
     {
         if (!interactPoint)
@@ -75,7 +85,7 @@ public abstract class SmartObject : MonoBehaviour
         {
             highlightEffect = GetComponent<HighlightEffect>();
         }
-        
+
 
         //Initialise Hacks
         // for (var i = 0; i < hacks.Length; i++)
@@ -94,7 +104,7 @@ public abstract class SmartObject : MonoBehaviour
         {
             hacks[i] = Instantiate(hacks[i]);
             hacks[i].Initialise(this);
-            hacks[i].name = hacks[i].name.Replace("(Clone)","").Trim();
+            hacks[i].name = hacks[i].name.Replace("(Clone)", "").Trim();
         }
 
         if (!audioDistract)
@@ -157,7 +167,7 @@ public abstract class SmartObject : MonoBehaviour
 
         if (hacks[i].IsHackable)
         {
-            hacks[i].Hack(new HackContext(new[] {this}, hackContextEnum));
+            hacks[i].Hack(new HackContext(new[] { this }, hackContextEnum));
         }
         else
         {
@@ -165,22 +175,23 @@ public abstract class SmartObject : MonoBehaviour
             return 2;
         }
 
+        onHackActivateEvent.Invoke();
         return 0;
     }
 
-    public virtual int ActivateHack<T>(HackContext_Enum[] hackContextEnum = default)
-    {
-        for (var index = 0; index < hacks.Length; index++)
-        {
-            HackAbility hackAbility = hacks[index];
-            if (typeof(T) == hackAbility.GetType())
-            {
-                return ActivateHack(index, hackContextEnum);
-            }
-        }
-
-        return 1;
-    }
+    // public virtual int ActivateHack<T>(HackContext_Enum[] hackContextEnum = default)
+    // {
+    //     for (var index = 0; index < hacks.Length; index++)
+    //     {
+    //         HackAbility hackAbility = hacks[index];
+    //         if (typeof(T) == hackAbility.GetType())
+    //         {
+    //             return ActivateHack(index, hackContextEnum);
+    //         }
+    //     }
+    //
+    //     return 1;
+    // }
 
     /// <summary>
     /// Check if index is valid
@@ -216,15 +227,25 @@ public abstract class SmartObject : MonoBehaviour
 
     public virtual void CreateAudioDistraction()
     {
-
         if (audioDistract)
         {
-            audioDistract.CreateAudioDistraction(this,transform.position);
+            audioDistract.CreateAudioDistraction(this, transform.position);
         }
         else
         {
             Debug.Log($"{name}: Does not allow audio distraction");
         }
-       
+    }
+
+
+    public virtual void DisplayTutorial(TutorialEnum tutorialEnum)
+    {
+        TutorialManager.Display_FirstTime(tutorialEnum);
+    }
+
+    public virtual void DisplayTutorial(TutorialInstructions tutorialEnum)
+    {
+        //TODO: convert to just take the scriptable object data
+        TutorialManager.Display_FirstTime(tutorialEnum.TutorialEnum);
     }
 }

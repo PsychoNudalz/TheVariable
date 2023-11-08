@@ -204,9 +204,14 @@ public class UIController : MonoBehaviour
         highScoreText.text = SecondsToString(highScore);
     }
 
-    public void Tutorial(string title, VideoClip videoClip, string text)
+    public void Tutorial_Show(string title, VideoClip videoClip, string text)
     {
         tutorialDisplay.Display(title,videoClip,text);
+    }
+
+    public void Tutorial_Close()
+    {
+        tutorialDisplay.Close();
     }
     
 }

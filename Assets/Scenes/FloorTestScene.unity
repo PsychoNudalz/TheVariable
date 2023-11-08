@@ -2847,7 +2847,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 450, y: 350}
+  m_SizeDelta: {x: 420, y: 350}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &222152831
 MonoBehaviour:
@@ -2869,15 +2869,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You can look around using   <sprite="Keyboard_Controls" name="Mouse">
-    <sprite="SteamDeck_Controls" name="Stick_R">
+  m_text: 'TEXT TEXT TEXT TEXT
 
+    TEXT
 
-    Hackable objects are highlighted
-    in WHITE.
+    TEXT
 
+    TEXT
 
-    You can select and activate the hacks by holding down '
+    TEXT
+
+    TEXT
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
   m_sharedMaterial: {fileID: 8248030770639639578, guid: 1ddbc97ca8eda42749e1e1eb08026b42,
@@ -11605,6 +11609,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131f9f65807596549a6571148598d615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1279393410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1279393411}
+  - component: {fileID: 1279393412}
+  m_Layer: 0
+  m_Name: TutorialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1279393411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279393410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2024353925}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1279393412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279393410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3255cb9c9825d14daa6d509664cc427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorials:
+  - tutorialEnum: 0
+    title: Welcome To The VARIABLE
+    videoClip: {fileID: 32900000, guid: 7d0910d2bcc19224a88828db1d5829bd, type: 3}
+    text: 'Welcome To The VARIABLE.
+
+
+      This is a stealth hacking game, where
+      you will have to take out the VIP in GOLD within 5 minutes.
+
+
+      You will
+      be able to traverse the level by switching between cameras and hacking objects,
+      items and NPCs.'
+  - tutorialEnum: 1
+    title: Hacking Controls
+    videoClip: {fileID: 32900000, guid: 7d0910d2bcc19224a88828db1d5829bd, type: 3}
+    text: "You can look around using  \n   @K$Mouse @S$Stick_R   \n\nHackable objects
+      are outlined in WHITE.\n\nYou can select and activate the hacks by holding
+      down and releasing  @K$Mouse_L @S$R2 "
 --- !u!1 &1285604427
 GameObject:
   m_ObjectHideFlags: 0
@@ -14698,6 +14766,7 @@ MonoBehaviour:
   lockOutScreen: {fileID: 2027019345}
   cameraScreen: {fileID: 706995229}
   infoDisplay: {fileID: 177465286}
+  tutorialDisplay: {fileID: 2005112903}
   timerDisplay: {fileID: 1030929382}
   timerText: {fileID: 1841150824}
   clearanceText: {fileID: 1512177661}
@@ -16061,7 +16130,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843852310}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 7d0910d2bcc19224a88828db1d5829bd, type: 3}
+  m_VideoClip: {fileID: 0}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -17717,6 +17786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2005112902}
+  - component: {fileID: 2005112903}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -17743,11 +17813,26 @@ RectTransform:
   m_Father: {fileID: 1620352248}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 10, y: 0}
+  m_SizeDelta: {x: 480, y: 700}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &2005112903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005112901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b978caadb5d064e9f3f597ff685302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 1100469608}
+  videoPlayer: {fileID: 1843852312}
+  explainText: {fileID: 222152831}
 --- !u!1 &2019494441
 GameObject:
   m_ObjectHideFlags: 0
@@ -17831,6 +17916,7 @@ Transform:
   - {fileID: 1943494258}
   - {fileID: 649040790}
   - {fileID: 2101453858}
+  - {fileID: 1279393411}
   m_Father: {fileID: 1069587580}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19000,6 +19086,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620352248}
     m_Modifications:
+    - target: {fileID: 5758555575311789049, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555575311789049, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555575311789049, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555575311789049, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5758555575565457230, guid: 570abc7c9bf5d33409f39075128b559e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -19114,6 +19220,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576366534873, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576366534873, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576366534873, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576366534873, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576405385215, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576405385215, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576405385215, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576405385215, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576754927971, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576754927971, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576754927971, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5758555576754927971, guid: 570abc7c9bf5d33409f39075128b559e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 570abc7c9bf5d33409f39075128b559e, type: 3}

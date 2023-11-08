@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.Video;
 
 public class UIController : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     private UI_SOInfoDisplay infoDisplay;
+
+    [SerializeField]
+    private UI_TutorialDisplay tutorialDisplay;
 
     [Header("Smaller Components")]
     [Header("Timer")]
@@ -199,4 +203,10 @@ public class UIController : MonoBehaviour
         playTimeText.text = SecondsToString(currentTime);
         highScoreText.text = SecondsToString(highScore);
     }
+
+    public void Tutorial(string title, VideoClip videoClip, string text)
+    {
+        tutorialDisplay.Display(title,videoClip,text);
+    }
+    
 }

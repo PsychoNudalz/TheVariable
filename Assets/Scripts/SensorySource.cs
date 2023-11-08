@@ -31,10 +31,11 @@ public abstract class SensorySource
         RaycastHit[] hits = Physics.RaycastAll(position, diff.normalized, diff.magnitude, castLayer);
         int foundHits = hits.Length;
         foundHits--;
-        Debug.Log($"Dampen from {strength} by {foundHits} times.");
         if (foundHits > 0)
         {
             strength *= Mathf.Pow(dampenStrength, foundHits);
+            Debug.Log($"Dampen from {strength} by {foundHits} times.");
+
         }
     }
 

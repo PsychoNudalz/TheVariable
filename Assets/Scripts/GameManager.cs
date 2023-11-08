@@ -86,15 +86,7 @@ public class GameManager : MonoBehaviour
 
     public static void Alert_Suspicious()
     {
-        if (Time.time - GM.suspicious_LastTime > GM.suspicious_Cooldown)
-        {
-            if (!GM.sfx_Suspicious.IsPlaying())
-            {
-                GM.sfx_Suspicious.Play();
-            }
-        }
-
-        GM.suspicious_LastTime = Time.time;
+        SoundManager.PlayGlobal(SoundGlobal.Suspicious);
     }
 
     public static void SlowTimeForHack()

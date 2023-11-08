@@ -349,6 +349,7 @@ public class CameraController : MonoBehaviour
         float time = target.Hacks[index].HackTime;
         cameraHack_Time = time;
         cameraHack_TimeNow = time;
+        SoundManager.PlayGlobal(SoundGlobal.Hacking);
     }
 
 
@@ -364,6 +365,9 @@ public class CameraController : MonoBehaviour
         hackTarget = null;
         // hackLine.gameObject.SetActive(false);
         HackLine_Reset();
+        SoundManager.PlayGlobal(SoundGlobal.HackComplete);
+        SoundManager.StopGlobal(SoundGlobal.Hacking);
+
     }
 
     public void Set_Lock(bool b, float duration = 0f)

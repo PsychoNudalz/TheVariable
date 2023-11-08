@@ -29,6 +29,10 @@ public abstract class SoundAbstract : MonoBehaviour
     {
     }
 
+    public virtual void Play(float f)
+    {
+        Invoke(nameof(PlayF),f);
+    }
     public virtual AudioClip GetClip()
     {
         return null;

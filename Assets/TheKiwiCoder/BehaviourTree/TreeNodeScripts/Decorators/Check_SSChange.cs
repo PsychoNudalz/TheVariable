@@ -36,7 +36,7 @@ public class Check_SSChange : DecoratorNode
         if (blackboard.currentSensorySource != null)
         {
             initialSS = blackboard.currentSensorySource;
-            Debug.Log($"Current SS: {blackboard.currentSensorySource.SmartObject.ToString()}");
+            // Debug.Log($"Current SS: {blackboard.currentSensorySource.SmartObject.ToString()}");
         }
 
         return child.Update();

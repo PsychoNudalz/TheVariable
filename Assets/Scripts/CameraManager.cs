@@ -88,6 +88,7 @@ public class CameraManager : MonoBehaviour
         oldCamera.SetActive(false);
         newCamera.SetActive(true);
         GlobalKnowledgeSystem.UpdatePlayerCamera(newCamera);
+        SoundManager.PlayGlobal(SoundGlobal.SwitchCamera);
         return newCamera;
     }
 

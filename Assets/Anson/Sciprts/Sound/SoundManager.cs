@@ -11,7 +11,9 @@ public enum SoundGlobal
     Spotted,
     Hacking,
     HackComplete,
-    Lockout
+    Lockout,
+    SwitchCamera
+    
 }
 
 [Serializable]
@@ -22,6 +24,9 @@ public class GlobalSoundPair
 
     [SerializeField]
     private SoundAbstract sound;
+
+    [SerializeField]
+    private float delayPlay = 0;
 
     [SerializeField]
     private float cooldownTime = 1;
@@ -45,7 +50,14 @@ public class GlobalSoundPair
         if (Time.time - lastPlayedTime > cooldownTime)
         {
             lastPlayedTime = Time.time;
-            sound.PlayF();
+            if (delayPlay > 0)
+            {
+                sound.Play(delayPlay);
+            }
+            else
+            {
+                sound.PlayF();
+            }
         }
     }
 

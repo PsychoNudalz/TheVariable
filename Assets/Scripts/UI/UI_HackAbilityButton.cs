@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UI_HackAbilityButton : MonoBehaviour
@@ -25,7 +26,9 @@ public class UI_HackAbilityButton : MonoBehaviour
     private Image[] buttonImages;
 
     [SerializeField]
-    private TextMeshProUGUI text;
+    private TextMeshProUGUI hackText;
+    [SerializeField]
+    private TextMeshProUGUI levelText;
 
     [SerializeField]
     GameObject lockGO;
@@ -59,7 +62,7 @@ public class UI_HackAbilityButton : MonoBehaviour
     {
     }
 
-    public void SetActive(bool b, bool canHack = true, string hackName = "No Hack")
+    void SetActive(bool b, bool canHack, string hackName,int hackLevel)
     {
         OnHover(false);
         if (b)
@@ -78,27 +81,36 @@ public class UI_HackAbilityButton : MonoBehaviour
         }
         else
         {
+            SetActive(false);
+        }
+
+        UpdateButton(hackName,hackLevel);
+    }
+
+    public void SetActive(bool b, HackAbility hackAbility = null)
+    {
+        if (!hackAbility)
+        {
             lockGO.SetActive(false);
             gameObject.SetActive(false);
             activeState = ActiveState_Enum.InActive;
         }
-
-        UpdateButton(hackName);
+        else
+        {
+            SetActive(b, hackAbility.CanHack(), hackAbility.HackName,hackAbility.HackClearance);
+        }
     }
-
-    public void SetActive(bool b, HackAbility hackAbility)
-    {
-        SetActive(b, hackAbility.CanHack(), hackAbility.HackName);
-    }
+    
 
     public void SetDisplay(UI_HackAbilityDisplay display, int i)
     {
         this.display = display;
     }
 
-    public void UpdateButton(string s)
+    public void UpdateButton(string s,int hackLevel)
     {
-        text.SetText(s);
+        hackText.SetText(s);
+        levelText.SetText($"Level: {hackLevel}");
     }
 
     public void OnHover(bool enter = true)

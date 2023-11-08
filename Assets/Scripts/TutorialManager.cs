@@ -11,7 +11,14 @@ public enum TutorialEnum
 {
     Start,
     HackingControls,
-    CameraSwitch
+    CameraSwitch,
+    ClearanceLevel,
+    Distraction,
+    AlertLevel,
+    Investigate,
+    SpotAndLockdown,
+    LockdownImmunity,
+    NPCCamera
 }
 //
 // [Serializable]

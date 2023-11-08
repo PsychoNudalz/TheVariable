@@ -71,6 +71,7 @@ namespace TheKiwiCoder {
         public void Bind(Context context) {
             Traverse(rootNode, node => {
                 node.context = context;
+                blackboard.npcController = context.NpcController;
                 node.blackboard = blackboard;
             });
         }

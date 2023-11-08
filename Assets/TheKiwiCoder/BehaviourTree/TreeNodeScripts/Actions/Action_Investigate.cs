@@ -30,12 +30,13 @@ public class Action_Investigate : ActionNode
 
     private float investigate_StartTime = 0;
     private bool isPlayerSpotted = false;
+    private SensorySource SSToInvestigate;
 
     // private bool skipRemoveSS = false;
 
     protected override void OnStart()
     {
-        blackboard.currentSensorySource = context.NpcController.GetCurrentSS;
+        // blackboard.currentSensorySource = context.NpcController.GetCurrentSS;
         investigate_StartTime = Time.time;
         investigate_Time = Random.Range(investigate_TimeRange.x, investigate_TimeRange.y);
         isPlayerSpotted = false;
@@ -54,6 +55,8 @@ public class Action_Investigate : ActionNode
             blackboard.cameraToInvestigate.Set_Investigate(true);
         }
 
+        SSToInvestigate = npcController.GetCurrentSS;
+
         Update_LastKnown(blackboard.cameraToInvestigate);
         // skipRemoveSS = true;
     }
@@ -64,14 +67,10 @@ public class Action_Investigate : ActionNode
         {
             // if (!skipRemoveSS)
             // {
-            if (blackboard.currentSensorySource.Equals(npcController.GetCurrentSS))
-            {
-                context.NpcController.RemoveCurrentSensorySource();
-            }
 
-            if (!isPlayerSpotted)
+            if (!isPlayerSpotted&&SSToInvestigate.Equals(npcController.GetCurrentSS))
             {
-                blackboard.currentSensorySource = null;
+                npcController.RemoveCurrentSensorySource();
             }
             // }
 

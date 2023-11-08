@@ -25,8 +25,9 @@ namespace TheKiwiCoder {
         public float wait_startTime = 0;
         public float wait_duration = 0;
 
-        [Space(5)]
-        public SensorySource currentSensorySource = null;
+        public NpcController npcController;
+
+        public SensorySource currentSensorySource => npcController.GetCurrentSS;
 
         public bool resetInvestigationFlag = false;
         public CameraController cameraToInvestigate = null;

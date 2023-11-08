@@ -19,7 +19,7 @@ public class Action_SetHackingCameraToSS : ActionNode
                 SensorySource_Visual ssv = npcController.AddCameraToSS(co, overrideCurrentSS);
                 if (ssv.Equals(npcController.GetCurrentSS))
                 {
-                    blackboard.currentSensorySource = npcController.GetCurrentSS;
+                    // blackboard.currentSensorySource = npcController.GetCurrentSS;
                     blackboard.cameraToInvestigate = closestHackingCamera;
                 }
             }else if (closestHackingCamera.ConnectedSo is NpcObject npc)
@@ -27,7 +27,7 @@ public class Action_SetHackingCameraToSS : ActionNode
                 SensorySource_Visual ssv = npcController.AddNPCToSS(npc, overrideCurrentSS);
                 if (ssv.Equals(npcController.GetCurrentSS))
                 {
-                    blackboard.currentSensorySource = npcController.GetCurrentSS;
+                    // blackboard.currentSensorySource = npcController.GetCurrentSS;
                     blackboard.cameraToInvestigate = closestHackingCamera;
                 }
             }

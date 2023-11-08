@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TheKiwiCoder;
 
+/// <summary>
+/// This is depreciated
+/// </summary>
 [System.Serializable]
 public class Assign_SensorySource : ActionNode
 {
@@ -14,7 +17,7 @@ public class Assign_SensorySource : ActionNode
             started = false;
         }
 
-        blackboard.currentSensorySource = ss;
+        // blackboard.currentSensorySource = ss;
     }
 
     protected override void OnStop() {

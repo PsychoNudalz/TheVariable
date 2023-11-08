@@ -9,7 +9,7 @@ public class Check_SSChange : DecoratorNode
     private SensorySource initialSS = null;
     protected override void OnStart()
     {
-        initialSS = blackboard.currentSensorySource;
+        initialSS = npcController.GetCurrentSS;
         blackboard.resetInvestigationFlag = false;
     }
 

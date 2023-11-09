@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using QFSW.QC;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -136,9 +137,22 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    [Command()]
     public static void ResetSave()
     {
         PlayerPrefs.SetFloat("Time",Mathf.Infinity);
 
+    }
+
+    [Command()]
+    public static void DebugMode()
+    {
+        MaxLevel();
+    }
+
+    [Command()]
+    public static void MaxLevel()
+    {
+        PlayerController.current.IncreaseClearanceLevel(3);
     }
 }

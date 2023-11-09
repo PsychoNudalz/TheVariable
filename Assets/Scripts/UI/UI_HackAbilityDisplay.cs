@@ -13,7 +13,8 @@ public class UI_HackAbilityDisplay : MonoBehaviour
     private RectTransform selectCursor;
 
     [SerializeField]
-    private float cursorDistance;
+    private float cursorDistanceRatio = .1f;
+    private float cursorDistance = 20;
 
     [SerializeField]
     private float cursorSpeed;
@@ -34,6 +35,7 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         }
 
         targetPosition = transform.position;
+        cursorDistance = cursorDistanceRatio * Screen.width;
     }
 
     private void Update()
@@ -78,7 +80,10 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         {
             dir = dir.normalized;
         }
-        targetPosition = transform.position + (new Vector3(dir.x, dir.y) * cursorDistance);
+
+        Vector3 cursorDisplace = (new Vector3(dir.x, dir.y)) * cursorDistance;
+        cursorDisplace = Vector3.ClampMagnitude(cursorDisplace, cursorDistance);
+        targetPosition = transform.position + cursorDisplace;
         if (dir.magnitude < 0.2f)
         {
             return -1;

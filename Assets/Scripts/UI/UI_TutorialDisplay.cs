@@ -87,7 +87,7 @@ public class UI_TutorialDisplay : MonoBehaviour
 
         string control = wordSplit[1];
 
-        return string.Concat("<sprite=\"", plateform, "\" name=\"", control, "\">");
+        return string.Concat(" <sprite=\"", plateform, "\" name=\"", control, "\">");
     }
 
     public void Close()

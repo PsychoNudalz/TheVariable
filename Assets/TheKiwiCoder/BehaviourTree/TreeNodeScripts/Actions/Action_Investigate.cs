@@ -58,6 +58,9 @@ public class Action_Investigate : ActionNode
         SSToInvestigate = npcController.GetCurrentSS;
 
         Update_LastKnown(blackboard.cameraToInvestigate);
+        TutorialManager.Display_FirstTime(TutorialEnum.SpotAndLockdown);
+        TutorialManager.Display_FirstTime(TutorialEnum.LockdownImmunity);
+
         // skipRemoveSS = true;
     }
 

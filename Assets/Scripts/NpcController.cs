@@ -344,6 +344,11 @@ public class NpcController : MonoBehaviour
         //will need to change this in to detecting any suspicious item
         if (alertValue >= 0f)
         {
+            if (alertValue > .2f)
+            {
+                TutorialManager.Display_FirstTime(TutorialEnum.AlertLevel);
+                TutorialManager.Display_FirstTime(TutorialEnum.Investigate);
+            }
             Change_AlertValue(multiplier);
         }
 

@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ee1779857d7434eb2a7fc3a4f023d52, type: 3}
-  m_Name: T_Camera
+  m_Name: T_AlertLevel
   m_EditorClassIdentifier: 
-  tutorialEnum: 2
-  title: Camera Switch
+  tutorialEnum: 5
+  title: Alert Level
   videoClip: {fileID: 0}
-  text: 'Select the "Camera Switch" or "NPC Camera" hack to switch to that camera.
-
-
-    Press
-    @K$Z @S$DP_L or @K$X @S$DP_R to switch between the previous and next camera.'
+  text: "An NPC\u2019s alert level is shown above its head.  Their alert level will
+    increase if they see a camera hacking.  If their alert level is high enough,
+    they will approach and investigate the camera."

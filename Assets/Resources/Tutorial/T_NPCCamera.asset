@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ee1779857d7434eb2a7fc3a4f023d52, type: 3}
-  m_Name: T_Camera
+  m_Name: T_NPCCamera
   m_EditorClassIdentifier: 
-  tutorialEnum: 2
-  title: Camera Switch
+  tutorialEnum: 9
+  title: NPC Camera
   videoClip: {fileID: 0}
-  text: 'Select the "Camera Switch" or "NPC Camera" hack to switch to that camera.
-
-
-    Press
-    @K$Z @S$DP_L or @K$X @S$DP_R to switch between the previous and next camera.'
+  text: "The \u201CNPC Camera\u201D hack allows you to see through the NPC\u2019s
+    eyes, though hacking through it will increase the NPC\u2019s alert value."

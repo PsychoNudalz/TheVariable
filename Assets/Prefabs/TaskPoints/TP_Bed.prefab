@@ -114,6 +114,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
+      propertyPath: hacks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
       propertyPath: interactAnimation
       value: 9
       objectReference: {fileID: 0}
@@ -218,6 +223,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 414467088825717663, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 790617485617708034, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -272,6 +282,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6619643399178367472, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7143445750155904357, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}

@@ -73,6 +73,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Kitchen_Counter_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 24247e206dc524d4b8a4bfb25b19a86b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248223087741665710, guid: 24247e206dc524d4b8a4bfb25b19a86b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978710494523048437, guid: 24247e206dc524d4b8a4bfb25b19a86b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159470579443125335, guid: 24247e206dc524d4b8a4bfb25b19a86b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24247e206dc524d4b8a4bfb25b19a86b, type: 3}
 --- !u!1001 &1900244855438706176
@@ -146,6 +166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GO_KitchenCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381867231158047699, guid: bf14e7fadeb340d489d49ca62f61c691,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf14e7fadeb340d489d49ca62f61c691, type: 3}

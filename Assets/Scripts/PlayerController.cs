@@ -173,6 +173,21 @@ public class PlayerController : MonoBehaviour
 
                 break;
         }
+
+        switch (cameraMode)
+        {
+            case CameraMode.Free:
+                break;
+            case CameraMode.SelectHack:
+                uiController.HacksDisplay_UpdateDir(selectDir);
+
+                break;
+            case CameraMode.LockedOut:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        
     }
 
     private void FixedUpdate()
@@ -185,7 +200,6 @@ public class PlayerController : MonoBehaviour
 
                 break;
             case CameraMode.SelectHack:
-                uiController.HacksDisplay_UpdateDir(selectDir);
                 break;
             case CameraMode.LockedOut:
                 if (!currentCamera.IsLocked)
@@ -311,6 +325,23 @@ public class PlayerController : MonoBehaviour
 
         // currentCamera = cameraManager.GetPrevCamera(currentCamera);
     }
+    
+    public void OnWindow_Next(InputValue inputValue)
+    {
+        TutorialManager.current.OnWindow_Next();
+    }
+
+    public void OnWindow_Prev(InputValue inputValue)
+    {
+        TutorialManager.current.OnWindow_Prev();
+    }
+
+    public void OnWindow_Close(InputValue inputValue)
+    {
+        TutorialManager.current.OnWindow_Close();
+
+    }
+
 
     private void SwitchToStackCamera()
     {

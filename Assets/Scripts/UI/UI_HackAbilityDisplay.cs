@@ -9,9 +9,20 @@ public class UI_HackAbilityDisplay : MonoBehaviour
     [SerializeField]
     private UI_HackAbilityButton[] buttons;
 
+    [SerializeField]
+    private RectTransform selectCursor;
+
+    [SerializeField]
+    private float cursorDistance;
+
+    [SerializeField]
+    private float cursorSpeed;
+
     private SmartObject currentSO;
 
     private UI_HackAbilityButton selectedButton;
+
+    private Vector3 targetPosition;
 
     // Start is called before the first frame update
     private void Start()
@@ -21,6 +32,14 @@ public class UI_HackAbilityDisplay : MonoBehaviour
             var uiHackAbilityButton = buttons[index];
             uiHackAbilityButton.SetDisplay(this,index);
         }
+
+        targetPosition = transform.position;
+    }
+
+    private void Update()
+    {
+        UpdateCursor();
+
     }
 
     public void SetObjectToHack(SmartObject so)
@@ -55,7 +74,11 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         {
             selectedButton.OnHover(false);
         }
-
+        if (dir.magnitude > 1)
+        {
+            dir = dir.normalized;
+        }
+        targetPosition = transform.position + (new Vector3(dir.x, dir.y) * cursorDistance);
         if (dir.magnitude < 0.2f)
         {
             return -1;
@@ -93,5 +116,11 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         selectedButton.OnHover(true);
 
         return bIndex;
+    }
+
+    void UpdateCursor()
+    {
+
+        selectCursor.position = Vector3.Lerp(selectCursor.position,targetPosition,cursorSpeed*Time.deltaTime);
     }
 }

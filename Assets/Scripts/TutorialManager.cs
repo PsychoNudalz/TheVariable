@@ -38,6 +38,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField]
     private TutorialInstructions[] tutorials;
 
+
     private Queue<TutorialEnum> queue = new Queue<TutorialEnum>();
 
     private UIController uiController;
@@ -67,45 +68,39 @@ public class TutorialManager : MonoBehaviour
     {
     }
 
-    public void OnWindow_Next(InputValue inputValue)
+    public void OnWindow_Next()
     {
-        if (inputValue.isPressed)
+        TutorialEnum currentEnum = TutorialEnum.Start;
+        if (currentTutorial != null)
         {
-            TutorialEnum currentEnum = TutorialEnum.Start;
-            if (currentTutorial != null)
-            {
-                currentEnum = currentTutorial.TutorialEnum;
-            }
-
-            if (Enum.IsDefined(typeof(TutorialEnum), currentEnum + 1))
-            {
-                currentEnum += 1;
-            }
-
-            DisplayTutorial(currentEnum);
+            currentEnum = currentTutorial.TutorialEnum;
         }
+
+        if (Enum.IsDefined(typeof(TutorialEnum), currentEnum + 1))
+        {
+            currentEnum += 1;
+        }
+
+        DisplayTutorial(currentEnum);
     }
 
-    public void OnWindow_Prev(InputValue inputValue)
+    public void OnWindow_Prev()
     {
-        if (inputValue.isPressed)
+        TutorialEnum currentEnum = TutorialEnum.Start;
+        if (currentTutorial != null)
         {
-            TutorialEnum currentEnum = TutorialEnum.Start;
-            if (currentTutorial != null)
-            {
-                currentEnum = currentTutorial.TutorialEnum;
-            }
-
-            if (Enum.IsDefined(typeof(TutorialEnum), currentEnum - 1))
-            {
-                currentEnum -= 1;
-            }
-
-            DisplayTutorial(currentEnum);
+            currentEnum = currentTutorial.TutorialEnum;
         }
+
+        if (Enum.IsDefined(typeof(TutorialEnum), currentEnum - 1))
+        {
+            currentEnum -= 1;
+        }
+
+        DisplayTutorial(currentEnum);
     }
 
-    public void OnWindow_Close(InputValue inputValue)
+    public void OnWindow_Close()
     {
         Close();
     }

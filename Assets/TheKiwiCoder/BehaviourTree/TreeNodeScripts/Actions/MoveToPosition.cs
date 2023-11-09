@@ -37,10 +37,12 @@ public class MoveToPosition : ActionNode
         // moveDelay_TimeNow = moveDelay;
         context.NpcController.PlayAnimation(NpcAnimation.Walk);
         pendingTimeOut = 2f;
-        samePosition_TimeOut = samePosition_ResetTime;
+        
+        samePosition_ResetTime_Now = Random.Range(samePosition_ResetTime,samePosition_ResetTime*1.5f);
+        samePosition_TimeOut_Now = Random.Range(samePosition_TimeOut,samePosition_TimeOut*1.5f);
         samePosition_Distance = .5f * context.agent.speed * Time.deltaTime;
-        samePosition_ResetTime_Now = samePosition_ResetTime;
-        samePosition_TimeOut_Now = samePosition_TimeOut;
+
+        
     }
 
     protected override void OnStop()
@@ -78,8 +80,8 @@ public class MoveToPosition : ActionNode
 
         else
         {
-            samePosition_ResetTime_Now = samePosition_ResetTime;
-            samePosition_TimeOut_Now = samePosition_TimeOut;
+            samePosition_ResetTime_Now = Random.Range(samePosition_ResetTime,samePosition_ResetTime*1.5f);
+            samePosition_TimeOut_Now = Random.Range(samePosition_TimeOut,samePosition_TimeOut*1.5f);
         }
 
 

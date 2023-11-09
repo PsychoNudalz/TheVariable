@@ -1124,7 +1124,7 @@
     },
     "m_PreviewData": {
         "serializedMesh": {
-            "m_SerializedMesh": "{\"mesh\":{\"fileID\":4300030,\"guid\":\"4a5a8c8ff5d6d2e48ab8d2b27100cf57\",\"type\":3}}",
+            "m_SerializedMesh": "{\"mesh\":{\"fileID\":4661692776596685149,\"guid\":\"12f42445293df774e8dd318a78466d82\",\"type\":3}}",
             "m_Guid": ""
         },
         "preventRotation": false
@@ -1232,7 +1232,7 @@
     "m_Hidden": false,
     "m_Value": {
         "x": 0.0,
-        "y": 1.0,
+        "y": 5.0,
         "z": 0.0,
         "w": 0.0
     }
@@ -2363,7 +2363,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 3.0,
+    "m_Value": 0.10000000149011612,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -2433,7 +2433,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.5,
+    "m_Value": 0.30000001192092898,
     "m_FloatType": 1,
     "m_RangeValues": {
         "x": 0.0,
@@ -6898,10 +6898,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -495.99993896484377,
-            "y": -1102.0001220703125,
-            "width": 205.99993896484376,
-            "height": 131.00006103515626
+            "x": -513.5999755859375,
+            "y": -1095.199951171875,
+            "width": 206.39999389648438,
+            "height": 128.7999267578125
         }
     },
     "m_Slots": [
@@ -7300,10 +7300,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -476.99993896484377,
-            "y": -1165.0,
-            "width": 186.99996948242188,
-            "height": 34.0001220703125
+            "x": -476.0000305175781,
+            "y": -1165.5999755859375,
+            "width": 187.20001220703126,
+            "height": 33.5999755859375
         }
     },
     "m_Slots": [

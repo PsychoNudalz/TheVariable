@@ -30,6 +30,10 @@ public class NpcVisionConeController : MonoBehaviour
     [SerializeField]
     private SmartObject selfSmartObject;
 
+    [Header("Debug")]
+    [SerializeField]
+    private bool isDebug = false;
+
     public List<SmartObject> AllDetectedSmartObjects => allDetectedSmartObjects;
 
     public List<SmartObject> AllLoSSmartObjects => allLoSSmartObjects;
@@ -66,6 +70,7 @@ public class NpcVisionConeController : MonoBehaviour
                 //TODO: actually remove the null object
                 continue;
             }
+
             Vector3 diff = Vector3.zero;
             if (smartObject is NpcObject npcObject)
             {
@@ -93,12 +98,18 @@ public class NpcVisionConeController : MonoBehaviour
                     if (smartObject.Equals(detected))
                     {
                         allLoSSmartObjects.Add(smartObject);
-                        Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
+                        if (isDebug)
+                        {
+                            Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
+                        }
                     }
                     else
                     {
-                        //Remaining out of LOS, detected is null
-                        Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
+                        if (isDebug)
+                        {
+                            //Remaining out of LOS, detected is null
+                            Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
+                        }
                     }
                 }
                 else
@@ -107,7 +118,10 @@ public class NpcVisionConeController : MonoBehaviour
 
                     if (smartObject.Equals(detected))
                     {
-                        Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
+                        if (isDebug)
+                        {
+                            Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
+                        }
                     }
                     else
                     {
@@ -116,7 +130,10 @@ public class NpcVisionConeController : MonoBehaviour
                             allLoSSmartObjects.Remove(smartObject);
                         }
 
-                        Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
+                        if (isDebug)
+                        {
+                            Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
+                        }
                     }
                 }
             }
@@ -141,7 +158,7 @@ public class NpcVisionConeController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         SmartObject smartObject = GetSmartObject(other);
-        if (!smartObject||selfSmartObject.Equals(smartObject))
+        if (!smartObject || selfSmartObject.Equals(smartObject))
         {
             return;
         }

@@ -15,7 +15,15 @@ public class Action_DoTask : ActionNode
 
     protected override void OnStart()
     {
+        if (!npcController.IsTaskObjectFree())
+        {
+            blackboard.resetFlag = true;
+            return;
+        }
+        
+        
         currentTask = context.NpcController.GetCurrentTask();
+
         if (context.NpcController.CanStartCurrentTask(out ItemName[] missingItems))
         {
             taskDuration = context.NpcController.StartCurrentTask();

@@ -29,7 +29,8 @@ namespace TheKiwiCoder {
 
         public SensorySource currentSensorySource => npcController.GetCurrentSS;
 
-        public bool resetInvestigationFlag = false;
+        [FormerlySerializedAs("resetInvestigationFlag")]
+        public bool resetFlag = false;
         public CameraController cameraToInvestigate = null;
         public CameraController cameraToLock = null;
         // public ItemName MissingItem => missingItems[0];

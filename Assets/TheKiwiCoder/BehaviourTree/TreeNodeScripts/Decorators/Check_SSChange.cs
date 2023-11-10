@@ -10,17 +10,17 @@ public class Check_SSChange : DecoratorNode
     protected override void OnStart()
     {
         initialSS = npcController.GetCurrentSS;
-        blackboard.resetInvestigationFlag = false;
+        blackboard.resetFlag = false;
     }
 
     protected override void OnStop() {
-        blackboard.resetInvestigationFlag = false;
+        blackboard.resetFlag = false;
         initialSS = null;
     }
 
     protected override State OnUpdate() {
 
-        if (initialSS!=null&&!initialSS.Equals(blackboard.currentSensorySource)||blackboard.resetInvestigationFlag)
+        if (initialSS!=null&&!initialSS.Equals(blackboard.currentSensorySource)||blackboard.resetFlag)
         {
             Abort();
             return State.Failure;

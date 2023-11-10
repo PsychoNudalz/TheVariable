@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Crystal_VIP_4
+  m_Name: Crystal_Black
   m_Shader: {fileID: -6465566751694194690, guid: bd443388f754ca346b5bd099296f9113,
     type: 3}
   m_ValidKeywords: []
@@ -48,19 +48,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DisplacementAmount: 0.3
+    - _DisplacementAmount: 30
     - _IsDisplacement: 1
     - _IsSecondary: 0
     - _MoveOffset: -0.1
     - _MoveValue: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Steps: 6
+    - _Steps: 5.41
     - _VoronoiCellDensity: 40
     m_Colors:
     - _Base: {r: 0, g: -0.3, b: 0, a: 0}
-    - _Colour_1: {r: 0, g: 1.6577295, b: 1.7207954, a: 0}
-    - _Colour_2: {r: 0, g: 0.08727884, b: 1, a: 0}
+    - _Colour_1: {r: 0, g: 0, b: 0, a: 0}
+    - _Colour_2: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0}
     - _Top: {r: 0, g: 5.5, b: 0, a: 0}
     - _WorldNormal: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5060059163855436141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3258209002074161279}
+  m_Layer: 0
+  m_Name: EyeCameraPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3258209002074161279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5060059163855436141}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0.00095}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9172433257414247311}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7383692530233587816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +98,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: eyeLocation
+      value: 
+      objectReference: {fileID: 3258209002074161279}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.size
@@ -161,3 +197,9 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3692b5776f8a450468d2116e5055c6aa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d069e2915b6eb7046a856e3c59f0a699, type: 3}
+--- !u!4 &9172433257414247311 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1815832799226166247, guid: d069e2915b6eb7046a856e3c59f0a699,
+    type: 3}
+  m_PrefabInstance: {fileID: 7383692530233587816}
+  m_PrefabAsset: {fileID: 0}

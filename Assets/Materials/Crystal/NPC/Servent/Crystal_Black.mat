@@ -56,11 +56,11 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Steps: 5.41
-    - _VoronoiCellDensity: 3
+    - _VoronoiCellDensity: 40
     m_Colors:
     - _Base: {r: 0, g: -0.3, b: 0, a: 0}
     - _Colour_1: {r: 0, g: 0, b: 0, a: 0}
     - _Colour_2: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0}
-    - _Top: {r: 0, g: 5, b: 0, a: 0}
+    - _Top: {r: 0, g: 5.5, b: 0, a: 0}
     - _WorldNormal: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

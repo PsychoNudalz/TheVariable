@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Crystal_VIP_4
+  m_Name: Crystal_Guard
   m_Shader: {fileID: -6465566751694194690, guid: bd443388f754ca346b5bd099296f9113,
     type: 3}
   m_ValidKeywords: []
@@ -48,7 +48,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DisplacementAmount: 0.3
+    - _DisplacementAmount: 30
     - _IsDisplacement: 1
     - _IsSecondary: 0
     - _MoveOffset: -0.1
@@ -59,8 +59,8 @@ Material:
     - _VoronoiCellDensity: 40
     m_Colors:
     - _Base: {r: 0, g: -0.3, b: 0, a: 0}
-    - _Colour_1: {r: 0, g: 1.6577295, b: 1.7207954, a: 0}
-    - _Colour_2: {r: 0, g: 0.08727884, b: 1, a: 0}
+    - _Colour_1: {r: 0.04150939, g: 0.080953196, b: 1, a: 0}
+    - _Colour_2: {r: 0, g: 0.021642638, b: 0.24528301, a: 0}
     - _Top: {r: 0, g: 5.5, b: 0, a: 0}
     - _WorldNormal: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

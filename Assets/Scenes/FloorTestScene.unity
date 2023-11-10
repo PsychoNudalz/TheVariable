@@ -7226,7 +7226,7 @@ PrefabInstance:
     - target: {fileID: 6200175563074222501, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 6200175563074222501, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
@@ -7236,7 +7236,7 @@ PrefabInstance:
     - target: {fileID: 6200175563074222501, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.5
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 6200175563074222501, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
@@ -11069,7 +11069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfx_Suspicious: {fileID: 1556899712}
-  globalRealTimer: 5
+  globalRealTimer: 300
 --- !u!1001 &900686340
 PrefabInstance:
   m_ObjectHideFlags: 0

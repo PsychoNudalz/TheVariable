@@ -17,6 +17,12 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: associateTask
+      value: 
+      objectReference: {fileID: 11400000, guid: 261ded751482477478237a7726af2938,
+        type: 2}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_RootOrder

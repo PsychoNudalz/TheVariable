@@ -115,29 +115,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
+      propertyPath: schedule.Array.data[0].startTime
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
       propertyPath: schedule.Array.data[1].startTime
-      value: 1
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.data[2].startTime
-      value: 2
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.data[3].startTime
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.data[4].startTime
-      value: 4
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[5].startTime
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.data[0].taskDescription
       value: 
-      objectReference: {fileID: 11400000, guid: 6f3f627e4c5f30040bd9103ac77de5f3,
+      objectReference: {fileID: 11400000, guid: 73a27c87bf5971040b0ba84023f5e1d1,
         type: 2}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -165,7 +175,18 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
+      propertyPath: schedule.Array.data[5].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 3088e911c955173469ef6e85c3222f17,
+        type: 2}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
       propertyPath: randomTasks.Array.data[0].taskQueryType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[1].taskQueryType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,

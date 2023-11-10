@@ -47,7 +47,7 @@ PrefabInstance:
     - target: {fileID: 1320077873986614606, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: m_Name
-      value: NPC_Servent_Steve
+      value: NPC_Servant
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614608, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -136,9 +136,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
+      propertyPath: randomTasks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[0].startTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: schedule.Array.data[0].taskQueryType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
       propertyPath: schedule.Array.data[0].taskDescription
       value: 
-      objectReference: {fileID: 11400000, guid: 71a75433c46ab0e4796b14e4422013d4,
+      objectReference: {fileID: 11400000, guid: b0a731d90b566544f935e5ae07738311,
+        type: 2}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[0].taskQueryType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[1].taskQueryType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[0].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 261ded751482477478237a7726af2938,
+        type: 2}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[1].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: c7df985b3edebb346a2fb7ffe7a93325,
         type: 2}
     - target: {fileID: 2202455951231104387, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -289,7 +326,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4465229756675954194}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 888380afc233049ce9e618f9f36c8ba8, type: 3}
   m_Name: 

@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: randomTasks.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -167,6 +167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
+      propertyPath: randomTasks.Array.data[2].taskQueryType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
       propertyPath: randomTasks.Array.data[0].taskDescription
       value: 
       objectReference: {fileID: 11400000, guid: 261ded751482477478237a7726af2938,
@@ -176,6 +181,12 @@ PrefabInstance:
       propertyPath: randomTasks.Array.data[1].taskDescription
       value: 
       objectReference: {fileID: 11400000, guid: c7df985b3edebb346a2fb7ffe7a93325,
+        type: 2}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[2].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: c1d1e125a3679934c90ef4c88d75e26b,
         type: 2}
     - target: {fileID: 2202455951231104387, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}

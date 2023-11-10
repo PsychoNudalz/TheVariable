@@ -440,6 +440,7 @@ public class CameraController : MonoBehaviour
             StopCoroutine(hackCoroutine);
             hackCoroutine = null;
         }
+        SoundManager.StopGlobal(SoundGlobal.Hacking);
     }
 
     void Set_LockMaterial(bool b)

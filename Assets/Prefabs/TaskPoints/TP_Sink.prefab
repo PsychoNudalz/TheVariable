@@ -17,16 +17,98 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572827, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: combineMeshes
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: associateTask
       value: 
-      objectReference: {fileID: 11400000, guid: 8fe6480ebc2a30d448d6d9ef0a7537e8,
+      objectReference: {fileID: 11400000, guid: 9c4d674da37a7df4fb488d9cfa62813a,
         type: 2}
     - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: useAnimationPoint
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3859279488929830994}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3859279488929830994}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DisplayTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SmartObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SmartObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 7424a2f24cf856e4b9173b0868223409,
+        type: 2}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 30d7c0388695ab742857cc91988b9f31,
+        type: 2}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TutorialInstructions, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TutorialInstructions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
@@ -36,37 +118,37 @@ PrefabInstance:
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.3699868
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.10000038
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -18.160007
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071077
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071059
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
@@ -76,7 +158,7 @@ PrefabInstance:
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 219764443607572837, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
@@ -140,6 +222,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f64ec6eb2b81604ab51f063b9e51632, type: 3}
+--- !u!114 &3859279488929830994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+    type: 3}
+  m_PrefabInstance: {fileID: 3927746525595220278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131f9f65807596549a6571148598d615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8146708294291012652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5155711866920568090, guid: 4f64ec6eb2b81604ab51f063b9e51632,
@@ -237,8 +331,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5161627027347983682}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &4647697959568159545
-BoxCollider:
+--- !u!64 &5948854619007607402
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -247,6 +341,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9276677, y: 0.93, z: 0.6731616}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3914586296008810427, guid: fc17381147e73e8439e21050fdf974e0, type: 3}

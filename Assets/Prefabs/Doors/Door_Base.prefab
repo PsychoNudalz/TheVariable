@@ -104,7 +104,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioDistract: {fileID: 0}
-  tutorialOnHack: 1
   Enable_Debug: 1
   doorController: {fileID: 6305289742765155228}
 --- !u!114 &6305289742765155228
@@ -657,7 +656,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 773d8d17333054f42a98a92a9cd9b962, type: 2}
+      objectReference: {fileID: 2100000, guid: 603449d7c7445dd45a085f5809b828f7, type: 2}
     - target: {fileID: 64953895365273324, guid: 19b73e565ad468d41b78dad854dab176,
         type: 3}
       propertyPath: m_Enabled

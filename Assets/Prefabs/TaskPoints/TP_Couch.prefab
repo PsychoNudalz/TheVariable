@@ -149,6 +149,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6619643399178367472, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6619643399178367472, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -301,6 +306,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: scifi-sofa-round
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ab9101b64ee84cf44ae5f8de777230ce,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab9101b64ee84cf44ae5f8de777230ce,
         type: 3}

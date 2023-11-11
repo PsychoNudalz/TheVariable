@@ -77,7 +77,7 @@ public class Action_Investigate : ActionNode
             }
             // }
 
-            if (blackboard.CameraToInvestigate)
+            if (blackboard.CameraToInvestigate&&!isPlayerSpotted)
             {
                 blackboard.CameraToInvestigate.Set_Investigate(false);
                 blackboard.SetCameraToInvestigate(null);
@@ -130,6 +130,7 @@ public class Action_Investigate : ActionNode
         }
 
         // skipRemoveSS = true;
+        isPlayerSpotted = false;
         return State.Success;
     }
 }

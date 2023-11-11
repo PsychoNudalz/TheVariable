@@ -67,6 +67,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: eyeLocation
+      value: 
+      objectReference: {fileID: 9218894692581939310}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: hacks.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: hacks.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: a8663666d4fc76e4baeed34342e415d8,
+        type: 2}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: hacks.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: a091bba9597a0893096d89ebc6844685,
+        type: 2}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: schedule.Array.size
@@ -226,3 +248,9 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3a3ca1609f329c647b3d8b3e4d3b04c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d069e2915b6eb7046a856e3c59f0a699, type: 3}
+--- !u!4 &9218894692581939310 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1815832799226166247, guid: d069e2915b6eb7046a856e3c59f0a699,
+    type: 3}
+  m_PrefabInstance: {fileID: 7404821235453158281}
+  m_PrefabAsset: {fileID: 0}

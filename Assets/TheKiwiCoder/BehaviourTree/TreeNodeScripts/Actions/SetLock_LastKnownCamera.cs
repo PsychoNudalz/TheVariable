@@ -9,7 +9,7 @@ public class SetLock_LastKnownCamera : ActionNode
     protected override void OnStart()
     {
         CameraController cc = blackboard.player_LastKnown_Camera;
-        if (cc && cc.ConnectedSo is CameraObject co)
+        if (cc && cc.ConnectedSo is CameraObject or NpcObject)
         {
             if (!cc.Equals(blackboard.CameraToInvestigate))
             {

@@ -9,7 +9,7 @@ public class SetLock_HackingCamera : ActionNode
     protected override void OnStart()
     {
         CameraController cc = context.NpcController.FindSS_ClosestCamera_Hacking();
-        if (cc && cc.ConnectedSo is CameraObject co)
+        if (cc && cc.ConnectedSo is CameraObject  or NpcObject)
         {
             blackboard.cameraToLock = cc;
 

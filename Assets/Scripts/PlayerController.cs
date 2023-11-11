@@ -345,8 +345,13 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchToStackCamera()
     {
+        if (currentCamera.ConnectedSo is NpcObject)
+        {
+            cameraStackIndex = 0;
+        }
+
         currentCamera.StartHack(currentCameraFromStack.ConnectedSo,
-            currentCamera.ConnectedSo.GetHackIndex<Hack_Camera_Switch>(),
+            currentCameraFromStack.ConnectedSo.GetHackIndex<Hack_Camera_Switch>(),
             new HackContext_Enum[1]
             {
                 HackContext_Enum.Camera_notPushToStack

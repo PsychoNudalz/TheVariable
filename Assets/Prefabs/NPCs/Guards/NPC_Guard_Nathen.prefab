@@ -11,7 +11,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: fdfa25f63ad05444c92c4932a9368081, type: 2}
+      objectReference: {fileID: 2100000, guid: d8bd7fd864c128c41af15ffb1d93dc1d, type: 2}
     - target: {fileID: 3815897307941744279, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
       propertyPath: m_Materials.Array.data[2]
@@ -21,7 +21,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: fdfa25f63ad05444c92c4932a9368081, type: 2}
+      objectReference: {fileID: 2100000, guid: 903561ff034d87544a73e6d609a11039, type: 2}
+    - target: {fileID: 6200175563074222496, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
+        type: 3}
+      propertyPath: hacks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200175563074222496, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
+        type: 3}
+      propertyPath: hacks.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: a8663666d4fc76e4baeed34342e415d8,
+        type: 2}
     - target: {fileID: 6200175563074222498, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
       propertyPath: schedule.Array.size
@@ -101,7 +112,7 @@ PrefabInstance:
     - target: {fileID: 6200175563074222523, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
       propertyPath: m_Name
-      value: NPC_Guard_Night
+      value: NPC_Guard_Nathen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd5c753c9dbd5f4aa26f66be304bd82, type: 3}

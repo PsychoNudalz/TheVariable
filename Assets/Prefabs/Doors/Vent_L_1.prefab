@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 296353063920543415, guid: 1e81cada0b95edb42935df4efd950770,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c9b1e88dfa4bba1469761fe0518485c0, type: 2}
     - target: {fileID: 541753223499977380, guid: 1e81cada0b95edb42935df4efd950770,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -18,11 +23,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a3fabf3193db53049b9fcb712a27b273,
         type: 2}
+    - target: {fileID: 5494788878349241839, guid: 1e81cada0b95edb42935df4efd950770,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c9b1e88dfa4bba1469761fe0518485c0, type: 2}
     - target: {fileID: 5511649467912759122, guid: 1e81cada0b95edb42935df4efd950770,
         type: 3}
       propertyPath: m_Name
       value: Vent_L_1
       objectReference: {fileID: 0}
+    - target: {fileID: 8053353133316637960, guid: 1e81cada0b95edb42935df4efd950770,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c9b1e88dfa4bba1469761fe0518485c0, type: 2}
     - target: {fileID: 8074896907723558586, guid: 1e81cada0b95edb42935df4efd950770,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1015769729296351556, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
         type: 3}
       propertyPath: m_Name
-      value: NPC_Servent_Carl
+      value: NPC_Servant_Carl
       objectReference: {fileID: 0}
     - target: {fileID: 1015769729296351578, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
         type: 3}
@@ -71,11 +71,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: f7ee275c19e0da14e99c5f3fc5e0d689, type: 2}
+      objectReference: {fileID: 2100000, guid: 6672d59122e6ca4438f8afb8133b1bd5, type: 2}
     - target: {fileID: 3226369926320444895, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
         type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: 5013a67cdfb349f43a9300bdca14b811, type: 2}
+      objectReference: {fileID: 2100000, guid: f7ee275c19e0da14e99c5f3fc5e0d689, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c00fcf95ea5aa14eb053324f13d85c9, type: 3}

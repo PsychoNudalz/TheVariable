@@ -222,8 +222,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -2321238257405752166, guid: e174d5cfe989b2d489effe71d00e121a,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 964671b2cbeec044284ed02ff2a8eda4, type: 2}
     - target: {fileID: -3838418537492315971, guid: 525b7f4a1f5726a42a60a3b4b1346468,
         type: 3}
       propertyPath: m_Layer
@@ -249,6 +248,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 1598589989279441726, guid: 525b7f4a1f5726a42a60a3b4b1346468,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 964671b2cbeec044284ed02ff2a8eda4, type: 2}
+    - target: {fileID: 4349878454986274785, guid: 525b7f4a1f5726a42a60a3b4b1346468,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 964671b2cbeec044284ed02ff2a8eda4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 525b7f4a1f5726a42a60a3b4b1346468, type: 3}
 --- !u!1 &6780935458969295203 stripped

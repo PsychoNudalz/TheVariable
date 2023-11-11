@@ -120,5 +120,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 71a75433c46ab0e4796b14e4422013d4,
         type: 2}
+    - target: {fileID: 1015769729296351583, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
+        type: 3}
+      propertyPath: hacks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015769729296351583, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
+        type: 3}
+      propertyPath: hacks.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: a8663666d4fc76e4baeed34342e415d8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c00fcf95ea5aa14eb053324f13d85c9, type: 3}

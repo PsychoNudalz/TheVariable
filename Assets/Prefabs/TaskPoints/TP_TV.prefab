@@ -231,17 +231,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -2321238257405752166, guid: e174d5cfe989b2d489effe71d00e121a,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 964671b2cbeec044284ed02ff2a8eda4, type: 2}
     - target: {fileID: -7511558181221131132, guid: 72abd7ecec8f3564582f345e8a724b87,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 6615f1708a4932646adcdc55932feefa, type: 2}
+      objectReference: {fileID: 2100000, guid: 964671b2cbeec044284ed02ff2a8eda4, type: 2}
     - target: {fileID: 919132149155446097, guid: 72abd7ecec8f3564582f345e8a724b87,
         type: 3}
       propertyPath: m_Name
       value: SM_Prop_Television_Flat_Wall_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 72abd7ecec8f3564582f345e8a724b87,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 72abd7ecec8f3564582f345e8a724b87,
         type: 3}
@@ -250,3 +254,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72abd7ecec8f3564582f345e8a724b87, type: 3}
+--- !u!1 &6199979676454871070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 72abd7ecec8f3564582f345e8a724b87,
+    type: 3}
+  m_PrefabInstance: {fileID: 6542509230802787663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7799061061679174907
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6199979676454871070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4134108995049466626, guid: 72abd7ecec8f3564582f345e8a724b87, type: 3}

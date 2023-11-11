@@ -11,7 +11,7 @@ public class SetLock_LastKnownCamera : ActionNode
         CameraController cc = blackboard.player_LastKnown_Camera;
         if (cc && cc.ConnectedSo is CameraObject co)
         {
-            if (!cc.Equals(blackboard.cameraToInvestigate))
+            if (!cc.Equals(blackboard.CameraToInvestigate))
             {
                 Debug.LogWarning($"Last known camera miss match with investigate");
             }

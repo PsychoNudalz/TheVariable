@@ -23,9 +23,9 @@ public class Action_LockCamera : ActionNode
         {
             cameraToLock = blackboard.player_LastKnown_Camera;
         }
-        else if (blackboard.cameraToInvestigate)
+        else if (blackboard.CameraToInvestigate)
         {
-            cameraToLock = blackboard.cameraToInvestigate;
+            cameraToLock = blackboard.CameraToInvestigate;
         }
         else
         {
@@ -46,7 +46,7 @@ public class Action_LockCamera : ActionNode
     {
         if (started)
         {
-            blackboard.cameraToInvestigate = null;
+            blackboard.SetCameraToInvestigate(null);
         }
     }
 

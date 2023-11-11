@@ -4,7 +4,7 @@ using UnityEngine;
 using TheKiwiCoder;
 
 [System.Serializable]
-public class Has_MissingSS : DecoratorNode
+public class Has_AudioSS : DecoratorNode
 {
     [SerializeField]
     private bool failure;
@@ -15,7 +15,13 @@ public class Has_MissingSS : DecoratorNode
     }
 
     protected override State OnUpdate() {
-        if (npcController.GetCurrentSS != null)
+        if (npcController.GetCurrentSS != null&&npcController.GetCurrentSS is SensorySource_Audio)
+        {
+            return child.Update();
+
+            
+        }
+        else
         {
             if (failure)
             {
@@ -25,10 +31,6 @@ public class Has_MissingSS : DecoratorNode
             {
                 return State.Success;
             }
-        }
-        else
-        {
-            return child.Update();
         }
     }
 }

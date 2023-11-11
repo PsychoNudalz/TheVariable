@@ -8,27 +8,28 @@ public class Action_SetHackingCameraToSS : ActionNode
 {
     [SerializeField]
     private bool overrideCurrentSS = false;
+
     protected override void OnStart()
     {
         CameraController closestHackingCamera = context.NpcController.FindSS_ClosestCamera_Hacking();
         if (closestHackingCamera)
         {
-
             if (closestHackingCamera.ConnectedSo is CameraObject co)
             {
                 SensorySource_Visual ssv = npcController.AddCameraToSS(co, overrideCurrentSS);
-                if (ssv.Equals(npcController.GetCurrentSS))
+                if (ssv != null && ssv.Equals(npcController.GetCurrentSS))
                 {
                     // blackboard.currentSensorySource = npcController.GetCurrentSS;
-                    blackboard.cameraToInvestigate = closestHackingCamera;
+                    blackboard.SetCameraToInvestigate(closestHackingCamera);
                 }
-            }else if (closestHackingCamera.ConnectedSo is NpcObject npc)
+            }
+            else if (closestHackingCamera.ConnectedSo is NpcObject npc)
             {
                 SensorySource_Visual ssv = npcController.AddNPCToSS(npc, overrideCurrentSS);
                 if (ssv.Equals(npcController.GetCurrentSS))
                 {
                     // blackboard.currentSensorySource = npcController.GetCurrentSS;
-                    blackboard.cameraToInvestigate = closestHackingCamera;
+                    blackboard.SetCameraToInvestigate(closestHackingCamera);
                 }
             }
             else
@@ -42,14 +43,17 @@ public class Action_SetHackingCameraToSS : ActionNode
         }
     }
 
-    protected override void OnStop() {
+    protected override void OnStop()
+    {
     }
 
-    protected override State OnUpdate() {
+    protected override State OnUpdate()
+    {
         if (!started)
         {
             return State.Failure;
         }
+
         return State.Success;
     }
 }

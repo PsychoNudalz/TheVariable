@@ -7,9 +7,9 @@ using TheKiwiCoder;
 public class SetLock_CameraToInvestigate : ActionNode
 {
     protected override void OnStart() {
-        if (blackboard.cameraToInvestigate)
+        if (blackboard.CameraToInvestigate)
         {
-            blackboard.cameraToLock = blackboard.cameraToInvestigate;
+            blackboard.cameraToLock = blackboard.CameraToInvestigate;
 
         }
         else

@@ -16,9 +16,9 @@ public class SetPosition_LockCamera : ActionNode
 
     protected override State OnUpdate()
     {
-        if (!blackboard.cameraToLock && blackboard.cameraToInvestigate)
+        if (!blackboard.cameraToLock && blackboard.CameraToInvestigate)
         {
-            blackboard.cameraToLock = blackboard.cameraToInvestigate;
+            blackboard.cameraToLock = blackboard.CameraToInvestigate;
         }
 
         if (!blackboard.cameraToLock)

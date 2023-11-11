@@ -18,6 +18,7 @@ public class Action_DoTask : ActionNode
         if (!npcController.IsTaskObjectFree())
         {
             blackboard.resetFlag = true;
+            started = false;
             return;
         }
         

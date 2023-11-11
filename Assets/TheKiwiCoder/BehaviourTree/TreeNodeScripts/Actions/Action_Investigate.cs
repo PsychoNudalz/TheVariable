@@ -42,22 +42,22 @@ public class Action_Investigate : ActionNode
         isPlayerSpotted = false;
         if (blackboard.currentSensorySource is { SmartObject: CameraObject co })
         {
-            blackboard.cameraToInvestigate = co.CameraController;
+            blackboard.SetCameraToInvestigate(co.CameraController);
         }
 
         if (blackboard.currentSensorySource is { SmartObject: NpcObject npc })
         {
-            blackboard.cameraToInvestigate = npc.Camera;
+            blackboard.SetCameraToInvestigate(npc.Camera);
         }
 
-        if (blackboard.cameraToInvestigate)
-        {
-            blackboard.cameraToInvestigate.Set_Investigate(true);
-        }
+        // if (blackboard.cameraToInvestigate)
+        // {
+        //     blackboard.cameraToInvestigate.Set_Investigate(true);
+        // }
 
         SSToInvestigate = npcController.GetCurrentSS;
 
-        Update_LastKnown(blackboard.cameraToInvestigate);
+        Update_LastKnown(blackboard.CameraToInvestigate);
         TutorialManager.Display_FirstTime(TutorialEnum.SpotAndLockdown);
         TutorialManager.Display_FirstTime(TutorialEnum.LockdownImmunity);
 
@@ -77,9 +77,10 @@ public class Action_Investigate : ActionNode
             }
             // }
 
-            if (blackboard.cameraToInvestigate)
+            if (blackboard.CameraToInvestigate)
             {
-                blackboard.cameraToInvestigate.Set_Investigate(false);
+                blackboard.CameraToInvestigate.Set_Investigate(false);
+                blackboard.SetCameraToInvestigate(null);
             }
         }
     }
@@ -92,14 +93,20 @@ public class Action_Investigate : ActionNode
         // }
         if (Time.time - investigate_StartTime <= investigate_Time)
         {
+            //TODO: I know setting this very second is bad, but i dont have time to optimise it
+            if (blackboard.CameraToInvestigate)
+            {
+                blackboard.CameraToInvestigate.Set_Investigate(true);
+            }
+
             //While the AI is investigating
-            if (blackboard.cameraToInvestigate && blackboard.cameraToInvestigate.IsDetectable)
+            if (blackboard.CameraToInvestigate && blackboard.CameraToInvestigate.IsDetectable)
             {
                 // if(blackboard.currentSensorySource)
 
                 NPC_AlertState returnState = context.NpcController.Update_AlertValue(alertBuildup);
 
-                Update_LastKnown(blackboard.cameraToInvestigate);
+                Update_LastKnown(blackboard.CameraToInvestigate);
                 //If the NPC spots the player
                 //TODO: might change this to compare to Spotted state
                 if (returnState != blackboard.alertState)

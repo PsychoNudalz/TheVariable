@@ -17,9 +17,9 @@ public class Action_SetCameraInvestigation : ActionNode
     }
 
     protected override State OnUpdate() {
-        if (blackboard.cameraToInvestigate)
+        if (blackboard.CameraToInvestigate)
         {
-            cameraToLock = blackboard.cameraToInvestigate;
+            cameraToLock = blackboard.CameraToInvestigate;
             cameraToLock.SetInvestigationMode(cameraInvestigationMode);
 
         }

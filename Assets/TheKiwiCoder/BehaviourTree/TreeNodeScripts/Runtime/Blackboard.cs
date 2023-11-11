@@ -31,7 +31,22 @@ namespace TheKiwiCoder {
 
         [FormerlySerializedAs("resetInvestigationFlag")]
         public bool resetFlag = false;
-        public CameraController cameraToInvestigate = null;
+
+        public CameraController CameraToInvestigate
+        {
+            get => cameraToInvestigate;
+        }
+
+        public void SetCameraToInvestigate(CameraController value)
+        {
+            if (cameraToInvestigate)
+            {
+                cameraToInvestigate.Set_Investigate(false);
+            }
+
+            cameraToInvestigate = value;
+        }
+
         public CameraController cameraToLock = null;
         // public ItemName MissingItem => missingItems[0];
         // protected bool foundAllItems =>
@@ -41,6 +56,8 @@ namespace TheKiwiCoder {
         public CameraController player_LastKnown_Camera;
         public float player_LastKnown_Time = 0;
         public CameraController[] hackingCameras;
+
+        private CameraController cameraToInvestigate = null;
         // public CameraObject 
     }
 }

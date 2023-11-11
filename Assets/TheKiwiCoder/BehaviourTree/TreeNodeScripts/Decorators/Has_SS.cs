@@ -4,7 +4,7 @@ using UnityEngine;
 using TheKiwiCoder;
 
 [System.Serializable]
-public class Has_MissingSS : DecoratorNode
+public class Has_SS : DecoratorNode
 {
     [SerializeField]
     private bool failure;
@@ -15,7 +15,7 @@ public class Has_MissingSS : DecoratorNode
     }
 
     protected override State OnUpdate() {
-        if (npcController.GetCurrentSS != null)
+        if (npcController.GetCurrentSS == null)
         {
             if (failure)
             {

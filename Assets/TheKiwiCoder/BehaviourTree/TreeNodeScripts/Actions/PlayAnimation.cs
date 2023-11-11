@@ -45,9 +45,9 @@ public class PlayAnimation : ActionNode
 
                     break;
                 case PlayAnimationOrientation.CameraToInvestigate:
-                    if (blackboard.cameraToInvestigate)
+                    if (blackboard.CameraToInvestigate)
                     {
-                        if (blackboard.cameraToInvestigate.ConnectedSo is NpcObject npcObject)
+                        if (blackboard.CameraToInvestigate.ConnectedSo is NpcObject npcObject)
                         {
                             context.NpcController.MoveTransform(agent_Position,
                                 GetDirectionToNpc(npcObject), animation);
@@ -55,8 +55,8 @@ public class PlayAnimation : ActionNode
                         else
                         {
                             context.NpcController.MoveTransform(
-                                blackboard.cameraToInvestigate.ConnectedSo.InteractPosition,
-                                blackboard.cameraToInvestigate.ConnectedSo.InteractRotation, animation);
+                                blackboard.CameraToInvestigate.ConnectedSo.InteractPosition,
+                                blackboard.CameraToInvestigate.ConnectedSo.InteractRotation, animation);
                         }
                     }
                     else

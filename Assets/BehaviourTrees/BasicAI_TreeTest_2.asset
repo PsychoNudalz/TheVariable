@@ -109,7 +109,6 @@ MonoBehaviour:
   - rid: 2403197242897858560
   - rid: 2403197242897858561
   - rid: 2403197242897858562
-  - rid: 3034970053129797633
   - rid: 3034970053129797634
   - rid: 3034970053129797635
   - rid: 3034970053129797636
@@ -121,6 +120,14 @@ MonoBehaviour:
   - rid: 3034970078832492548
   - rid: 3034970078832492550
   - rid: 3034970078832492551
+  - rid: 2403197331013369856
+  - rid: 2403197331013369859
+  - rid: 2403197331013369861
+  - rid: 2403197331013369862
+  - rid: 2403197331013369863
+  - rid: 2403197331013369864
+  - rid: 2403197331013369866
+  - rid: 2403197331013369867
   treeState: 0
   blackboard:
     alertState: 0
@@ -136,13 +143,12 @@ MonoBehaviour:
     wait_duration: 0
     npcController: {fileID: 0}
     resetFlag: 0
-    cameraToInvestigate: {fileID: 0}
     cameraToLock: {fileID: 0}
     player_LastKnown_Position: {x: 0, y: 0, z: 0}
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -17.6, y: 45.6, z: 0}
+  viewPosition: {x: -148, y: 140, z: 0}
   viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
@@ -168,7 +174,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -204,7 +209,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -236,7 +240,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -266,7 +269,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -285,7 +287,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c74f9c5759d7dd44eafb428e4834bf63
-        position: {x: 1152, y: 916.7999}
+        position: {x: 1186.4001, y: 960.7999}
         blackboard:
           alertState: 0
           health: 0
@@ -300,7 +302,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -334,7 +335,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -366,7 +366,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -398,7 +397,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -432,7 +430,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -465,7 +462,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -497,7 +493,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -529,7 +524,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -563,7 +557,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -595,7 +588,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -629,7 +621,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -660,7 +651,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -697,7 +687,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -719,7 +708,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d4f01af963bcb784db73635a7303816f
-        position: {x: 1245.6001, y: 1192.0001}
+        position: {x: 1152, y: 1717.4438}
         blackboard:
           alertState: 0
           health: 0
@@ -734,7 +723,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -765,7 +753,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -795,7 +782,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -832,7 +818,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -868,7 +853,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -898,7 +882,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -928,7 +911,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -960,7 +942,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -993,7 +974,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1025,7 +1005,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1057,7 +1036,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1091,7 +1069,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1126,7 +1103,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1156,7 +1132,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1186,7 +1161,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1216,7 +1190,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1246,7 +1219,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1276,7 +1248,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1308,7 +1279,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1340,7 +1310,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1372,7 +1341,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1408,7 +1376,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1441,7 +1408,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1472,7 +1438,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1483,6 +1448,256 @@ MonoBehaviour:
         drawGizmos: 0
         child:
           rid: 2403197242897858561
+    - rid: 2403197331013369856
+      type: {class: Action_SetCameraInvestigation, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 00d22c78209127d4fae12a6755cedd1b
+        position: {x: 1514.8, y: 1374.8002}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Action_SetCameraInvestigation
+        description: 
+        drawGizmos: 0
+        cameraInvestigationMode: 1
+        cameraToLock: {fileID: 0}
+    - rid: 2403197331013369859
+      type: {class: Action_ConvertDistractionToCamera, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 38f744e5ddd04ac47b40c16c3111adf6
+        position: {x: 1006.4, y: 1518.4}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Action_ConvertDistractionToCamera
+        description: 
+        drawGizmos: 0
+    - rid: 2403197331013369861
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 85121f2b4b016c54b9a4b3ebf8403848
+        position: {x: 1381.6001, y: 1121.6001}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Sequencer
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 3034970053129797634
+        - rid: 2403197331013369863
+    - rid: 2403197331013369862
+      type: {class: Has_AudioSS, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 95a8f1efb82b13f429b75e2655ba827a
+        position: {x: 1070.9626, y: 1395.2001}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Has_AudioSS
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 2403197331013369859
+        failure: 1
+    - rid: 2403197331013369863
+      type: {class: Succeed, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 476ed3e285101074aae426060da15305
+        position: {x: 1552.7999, y: 1254.4}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Succeed
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 2403197331013369856
+    - rid: 2403197331013369864
+      type: {class: Has_MissingSS, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 69e3748d40178a846b8c257b27b5b441
+        position: {x: 1306.4, y: 1412.8}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Has_MissingSS
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 2403197331013369867
+        failure: 0
+    - rid: 2403197331013369866
+      type: {class: Failure, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 3009ed29a2c0952468f5863d6397189b
+        position: {x: 1589.6002, y: 1889.4438}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Failure
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 3034970053129797637
+    - rid: 2403197331013369867
+      type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ac4b3eb21ba908a46b02bac6135c7898
+        position: {x: 1306.4001, y: 1564.6438}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Selector
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 466623170613870605
+        - rid: 3034970053129797635
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -1504,7 +1719,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1536,7 +1750,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1571,7 +1784,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1607,7 +1819,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1639,7 +1850,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1676,7 +1886,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1706,7 +1915,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1742,7 +1950,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1775,7 +1982,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1786,45 +1992,13 @@ MonoBehaviour:
         drawGizmos: 0
         animation: 5
         orientation: 2
-    - rid: 3034970053129797633
-      type: {class: Has_MissingSS, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 3212d6b88d5939542a7b7e857d4fd024
-        position: {x: 1414.3999, y: 944.0001}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          targetPosition: {x: 0, y: 0, z: 0}
-          targetRotation: {x: 0, y: 0, z: 0, w: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          npcController: {fileID: 0}
-          resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
-          cameraToLock: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-          hackingCameras: []
-        name: Has_MissingSS
-        description: 
-        drawGizmos: 0
-        child:
-          rid: 3034970053129797634
     - rid: 3034970053129797634
       type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 2ddea2adf03a1a54081b5d8fdcbccd4e
-        position: {x: 1414.3999, y: 1050.4}
+        position: {x: 1290.4, y: 1254.4}
         blackboard:
           alertState: 0
           health: 0
@@ -1839,7 +2013,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1849,15 +2022,15 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
-        - rid: 466623170613870605
-        - rid: 3034970053129797635
+        - rid: 2403197331013369862
+        - rid: 2403197331013369864
     - rid: 3034970053129797635
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 7790c18a759c5884284e78966d958d84
-        position: {x: 1500.8, y: 1223.2001}
+        position: {x: 1440.0001, y: 1749.4437}
         blackboard:
           alertState: 0
           health: 0
@@ -1872,7 +2045,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1883,14 +2055,14 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 3034970053129797636
-        - rid: 3034970053129797637
+        - rid: 2403197331013369866
     - rid: 3034970053129797636
       type: {class: Log, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 39f5232d9430c714c968958958e48d75
-        position: {x: 1400, y: 1356.0001}
+        position: {x: 1402.4003, y: 1889.4438}
         blackboard:
           alertState: 0
           health: 0
@@ -1905,7 +2077,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1921,7 +2092,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 581a6101f4bf262438129f32942ae54f
-        position: {x: 1573.6001, y: 1356.0001}
+        position: {x: 1572.8002, y: 2002.2438}
         blackboard:
           alertState: 0
           health: 0
@@ -1936,7 +2107,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -1968,7 +2138,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2001,7 +2170,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2034,7 +2202,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2066,7 +2233,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2102,7 +2268,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2134,7 +2299,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2165,7 +2329,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2198,7 +2361,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2232,7 +2394,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2268,7 +2429,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2302,7 +2462,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2334,7 +2493,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2368,7 +2526,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2379,7 +2536,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 270282241434451969
-        - rid: 3034970053129797633
+        - rid: 2403197331013369861
         - rid: 8796965059076030497
         - rid: 2403197242897858560
         - rid: 3923952843446550531
@@ -2404,7 +2561,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2440,7 +2596,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2473,7 +2628,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2507,7 +2661,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2541,7 +2694,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2571,7 +2723,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2604,7 +2755,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2634,7 +2784,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2670,7 +2819,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2703,7 +2851,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2733,7 +2880,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2763,7 +2909,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2797,7 +2942,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2833,7 +2977,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2863,7 +3006,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2896,7 +3038,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2928,7 +3069,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2958,7 +3098,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -2990,7 +3129,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3022,7 +3160,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3056,7 +3193,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3090,7 +3226,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3109,7 +3244,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 101968442bb554a4a9a2be50e7fc8c8a
-        position: {x: 1756.8, y: 970.4}
+        position: {x: 1815.9998, y: 962.4001}
         blackboard:
           alertState: 0
           health: 0
@@ -3124,7 +3259,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3161,7 +3295,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3197,7 +3330,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3229,7 +3361,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3264,7 +3395,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3298,7 +3428,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3335,7 +3464,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3369,7 +3497,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3405,7 +3532,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3437,7 +3563,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3469,7 +3594,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3502,7 +3626,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3539,7 +3662,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3573,7 +3695,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3605,7 +3726,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}
@@ -3639,7 +3759,6 @@ MonoBehaviour:
           wait_duration: 0
           npcController: {fileID: 0}
           resetFlag: 0
-          cameraToInvestigate: {fileID: 0}
           cameraToLock: {fileID: 0}
           player_LastKnown_Position: {x: 0, y: 0, z: 0}
           player_LastKnown_Camera: {fileID: 0}

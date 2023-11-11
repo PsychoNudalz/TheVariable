@@ -67,6 +67,8 @@ public class CameraController : MonoBehaviour
 
     private Material[] originalMaterials;
 
+    [SerializeField] public bool IsNPC => (connectedSO && connectedSO is NpcObject);
+
     [Serializable]
     enum CameraState
     {

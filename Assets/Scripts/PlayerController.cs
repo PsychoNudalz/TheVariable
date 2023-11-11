@@ -187,7 +187,6 @@ public class PlayerController : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
     }
 
     private void FixedUpdate()
@@ -283,13 +282,18 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (cameraStackIndex == 0)
+
+        if (!currentCamera.IsNPC)
         {
-            return;
+            if (cameraStackIndex == 0)
+            {
+                return;
+            }
+
+            cameraStackIndex--;
+            cameraStackIndex = (int)Math.Clamp(cameraStackIndex, 0, cameraStack.Count - 1);
         }
 
-        cameraStackIndex--;
-        cameraStackIndex = (int)Math.Clamp(cameraStackIndex, 0, cameraStack.Count - 1);
         // ChangeCamera(cameraStack[cameraStackIndex],false);
         // currentCamera = cameraManager.GetNextCamera(currentCamera);
         SwitchToStackCamera();
@@ -307,13 +311,17 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (cameraStackIndex == cameraStack.Count - 1)
-        {
-            return;
-        }
 
-        cameraStackIndex++;
-        cameraStackIndex = (int)Math.Clamp(cameraStackIndex, 0, cameraStack.Count - 1);
+        if (!currentCamera.IsNPC)
+        {
+            if (cameraStackIndex == cameraStack.Count - 1)
+            {
+                return;
+            }
+
+            cameraStackIndex++;
+            cameraStackIndex = (int)Math.Clamp(cameraStackIndex, 0, cameraStack.Count - 1);
+        }
 
         SwitchToStackCamera();
 
@@ -325,7 +333,7 @@ public class PlayerController : MonoBehaviour
 
         // currentCamera = cameraManager.GetPrevCamera(currentCamera);
     }
-    
+
     public void OnWindow_Next(InputValue inputValue)
     {
         TutorialManager.current.OnWindow_Next();
@@ -339,16 +347,15 @@ public class PlayerController : MonoBehaviour
     public void OnWindow_Close(InputValue inputValue)
     {
         TutorialManager.current.OnWindow_Close();
-
     }
 
 
     private void SwitchToStackCamera()
     {
-        if (currentCamera.ConnectedSo is NpcObject)
-        {
-            cameraStackIndex = 0;
-        }
+        // if (currentCamera.ConnectedSo is NpcObject)
+        // {
+        //     cameraStackIndex = 0;
+        // }
 
         currentCamera.StartHack(currentCameraFromStack.ConnectedSo,
             currentCameraFromStack.ConnectedSo.GetHackIndex<Hack_Camera_Switch>(),
@@ -451,7 +458,7 @@ public class PlayerController : MonoBehaviour
             GameManager.ResetLevel();
         }
     }
-    
+
     public void OnResetSave(InputValue inputValue)
     {
         if (inputValue.isPressed)

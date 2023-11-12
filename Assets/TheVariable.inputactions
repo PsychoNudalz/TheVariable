@@ -451,6 +451,17 @@
                 },
                 {
                     "name": "",
+                    "id": "01696fd6-b8af-42bd-a01e-2ef801050a12",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera_Prev",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "dfd3d20f-722a-4d2c-b1d7-890005b2c62f",
                     "path": "<Keyboard>/x",
                     "interactions": "",
@@ -464,6 +475,17 @@
                     "name": "",
                     "id": "ced297d7-c687-4892-a2de-888689388fb4",
                     "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera_Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3d59b84-0661-4546-936b-441d271b0ba5",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -629,17 +651,6 @@
                     "name": "",
                     "id": "a23f9082-5ba3-4e94-adcf-b9b2f247d2af",
                     "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HighlightCameras",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "08a5e4d6-d425-40f1-be61-28af09fb82c8",
-                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

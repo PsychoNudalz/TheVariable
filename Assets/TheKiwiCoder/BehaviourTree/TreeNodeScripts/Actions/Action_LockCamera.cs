@@ -47,7 +47,7 @@ public class Action_LockCamera : ActionNode
     {
         if (started)
         {
-            blackboard.SetCameraToInvestigate(null);
+            blackboard.SetCameraToInvestigate(null,false);
         }
     }
 

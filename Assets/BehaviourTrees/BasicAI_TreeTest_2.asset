@@ -104,7 +104,6 @@ MonoBehaviour:
   - rid: 2403197175240327174
   - rid: 2403197175240327175
   - rid: 2403197175240327176
-  - rid: 2403197175240327177
   - rid: 2403197175240327178
   - rid: 2403197242897858560
   - rid: 2403197242897858561
@@ -149,8 +148,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -2664.8, y: -452.8, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: -1473.6, y: -17.6, z: 0}
+  viewScale: {x: 0.375937, y: 0.375937, z: 1}
   references:
     version: 2
     RefIds:
@@ -1290,37 +1289,6 @@ MonoBehaviour:
         drawGizmos: 0
         animation: 3
         orientation: 3
-    - rid: 2403197175240327177
-      type: {class: Action_SetCameraInvestigation, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 8544a0a190c654c46b88d16a91bc9f61
-        position: {x: 3691.2, y: 1196.0001}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          targetPosition: {x: 0, y: 0, z: 0}
-          targetRotation: {x: 0, y: 0, z: 0, w: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          npcController: {fileID: 0}
-          resetFlag: 0
-          cameraToLock: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-          hackingCameras: []
-        name: Action_SetCameraInvestigation
-        description: 
-        drawGizmos: 0
-        cameraInvestigationMode: 0
-        cameraToLock: {fileID: 0}
     - rid: 2403197175240327178
       type: {class: Action_StopMove, ns: , asm: Assembly-CSharp}
       data:
@@ -3668,7 +3636,6 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
-        - rid: 2403197175240327177
         - rid: 466623464268365825
         - rid: 2403197175240327176
         - rid: 8796965355488280586

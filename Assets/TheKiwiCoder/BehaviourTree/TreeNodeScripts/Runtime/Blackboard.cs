@@ -37,9 +37,9 @@ namespace TheKiwiCoder {
             get => cameraToInvestigate;
         }
 
-        public void SetCameraToInvestigate(CameraController value)
+        public void SetCameraToInvestigate(CameraController value,bool updateInvestigate = true)
         {
-            if (cameraToInvestigate)
+            if (cameraToInvestigate&&updateInvestigate)
             {
                 cameraToInvestigate.Set_Investigate(false);
             }

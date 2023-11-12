@@ -28,6 +28,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_TutorialDisplay tutorialDisplay;
 
+    [SerializeField]
+    private UI_CameraInfo cameraInfo;
+
     [Header("Smaller Components")]
     [Header("Timer")]
     [SerializeField]
@@ -214,6 +217,11 @@ public class UIController : MonoBehaviour
     public void Tutorial_Close()
     {
         tutorialDisplay.Close();
+    }
+
+    public void SetCamera(CameraController cameraController)
+    {
+        cameraInfo.SetCamera(cameraController);
     }
     
 }

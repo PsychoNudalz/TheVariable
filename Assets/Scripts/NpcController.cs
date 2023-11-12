@@ -116,6 +116,12 @@ public class NpcController : MonoBehaviour
     public Vector3 AlertPosition => alertPosition.position;
     public float Health => lifeSystem.Health;
 
+    public float AlertValue => alertValue;
+    public string AlertValueString
+    {
+        get => (alertValue * 100).ToString("0") + "%";
+    }
+
     /// <summary>
     /// If the NPC is freely moving around
     /// </summary>
@@ -186,7 +192,7 @@ public class NpcController : MonoBehaviour
         // UpdateAlertValue(1f);
         // Debug.Log($"Controller change NPC state from: {blackboardAlertState} --> {npcAlertState}");
         // blackboardAlertState = npcAlertState;
-        float thresholdOffset = .1f;
+        float thresholdOffset = .05f;
         // if (blackboardAlertState == NPC_AlertState.Spotted)
         // {
         //     print("NPC is in spotted");

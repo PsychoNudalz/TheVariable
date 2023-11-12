@@ -22,6 +22,8 @@ public enum CameraInvestigationMode
 public class CameraController : MonoBehaviour
 {
     [Header("Camera")]
+    [SerializeField]
+    private RoomLabel roomLocation = RoomLabel.None;
     [Header("Movement")]
     [SerializeField]
     private CinemachineVirtualCamera camera;
@@ -144,6 +146,7 @@ public class CameraController : MonoBehaviour
     public float CameraLockTime => cameraLock_Time;
     public string CameraLockTime_String => Get_CameraLockTime_String();
 
+    public RoomLabel RoomLocation => roomLocation;
 
     void Awake()
     {
@@ -308,6 +311,7 @@ public class CameraController : MonoBehaviour
 
         isPlayerControl = b;
         SetInvestigationMode(investigationMode);
+        UIController.current.SetCamera(this);
     }
 
     public void ThroughWallEffect_Activate()
@@ -467,24 +471,7 @@ public class CameraController : MonoBehaviour
 
         if (cameraRingMaterial)
         {
-            cameraRingMaterial.DisableKeyword("_CAMERARINGMODE_NONE");
-            switch (mode)
-            {
-                case CameraInvestigationMode.None:
-                    cameraRingMaterial.EnableKeyword("_CAMERARINGMODE_NONE");
-
-                    break;
-                case CameraInvestigationMode.Investigated:
-                    cameraRingMaterial.EnableKeyword("_CAMERARINGMODE_INVESTIGATED");
-
-                    break;
-                case CameraInvestigationMode.Spotted:
-                    cameraRingMaterial.EnableKeyword("_CAMERARINGMODE_SPOTTED");
-
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(mode), mode, null);
-            }
+            cameraRingMaterial.SetInt("_CameraRingMode",(int)mode);
         }
     }
 

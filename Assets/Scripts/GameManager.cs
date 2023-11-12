@@ -6,6 +6,23 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum RoomLabel
+{
+    None,
+    LivingRoom,
+    Garage,
+    StaffToilet,
+    Storage,
+    ServantRoom,
+    GuardRoom,
+    Study,
+    MasterBedroom,
+    Corridor,
+    Connector,
+    Kitchen
+    
+}
+
 public class GameManager : MonoBehaviour
 {
     enum GameState
@@ -148,6 +165,7 @@ public class GameManager : MonoBehaviour
     public static void DebugMode()
     {
         MaxLevel();
+        ResetTimeScale();
     }
 
     [Command()]

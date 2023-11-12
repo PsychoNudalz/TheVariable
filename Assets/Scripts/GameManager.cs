@@ -110,8 +110,12 @@ public class GameManager : MonoBehaviour
     public static void SlowTimeForHack()
     {
         Time.timeScale = hackSlowScale;
+    }public static void StopTime()
+    {
+        Time.timeScale = 0;
     }
 
+    [Command()]
     public static void ResetTimeScale()
     {
         Time.timeScale = 1;

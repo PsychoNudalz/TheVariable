@@ -59,6 +59,12 @@ public class TutorialManager : MonoBehaviour
         uiController = UIController.current;
         DisplayTutorial(TutorialEnum.Start);
         Close();
+        
+        Invoke(nameof(StartingTutorial),1f);
+    }
+
+    private void StartingTutorial()
+    {
         Display_FirstTime(TutorialEnum.Start);
         Display_FirstTime(TutorialEnum.HackingControls);
     }
@@ -108,10 +114,14 @@ public class TutorialManager : MonoBehaviour
     private void Close()
     {
         uiController.Tutorial_Close();
+        GameManager.ResetTimeScale();
+        PlayerController.current.LockInput(false);
         if (queue.TryDequeue(out TutorialEnum tutorialEnum))
         {
             DisplayTutorial(tutorialEnum);
         }
+
+
     }
 
     public void OnWindow_Tutorial(InputValue inputValue)
@@ -148,6 +158,8 @@ public class TutorialManager : MonoBehaviour
         }
 
         uiController.Tutorial_Show(currentTutorial.Title, currentTutorial.VideoClip, currentTutorial.Text);
+        GameManager.StopTime();
+        PlayerController.current.LockInput(true);
     }
 
     public void PushStack(TutorialEnum tutorialEnum)

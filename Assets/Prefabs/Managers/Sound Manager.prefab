@@ -76,6 +76,11 @@ MonoBehaviour:
     delayPlay: 0
     cooldownTime: 0
     lastPlayedTime: 0
+  - soundGlobal: 5
+    sound: {fileID: 3368617932039451690}
+    delayPlay: 0
+    cooldownTime: 0
+    lastPlayedTime: 0
 --- !u!1 &3368617930946205049
 GameObject:
   m_ObjectHideFlags: 0

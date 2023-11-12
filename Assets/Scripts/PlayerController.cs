@@ -24,12 +24,14 @@ public class PlayerController : MonoBehaviour
     {
         Free,
         SelectHack,
-        LockedOut
+        LockedOut,
+        StopInput
     }
 
     private ControlMode controlMode = ControlMode.MK;
     private ZoomMode zoomMode = ZoomMode.None;
     private CameraMode cameraMode = CameraMode.Free;
+    private CameraMode originalCameraMode = CameraMode.Free;
 
     [Header("Components")]
     [SerializeField]
@@ -184,6 +186,9 @@ public class PlayerController : MonoBehaviour
                 break;
             case CameraMode.LockedOut:
                 break;
+            case CameraMode.StopInput:
+                break;
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -348,6 +353,23 @@ public class PlayerController : MonoBehaviour
     public void OnWindow_Close(InputValue inputValue)
     {
         TutorialManager.current.OnWindow_Close();
+    }
+
+    public void LockInput(bool b)
+    {
+        if (b)
+        {
+            if (cameraMode == CameraMode.StopInput)
+            {
+                return;
+            }
+            originalCameraMode = cameraMode;
+            cameraMode = CameraMode.StopInput;
+        }
+        else
+        {
+            cameraMode = originalCameraMode;
+        }
     }
 
 

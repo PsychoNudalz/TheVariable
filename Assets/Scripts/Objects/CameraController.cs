@@ -129,6 +129,7 @@ public class CameraController : MonoBehaviour
     private const int CameraPriority = 10;
 
     private bool isPlayerControl = false;
+    private UIController uiController;
     public Vector3 Position => camera_transform.position;
     public Vector3 Forward => camera_transform.forward;
 
@@ -152,7 +153,9 @@ public class CameraController : MonoBehaviour
     {
         cameraOrientation = camera_transform.eulerAngles;
         originalFOV = camera.m_Lens.FieldOfView;
-        SetActive(false);
+        uiController = UIController.current;
+
+        SetActive(false);   
         hackLine.gameObject.SetActive(false);
         if (cameraRenderer)
         {
@@ -168,10 +171,12 @@ public class CameraController : MonoBehaviour
         {
             connectedSO = GetComponentInParent<SmartObject>();
         }
+        
     }
 
     void Start()
     {
+        
         playerController = PlayerController.current;
         SetCameraRotation(0, 0);
     }
@@ -273,6 +278,11 @@ public class CameraController : MonoBehaviour
 
     public void SetActive(bool b)
     {
+        if (!uiController)
+        {
+            uiController = UIController.current;
+            
+        }
         if (b)
         {
             camera.Priority = CameraPriority;
@@ -290,6 +300,7 @@ public class CameraController : MonoBehaviour
             {
                 cameraRingRenderer.gameObject.SetActive(false);
             }
+            uiController.Minimap_Active(roomLocation);
         }
         else
         {
@@ -311,7 +322,7 @@ public class CameraController : MonoBehaviour
 
         isPlayerControl = b;
         SetInvestigationMode(investigationMode);
-        UIController.current.SetCamera(this);
+        uiController.SetCamera(this);
     }
 
     public void ThroughWallEffect_Activate()
@@ -466,7 +477,7 @@ public class CameraController : MonoBehaviour
         investigationMode = mode;
         if (isPlayerControl)
         {
-            UIController.current.CameraScreen_Play(mode);
+            uiController.CameraScreen_Play(mode);
         }
 
         if (cameraRingMaterial)

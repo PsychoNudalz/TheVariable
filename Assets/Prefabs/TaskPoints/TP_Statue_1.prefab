@@ -108,6 +108,56 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 2918198883386962691, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918198883386962691, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918198883386962691, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710623
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918198883386962691, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710737
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918198883386962691, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706561781800202170, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706561781800202170, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706561781800202170, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706561781800202170, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710737
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706561781800202170, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6619643399178367472, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_StaticEditorFlags

@@ -31,6 +31,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_CameraInfo cameraInfo;
 
+    [SerializeField]
+    private UI_Minimap minimap;
+
     [Header("Smaller Components")]
     [Header("Timer")]
     [SerializeField]
@@ -222,6 +225,11 @@ public class UIController : MonoBehaviour
     public void SetCamera(CameraController cameraController)
     {
         cameraInfo.SetCamera(cameraController);
+    }
+
+    public void Minimap_Active(RoomLabel roomLabel)
+    {
+        minimap.SetActive(roomLabel);
     }
     
 }

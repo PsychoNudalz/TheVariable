@@ -159,7 +159,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         playerController = PlayerController.current;
-        RotateCamera(0, 0);
+        SetCameraRotation(0, 0);
     }
 
     void Update()
@@ -242,6 +242,14 @@ public class CameraController : MonoBehaviour
         cameraOrientation.y += horizontal * zoomRotateMultiplier;
         cameraOrientation.y = Mathf.Clamp(cameraOrientation.y, yClamp.x, yClamp.y);
         camera_transform.localEulerAngles = cameraOrientation;
+    }
+
+    void SetCameraRotation(float horizontal, float vertical)
+    {
+        cameraOrientation.x = vertical;
+        cameraOrientation.y = horizontal;
+        camera_transform.localEulerAngles = cameraOrientation;
+
     }
 
     public void UpdateZoom(float zoomAmount)

@@ -272,12 +272,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnCamera_Next()
     {
+        
         if (cameraStack.Count == 0)
         {
             return;
         }
 
-        if (cameraMode == CameraMode.SelectHack)
+        if (cameraMode is CameraMode.SelectHack or CameraMode.LockedOut)
         {
             return;
         }
@@ -306,7 +307,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (cameraMode == CameraMode.SelectHack)
+        if (cameraMode is CameraMode.SelectHack or CameraMode.LockedOut)
         {
             return;
         }

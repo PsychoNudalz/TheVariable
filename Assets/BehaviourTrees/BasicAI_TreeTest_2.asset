@@ -128,6 +128,7 @@ MonoBehaviour:
   - rid: 2403197331013369864
   - rid: 2403197331013369866
   - rid: 2403197331013369867
+  - rid: 2403197352212955136
   treeState: 0
   blackboard:
     alertState: 0
@@ -148,8 +149,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -392, y: -69.6, z: 0}
-  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
+  viewPosition: {x: -2664.8, y: -452.8, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -803,7 +804,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1bb60f0214f7b5a4d9ecbf853cce32cf
-        position: {x: 3671.1997, y: 1182.4}
+        position: {x: 3921.6, y: 1195.2002}
         blackboard:
           alertState: 0
           health: 0
@@ -1264,7 +1265,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: dc9eb2a63a4e79b4392374e2ccd98d11
-        position: {x: 3818.4, y: 1183.2001}
+        position: {x: 4068.7998, y: 1196.0002}
         blackboard:
           alertState: 0
           health: 0
@@ -1295,7 +1296,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 8544a0a190c654c46b88d16a91bc9f61
-        position: {x: 4268, y: 1182.4}
+        position: {x: 3691.2, y: 1196.0001}
         blackboard:
           alertState: 0
           health: 0
@@ -1698,6 +1699,38 @@ MonoBehaviour:
         children:
         - rid: 466623170613870605
         - rid: 3034970053129797635
+    - rid: 2403197352212955136
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0c93a4add17653549ab3fdd52e8c3af6
+        position: {x: 4293.5996, y: 1336.6615}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Sequencer
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 8796965355488280587
+        - rid: 8796965355488280590
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -3482,7 +3515,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: bf1879c77127d644e872cf5d4a9f5d5c
-        position: {x: 3732, y: 667.2001}
+        position: {x: 3714.3994, y: 665.451}
         blackboard:
           alertState: 0
           health: 0
@@ -3510,14 +3543,14 @@ MonoBehaviour:
         - rid: 270282241434451971
         - rid: 466623531301208067
         - rid: 466623466926768141
-        - rid: 8796965355488280588
+        - rid: 8796965355488280589
     - rid: 8796965355488280586
       type: {class: Action_SetWait, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 29151917c3dde2145ba95caeb2f48913
-        position: {x: 3968, y: 1182.4}
+        position: {x: 4218.4004, y: 1195.2002}
         blackboard:
           alertState: 0
           health: 0
@@ -3548,7 +3581,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c34a00b1545911b46992503fa2d84f4d
-        position: {x: 4117.6, y: 1182.4}
+        position: {x: 4293.599, y: 1468.7998}
         blackboard:
           alertState: 0
           health: 0
@@ -3571,7 +3604,7 @@ MonoBehaviour:
         name: Action_LockCamera
         description: 
         drawGizmos: 0
-        lockDuration: 2
+        lockDuration: 3
         cameraToLock: {fileID: 0}
     - rid: 8796965355488280588
       type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
@@ -3579,7 +3612,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 56a9eebd9e713a947af62dc64d4a0e73
-        position: {x: 3808, y: 872.7999}
+        position: {x: 4368.801, y: 1183.2002}
         blackboard:
           alertState: 0
           health: 0
@@ -3603,7 +3636,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
-        - rid: 8796965355488280589
+        - rid: 2403197352212955136
         - rid: 8796965355488280591
     - rid: 8796965355488280589
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
@@ -3635,19 +3668,18 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
+        - rid: 2403197175240327177
         - rid: 466623464268365825
         - rid: 2403197175240327176
         - rid: 8796965355488280586
-        - rid: 8796965355488280587
-        - rid: 2403197175240327177
-        - rid: 8796965355488280590
+        - rid: 8796965355488280588
     - rid: 8796965355488280590
       type: {class: Action_ChangeAlertState, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: afb2fdbedab54af48bebabf6120a5fdf
-        position: {x: 4494.4, y: 1182.4}
+        position: {x: 4469.1875, y: 1468.7998}
         blackboard:
           alertState: 0
           health: 0
@@ -3680,7 +3712,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 72f4026cd40b89043a18ed6d90186039
-        position: {x: 3934.4, y: 1022.4}
+        position: {x: 4495.201, y: 1332.8002}
         blackboard:
           alertState: 0
           health: 0

@@ -65,6 +65,12 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Material lockedOutMaterial;
 
+    [SerializeField]
+    private Renderer cameraRingRenderer;
+
+    [SerializeField]
+    private Material cameraRingMaterial;
+
     private Material[] originalMaterials;
 
     [SerializeField] public bool IsNPC => (connectedSO && connectedSO is NpcObject);
@@ -148,6 +154,11 @@ public class CameraController : MonoBehaviour
         if (cameraRenderer)
         {
             originalMaterials = cameraRenderer.materials;
+        }
+
+        if (cameraRingRenderer)
+        {
+            cameraRingMaterial = cameraRingRenderer.material;
         }
 
         if (!connectedSO)
@@ -249,7 +260,6 @@ public class CameraController : MonoBehaviour
         cameraOrientation.x = vertical;
         cameraOrientation.y = horizontal;
         camera_transform.localEulerAngles = cameraOrientation;
-
     }
 
     public void UpdateZoom(float zoomAmount)
@@ -272,6 +282,11 @@ public class CameraController : MonoBehaviour
             {
                 cameraBody.enabled = false;
             }
+
+            if (cameraRingRenderer)
+            {
+                cameraRingRenderer.gameObject.SetActive(false);
+            }
         }
         else
         {
@@ -284,6 +299,10 @@ public class CameraController : MonoBehaviour
             if (cameraBody)
             {
                 cameraBody.enabled = true;
+            }
+            if (cameraRingRenderer)
+            {
+                cameraRingRenderer.gameObject.SetActive(true);
             }
         }
 
@@ -377,7 +396,6 @@ public class CameraController : MonoBehaviour
         HackLine_Reset();
         SoundManager.PlayGlobal(SoundGlobal.HackComplete);
         SoundManager.StopGlobal(SoundGlobal.Hacking);
-
     }
 
     public void Set_Lock(bool b, float duration = 0f)
@@ -424,6 +442,11 @@ public class CameraController : MonoBehaviour
 
     public void Set_Investigate(bool b)
     {
+        if (investigationMode == CameraInvestigationMode.Spotted)
+        {
+            Debug.Log($"{name} is in spotted");
+            return;
+        }
         if (b)
         {
             SetInvestigationMode(CameraInvestigationMode.Investigated);
@@ -441,6 +464,28 @@ public class CameraController : MonoBehaviour
         {
             UIController.current.CameraScreen_Play(mode);
         }
+
+        if (cameraRingMaterial)
+        {
+            cameraRingMaterial.DisableKeyword("_CAMERARINGMODE_NONE");
+            switch (mode)
+            {
+                case CameraInvestigationMode.None:
+                    cameraRingMaterial.EnableKeyword("_CAMERARINGMODE_NONE");
+
+                    break;
+                case CameraInvestigationMode.Investigated:
+                    cameraRingMaterial.EnableKeyword("_CAMERARINGMODE_INVESTIGATED");
+
+                    break;
+                case CameraInvestigationMode.Spotted:
+                    cameraRingMaterial.EnableKeyword("_CAMERARINGMODE_SPOTTED");
+
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(mode), mode, null);
+            }
+        }
     }
 
     private void CancelHack()
@@ -450,6 +495,7 @@ public class CameraController : MonoBehaviour
             StopCoroutine(hackCoroutine);
             hackCoroutine = null;
         }
+
         SoundManager.StopGlobal(SoundGlobal.Hacking);
     }
 

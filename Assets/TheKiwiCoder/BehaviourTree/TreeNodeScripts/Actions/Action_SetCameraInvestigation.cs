@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,13 +21,35 @@ public class Action_SetCameraInvestigation : ActionNode
         if (blackboard.CameraToInvestigate)
         {
             cameraToLock = blackboard.CameraToInvestigate;
-            cameraToLock.SetInvestigationMode(cameraInvestigationMode);
+            switch (cameraInvestigationMode)
+            {
+                case CameraInvestigationMode.None:
+                    cameraToLock.SetInvestigationMode(cameraInvestigationMode);
+                    break;
+                case CameraInvestigationMode.Investigated:
+                    cameraToLock.Set_Investigate(true);
+                    break;
+                case CameraInvestigationMode.Spotted:
+                    cameraToLock.SetInvestigationMode(cameraInvestigationMode);
+                    break;
+            }
 
         }
         else if (blackboard.player_LastKnown_Camera)
         {
             cameraToLock = blackboard.player_LastKnown_Camera;
-            cameraToLock.SetInvestigationMode(cameraInvestigationMode);
+            switch (cameraInvestigationMode)
+            {
+                case CameraInvestigationMode.None:
+                    cameraToLock.SetInvestigationMode(cameraInvestigationMode);
+                    break;
+                case CameraInvestigationMode.Investigated:
+                    cameraToLock.Set_Investigate(true);
+                    break;
+                case CameraInvestigationMode.Spotted:
+                    cameraToLock.SetInvestigationMode(cameraInvestigationMode);
+                    break;
+            }
 
         }
         

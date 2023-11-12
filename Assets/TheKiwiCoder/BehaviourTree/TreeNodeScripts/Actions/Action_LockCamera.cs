@@ -15,6 +15,7 @@ public class Action_LockCamera : ActionNode
 
     protected override void OnStart()
     {
+        cameraToLock = null;
         if (blackboard.cameraToLock)
         {
             cameraToLock = blackboard.cameraToLock;
@@ -52,13 +53,14 @@ public class Action_LockCamera : ActionNode
 
     protected override State OnUpdate()
     {
-        if (!started || !cameraToLock)
+        if (!cameraToLock)
         {
             Debug.LogError($"{name}: no camera to lock");
             return State.Failure;
         }
 
         cameraToLock.Set_Lock(true, lockDuration);
+
 
         if (cameraToLock.IsPlayerControl)
         {

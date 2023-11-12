@@ -129,6 +129,18 @@ public class GameManager : MonoBehaviour
         UIController.current.StartTimer(GM.globalRealTimer);
     }
 
+    public static void PauseTimer(bool b)
+    {
+        if (b)
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+
     public static void GameOver()
     {
         if (GM.gameState is GameState.GameOver or GameState.GameWin)

@@ -160,6 +160,7 @@ public class TutorialManager : MonoBehaviour
         uiController.Tutorial_Show(currentTutorial.Title, currentTutorial.VideoClip, currentTutorial.Text);
         GameManager.StopTime();
         PlayerController.current.LockInput(true);
+        SoundManager.PlayGlobal(SoundGlobal.Tutorial_On);
     }
 
     public void PushStack(TutorialEnum tutorialEnum)

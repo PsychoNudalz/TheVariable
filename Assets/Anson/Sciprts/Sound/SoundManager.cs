@@ -12,7 +12,8 @@ public enum SoundGlobal
     Hacking,
     HackComplete,
     Lockout,
-    SwitchCamera
+    SwitchCamera,
+    Tutorial_On
     
 }
 

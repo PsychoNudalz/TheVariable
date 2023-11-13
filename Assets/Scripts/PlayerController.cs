@@ -189,8 +189,6 @@ public class PlayerController : MonoBehaviour
             case CameraMode.StopInput:
                 break;
 
-            default:
-                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -212,8 +210,8 @@ public class PlayerController : MonoBehaviour
                 }
 
                 break;
-            default:
-                throw new ArgumentOutOfRangeException();
+            case CameraMode.StopInput:
+                break;
         }
     }
 

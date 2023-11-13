@@ -84,7 +84,7 @@ public class UIController : MonoBehaviour
 
     public void HacksDisplay_SetActive(bool b, SmartObject so = null)
     {
-        hackAbilityDisplay.gameObject.SetActive(b);
+        hackAbilityDisplay.SetActive(b);
         hackAbilityDisplay.SetObjectToHack(so);
         infoDisplay.ShowInfo(so);
     }

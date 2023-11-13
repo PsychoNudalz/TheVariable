@@ -19,6 +19,9 @@ public class UI_HackAbilityDisplay : MonoBehaviour
     [SerializeField]
     private float cursorSpeed;
 
+    [SerializeField]
+    private Animator animator;
+
     private SmartObject currentSO;
 
     private UI_HackAbilityButton selectedButton;
@@ -42,6 +45,34 @@ public class UI_HackAbilityDisplay : MonoBehaviour
     {
         UpdateCursor();
 
+    }
+
+    private void OnEnable()
+    {
+        
+    }
+
+    public void SetActive(bool b)
+    {
+        if (b)
+        {
+            CancelInvoke(nameof(DelayDisable));
+            gameObject.SetActive(true);
+            SoundManager.PlayGlobal(SoundGlobal.HackDisplay_On);
+            animator.Play("UI_HackDisplay_On");
+        }
+        else
+        {
+            SoundManager.PlayGlobal(SoundGlobal.HackDisplay_Off);
+            animator.Play("UI_HackDisplay_Off");
+
+            Invoke(nameof(DelayDisable),1f);
+        }
+    }
+
+    void DelayDisable()
+    {
+        gameObject.SetActive(false);
     }
 
     public void SetObjectToHack(SmartObject so)

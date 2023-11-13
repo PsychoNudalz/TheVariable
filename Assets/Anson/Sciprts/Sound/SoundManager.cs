@@ -14,7 +14,12 @@ public enum SoundGlobal
     Lockout,
     SwitchCamera,
     Tutorial_On,
-    Distraction
+    Tutorial_Off,
+    Distraction,
+    HackDisplay_On,
+    HackDisplay_Off
+    
+    
     
 }
 

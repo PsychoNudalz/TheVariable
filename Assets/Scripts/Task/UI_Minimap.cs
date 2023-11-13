@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mono.CSharp;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class UI_Minimap : MonoBehaviour
         private RoomLabel room;
         [SerializeField]
         private GameObject mapSprite;
+
 
         public void SetActive(bool b)
         {
@@ -35,16 +37,49 @@ public class UI_Minimap : MonoBehaviour
 
     [SerializeField]
     private MinimapPair[] minimapPairs;
+    
+    [Header("Camera")]
+    [SerializeField]
+    private RectTransform cameraSprite;
+
+    [SerializeField]
+    private Vector2 offset;
+
+    [SerializeField]
+    private float scale = 1f;
+
+    private Transform mainCamera;
+
+    private Vector2 camera2D => new Vector2(mainCamera.position.x, mainCamera.position.z);
+
+
     // Start is called before the first frame update
     void Start()
     {
         // SetActive(RoomLabel.None);
+        mainCamera = Camera.main?.transform;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateCamera();
+    }
+
+    [ContextMenu("UpdateCamera")]
+    private void UpdateCamera()
+    {
+        if (!mainCamera)
+        {
+            mainCamera = Camera.main?.transform;
+        }
+        cameraSprite.localPosition = camera2D * scale + offset;
     }
 
     public void SetActive(RoomLabel roomLabel)
@@ -62,4 +97,6 @@ public class UI_Minimap : MonoBehaviour
             }
         }
     }
+    
+    
 }

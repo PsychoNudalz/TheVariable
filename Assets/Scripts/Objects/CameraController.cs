@@ -460,7 +460,7 @@ public class CameraController : MonoBehaviour
     {
         if (investigationMode == CameraInvestigationMode.Spotted)
         {
-            Debug.Log($"{name} is in spotted");
+            // Debug.Log($"{name} is in spotted");
             return;
         }
         if (b)

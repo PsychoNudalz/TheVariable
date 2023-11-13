@@ -1906,11 +1906,16 @@ PrefabInstance:
     - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
         type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
         type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
@@ -1920,7 +1925,17 @@ PrefabInstance:
       objectReference: {fileID: 1140831393}
     - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
         type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1140831393}
+    - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
+        type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
@@ -1930,7 +1945,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
         type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DisplayTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
+        type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SmartObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SmartObject, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
@@ -1941,7 +1966,18 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
         type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 35f706a63e8d20148a76bf754ddac2b2,
+        type: 2}
+    - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
+        type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TutorialInstructions, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158020037719164857, guid: 685be94e1d7801b4fbee1f93525182d8,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: TutorialInstructions, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3243,8 +3279,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211623370}
-  m_LocalRotation: {x: 2.7443862e-19, y: 0.0000005513429, z: 1.1368684e-13, w: -1}
-  m_LocalPosition: {x: 2.8889997, y: 2.687, z: -23.714016}
+  m_LocalRotation: {x: -1.1368684e-13, y: 1, z: 5.3363065e-19, w: -0.0000017285345}
+  m_LocalPosition: {x: 7.888999, y: 2.687, z: -16.280014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6973,11 +7009,16 @@ PrefabInstance:
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
@@ -6987,7 +7028,17 @@ PrefabInstance:
       objectReference: {fileID: 1259660164}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1259660164}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
@@ -6997,18 +7048,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DisplayTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SmartObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SmartObject, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
+      objectReference: {fileID: 11400000, guid: a90c72bb8b46b694fa191be4d9f1ca76,
+        type: 2}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
       objectReference: {fileID: 11400000, guid: 160e52d3ff90c664a906e9efda4ce2b6,
         type: 2}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TutorialInstructions, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: TutorialInstructions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3915646345386012472, guid: 6b8031b96a3d95549a06fe14865b31cc,

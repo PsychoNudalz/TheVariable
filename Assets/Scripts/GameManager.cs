@@ -54,11 +54,13 @@ public class GameManager : MonoBehaviour
     // [SerializeField]
     private float globalStartTime = 0f;
     private float globalTimeRemaining;
+    private float pausedTime;
 
     enum TimerState
     {
         None,
         Started,
+        Pause,
         Finished
     }
 
@@ -133,11 +135,13 @@ public class GameManager : MonoBehaviour
     {
         if (b)
         {
-            
+            GM.timerState = TimerState.Pause;
+            GM.pausedTime = Time.realtimeSinceStartup;
         }
         else
         {
-            
+            GM.timerState = TimerState.Started;
+            GM.globalStartTime += Time.realtimeSinceStartup - GM.pausedTime;
         }
     }
 

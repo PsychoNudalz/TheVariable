@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ee1779857d7434eb2a7fc3a4f023d52, type: 3}
-  m_Name: T_HackingControls
+  m_Name: T_Highlight
   m_EditorClassIdentifier: 
-  tutorialEnum: 1
-  title: Hacking Controls
-  videoClip: {fileID: 32900000, guid: 7d0910d2bcc19224a88828db1d5829bd, type: 3}
-  text: "Look around using @K$Mouse @S$Stick_R   \r\n\r\nHackable objects are outlined
-    in WHITE.\r\n\r\nSelect and activate the hacks by holding down and releasing
-    \n @K$Mouse_L @S$R2"
+  tutorialEnum: 11
+  title: Highlighting Cameras
+  videoClip: {fileID: 0}
+  text: Pressing @M$Mouse_M and @S$R3 to highlight all cameras.

@@ -47,7 +47,7 @@ public class UI_TutorialDisplay : MonoBehaviour
         {
             if (word.Length > 0 && word[0].Equals(prefix_Icon))
             {
-                reconstructedText += " "+ConvertTextToIcon(word) + " ";
+                reconstructedText += " "+ConvertTextToIcon(word) + "";
             }
             else
             {

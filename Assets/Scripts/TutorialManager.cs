@@ -18,7 +18,10 @@ public enum TutorialEnum
     Investigate,
     SpotAndLockdown,
     LockdownImmunity,
-    NPCCamera
+    NPCCamera,
+    Zooming,
+    Highlight
+    
 }
 //
 // [Serializable]
@@ -115,6 +118,7 @@ public class TutorialManager : MonoBehaviour
     {
         uiController.Tutorial_Close();
         GameManager.ResetTimeScale();
+        GameManager.PauseTimer(false);
         PlayerController.current.LockInput(false);
         if (queue.TryDequeue(out TutorialEnum tutorialEnum))
         {
@@ -159,6 +163,7 @@ public class TutorialManager : MonoBehaviour
 
         uiController.Tutorial_Show(currentTutorial.Title, currentTutorial.VideoClip, currentTutorial.Text);
         GameManager.StopTime();
+        GameManager.PauseTimer(true);
         PlayerController.current.LockInput(true);
         SoundManager.PlayGlobal(SoundGlobal.Tutorial_On);
     }

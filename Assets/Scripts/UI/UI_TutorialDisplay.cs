@@ -31,7 +31,6 @@ public class UI_TutorialDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void Display(string title, VideoClip videoClip, string text)
@@ -43,15 +42,23 @@ public class UI_TutorialDisplay : MonoBehaviour
 
         string[] splitText = text.Split(" ");
         string reconstructedText = "";
+        bool wasWord = false;
         foreach (string word in splitText)
         {
             if (word.Length > 0 && word[0].Equals(prefix_Icon))
             {
-                reconstructedText += " "+ConvertTextToIcon(word) + "";
+                if (wasWord)
+                {
+                    reconstructedText += "  ";
+                }
+
+                reconstructedText += ConvertTextToIcon(word);
+                wasWord = false;
             }
             else
             {
                 reconstructedText += word + " ";
+                wasWord = true;
             }
         }
 
@@ -60,8 +67,15 @@ public class UI_TutorialDisplay : MonoBehaviour
 
     string ConvertTextToIcon(string word)
     {
-        string plateform = "";
+        string platform = "";
+        bool hasComma = false;
         string[] wordSplit = word.Split(prefix_Button);
+        if (word.Contains("."))
+        {
+            word.Remove(word.Length - 1);
+            hasComma = true;
+        }
+
         if (wordSplit.Length < 2)
         {
             Debug.LogError($"Failed to convert: {word}");
@@ -72,22 +86,28 @@ public class UI_TutorialDisplay : MonoBehaviour
         if (wordSplit[0].Equals("@S"))
         {
             //Steam Deck
-            plateform = "SteamDeck_Controls";
+            platform = "SteamDeck_Controls";
         }
         else if (wordSplit[0].Equals("@P"))
         {
             //Play Station
-            plateform = "PS_Controls";
+            platform = "PS_Controls";
         }
         else
         {
             //PC
-            plateform = "Keyboard_Controls";
+            platform = "Keyboard_Controls";
         }
 
         string control = wordSplit[1];
 
-        return string.Concat(" <sprite=\"", plateform, "\" name=\"", control, "\">");
+        string returnString = string.Concat("<sprite=\"", platform, "\" name=\"", control, "\">");
+        if (hasComma)
+        {
+            returnString += ".";
+        }
+
+        return returnString;
     }
 
     public void Close()

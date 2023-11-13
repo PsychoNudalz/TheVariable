@@ -411,7 +411,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioDistract: {fileID: 3017447997709266215}
-  tutorialOnHack: 1
   Enable_Debug: 1
   originalItemName: 0
   modelGO: {fileID: 129341653907168838}
@@ -450,6 +449,7 @@ MonoBehaviour:
   audioDistract_Dampen: 0.2
   audioDistract_PS: {fileID: 0}
   audioDistract_VE: {fileID: 5187857743122303350}
+  useGlobal: 1
   audioDistract_SFX: {fileID: 0}
 --- !u!65 &5403636153326276058
 BoxCollider:

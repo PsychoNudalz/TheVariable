@@ -101,6 +101,7 @@ public class CameraController : MonoBehaviour
     private float cameraHack_TimeNow = 0;
 
     [Header("Locking")]
+    [SerializeField]
     private CameraInvestigationMode investigationMode;
 
     private float cameraLock_Time = 0;

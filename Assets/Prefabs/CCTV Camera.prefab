@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5953b1faeaa16744e9f9cad39374bf8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomLocation: 0
   camera: {fileID: 3915646344706757922}
   camera_transform: {fileID: 3915646344706757923}
   xClamp: {x: -90, y: 90}
@@ -578,6 +579,7 @@ MonoBehaviour:
   audioDistract_Dampen: 1
   audioDistract_PS: {fileID: 0}
   audioDistract_VE: {fileID: 5828431194569870934}
+  useGlobal: 1
   audioDistract_SFX: {fileID: 0}
 --- !u!114 &3115976637550050552
 MonoBehaviour:

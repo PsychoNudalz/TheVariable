@@ -25,9 +25,14 @@ public class SO_AudioDistraction:MonoBehaviour
     [SerializeField]
     private VisualEffect audioDistract_VE;
 
+    [Space(8)]
+    [SerializeField]
+    private bool useGlobal = true;
     [SerializeField]
     private SoundAbstract audioDistract_SFX;
 
+    private SmartObject savedSO;
+    private Vector3 savedPosition;
     private void Awake()
     {
         audioDistraction_LayerMask = LayerMask.GetMask("Npc","Object","Environment","Ground");
@@ -52,8 +57,22 @@ public class SO_AudioDistraction:MonoBehaviour
         if (audioDistract_SFX)
         {
             audioDistract_SFX.Play();
-        } 
-        RaycastHit[] castHits = Physics.SphereCastAll(position, audioDistract_Range, Vector3.up, 0,
+        }
+
+        if (useGlobal)
+        {
+            SoundManager.PlayGlobal(SoundGlobal.Distraction);
+        }
+
+        savedSO = so;
+        savedPosition = position;
+        Invoke(nameof(CreateSensorySources),.5f); 
+    }
+
+    private void CreateSensorySources()
+    {
+        
+        RaycastHit[] castHits = Physics.SphereCastAll(savedPosition, audioDistract_Range, Vector3.up, 0,
             audioDistraction_LayerMask);
         Collider collider;
         foreach (RaycastHit hit in castHits)
@@ -61,7 +80,7 @@ public class SO_AudioDistraction:MonoBehaviour
             collider = hit.collider;
             if (collider.TryGetComponent(out NpcController npcController))
             {
-                SensorySource_Audio newSSA = new SensorySource_Audio(so, audioDistract_Strength);
+                SensorySource_Audio newSSA = new SensorySource_Audio(savedSO, audioDistract_Strength);
                 newSSA.AdjustStrength(npcController.transform.position, audioDistraction_LayerMask,
                     audioDistract_Dampen);
                 npcController.AddSensorySource(newSSA);

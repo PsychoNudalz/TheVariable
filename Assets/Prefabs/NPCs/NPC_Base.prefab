@@ -734,6 +734,7 @@ MonoBehaviour:
   audioDistract_Dampen: 0.5
   audioDistract_PS: {fileID: 0}
   audioDistract_VE: {fileID: 6555813943775385490}
+  useGlobal: 1
   audioDistract_SFX: {fileID: 0}
 --- !u!1 &1320077875737293229
 GameObject:
@@ -1422,6 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5953b1faeaa16744e9f9cad39374bf8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomLocation: 0
   camera: {fileID: 4368685064227142844}
   camera_transform: {fileID: 4368685064227142845}
   xClamp: {x: -80, y: 80}
@@ -1433,6 +1435,8 @@ MonoBehaviour:
   throughWallEffect_Time: 0
   cameraRenderer: {fileID: 0}
   lockedOutMaterial: {fileID: 2100000, guid: 7a1630b3f045988479418dce49b703fa, type: 2}
+  cameraRingRenderer: {fileID: 0}
+  cameraRingMaterial: {fileID: 0}
   cameraState: 0
   hackLine: {fileID: 6669553940900926587}
   connectedSO: {fileID: 1320077873986614613}

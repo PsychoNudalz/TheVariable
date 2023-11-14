@@ -27,6 +27,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Hat
+    second: {fileID: 2100000, guid: 903561ff034d87544a73e6d609a11039, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Skin
     second: {fileID: 2100000, guid: 156bc0db615f758448f2d683d52ef732, type: 2}
   - first:

@@ -24,6 +24,7 @@ public class CameraController : MonoBehaviour
     [Header("Camera")]
     [SerializeField]
     private RoomLabel roomLocation = RoomLabel.None;
+
     [Header("Movement")]
     [SerializeField]
     private CinemachineVirtualCamera camera;
@@ -156,7 +157,7 @@ public class CameraController : MonoBehaviour
         originalFOV = camera.m_Lens.FieldOfView;
         uiController = UIController.current;
 
-        SetActive(false);   
+        SetActive(false);
         hackLine.gameObject.SetActive(false);
         if (cameraRenderer)
         {
@@ -172,12 +173,10 @@ public class CameraController : MonoBehaviour
         {
             connectedSO = GetComponentInParent<SmartObject>();
         }
-        
     }
 
     void Start()
     {
-        
         playerController = PlayerController.current;
         SetCameraRotation(0, 0);
     }
@@ -282,39 +281,28 @@ public class CameraController : MonoBehaviour
         if (!uiController)
         {
             uiController = UIController.current;
-            
         }
+
         if (b)
         {
             camera.Priority = CameraPriority;
-            if (disableCollider)
-            {
-                disableCollider.enabled = false;
-            }
 
-            if (cameraBody)
-            {
-                cameraBody.enabled = false;
-            }
+            Invoke(nameof(DelayDisableCollider), .5f);
+
 
             if (cameraRingRenderer)
             {
                 cameraRingRenderer.gameObject.SetActive(false);
             }
+
             uiController.Minimap_Active(roomLocation);
         }
         else
         {
             camera.Priority = -1;
-            if (disableCollider)
-            {
-                disableCollider.enabled = true;
-            }
+            Invoke(nameof(DelayEnableCollider), .5f);
 
-            if (cameraBody)
-            {
-                cameraBody.enabled = true;
-            }
+
             if (cameraRingRenderer)
             {
                 cameraRingRenderer.gameObject.SetActive(true);
@@ -324,6 +312,32 @@ public class CameraController : MonoBehaviour
         isPlayerControl = b;
         SetInvestigationMode(investigationMode);
         uiController.SetCamera(this);
+    }
+
+    private void DelayEnableCollider()
+    {
+        if (disableCollider)
+        {
+            disableCollider.enabled = true;
+        }
+
+        if (cameraBody)
+        {
+            cameraBody.enabled = true;
+        }
+    }
+
+    private void DelayDisableCollider()
+    {
+        if (disableCollider)
+        {
+            disableCollider.enabled = false;
+        }
+
+        if (cameraBody)
+        {
+            cameraBody.enabled = false;
+        }
     }
 
     public void ThroughWallEffect_Activate()
@@ -463,6 +477,7 @@ public class CameraController : MonoBehaviour
             // Debug.Log($"{name} is in spotted");
             return;
         }
+
         if (b)
         {
             SetInvestigationMode(CameraInvestigationMode.Investigated);
@@ -483,7 +498,7 @@ public class CameraController : MonoBehaviour
 
         if (cameraRingMaterial)
         {
-            cameraRingMaterial.SetInt("_CameraRingMode",(int)mode);
+            cameraRingMaterial.SetInt("_CameraRingMode", (int)mode);
         }
     }
 

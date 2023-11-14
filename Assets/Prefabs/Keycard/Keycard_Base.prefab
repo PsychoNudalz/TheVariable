@@ -226,7 +226,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioDistract: {fileID: 0}
-  tutorialOnHack: 1
   Enable_Debug: 1
   doorController: {fileID: 0}
 --- !u!65 &4701682398540651832
@@ -253,6 +252,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c2b3173830ab7c41b3ec86af11e886e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c2b3173830ab7c41b3ec86af11e886e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c2b3173830ab7c41b3ec86af11e886e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c2b3173830ab7c41b3ec86af11e886e,
         type: 3}
@@ -303,6 +317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c2b3173830ab7c41b3ec86af11e886e,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6732135743925014000, guid: 1c2b3173830ab7c41b3ec86af11e886e,
         type: 3}

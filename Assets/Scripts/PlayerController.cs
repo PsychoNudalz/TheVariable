@@ -667,7 +667,9 @@ public class PlayerController : MonoBehaviour
         uiController.LockoutScreen_SetActive(true, CameraController);
         OnSelectCancel();
         cameraMode = CameraMode.LockedOut;
-        DecreaseClearanceLevel(1);
+        
+        //Changed lockout to not reduce clearance
+        // DecreaseClearanceLevel(1);
     }
 
     public void DeactivateLockout()

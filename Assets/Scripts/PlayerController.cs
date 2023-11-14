@@ -62,6 +62,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float zoomMultiplier_joystick = 1f;
 
+    /// <summary>
+    /// Flag to top the camera from looking unless the player let go of the direction button
+    /// </summary>
+    private bool hackingToLookingFlag = false;
+
     [Header("Selector")]
     [SerializeField]
     [Space(5)]
@@ -188,7 +193,6 @@ public class PlayerController : MonoBehaviour
                 break;
             case CameraMode.StopInput:
                 break;
-
         }
     }
 
@@ -236,8 +240,16 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+
         controlMode = ControlMode.Controller;
-        lookValue = inputValue.Get<Vector2>() * rotateMultiplier_joystick;
+        Vector2 inputVector = inputValue.Get<Vector2>();
+
+        if (inputVector.magnitude <= .2f)
+        {
+            hackingToLookingFlag = false;
+        }
+
+        lookValue = inputVector * rotateMultiplier_joystick;
     }
 
 
@@ -265,6 +277,7 @@ public class PlayerController : MonoBehaviour
 
         controlMode = ControlMode.Controller;
         selectDir = inputValue.Get<Vector2>();
+        hackingToLookingFlag = true;
     }
 
 
@@ -275,7 +288,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnCamera_Next()
     {
-        
         if (cameraStack.Count == 0)
         {
             return;
@@ -361,6 +373,7 @@ public class PlayerController : MonoBehaviour
             {
                 return;
             }
+
             originalCameraMode = cameraMode;
             cameraMode = CameraMode.StopInput;
         }
@@ -562,6 +575,10 @@ public class PlayerController : MonoBehaviour
 
     void UpdateCamera(Vector2 rotation)
     {
+        if (hackingToLookingFlag)
+        {
+            return;
+        }
         if (currentCamera)
         {
             currentCamera.RotateCamera(rotation.x, rotation.y);
@@ -667,7 +684,7 @@ public class PlayerController : MonoBehaviour
         uiController.LockoutScreen_SetActive(true, CameraController);
         OnSelectCancel();
         cameraMode = CameraMode.LockedOut;
-        
+
         //Changed lockout to not reduce clearance
         // DecreaseClearanceLevel(1);
     }
@@ -686,6 +703,7 @@ public class PlayerController : MonoBehaviour
         clearanceLevel = Math.Max(clearanceLevel, level);
         Debug.Log($"Player Level increased to: {clearanceLevel}");
         uiController.SetClearanceText(clearanceLevel);
+        SoundManager.PlayGlobal(SoundGlobal.ClearanceLevel);
     }
 
     public void DecreaseClearanceLevel(int level)

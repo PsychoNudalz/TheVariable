@@ -34,18 +34,16 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_Minimap minimap;
 
+    [SerializeField]
+    private UI_ClearanceLevel clearanceLevel;
+
     [Header("Smaller Components")]
     [Header("Timer")]
     [SerializeField]
     private GameObject timerDisplay;
     [SerializeField]
     private TextMeshProUGUI timerText;
-    [Header("Clearance Level")]
-    [SerializeField]
-    private TextMeshProUGUI clearanceText;
 
-    [SerializeField]
-    private Color[] clearanceColours;
     [Header("Copy Item")]
     [SerializeField]
     private TextMeshProUGUI itemText;
@@ -72,7 +70,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         HacksDisplay_SetActive(false);
-        SetClearanceText(0);
+        // SetClearanceText(0);
         gameOverScreen.SetActive(false);
 
     }
@@ -136,16 +134,7 @@ public class UIController : MonoBehaviour
 
     public void SetClearanceText(int i)
     {
-        clearanceText.text = i.ToString();
-        try
-        {
-            clearanceText.color = clearanceColours[i];
-        }
-        catch (IndexOutOfRangeException e)
-        {
-            Debug.LogError("Clearance colour out of range");
-            clearanceText.color = Color.white;
-        }
+        clearanceLevel.SetClearanceText(i);
     }
 
     public void SetItem(ItemName s)

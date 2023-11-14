@@ -338,6 +338,8 @@ MonoBehaviour:
   peaceToAlertSpeed: 0.5
   alert_SuspiciousThresshold: 0.5
   alert_SpottedThresshold: 1
+  alertModifier_Increase: 1
+  alertModifier_Decrease: 1
   alertPosition: {fileID: 4776704124699353233}
   deathSizeMultiplier: 0.5
   npcObject: {fileID: 0}
@@ -1439,6 +1441,7 @@ MonoBehaviour:
   cameraRingMaterial: {fileID: 0}
   cameraState: 0
   hackLine: {fileID: 6669553940900926587}
+  investigationMode: 0
   connectedSO: {fileID: 1320077873986614613}
   cameraBody: {fileID: 0}
   disableCollider: {fileID: 0}

@@ -62,6 +62,12 @@ public class NpcController : MonoBehaviour
     [SerializeField]
     float alert_SpottedThresshold = 1f;
 
+    [SerializeField]
+    private float alertModifier_Increase = 1f;
+
+    [SerializeField]
+    private float alertModifier_Decrease = 1f;
+
 
     [SerializeField]
     Transform alertPosition;
@@ -456,6 +462,14 @@ public class NpcController : MonoBehaviour
 
     void Change_AlertValue(float multiplier)
     {
+        if (multiplier >= 0)
+        {
+            multiplier *= alertModifier_Increase;
+        }
+        else
+        {
+            multiplier *= alertModifier_Decrease;
+        }
         alertValue = Math.Clamp(alertValue + peaceToAlertSpeed * multiplier * Time.deltaTime, 0f, 1f);
         UpdateAlertUI();
     }

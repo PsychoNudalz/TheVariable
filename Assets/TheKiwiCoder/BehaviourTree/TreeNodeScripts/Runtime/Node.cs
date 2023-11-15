@@ -153,7 +153,7 @@ namespace TheKiwiCoder
         /// <param name="overrideValue"> if the alert value be override to use the minimum alert value, or the maximum between it and current  </param>
         public void ChangeAlertState(NPC_AlertState alertState, bool overrideValue)
         {
-            Debug.Log($"Node change NPC state: {blackboard.alertState} --> {alertState}");
+            // Debug.Log($"Node change NPC state: {blackboard.alertState} --> {alertState}");
             blackboard.alertState = alertState;
             if (alertState == NPC_AlertState.Suspicious)
             {

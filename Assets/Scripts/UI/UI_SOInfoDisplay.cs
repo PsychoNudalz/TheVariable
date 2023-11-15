@@ -68,15 +68,16 @@ public class UI_SOInfoDisplay : MonoBehaviour
         if (smartObject)
         {
             currentSO = smartObject;
+            SOInfo.SetActive(false);
             itemGroup.SetActive(false);
             NPCGroup.SetActive(false);
-            if (smartObject is ItemObject itemObject)
-            {
-                SOInfo.SetActive(true);
-                itemGroup.SetActive(true);
-                itemName.text = itemObject.CurrentItemName.ToString();
-                originalItemName.text = itemObject.OriginalItemName.ToString();
-            }
+            // if (smartObject is ItemObject itemObject)
+            // {
+            //     SOInfo.SetActive(true);
+            //     itemGroup.SetActive(true);
+            //     itemName.text = itemObject.CurrentItemName.ToString();
+            //     originalItemName.text = itemObject.OriginalItemName.ToString();
+            // }
 
             if (smartObject is NpcObject npcObject)
             {

@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     private CameraController currentCamera;
 
     [SerializeField]
-    private List<CameraController> cameraStack = new List<CameraController>(10);
+    private List<CameraController> cameraStack = new List<CameraController>( 6);
 
     private int cameraStackIndex = 0;
     CameraController currentCameraFromStack => cameraStack[cameraStackIndex];
@@ -561,6 +561,9 @@ public class PlayerController : MonoBehaviour
         // if(currentCamera)
     }
 
+    /// <summary>
+    /// Adds current camera to stack
+    /// </summary>
     private void AddCurrentCameraToStack()
     {
         if (cameraStack.Contains(currentCamera))
@@ -570,6 +573,10 @@ public class PlayerController : MonoBehaviour
 
         cameraStack.Insert(0, currentCamera);
         cameraStackIndex = 0;
+        while (cameraStack.Count > 6)
+        {
+            cameraStack.RemoveAt(6);
+        }
     }
 
 

@@ -8,6 +8,45 @@ using UnityEngine.Video;
 
 public class UIController : MonoBehaviour
 {
+    
+    [Serializable]
+    class RoomSpritePair
+    {
+        [SerializeField]
+        private RoomLabel room;
+
+        [SerializeField]
+        private Sprite iconSprite;
+
+        public RoomLabel Room => room;
+
+        public Sprite IconSprite => iconSprite;
+
+        public RoomSpritePair(RoomLabel room, Sprite iconSprite)
+        {
+            this.room = room;
+            this.iconSprite = iconSprite;
+        }
+
+        public bool Equals(RoomLabel r)
+        {
+            return r.Equals(room);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is RoomLabel r)
+            {
+                return r.Equals(room);
+            }
+
+            return base.Equals(obj);
+        }
+    }
+
+    [SerializeField]
+    private RoomSpritePair[] roomSpritePairs;
+    [Header("Components")]
     [SerializeField]
     private GameObject HUD;
 
@@ -40,6 +79,9 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     private UI_Objective objective;
+
+    [SerializeField]
+    private UI_CameraStack cameraStack;
 
     [Header("Smaller Components")]
     [Header("Timer")]
@@ -88,6 +130,45 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    [ContextMenu("RegenerateRoomSpriteList")]
+    public void RegenerateRoomSpriteList()
+    {
+        List<RoomSpritePair> list = new List<RoomSpritePair>(roomSpritePairs);
+        foreach (RoomLabel label in Enum.GetValues(typeof(RoomLabel)))
+        {
+            bool foundPair = false;
+            foreach (RoomSpritePair pair in list)
+            {
+                if (pair.Equals(label))
+                {
+                    foundPair = true;
+                    break;
+                }
+            }
+
+            if (!foundPair)
+            {
+                list.Add(new RoomSpritePair(label,null));
+            }
+        }
+
+        roomSpritePairs = list.ToArray();
+    }
+
+    public Sprite GetSprite(RoomLabel roomLabel)
+    {
+        foreach (RoomSpritePair roomSpritePair in roomSpritePairs)
+        {
+            if (roomSpritePair.Equals(roomLabel))
+            {
+                return roomSpritePair.IconSprite;
+            }
+        }
+
+        Debug.LogError($"Failed to find map sprite: {roomLabel.ToString()}");
+        return null;
     }
 
     public void HacksDisplay_SetActive(bool b, SmartObject so = null)

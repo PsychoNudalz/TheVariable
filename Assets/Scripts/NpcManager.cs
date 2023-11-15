@@ -30,4 +30,12 @@ public class NpcManager : MonoBehaviour
         Debug.LogError("Can not find VIP");
         return null;
     }
+
+    public static void SetActive(bool b)
+    {
+        foreach (NpcController npcController in NPCs)
+        {
+            npcController.gameObject.SetActive(b);
+        }
+    }
 }

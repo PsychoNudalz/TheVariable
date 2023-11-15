@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField]
     private GameObject HUD;
+
     [SerializeField]
     private UI_HackAbilityDisplay hackAbilityDisplay;
 
@@ -44,6 +45,7 @@ public class UIController : MonoBehaviour
     [Header("Timer")]
     [SerializeField]
     private GameObject timerDisplay;
+
     [SerializeField]
     private TextMeshProUGUI timerText;
 
@@ -51,9 +53,15 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI itemText;
 
-    [Header("Game Over")]
+    [Header("Game Finish")]
     [SerializeField]
-    private GameObject gameOverScreen;
+    private GameObject gameFinishScreen;
+
+    [SerializeField]
+    private GameObject gameOverTitle;
+
+    [SerializeField]
+    private GameObject gameWinTitle;
 
     [SerializeField]
     private TextMeshProUGUI playTimeText;
@@ -74,8 +82,7 @@ public class UIController : MonoBehaviour
     {
         HacksDisplay_SetActive(false);
         // SetClearanceText(0);
-        gameOverScreen.SetActive(false);
-
+        gameFinishScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -160,6 +167,7 @@ public class UIController : MonoBehaviour
             timerText.color = Color.red;
             return;
         }
+
         var timeString = SecondsToString(seconds);
         timerText.text = timeString;
     }
@@ -190,8 +198,8 @@ public class UIController : MonoBehaviour
     public void ToggleHUD()
     {
         HUD.SetActive(!HUD.activeSelf);
-
     }
+
     public void SetHUD(bool b)
     {
         HUD.SetActive(b);
@@ -199,14 +207,25 @@ public class UIController : MonoBehaviour
 
     public void GameOver(float currentTime, float highScore)
     {
-        gameOverScreen.SetActive(true);
+        gameFinishScreen.SetActive(true);
+        gameOverTitle.SetActive(true);
+        gameWinTitle.SetActive(false);
+        playTimeText.text = SecondsToString(currentTime);
+        highScoreText.text = SecondsToString(highScore);
+    }
+
+    public void GameWin(float currentTime, float highScore)
+    {
+        gameFinishScreen.SetActive(true);
+        gameOverTitle.SetActive(false);
+        gameWinTitle.SetActive(true);
         playTimeText.text = SecondsToString(currentTime);
         highScoreText.text = SecondsToString(highScore);
     }
 
     public void Tutorial_Show(string title, VideoClip videoClip, string text)
     {
-        tutorialDisplay.Display(title,videoClip,text);
+        tutorialDisplay.Display(title, videoClip, text);
     }
 
     public void Tutorial_Close()
@@ -233,5 +252,4 @@ public class UIController : MonoBehaviour
     {
         minimap.ShowExtraction();
     }
-    
 }

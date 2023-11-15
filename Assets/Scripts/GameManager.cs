@@ -20,7 +20,6 @@ public enum RoomLabel
     Corridor,
     Connector,
     Kitchen
-    
 }
 
 public class GameManager : MonoBehaviour
@@ -33,11 +32,11 @@ public class GameManager : MonoBehaviour
         GameOver,
         GameWin
     }
-    
-    
+
+
     public static GameManager GM;
     private GameState gameState;
-    
+
     private float suspicious_LastTime = 0;
     private float suspicious_Cooldown = 5;
 
@@ -70,10 +69,17 @@ public class GameManager : MonoBehaviour
     private static float hackSlowScale = .1f;
     public static bool RanOutOfTime => GM.timerState == TimerState.Finished;
 
+
     [Header("Objective")]
     [SerializeField]
     private bool isVIPDead = false;
 
+    public static bool IsVIPDead => GM.isVIPDead;
+
+
+    // [Header("NPCs")]
+    // [SerializeField]
+    // private NpcManager npcManager;
     private void Awake()
     {
         if (!GM)
@@ -85,6 +91,8 @@ public class GameManager : MonoBehaviour
             Destroy(GM);
             GM = this;
         }
+
+        ResetTimeScale();
     }
 
     // Start is called before the first frame update
@@ -116,7 +124,9 @@ public class GameManager : MonoBehaviour
     public static void SlowTimeForHack()
     {
         Time.timeScale = hackSlowScale;
-    }public static void StopTime()
+    }
+
+    public static void StopTime()
     {
         Time.timeScale = 0;
     }
@@ -149,28 +159,58 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Command()]
     public static void GameOver()
     {
+        NpcManager.SetActive(false);
+        PlayerController.current.LockInput(true);
         if (GM.gameState is GameState.GameOver or GameState.GameWin)
         {
             return;
         }
+
         //Get Score from player pref
         float highScore = PlayerPrefs.GetFloat("Time");
         if (highScore == 0f)
         {
             highScore = Mathf.Infinity;
         }
+
         float runTime = Time.realtimeSinceStartup - GM.globalStartTime;
-        if (runTime < highScore)
-        {
-            highScore = runTime;
-            PlayerPrefs.SetFloat("Time",highScore);
-        }
+
 
         UIController.current.GameOver(runTime, highScore);
         Debug.Log("GAME OVER");
         GM.gameState = GameState.GameOver;
+    }
+
+    [Command()]
+    public static void GameWin()
+    {
+        NpcManager.SetActive(false);
+        PlayerController.current.LockInput(true);
+
+        if (GM.gameState is GameState.GameOver or GameState.GameWin)
+        {
+            return;
+        }
+
+        float highScore = PlayerPrefs.GetFloat("Time");
+        if (highScore == 0f)
+        {
+            highScore = Mathf.Infinity;
+        }
+
+        float runTime = Time.realtimeSinceStartup - GM.globalStartTime;
+        if (runTime < highScore)
+        {
+            highScore = runTime;
+            PlayerPrefs.SetFloat("Time", highScore);
+        }
+
+        UIController.current.GameWin(runTime, highScore);
+        Debug.Log("GAME WIN");
+        GM.gameState = GameState.GameWin;
     }
 
     public static void ResetLevel()
@@ -181,8 +221,7 @@ public class GameManager : MonoBehaviour
     [Command()]
     public static void ResetSave()
     {
-        PlayerPrefs.SetFloat("Time",Mathf.Infinity);
-
+        PlayerPrefs.SetFloat("Time", Mathf.Infinity);
     }
 
     [Command()]
@@ -206,7 +245,6 @@ public class GameManager : MonoBehaviour
 
     public static void VIPDead()
     {
-        
         GM.isVIPDead = true;
         Debug.Log("VIP IS KILLED");
         UIController.current.Objective_KilledVIP();

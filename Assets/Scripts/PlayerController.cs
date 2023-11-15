@@ -397,6 +397,8 @@ public class PlayerController : MonoBehaviour
             {
                 HackContext_Enum.Camera_notPushToStack
             });
+        uiController.CameraStack_SetIndex(cameraStackIndex);
+
     }
 
     public void OnZoom(InputValue inputValue)
@@ -577,6 +579,7 @@ public class PlayerController : MonoBehaviour
         {
             cameraStack.RemoveAt(6);
         }
+        uiController.CameraStack_AddStack(cameraStack.ToArray(),cameraStackIndex);
     }
 
 

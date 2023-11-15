@@ -333,4 +333,13 @@ public class UIController : MonoBehaviour
     {
         minimap.ShowExtraction();
     }
+
+    public void CameraStack_AddStack(CameraController[] cameraControllers, int i)
+    {
+        cameraStack.UpdateStack(cameraControllers,i);
+    }
+    public void CameraStack_SetIndex(int i)
+    {
+        cameraStack.SetIndex(i);
+    }
 }

@@ -37,6 +37,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_ClearanceLevel clearanceLevel;
 
+    [SerializeField]
+    private UI_Objective objective;
+
     [Header("Smaller Components")]
     [Header("Timer")]
     [SerializeField]

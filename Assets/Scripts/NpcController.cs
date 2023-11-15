@@ -134,6 +134,8 @@ public class NpcController : MonoBehaviour
         get => (alertValue * 100).ToString("0") + "%";
     }
 
+    public NpcObject NpcObject => npcObject;
+
     /// <summary>
     /// If the NPC is freely moving around
     /// </summary>

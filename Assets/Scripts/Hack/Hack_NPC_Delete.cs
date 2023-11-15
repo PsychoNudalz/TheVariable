@@ -22,7 +22,7 @@ public class Hack_NPC_Delete : HackAbility
         SmartObject current = hackContext.SmartObjects[0];
         if (current is NpcObject npc)
         {
-            npc.Hack_StraightKill();
+            npc.Hack_Delete();
             
         }
 

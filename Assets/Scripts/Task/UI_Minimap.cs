@@ -53,11 +53,22 @@ public class UI_Minimap : MonoBehaviour
         public Vector2 position => new Vector2(transform.position.x, transform.position.z);
 
         public RectTransform Sprite => sprite;
-        
+
+        public bool IsActive => sprite.gameObject.activeSelf;
 
         public void SetActive(bool b)
         {
             sprite.gameObject.SetActive(b);
+        }
+
+        public bool Equals(GameObject obj)
+        {
+            return transform.gameObject.Equals(obj);
+        }
+
+        public bool Equals(string str)
+        {
+            return sprite.name.ToUpper().Contains(str.ToUpper());
         }
     }
 
@@ -89,6 +100,8 @@ public class UI_Minimap : MonoBehaviour
         // SetActive(RoomLabel.None);
         mainCamera = Camera.main?.transform;
         UpdatePairs();
+        SetActive_MapPair("Ex", false);
+
     }
 
     // Update is called once per frame
@@ -138,7 +151,38 @@ public class UI_Minimap : MonoBehaviour
     {
         foreach (GameObjectMapSpritePair mapSpritePair in gameObjectMapSpritePairs)
         {
-            UpdateMapIcon(mapSpritePair.position, mapSpritePair.Sprite);
+            if (mapSpritePair.IsActive&&mapSpritePair.Transform)
+            {
+                UpdateMapIcon(mapSpritePair.position, mapSpritePair.Sprite);
+            }
         }
+    }
+
+    public void SetActive_MapPair(GameObject go, bool b)
+    {
+        foreach (GameObjectMapSpritePair mapSpritePair in gameObjectMapSpritePairs)
+        {
+            if (mapSpritePair.Equals(go))
+            {
+                mapSpritePair.SetActive(b);
+            }
+        }
+    }
+
+    public void SetActive_MapPair(string str, bool b)
+    {
+        foreach (GameObjectMapSpritePair mapSpritePair in gameObjectMapSpritePairs)
+        {
+            if (mapSpritePair.Equals(str))
+            {
+                mapSpritePair.SetActive(b);
+            }
+        }
+    }
+
+    public void ShowExtraction()
+    {
+        SetActive_MapPair("VIP", false);
+        SetActive_MapPair("Ex", true);
     }
 }

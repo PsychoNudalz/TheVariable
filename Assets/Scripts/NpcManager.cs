@@ -16,15 +16,18 @@ public class NpcManager : MonoBehaviour
         npcs = new List<NpcController>(FindObjectsOfType<NpcController>(true));
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public static NpcController GetVIP()
     {
-        
+        foreach (NpcController npC in NPCs)
+        {
+            if (npC.IsVip)
+            {
+                return npC;
+            }
+        }
+
+        Debug.LogError("Can not find VIP");
+        return null;
     }
 }

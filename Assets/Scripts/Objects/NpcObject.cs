@@ -45,12 +45,12 @@ public class NpcObject : SmartObject
         controller.ClearTasks();
     }
 
-    public void Hack_StraightKill()
+    public void Hack_Delete()
     {
         controller.TakeDamage(10000f);
         if (controller.IsVip)
         {
-            GameManager.KillVIP();
+            GameManager.VIPDead();
         }
     }
 

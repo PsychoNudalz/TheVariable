@@ -198,10 +198,18 @@ public class GameManager : MonoBehaviour
         PlayerController.current.IncreaseClearanceLevel(3);
     }
 
-    public static void KillVIP()
+    [Command()]
+    public static void Kill_VIP()
     {
+        NpcManager.GetVIP()?.NpcObject.Hack_Delete();
+    }
+
+    public static void VIPDead()
+    {
+        
         GM.isVIPDead = true;
         Debug.Log("VIP IS KILLED");
         UIController.current.Objective_KilledVIP();
+        UIController.current.Objective_ShowExtraction();
     }
 }

@@ -228,5 +228,10 @@ public class UIController : MonoBehaviour
     {
         objective.KilledVIP();
     }
+
+    public void Objective_ShowExtraction()
+    {
+        minimap.ShowExtraction();
+    }
     
 }

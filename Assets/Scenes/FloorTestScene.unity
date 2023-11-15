@@ -3356,8 +3356,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211623370}
-  m_LocalRotation: {x: 2.7443862e-19, y: 0.0000005513429, z: 1.1368684e-13, w: -1}
-  m_LocalPosition: {x: 15, y: 2.687, z: 2}
+  m_LocalRotation: {x: -1.1368684e-13, y: 1, z: 5.3363065e-19, w: -0.0000017285345}
+  m_LocalPosition: {x: 7.888999, y: 2.687, z: -16.280014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3404,7 +3404,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211623370}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -8686,6 +8686,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 574258181}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &577584913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3915646345386012475, guid: 6b8031b96a3d95549a06fe14865b31cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 162909779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5953b1faeaa16744e9f9cad39374bf8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &592583450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11989,6 +12001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfx_Suspicious: {fileID: 1556899712}
   globalRealTimer: 300
+  isVIPDead: 0
 --- !u!1001 &894381106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16851,18 +16864,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 851698432}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1372649962 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3915646345386012475, guid: 6b8031b96a3d95549a06fe14865b31cc,
-    type: 3}
-  m_PrefabInstance: {fileID: 851698432}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5953b1faeaa16744e9f9cad39374bf8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1386450090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17967,7 +17968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allCameras: []
   cameraObjects: []
-  startingCamera: {fileID: 1372649962}
+  startingCamera: {fileID: 577584913}
 --- !u!114 &1490229292 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7079652780803480491, guid: bae17a8b9ad08b619801e8ff45a069cc,
@@ -19786,6 +19787,7 @@ MonoBehaviour:
   cameraInfo: {fileID: 708558155}
   minimap: {fileID: 6849918379541314004}
   clearanceLevel: {fileID: 1290771623}
+  objective: {fileID: 0}
   timerDisplay: {fileID: 1030929382}
   timerText: {fileID: 1841150824}
   itemText: {fileID: 1089128525}

@@ -48,6 +48,10 @@ public class NpcObject : SmartObject
     public void Hack_StraightKill()
     {
         controller.TakeDamage(10000f);
+        if (controller.IsVip)
+        {
+            GameManager.KillVIP();
+        }
     }
 
     public void Hack_SetAlertState(NPC_AlertState state)

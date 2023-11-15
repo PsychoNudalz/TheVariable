@@ -70,6 +70,10 @@ public class GameManager : MonoBehaviour
     private static float hackSlowScale = .1f;
     public static bool RanOutOfTime => GM.timerState == TimerState.Finished;
 
+    [Header("Objective")]
+    [SerializeField]
+    private bool isVIPDead = false;
+
     private void Awake()
     {
         if (!GM)
@@ -192,5 +196,11 @@ public class GameManager : MonoBehaviour
     public static void MaxLevel()
     {
         PlayerController.current.IncreaseClearanceLevel(3);
+    }
+
+    public static void KillVIP()
+    {
+        GM.isVIPDead = true;
+        Debug.Log("VIP IS KILLED");
     }
 }

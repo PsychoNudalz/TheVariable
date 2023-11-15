@@ -26,7 +26,13 @@ public enum NPC_AlertState
 /// </summary>
 public class NpcController : MonoBehaviour
 {
-    [FormerlySerializedAs("tasks")]
+    [Header("States")]
+    [SerializeField]
+    private bool isVIP = false;
+
+    public bool IsVip => isVIP;
+
+    [Header("Tasks")]
     [SerializeField]
     private TaskEvent currentTask;
 

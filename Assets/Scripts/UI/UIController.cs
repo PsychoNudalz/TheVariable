@@ -223,5 +223,10 @@ public class UIController : MonoBehaviour
     {
         minimap.SetActive(roomLabel);
     }
+
+    public void Objective_KilledVIP()
+    {
+        objective.KilledVIP();
+    }
     
 }

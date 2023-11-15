@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Hacks/NPC/Straight Kill")]
+[CreateAssetMenu(menuName = "Hacks/NPC/Delete")]
 
-public class Hack_NPC_StraightKill : HackAbility
+public class Hack_NPC_Delete : HackAbility
 {
     protected override void AwakeBehaviour()
     {
@@ -23,6 +23,7 @@ public class Hack_NPC_StraightKill : HackAbility
         if (current is NpcObject npc)
         {
             npc.Hack_StraightKill();
+            
         }
 
         return 0;

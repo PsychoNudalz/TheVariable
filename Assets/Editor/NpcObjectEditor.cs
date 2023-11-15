@@ -12,7 +12,7 @@ public class NpcObjectEditor : SmartObjectEditor
         GUILayout.Label("Hacks");
         AddHack_Distraction();
         AddHack<Hack_NPC_ClearTasks>("Clear Tasks");
-        AddHack<Hack_NPC_StraightKill>("Straight KILL");
+        AddHack<Hack_NPC_Delete>("Straight KILL");
         AddHack<Hack_NPC_SetPeace>("Set Peace");
     }
 }

@@ -6586,6 +6586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 847431172209902899}
   - component: {fileID: 1478357371233394851}
+  - component: {fileID: 7095778091074260854}
   m_Layer: 5
   m_Name: ObjectiveDisplay
   m_TagString: Untagged
@@ -6629,6 +6630,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2a871ae3ed2494ebd1f33c7bb7b222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 7095778091074260854}
+  vip_Alive: {fileID: 0}
+  extraction: {fileID: 0}
+  vip_Sprite: {fileID: 0}
+  vip_Text_Alive: {fileID: 0}
+  data_Bar: {fileID: 0}
+  data_Text: {fileID: 0}
+--- !u!95 &7095778091074260854
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6727994352643213913}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6849918379113139393
 GameObject:
   m_ObjectHideFlags: 0

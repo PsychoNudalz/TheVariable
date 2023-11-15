@@ -321,7 +321,7 @@ public class UIController : MonoBehaviour
 
     public void Minimap_Active(RoomLabel roomLabel)
     {
-        // minimap.SetActive(roomLabel);
+        minimap.RoomPin_Active(roomLabel);
     }
 
     public void Objective_KilledVIP()

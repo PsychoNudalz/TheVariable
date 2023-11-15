@@ -17,6 +17,11 @@ public class UI_Minimap : MonoBehaviour
         [SerializeField]
         private GameObject mapSprite;
 
+        public Image image => mapSprite.GetComponent<Image>();
+
+        public RoomLabel Room => room;
+
+        public GameObject MapSprite => mapSprite;
 
         public void SetActive(bool b)
         {
@@ -101,7 +106,7 @@ public class UI_Minimap : MonoBehaviour
         mainCamera = Camera.main?.transform;
         UpdatePairs();
         SetActive_MapPair("Ex", false);
-
+        RoomPin_Reset();
     }
 
     // Update is called once per frame
@@ -131,7 +136,7 @@ public class UI_Minimap : MonoBehaviour
         sprite.localPosition = worldPosition * scale + offset;
     }
 
-    public void SetActive(RoomLabel roomLabel)
+    public void RoomPin_Active(RoomLabel roomLabel)
     {
         foreach (MinimapPair minimapPair in minimapPairs)
         {
@@ -140,10 +145,19 @@ public class UI_Minimap : MonoBehaviour
                 minimapPair.SetActive(true);
             }
 
-            else
-            {
-                minimapPair.SetActive(false);
-            }
+            // else
+            // {
+            //     minimapPair.SetActive(false);
+            // }
+        }
+    }
+
+    public void RoomPin_Reset()
+    {
+        foreach (MinimapPair minimapPair in minimapPairs)
+        {
+            minimapPair.image.sprite = UIController.current.GetSprite(minimapPair.Room);
+            minimapPair.SetActive(false);
         }
     }
 
@@ -151,7 +165,7 @@ public class UI_Minimap : MonoBehaviour
     {
         foreach (GameObjectMapSpritePair mapSpritePair in gameObjectMapSpritePairs)
         {
-            if (mapSpritePair.IsActive&&mapSpritePair.Transform)
+            if (mapSpritePair.IsActive && mapSpritePair.Transform)
             {
                 UpdateMapIcon(mapSpritePair.position, mapSpritePair.Sprite);
             }

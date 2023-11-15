@@ -202,5 +202,6 @@ public class GameManager : MonoBehaviour
     {
         GM.isVIPDead = true;
         Debug.Log("VIP IS KILLED");
+        UIController.current.Objective_KilledVIP();
     }
 }

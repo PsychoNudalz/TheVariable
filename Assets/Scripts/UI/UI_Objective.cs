@@ -13,12 +13,6 @@ public class UI_Objective : MonoBehaviour
     private GameObject vip_Alive;
     [SerializeField]
     private GameObject extraction;
-    [SerializeField]
-    private Image vip_Sprite;
-
-    [SerializeField]
-    private TextMeshProUGUI vip_Text_Alive;
-
 
     [Header("Data")]
     [SerializeField]
@@ -41,6 +35,14 @@ public class UI_Objective : MonoBehaviour
 
     public void KilledVIP()
     {
-        
+        StartCoroutine(VIPToExtract());
+    }
+
+    IEnumerator VIPToExtract()
+    {
+        animator.SetTrigger("Play");
+        yield return new WaitForSeconds(.1f);
+        vip_Alive.SetActive(false);
+        extraction.SetActive(true);
     }
 }

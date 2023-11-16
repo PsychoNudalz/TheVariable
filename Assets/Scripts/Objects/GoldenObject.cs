@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class GoldenObject : SmartObject
 {
     [Header("More Data Effect")]
     [SerializeField]
-    private Renderer[] renderers;
+    private MeshRenderer[] renderers;
     [SerializeField]
     private Material goldlessMaterial;
     protected override void AwakeBehaviour()
     {
         if (renderers.Length == 0)
         {
-            renderers = GetComponentsInChildren<Renderer>();
+            renderers = GetComponentsInChildren<MeshRenderer>();
         }
     }
 
@@ -37,7 +38,7 @@ public class GoldenObject : SmartObject
 
         if (goldlessMaterial)
         {
-            foreach (Renderer r in renderers)
+            foreach (MeshRenderer r in renderers)
             {
                 tempList = new List<Material>();
                 for (int i = 0; i < r.materials.Length; i++)

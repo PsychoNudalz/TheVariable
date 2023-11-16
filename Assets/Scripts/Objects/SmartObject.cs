@@ -280,6 +280,7 @@ public abstract class SmartObject : MonoBehaviour
     {
         if (dataEffect)
         {
+            dataEffect.SetVector3("TPosition",Camera.main.transform.position+new Vector3(0,-.1f,0));
             dataEffect.Play();
         }
     }

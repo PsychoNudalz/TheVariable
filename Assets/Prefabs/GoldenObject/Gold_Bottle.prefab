@@ -17,6 +17,87 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_Asset
+      value: 
+      objectReference: {fileID: 8926484042661614526, guid: d65d7b309837b184caebaee3058bba39,
+        type: 3}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_InitialEventName
+      value: OnPlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_InitialEventNameOverriden
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Name
+      value: MovementVector
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[3].m_Name
+      value: TPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Overridden
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104419913066539976, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Overridden
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374813012014555805, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958632228624726125, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3996882089184799124, guid: e66bf6855d51f7d47afce00a23dbfea8,
         type: 3}
       propertyPath: m_Name
@@ -108,6 +189,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 84825d73bfe05244e862647f68219b10,
         type: 2}
+    - target: {fileID: 8175435651943101740, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e66bf6855d51f7d47afce00a23dbfea8, type: 3}
 --- !u!4 &1576713535516014430 stripped

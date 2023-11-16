@@ -79,8 +79,6 @@ public abstract class HackAbility : ScriptableObject
     protected abstract void StartBehaviour();
     protected abstract void UpdateBehaviour();
 
-    protected bool isActive = false;
-
     [Tooltip("should be left empty by default, this is for keeping track what was the last context for debugging")]
     protected HackContext context = new HackContext(Array.Empty<SmartObject>());
 
@@ -93,8 +91,6 @@ public abstract class HackAbility : ScriptableObject
     public int HackCost => hackCost;
 
     public bool IsHackable => CanHack();
-
-    public bool IsActive => isActive;
 
     /// <summary>
     /// The main hacking procedure. 0: no error, 1: error, -1: failed can hack

@@ -29,6 +29,14 @@ public abstract class SmartObject : MonoBehaviour
     [Header("Audio Distract")]
     [SerializeField]
     private SO_AudioDistraction audioDistract;
+    
+    
+    //This should have been on a separate effects controller but I really CBA to add one now
+    [Header("Data Effect")]
+    [SerializeField]
+    private VisualEffect dataEffect;
+
+
 
     public virtual Vector3 Position => transform.position;
     public virtual Vector3 Forward => transform.forward;
@@ -39,7 +47,6 @@ public abstract class SmartObject : MonoBehaviour
 
     public HackAbility[] Hacks => hacks;
 
-    public bool HasHacks => hacks.Length > 0;
 
     // [Header("Tutorial On Hack")]
     // [SerializeField]
@@ -49,6 +56,19 @@ public abstract class SmartObject : MonoBehaviour
     private bool Enable_Debug = true;
 
 
+
+    public bool HasHacks()
+    {
+        foreach (HackAbility hackAbility in hacks)
+        {
+            if (hackAbility.ShowHack)
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
     private void OnDrawGizmos()
     {
         if (Enable_Debug)
@@ -254,5 +274,13 @@ public abstract class SmartObject : MonoBehaviour
     {
         //TODO: convert to just take the scriptable object data
         TutorialManager.Display_FirstTime(tutorialEnum.TutorialEnum);
+    }
+
+    public virtual void Hack_Data()
+    {
+        if (dataEffect)
+        {
+            dataEffect.Play();
+        }
     }
 }

@@ -610,7 +610,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, selectorLayer))
         {
             SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
-            if (smartObject&&smartObject.HasHacks)
+            if (smartObject&&smartObject.HasHacks())
             {
                 selectStickyTime_Now = selectStickyTime;
                 if (!smartObject.Equals(selectedObject))

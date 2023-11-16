@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Hacks/General/Collect_Data")]
 
+[CreateAssetMenu(menuName = "Hacks/General/Collect_Data")]
 public class Hack_Collect_Data : HackAbility
 {
     [SerializeField]
     private int gb = 100;
+
     private bool hasCollected = false;
+
+
 
     public int Gb => gb;
 
@@ -29,6 +32,7 @@ public class Hack_Collect_Data : HackAbility
         hasCollected = true;
         PlayerController.current.AddGB(gb);
         showHack = false;
+        hackContext.SmartObjects[0].Hack_Data();
         return 0;
     }
 

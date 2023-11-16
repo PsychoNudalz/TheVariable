@@ -226,7 +226,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioDistract: {fileID: 0}
+  dataEffect: {fileID: 0}
   Enable_Debug: 1
+  renderers: []
+  goldlessMaterial: {fileID: 2100000, guid: 603449d7c7445dd45a085f5809b828f7, type: 2}
 --- !u!54 &5308503017342964817
 Rigidbody:
   m_ObjectHideFlags: 0

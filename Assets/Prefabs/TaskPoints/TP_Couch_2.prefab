@@ -72,6 +72,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Couch_04
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f0f5d5192aebcb54781a856849c207e1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0f5d5192aebcb54781a856849c207e1, type: 3}
 --- !u!1001 &4018641460906835638
@@ -250,7 +255,7 @@ PrefabInstance:
     - target: {fileID: 7184558919918143579, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7184558919918143579, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
@@ -260,7 +265,7 @@ PrefabInstance:
     - target: {fileID: 7184558919918143579, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_Extents.x
-      value: 1.25
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7184558919918143579, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
@@ -270,7 +275,7 @@ PrefabInstance:
     - target: {fileID: 7184558919918143579, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_Extents.z
-      value: 1.25
+      value: 0.465
       objectReference: {fileID: 0}
     - target: {fileID: 8579484326968316363, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}

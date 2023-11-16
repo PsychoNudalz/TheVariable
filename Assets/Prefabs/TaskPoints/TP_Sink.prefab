@@ -30,6 +30,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
+      propertyPath: hacks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219764443607572836, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
       propertyPath: useAnimationPoint
       value: 1
       objectReference: {fileID: 0}
@@ -306,7 +311,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c9b1e88dfa4bba1469761fe0518485c0, type: 2}
+      objectReference: {fileID: 2100000, guid: 7e391621e2ebae64ebc1962df8a0c107, type: 2}
     - target: {fileID: 919132149155446097, guid: fc17381147e73e8439e21050fdf974e0,
         type: 3}
       propertyPath: m_Name

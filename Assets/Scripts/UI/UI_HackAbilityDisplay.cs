@@ -14,6 +14,7 @@ public class UI_HackAbilityDisplay : MonoBehaviour
 
     [SerializeField]
     private float cursorDistanceRatio = .1f;
+
     private float cursorDistance = 20;
 
     [SerializeField]
@@ -34,7 +35,7 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         for (var index = 0; index < buttons.Length; index++)
         {
             var uiHackAbilityButton = buttons[index];
-            uiHackAbilityButton.SetDisplay(this,index);
+            uiHackAbilityButton.SetDisplay(this, index);
         }
 
         targetPosition = transform.position;
@@ -44,12 +45,10 @@ public class UI_HackAbilityDisplay : MonoBehaviour
     private void Update()
     {
         UpdateCursor();
-
     }
 
     private void OnEnable()
     {
-        
     }
 
     public void SetActive(bool b)
@@ -66,7 +65,7 @@ public class UI_HackAbilityDisplay : MonoBehaviour
             SoundManager.PlayGlobal(SoundGlobal.HackDisplay_Off);
             animator.Play("UI_HackDisplay_Off");
 
-            Invoke(nameof(DelayDisable),1f);
+            Invoke(nameof(DelayDisable), 1f);
         }
     }
 
@@ -82,12 +81,13 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         {
             return;
         }
+
         for (var index = 0; index < buttons.Length; index++)
         {
             var uiHackAbilityButton = buttons[index];
-            if (index < currentSO.Hacks.Length)
+            if (index < currentSO.Hacks.Length && currentSO.Hacks[index].ShowHack)
             {
-                uiHackAbilityButton.SetActive(true,currentSO.Hacks[index]);
+                uiHackAbilityButton.SetActive(true, currentSO.Hacks[index]);
             }
             else
             {
@@ -95,7 +95,7 @@ public class UI_HackAbilityDisplay : MonoBehaviour
             }
         }
     }
-    
+
     public HackAbility GetHack(int i)
     {
         return currentSO.Hacks[i];
@@ -107,6 +107,7 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         {
             selectedButton.OnHover(false);
         }
+
         if (dir.magnitude > 1)
         {
             dir = dir.normalized;
@@ -132,6 +133,7 @@ public class UI_HackAbilityDisplay : MonoBehaviour
             {
                 continue;
             }
+
             dotTemp = Vector2.Dot(button.GetDotDir(), dir);
             // if (dotTemp<0f)
             // {
@@ -144,11 +146,13 @@ public class UI_HackAbilityDisplay : MonoBehaviour
                 bIndex = index;
             }
         }
+
         //If the dir is moving in the complete opposite way 
         if (dot < 0f)
         {
             return -1;
         }
+
         selectedButton.OnHover(true);
 
         return bIndex;
@@ -156,7 +160,6 @@ public class UI_HackAbilityDisplay : MonoBehaviour
 
     void UpdateCursor()
     {
-
-        selectCursor.position = Vector3.Lerp(selectCursor.position,targetPosition,cursorSpeed*Time.deltaTime);
+        selectCursor.position = Vector3.Lerp(selectCursor.position, targetPosition, cursorSpeed * Time.deltaTime);
     }
 }

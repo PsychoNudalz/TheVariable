@@ -39,6 +39,8 @@ public abstract class SmartObject : MonoBehaviour
 
     public HackAbility[] Hacks => hacks;
 
+    public bool HasHacks => hacks.Length > 0;
+
     // [Header("Tutorial On Hack")]
     // [SerializeField]
     // private TutorialEnum tutorialOnHack = TutorialEnum.HackingControls;
@@ -102,6 +104,11 @@ public abstract class SmartObject : MonoBehaviour
 
         for (var i = 0; i < hacks.Length; i++)
         {
+            if (!hacks[i])
+            {
+                Debug.LogError($"{name} hack is null.");
+            }
+
             hacks[i] = Instantiate(hacks[i]);
             hacks[i].Initialise(this);
             hacks[i].name = hacks[i].name.Replace("(Clone)", "").Trim();

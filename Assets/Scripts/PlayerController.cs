@@ -105,6 +105,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private ItemName copiedItem = ItemName.None;
 
+    [SerializeField]
+    private int collectedGB = 0;
+
     public int ClearanceLevel => clearanceLevel;
 
     private void Awake()
@@ -127,6 +130,7 @@ public class PlayerController : MonoBehaviour
         }
 
         CopyItem(ItemName.None);
+        collectedGB = 0;
     }
 
     // Update is called once per frame
@@ -604,7 +608,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, selectorLayer))
         {
             SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
-            if (smartObject)
+            if (smartObject&&smartObject.HasHacks)
             {
                 selectStickyTime_Now = selectStickyTime;
                 if (!smartObject.Equals(selectedObject))
@@ -739,5 +743,11 @@ public class PlayerController : MonoBehaviour
         }
 
         itemObject.PasteItem(copiedItem);
+    }
+    
+    //Collect GB
+    public void AddGB(int gb)
+    {
+        collectedGB += gb;
     }
 }

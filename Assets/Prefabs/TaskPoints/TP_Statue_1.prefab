@@ -171,6 +171,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6619643399178367472, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6619643399178367472, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -218,6 +223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: egypt-statue-cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087910323514197239, guid: 07057acbe49496345866e485c63cb8dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1087910323514197239, guid: 07057acbe49496345866e485c63cb8dc,
         type: 3}

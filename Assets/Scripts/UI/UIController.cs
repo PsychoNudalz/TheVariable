@@ -342,13 +342,13 @@ public class UIController : MonoBehaviour
     public static float UpdateDelayValueUI(float currentData, float targetData, float maxData, float dataIncreaseAmount,
         TextMeshProUGUI data_Text = null, Image data_Bar = null)
     {
-        if (Math.Abs(currentData - targetData) < dataIncreaseAmount/Time.deltaTime)
+        if (Math.Abs(currentData - targetData) < dataIncreaseAmount)
         {
             currentData = targetData;
         }
         else
         {
-            currentData = Mathf.RoundToInt(Mathf.Lerp(currentData, targetData, dataIncreaseAmount * Time.deltaTime));
+            currentData = Mathf.Lerp(currentData, targetData, dataIncreaseAmount * Time.deltaTime);
         }
 
         if (data_Text)

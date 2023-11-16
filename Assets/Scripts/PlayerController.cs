@@ -749,5 +749,7 @@ public class PlayerController : MonoBehaviour
     public void AddGB(int gb)
     {
         collectedGB += gb;
+        UIController.current.Objective_SetData(collectedGB);
+
     }
 }

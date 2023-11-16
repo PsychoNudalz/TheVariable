@@ -3107,7 +3107,7 @@ MonoBehaviour:
   - {fileID: 2974452517215322183}
   - {fileID: 6423521812145134169}
   selectSprite: {fileID: 5486771550182565422}
-  lerpSpeed: 10
+  lerpSpeed: 25
 --- !u!1 &4158218962514395391
 GameObject:
   m_ObjectHideFlags: 0
@@ -7830,8 +7830,9 @@ MonoBehaviour:
   animator: {fileID: 5485408591415183030}
   vip_Alive: {fileID: 5557413636652310071}
   extraction: {fileID: 2980625629044691861}
-  data_Bar: {fileID: 0}
-  data_Text: {fileID: 0}
+  data_Bar: {fileID: 4926087722597444708}
+  data_Text: {fileID: 5998617152128257799}
+  dataIncreaseAmount: 10
 --- !u!1 &6849918379113139393
 GameObject:
   m_ObjectHideFlags: 0

@@ -334,6 +334,15 @@ public class UIController : MonoBehaviour
         minimap.ShowExtraction();
     }
 
+    public void Objective_SetDataMax(int data)
+    {
+        objective.SetDataMax(data);
+    }
+    public void Objective_SetData(int data)
+    {
+        objective.SetData(data);
+    }
+
     public void CameraStack_AddStack(CameraController[] cameraControllers, int i)
     {
         cameraStack.UpdateStack(cameraControllers,i);

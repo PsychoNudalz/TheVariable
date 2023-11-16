@@ -74,6 +74,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool isVIPDead = false;
 
+    [SerializeField]
+    private int maxGB = 0;
+
     public static bool IsVIPDead => GM.isVIPDead;
 
 
@@ -100,6 +103,8 @@ public class GameManager : MonoBehaviour
     {
         //TODO:Remove this and move to tutorial
         StartTimer();
+        UIController.current.Objective_SetDataMax(maxGB);
+
     }
 
     // Update is called once per frame
@@ -115,6 +120,24 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    [ContextMenu("CalculateMaxGB")]
+    public void CalculateMaxGB()
+    {
+        maxGB = 0;
+        SmartObject[] allSOs = FindObjectsByType<SmartObject>(FindObjectsSortMode.InstanceID);
+        foreach (SmartObject smartObject in allSOs)
+        {
+            foreach (HackAbility hackAbility in smartObject.Hacks)
+            {
+                if (hackAbility is Hack_Collect_Data data)
+                {
+                    maxGB += data.Gb;
+                }
+            }
+        }
+    }
+    
 
     public static void Alert_Suspicious()
     {

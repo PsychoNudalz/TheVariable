@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using QFSW.QC;
 using Unity.Mathematics;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -76,6 +77,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private int maxGB = 0;
+
+    public int MaxGb => maxGB;
 
     public static bool IsVIPDead => GM.isVIPDead;
 
@@ -193,16 +196,21 @@ public class GameManager : MonoBehaviour
         }
 
         //Get Score from player pref
-        float highScore = PlayerPrefs.GetFloat("Time");
-        if (highScore == 0f)
-        {
-            highScore = Mathf.Infinity;
-        }
-
+        //Time
+        float fastestTime = PlayerPrefs.GetFloat("Time");
+        // if (fastestTime == 0f)
+        // {
+        //     fastestTime = Mathf.Infinity;
+        // }
+        //
+        
+        //Score
+        float highScore = PlayerPrefs.GetFloat("Score");
         float runTime = Time.realtimeSinceStartup - GM.globalStartTime;
 
 
-        UIController.current.GameOver(runTime, highScore);
+        float currentCollectedGb = PlayerController.current.CollectedGb;
+        UIController.current.GameOver(runTime, fastestTime,currentCollectedGb,highScore);
         Debug.Log("GAME OVER");
         GM.gameState = GameState.GameOver;
     }
@@ -218,23 +226,32 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        float highScore = PlayerPrefs.GetFloat("Time");
-        if (highScore == 0f)
-        {
-            highScore = Mathf.Infinity;
-        }
-
+        //Time
+        float fastestTime = PlayerPrefs.GetFloat("Time");
+        // if (fastestTime == 0f)
+        // {
+        //     fastestTime = 9999999999f;
+        // }
         float runTime = Time.realtimeSinceStartup - GM.globalStartTime;
-        if (runTime < highScore)
-        {
-            highScore = runTime;
-            PlayerPrefs.SetFloat("Time", highScore);
-        }
 
-        UIController.current.GameWin(runTime, highScore);
+        //Score
+        float highScore = PlayerPrefs.GetFloat("Score");
+        int playerGB = PlayerController.current.CollectedGb;
+
+        if (playerGB > highScore)
+        {
+            fastestTime = runTime;
+            PlayerPrefs.SetFloat("Time", fastestTime);
+            highScore = playerGB;
+            PlayerPrefs.SetFloat("Score", highScore);
+
+        }
+        
+        UIController.current.GameWin(runTime, fastestTime,playerGB,highScore);
         Debug.Log("GAME WIN");
         GM.gameState = GameState.GameWin;
     }
+    [Command()]
 
     public static void ResetLevel()
     {
@@ -244,7 +261,8 @@ public class GameManager : MonoBehaviour
     [Command()]
     public static void ResetSave()
     {
-        PlayerPrefs.SetFloat("Time", Mathf.Infinity);
+        PlayerPrefs.SetFloat("Time", 0);
+        PlayerPrefs.SetFloat("Score", 0);
     }
 
     [Command()]
@@ -280,5 +298,37 @@ public class GameManager : MonoBehaviour
     public static void Sensitivity_Joystick(float m)
     {
         PlayerController.current.SetJoystickMultiplier(m);
+    }
+
+    [Command()]
+    public static void AddGB(int i)
+    {
+        PlayerController.current.AddGB(i);
+    }
+
+    
+    
+    //----------------------TEST CASES---------------
+    /// <summary>
+    /// Test Case 1: add GB and Game Win
+    /// </summary>
+    [Command()]
+    public static void TC_1()
+    {
+        AddGB(12345);
+        GameWin();
+        // GM.Invoke(nameof(GameWin),.1f);
+    }
+    
+    /// <summary>
+    /// Test Case 2: add GB and Game Over
+    /// </summary>
+    [Command()]
+    public static void TC_2()
+    {
+        AddGB(12345);
+        GameOver();
+        // GM.Invoke(nameof(GameOver),.1f);
+
     }
 }

@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class UIController : MonoBehaviour
 {
-    
     [Serializable]
     class RoomSpritePair
     {
@@ -46,6 +46,7 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     private RoomSpritePair[] roomSpritePairs;
+
     [Header("Components")]
     [SerializeField]
     private GameObject HUD;
@@ -83,6 +84,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_CameraStack cameraStack;
 
+    [SerializeField]
+    private UI_GameFinish gameFinish;
+
     [Header("Smaller Components")]
     [Header("Timer")]
     [SerializeField]
@@ -95,21 +99,6 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI itemText;
 
-    [Header("Game Finish")]
-    [SerializeField]
-    private GameObject gameFinishScreen;
-
-    [SerializeField]
-    private GameObject gameOverTitle;
-
-    [SerializeField]
-    private GameObject gameWinTitle;
-
-    [SerializeField]
-    private TextMeshProUGUI playTimeText;
-
-    [SerializeField]
-    private TextMeshProUGUI highScoreText;
 
     public static UIController current;
 
@@ -124,7 +113,7 @@ public class UIController : MonoBehaviour
     {
         HacksDisplay_SetActive(false);
         // SetClearanceText(0);
-        gameFinishScreen.SetActive(false);
+        gameFinish.SetActive(false);
     }
 
     // Update is called once per frame
@@ -150,7 +139,7 @@ public class UIController : MonoBehaviour
 
             if (!foundPair)
             {
-                list.Add(new RoomSpritePair(label,null));
+                list.Add(new RoomSpritePair(label, null));
             }
         }
 
@@ -253,8 +242,12 @@ public class UIController : MonoBehaviour
         timerText.text = timeString;
     }
 
-    private static string SecondsToString(float seconds)
+    public static string SecondsToString(float seconds)
     {
+        if (seconds > Mathf.Infinity - 1f)
+        {
+            return "NULL";
+        }
         TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
         string mili = timeSpan.Milliseconds.ToString();
         if (mili.Length >= 2)
@@ -286,22 +279,14 @@ public class UIController : MonoBehaviour
         HUD.SetActive(b);
     }
 
-    public void GameOver(float currentTime, float highScore)
+    public void GameOver(float currentTime, float fastestTime,float currentScore,float highScore)
     {
-        gameFinishScreen.SetActive(true);
-        gameOverTitle.SetActive(true);
-        gameWinTitle.SetActive(false);
-        playTimeText.text = SecondsToString(currentTime);
-        highScoreText.text = SecondsToString(highScore);
+        gameFinish.GameOver(currentTime,fastestTime,currentScore, highScore);
     }
 
-    public void GameWin(float currentTime, float highScore)
+    public void GameWin(float currentTime, float fastestTime,float currentScore,float highScore)
     {
-        gameFinishScreen.SetActive(true);
-        gameOverTitle.SetActive(false);
-        gameWinTitle.SetActive(true);
-        playTimeText.text = SecondsToString(currentTime);
-        highScoreText.text = SecondsToString(highScore);
+        gameFinish.GameWin(currentTime,fastestTime,currentScore, highScore);
     }
 
     public void Tutorial_Show(string title, VideoClip videoClip, string text)
@@ -338,6 +323,7 @@ public class UIController : MonoBehaviour
     {
         objective.SetDataMax(data);
     }
+
     public void Objective_SetData(int data)
     {
         objective.SetData(data);
@@ -345,10 +331,36 @@ public class UIController : MonoBehaviour
 
     public void CameraStack_AddStack(CameraController[] cameraControllers, int i)
     {
-        cameraStack.UpdateStack(cameraControllers,i);
+        cameraStack.UpdateStack(cameraControllers, i);
     }
+
     public void CameraStack_SetIndex(int i)
     {
         cameraStack.SetIndex(i);
+    }
+
+    public static float UpdateDelayValueUI(float currentData, float targetData, float maxData, float dataIncreaseAmount,
+        TextMeshProUGUI data_Text = null, Image data_Bar = null)
+    {
+        if (Math.Abs(currentData - targetData) < dataIncreaseAmount/Time.deltaTime)
+        {
+            currentData = targetData;
+        }
+        else
+        {
+            currentData = Mathf.RoundToInt(Mathf.Lerp(currentData, targetData, dataIncreaseAmount * Time.deltaTime));
+        }
+
+        if (data_Text)
+        {
+            data_Text.text = $"{currentData:0}GB/{maxData:0}GB";
+        }
+
+        if (data_Bar)
+        {
+            data_Bar.fillAmount = currentData / maxData;
+        }
+
+        return currentData;
     }
 }

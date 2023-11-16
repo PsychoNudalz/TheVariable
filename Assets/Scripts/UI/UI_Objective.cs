@@ -25,10 +25,10 @@ public class UI_Objective : MonoBehaviour
     private TextMeshProUGUI data_Text;
 
     [SerializeField]
-    float dataIncreaseAmount = 1f;
+    float dataIncreaseAmount = 10f;
 
-    private int currentData = 0;
-    private int targetData = 0;
+    private float currentData = 0;
+    private float targetData = 0;
     private int maxData = 0;
 
     // Start is called before the first frame update
@@ -40,7 +40,7 @@ public class UI_Objective : MonoBehaviour
     {
         if (Math.Abs(currentData - targetData) > 0.1f)
         {
-            UpdateDataUI();
+            currentData= Mathf.RoundToInt(UIController.UpdateDelayValueUI(currentData,targetData,maxData,dataIncreaseAmount,data_Text,data_Bar));
         }
     }
 
@@ -60,29 +60,18 @@ public class UI_Objective : MonoBehaviour
     public void SetData(int data)
     {
         targetData = data;
-        UpdateDataUI();
+        currentData= Mathf.RoundToInt(UIController.UpdateDelayValueUI(currentData,targetData,maxData,dataIncreaseAmount,data_Text,data_Bar));
+
     }
 
     public void SetDataMax(int data)
     {
         maxData = data;
-        UpdateDataUI();
+        currentData= Mathf.RoundToInt(UIController.UpdateDelayValueUI(currentData,targetData,maxData,dataIncreaseAmount,data_Text,data_Bar));
+
 
     }
 
 
-    void UpdateDataUI()
-    {
-        if (Math.Abs(currentData - targetData) < dataIncreaseAmount)
-        {
-            currentData = targetData;
-        }
-        else
-        {
-            currentData = Mathf.RoundToInt(Mathf.Lerp(currentData, targetData, dataIncreaseAmount * Time.deltaTime));
-        }
-
-        data_Text.text = $"{currentData.ToString()}GB/{maxData.ToString()}GB";
-        data_Bar.fillAmount = (float)currentData /(float) maxData;
-    }
+    
 }

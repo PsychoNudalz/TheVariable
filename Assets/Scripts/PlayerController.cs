@@ -110,6 +110,8 @@ public class PlayerController : MonoBehaviour
 
     public int ClearanceLevel => clearanceLevel;
 
+    public int CollectedGb => collectedGB;
+
     private void Awake()
     {
         current = this;

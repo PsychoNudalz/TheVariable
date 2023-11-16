@@ -709,6 +709,11 @@ public class PlayerController : MonoBehaviour
         cameraMode = CameraMode.Free;
     }
 
+    public void SetJoystickMultiplier(float m)
+    {
+        rotateMultiplier_joystick = m;
+    }
+
 
     //----------------------
     //Clearance Level

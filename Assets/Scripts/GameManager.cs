@@ -273,4 +273,12 @@ public class GameManager : MonoBehaviour
         UIController.current.Objective_KilledVIP();
         UIController.current.Objective_ShowExtraction();
     }
+
+
+
+    [Command()]
+    public static void Sensitivity_Joystick(float m)
+    {
+        PlayerController.current.SetJoystickMultiplier(m);
+    }
 }

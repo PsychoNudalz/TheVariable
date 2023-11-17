@@ -173,12 +173,12 @@ public class GameManager : MonoBehaviour
 
     public static void PauseTimer(bool b)
     {
-        if (b)
+        if (b&&GM.timerState == TimerState.Started)
         {
             GM.timerState = TimerState.Pause;
             GM.pausedTime = Time.realtimeSinceStartup;
         }
-        else
+        else if(!b&&GM.timerState == TimerState.Pause)
         {
             GM.timerState = TimerState.Started;
             GM.globalStartTime += Time.realtimeSinceStartup - GM.pausedTime;

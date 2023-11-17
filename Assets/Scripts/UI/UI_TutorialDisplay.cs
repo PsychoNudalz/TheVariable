@@ -23,6 +23,8 @@ public class UI_TutorialDisplay : MonoBehaviour
 
     char prefix_Button = Convert.ToChar("$");
 
+    public bool IsActive => gameObject.activeSelf;
+
     // Start is called before the first frame update
     void Start()
     {

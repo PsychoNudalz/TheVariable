@@ -20,7 +20,8 @@ public enum TutorialEnum
     LockdownImmunity,
     NPCCamera,
     Zooming,
-    Highlight
+    Highlight,
+    GoldenBits
     
 }
 //

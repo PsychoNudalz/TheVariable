@@ -99,6 +99,8 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI itemText;
 
+    public bool IsTutorialActive => tutorialDisplay.IsActive;
+
 
     public static UIController current;
 

@@ -93,7 +93,12 @@ public class PlayAnimation : ActionNode
                     {
                         if (ss.SmartObject)
                         {
-                            if (ss.SmartObject is NpcObject npcObject)
+                            if (Vector3.Distance(ss.SmartObject.InteractPosition, blackboard.targetPosition) > 1f)
+                            {
+                                context.NpcController.MoveTransform(agent_Position,
+                                    blackboard.targetRotation , animation);
+                            }
+                            else if (ss.SmartObject is NpcObject npcObject)
                             {
                                 context.NpcController.MoveTransform(agent_Position,
                                     GetDirectionToNpc(npcObject), animation);

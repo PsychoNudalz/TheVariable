@@ -23,6 +23,11 @@ public abstract class SensorySource
     {
         this.position = position;
         this.strength = strength;
+    }    public SensorySource(SmartObject so,Vector3 position, float strength)
+    {
+        smartObject = so;
+        this.position = position;
+        this.strength = strength;
     }
 
     public void AdjustStrength(Vector3 target, LayerMask castLayer, float dampenStrength)
@@ -71,6 +76,13 @@ public class SensorySource_Audio : SensorySource
     public SensorySource_Audio(SmartObject so, float strength) : base(so.Position, strength)
     {
         this.position = so.InteractPosition;
+        this.strength = strength;
+        smartObject = so;
+    }
+
+    public SensorySource_Audio(SmartObject so, Vector3 position, float strength) : base(so, position, strength)
+    {
+        this.position = position;
         this.strength = strength;
         smartObject = so;
     }

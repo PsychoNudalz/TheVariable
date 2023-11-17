@@ -35,7 +35,11 @@ public class MoveToPosition : ActionNode
         context.agent.updateRotation = updateRotation;
         // context.agent.acceleration = acceleration;
         // moveDelay_TimeNow = moveDelay;
-        context.NpcController.PlayAnimation(NpcAnimation.Walk);
+        if (Vector3.Distance(blackboard.targetPosition, agent_Position) > tolerance)
+        {
+            context.NpcController.PlayAnimation(NpcAnimation.Walk);
+        }
+
         pendingTimeOut = 2f;
         
         samePosition_ResetTime_Now = Random.Range(samePosition_ResetTime,samePosition_ResetTime*1.5f);

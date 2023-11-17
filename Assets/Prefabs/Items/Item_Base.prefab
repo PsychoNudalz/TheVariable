@@ -404,13 +404,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactPoint: {fileID: 0}
   highlightEffect: {fileID: 2617819239995198200}
-  hacks:
-  - {fileID: 11400000, guid: 83707db5a5e54e7499a55bb98929d3c6, type: 2}
-  - {fileID: 11400000, guid: 8b48f8ad836948544ab3346229b47578, type: 2}
+  hacks: []
   onHackActivateEvent:
     m_PersistentCalls:
       m_Calls: []
   audioDistract: {fileID: 3017447997709266215}
+  dataEffect: {fileID: 0}
   Enable_Debug: 1
   originalItemName: 0
   modelGO: {fileID: 129341653907168838}
@@ -445,6 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioDistract_Range: 10
+  audioDistract_MaxNPC: 2
   audioDistract_Strength: 40
   audioDistract_Dampen: 0.2
   audioDistract_PS: {fileID: 0}

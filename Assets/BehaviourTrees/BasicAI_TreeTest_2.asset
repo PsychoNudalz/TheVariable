@@ -148,8 +148,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: 66.4, y: -113.6, z: 0}
-  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
+  viewPosition: {x: -98.4, y: -636, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -803,7 +803,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1bb60f0214f7b5a4d9ecbf853cce32cf
-        position: {x: 3921.6, y: 1195.2002}
+        position: {x: 3715.738, y: 1222.0002}
         blackboard:
           alertState: 0
           health: 0
@@ -1264,7 +1264,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: dc9eb2a63a4e79b4392374e2ccd98d11
-        position: {x: 4068.7998, y: 1196.0002}
+        position: {x: 3862.9377, y: 1222.8002}
         blackboard:
           alertState: 0
           health: 0
@@ -1362,7 +1362,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2a3a6e994fac6e644a4a40b8f85b0499
-        position: {x: 2298.4, y: 1231.2001}
+        position: {x: 2300, y: 1224.0001}
         blackboard:
           alertState: 0
           health: 0
@@ -1454,7 +1454,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 38f744e5ddd04ac47b40c16c3111adf6
-        position: {x: 1006.4, y: 1518.4}
+        position: {x: 1020.79987, y: 1527.2001}
         blackboard:
           alertState: 0
           health: 0
@@ -1673,7 +1673,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0c93a4add17653549ab3fdd52e8c3af6
-        position: {x: 4293.5996, y: 1336.6615}
+        position: {x: 4087.7378, y: 1363.6002}
         blackboard:
           alertState: 0
           health: 0
@@ -1924,9 +1924,9 @@ MonoBehaviour:
         name: MoveToPosition
         description: 
         drawGizmos: 0
-        stoppingDistance: 0.1
+        stoppingDistance: 1
         updateRotation: 1
-        tolerance: 0.1
+        tolerance: 1
         playIdleAnimationOnStop: 0
         samePosition_TimeOut: 1
         samePosition_ResetTime: 1
@@ -3518,7 +3518,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 29151917c3dde2145ba95caeb2f48913
-        position: {x: 4218.4004, y: 1195.2002}
+        position: {x: 4012.5376, y: 1222.0002}
         blackboard:
           alertState: 0
           health: 0
@@ -3549,7 +3549,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c34a00b1545911b46992503fa2d84f4d
-        position: {x: 4293.599, y: 1468.7998}
+        position: {x: 4087.7378, y: 1495.6003}
         blackboard:
           alertState: 0
           health: 0
@@ -3580,7 +3580,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 56a9eebd9e713a947af62dc64d4a0e73
-        position: {x: 4368.801, y: 1183.2002}
+        position: {x: 4162.9375, y: 1210.0002}
         blackboard:
           alertState: 0
           health: 0
@@ -3646,7 +3646,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: afb2fdbedab54af48bebabf6120a5fdf
-        position: {x: 4469.1875, y: 1468.7998}
+        position: {x: 4262.938, y: 1495.6003}
         blackboard:
           alertState: 0
           health: 0
@@ -3679,7 +3679,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 72f4026cd40b89043a18ed6d90186039
-        position: {x: 4495.201, y: 1332.8002}
+        position: {x: 4289.338, y: 1359.6002}
         blackboard:
           alertState: 0
           health: 0

@@ -588,6 +588,14 @@ public class PlayerController : MonoBehaviour
         uiController.CameraStack_AddStack(cameraStack.ToArray(),cameraStackIndex);
     }
 
+    void WipeCameraStack()
+    {
+        cameraStack = new List<CameraController>();
+        cameraStackIndex = 0;
+        uiController.CameraStack_AddStack(cameraStack.ToArray(),cameraStackIndex);
+
+    }
+
 
     void UpdateCamera(Vector2 rotation)
     {
@@ -700,6 +708,8 @@ public class PlayerController : MonoBehaviour
         uiController.LockoutScreen_SetActive(true, CameraController);
         OnSelectCancel();
         cameraMode = CameraMode.LockedOut;
+        WipeCameraStack();
+
 
         //Changed lockout to not reduce clearance
         // DecreaseClearanceLevel(1);

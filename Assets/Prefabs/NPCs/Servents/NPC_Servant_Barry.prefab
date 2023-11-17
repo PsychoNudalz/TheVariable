@@ -70,7 +70,12 @@ PrefabInstance:
     - target: {fileID: 1015769729296351581, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
         type: 3}
       propertyPath: schedule.Array.size
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015769729296351581, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
+        type: 3}
+      propertyPath: schedule.Array.data[0].startTime
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1015769729296351581, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
         type: 3}
@@ -85,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 1015769729296351581, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
         type: 3}
       propertyPath: schedule.Array.data[3].startTime
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1015769729296351581, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
         type: 3}
@@ -118,7 +123,7 @@ PrefabInstance:
         type: 3}
       propertyPath: schedule.Array.data[3].taskDescription
       value: 
-      objectReference: {fileID: 11400000, guid: 71a75433c46ab0e4796b14e4422013d4,
+      objectReference: {fileID: 11400000, guid: c47b71181e06c4248a6ff52550be8d74,
         type: 2}
     - target: {fileID: 1015769729296351583, guid: 2c00fcf95ea5aa14eb053324f13d85c9,
         type: 3}

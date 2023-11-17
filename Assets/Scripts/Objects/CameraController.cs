@@ -132,6 +132,8 @@ public class CameraController : MonoBehaviour
 
     private bool isPlayerControl = false;
     private UIController uiController;
+    private float lastInvestigateTime;
+    private float investigateFailSafeTime = 5f;
     public Vector3 Position => camera_transform.position;
     public Vector3 Forward => camera_transform.forward;
 
@@ -217,6 +219,14 @@ public class CameraController : MonoBehaviour
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (investigationMode == CameraInvestigationMode.Investigated)
+        {
+            CameraRevertToNormalFailSafe();
         }
     }
 
@@ -488,8 +498,22 @@ public class CameraController : MonoBehaviour
         }
     }
 
+
+    public void CameraRevertToNormalFailSafe()
+    {
+        if (Time.time - lastInvestigateTime > investigateFailSafeTime)
+        {
+            Debug.LogWarning($"{name} camera investigate failsafe triggered");
+            Set_Investigate(false);
+        }
+    }
+    
     public void SetInvestigationMode(CameraInvestigationMode mode)
     {
+        if (mode == CameraInvestigationMode.Investigated)
+        {
+            lastInvestigateTime = Time.time;
+        }
         investigationMode = mode;
         if (isPlayerControl)
         {

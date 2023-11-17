@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68e3941129874ff4e9790cf1d8fa098a, type: 3}
-  m_Name: Hack_General_Distraction
+  m_Script: {fileID: 11500000, guid: 0ee1779857d7434eb2a7fc3a4f023d52, type: 3}
+  m_Name: T_GoldenBytes
   m_EditorClassIdentifier: 
-  hackTime: 0.5
-  hackClearance: 1
-  hackCost: 1
+  tutorialEnum: 0
+  title: 
+  videoClip: {fileID: 0}
+  text: Collect Golden Bytes by hacking objects in GOLD.  This will determine your
+    score at the end of the level.

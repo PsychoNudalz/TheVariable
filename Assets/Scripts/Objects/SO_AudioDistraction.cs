@@ -95,7 +95,7 @@ public class SO_AudioDistraction : MonoBehaviour
                 else
                 {
                     SensorySource_Audio newSSA =
-                        new SensorySource_Audio(savedSO,collider.transform.position, audioDistract_Strength);
+                        new SensorySource_Audio(savedSO,collider.transform.position, audioDistract_Strength*.5f);
                     newSSA.AdjustStrength(npcController.transform.position, audioDistraction_LayerMask,
                         audioDistract_Dampen);
                     npcController.AddSensorySource(newSSA);

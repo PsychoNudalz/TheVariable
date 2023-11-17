@@ -528,6 +528,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioDistract: {fileID: 1344593526981589994}
+  dataEffect: {fileID: 0}
   Enable_Debug: 1
   cameraController: {fileID: 3915646345386012475}
 --- !u!114 &3915646345386012475
@@ -558,6 +559,7 @@ MonoBehaviour:
   cameraRingMaterial: {fileID: 0}
   cameraState: 0
   hackLine: {fileID: 6230879108543905253}
+  investigationMode: 0
   connectedSO: {fileID: 3703868500515075467}
   cameraBody: {fileID: 5103197614238685720}
   disableCollider: {fileID: 7876393163173654306}
@@ -575,6 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioDistract_Range: 10
+  audioDistract_MaxNPC: 2
   audioDistract_Strength: 1
   audioDistract_Dampen: 1
   audioDistract_PS: {fileID: 0}

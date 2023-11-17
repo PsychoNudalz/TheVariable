@@ -111,6 +111,8 @@ public class NpcController : MonoBehaviour
     [SerializeField]
     private NavMeshAgent navMeshAgent;
 
+    private bool hasShowedTutorial;
+
     public TaskEvent CurrentTask => currentTask;
 
     public List<TaskEvent> TaskQueue => taskQueue;
@@ -366,8 +368,13 @@ public class NpcController : MonoBehaviour
         {
             if (alertValue > .2f)
             {
-                TutorialManager.Display_FirstTime(TutorialEnum.AlertLevel);
-                TutorialManager.Display_FirstTime(TutorialEnum.Investigate);
+                hasShowedTutorial = false;
+                if (!hasShowedTutorial)
+                {
+                    TutorialManager.Display_FirstTime(TutorialEnum.AlertLevel);
+                    TutorialManager.Display_FirstTime(TutorialEnum.Investigate);
+                    hasShowedTutorial = true;
+                }
             }
             Change_AlertValue(multiplier);
         }

@@ -578,6 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioDistract_Range: 10
+  audioDistract_MaxNPC: 2
   audioDistract_Strength: 1
   audioDistract_Dampen: 1
   audioDistract_PS: {fileID: 0}

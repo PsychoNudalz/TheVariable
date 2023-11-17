@@ -4406,6 +4406,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcs: []
+  cleanUpTime: 1
+  cleanUpTimeNow: 0
+  npcIndex: 0
 --- !u!1001 &230550572
 PrefabInstance:
   m_ObjectHideFlags: 0

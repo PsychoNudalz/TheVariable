@@ -170,4 +170,11 @@ public class NpcSensoryController : MonoBehaviour
 
         return cameras.ToArray();
     }
+    
+    
+    public void CleanUpVisionCone()
+    {
+        visionConeController.CleanUpAllDetectedSO();
+    }
+
 }

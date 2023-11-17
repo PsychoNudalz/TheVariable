@@ -7,6 +7,7 @@ public class NpcVisionConeController : MonoBehaviour
 {
     [SerializeField]
     private List<SmartObject> allDetectedSmartObjects;
+    private List<SmartObject> allDetectedSmartObjectsBuffer = new List<SmartObject>();
 
     [Header("Line of Sight")]
     [SerializeField]
@@ -34,6 +35,8 @@ public class NpcVisionConeController : MonoBehaviour
     [SerializeField]
     private bool isDebug = false;
 
+    private Vector3 forwardDirection=>-transform.right;
+
     public List<SmartObject> AllDetectedSmartObjects => allDetectedSmartObjects;
 
     public List<SmartObject> AllLoSSmartObjects => allLoSSmartObjects;
@@ -52,22 +55,34 @@ public class NpcVisionConeController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // CleanUpAllDetectedSO();
+        // EvaluateBuffer();
         UpdateLoSObjects();
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(.3f, 1, .3f);
-        Gizmos.DrawRay(eyePositon, -transform.right * los_Distance);
+        Gizmos.DrawRay(eyePositon, forwardDirection * los_Distance);
     }
 
     void UpdateLoSObjects()
     {
-        foreach (SmartObject smartObject in allDetectedSmartObjects)
+        for (var i = 0; i < allDetectedSmartObjects.Count; i++)
         {
-            if (!smartObject)
+            var smartObject = allDetectedSmartObjects[i];
+            // if (!smartObject)
+            // {
+            //     //TODO: actually remove the null object
+            //     allDetectedSmartObjects.RemoveAt(i);
+            //     i--;
+            //     continue;
+            // }
+            if (!allDetectedSmartObjects[i]||Vector3.Dot((allDetectedSmartObjects[i].Position - transform.position).normalized, forwardDirection) <
+                0)
             {
-                //TODO: actually remove the null object
+                allDetectedSmartObjects.RemoveAt(i);
+                i--;
                 continue;
             }
 
@@ -143,13 +158,27 @@ public class NpcVisionConeController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         SmartObject smartObject = GetSmartObject(other);
-        if (smartObject && !allDetectedSmartObjects.Contains(smartObject))
+        if (smartObject )
         {
             if (smartObject.Equals(objectIgnore))
             {
                 return;
             }
 
+            // //For some reason contain is not stopping double adding the items
+            foreach (SmartObject detectedSmartObject in allDetectedSmartObjects)
+            {
+                if (smartObject.Equals(detectedSmartObject))
+                {
+                    // Debug.LogError($"{selfSmartObject.name}: found same Smart Object");
+                    return;
+                }
+            
+                // if (smartObject.name.Equals(detectedSmartObject.name))
+                // {
+                //     Debug.LogError($"{selfSmartObject.name}: found same Smart Object");
+                // }
+            }
             allDetectedSmartObjects.Add(smartObject);
         }
     }
@@ -165,10 +194,19 @@ public class NpcVisionConeController : MonoBehaviour
 
         if (smartObject)
         {
-            if (allDetectedSmartObjects.Contains(smartObject))
+            for (var i = 0; i < allDetectedSmartObjects.Count; i++)
             {
-                allDetectedSmartObjects.Remove(smartObject);
-                allLoSSmartObjects.Remove(smartObject);
+                var detectedSmartObject = allDetectedSmartObjects[i];
+                if (smartObject.Equals(detectedSmartObject))
+                {
+                    allDetectedSmartObjects.RemoveAt(i);
+                    if (allLoSSmartObjects.Contains(smartObject))
+                    {
+                        allLoSSmartObjects.Remove(smartObject);
+                    }
+
+                    i--;
+                }
             }
         }
     }
@@ -177,4 +215,39 @@ public class NpcVisionConeController : MonoBehaviour
     {
         return other.GetComponentInParent<SmartObject>();
     }
+
+    public void CleanUpAllDetectedSO()
+    {
+        List<SmartObject> temp = new List<SmartObject>();
+        for (int i = 0; i < allDetectedSmartObjects.Count; i++)
+        {
+            if (!allDetectedSmartObjects[i]||Vector3.Dot((allDetectedSmartObjects[i].Position - transform.position).normalized, forwardDirection) <
+                0)
+            {
+                allDetectedSmartObjects.RemoveAt(i);
+                i--;
+            }
+            else if (!temp.Contains(allDetectedSmartObjects[i]))
+            {
+                temp.Add(allDetectedSmartObjects[i]);
+            }
+        }
+
+        allDetectedSmartObjects = temp;
+    }
+
+    // void EvaluateBuffer()
+    // {
+    //     foreach (SmartObject smartObject in allDetectedSmartObjectsBuffer)
+    //     {
+    //         if (!allDetectedSmartObjects.Contains(smartObject))
+    //         {
+    //             allDetectedSmartObjects.Add(smartObject);
+    //         }
+    //     }
+    //
+    //     allDetectedSmartObjectsBuffer = new List<SmartObject>();
+    // }
+    
+    
 }

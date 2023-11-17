@@ -10,10 +10,31 @@ public class NpcManager : MonoBehaviour
 
     public static NpcManager current;
     public static List<NpcController> NPCs => current.npcs;
+    
+    
+    [Header("Vision Cone Cleanup")]
+    [SerializeField]
+    float cleanUpTime = 5f;
+    [SerializeField]
+    float cleanUpTimeNow = 0;
+
+    [SerializeField]
+    private int npcIndex = 0;
     private void Awake()
     {
         current = this;
         npcs = new List<NpcController>(FindObjectsOfType<NpcController>(true));
+    }
+
+    private void FixedUpdate()
+    {
+        cleanUpTimeNow += Time.deltaTime;
+        if (cleanUpTimeNow > cleanUpTime)
+        {
+            cleanUpTimeNow = 0;
+            npcs[npcIndex].CleanUpVisionCone();
+            npcIndex = (npcIndex + 1) % npcs.Count;
+        }
     }
 
 

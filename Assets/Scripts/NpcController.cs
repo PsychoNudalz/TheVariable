@@ -832,6 +832,11 @@ public class NpcController : MonoBehaviour
     }
 
 
+    public void CleanUpVisionCone()
+    {
+        sensoryController.CleanUpVisionCone();
+    }
+
     //
     // public void ChangeStateEffect(NPC_AlertState alertState)
     // {

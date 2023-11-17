@@ -325,6 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4b2dbfd72261b48bef201b199fa224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVIP: 0
   currentTask:
     taskDescription: {fileID: 0}
     startTime: -1
@@ -408,6 +409,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   audioDistract: {fileID: 3326811676266680409}
+  dataEffect: {fileID: 0}
   Enable_Debug: 1
   cameraController: {fileID: 4368685063548143269}
   eyeLocation: {fileID: 0}
@@ -732,6 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioDistract_Range: 10
+  audioDistract_MaxNPC: 2
   audioDistract_Strength: 50
   audioDistract_Dampen: 0.5
   audioDistract_PS: {fileID: 0}
@@ -831,7 +834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allDetectedSmartObjects: []
   allLoSSmartObjects: []
-  los_Distance: 32
+  los_Distance: 20
   los_LayerMask:
     serializedVersion: 2
     m_Bits: 1920

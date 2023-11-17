@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee1779857d7434eb2a7fc3a4f023d52, type: 3}
   m_Name: T_GoldenBytes
   m_EditorClassIdentifier: 
-  tutorialEnum: 0
-  title: 
-  videoClip: {fileID: 0}
-  text: Collect Golden Bytes by hacking objects in GOLD.  This will determine your
+  tutorialEnum: 12
+  title: Downloading Data
+  videoClip: {fileID: 32900000, guid: 8b4c848f24267204994be838de4323c5, type: 3}
+  text: Download Golden Bytes by hacking objects in GOLD.  This will determine your
     score at the end of the level.

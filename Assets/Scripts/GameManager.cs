@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using QFSW.QC;
+using Task;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -127,13 +128,26 @@ public class GameManager : MonoBehaviour
     public void CalculateMaxGB()
     {
         maxGB = 0;
-        SmartObject[] allSOs = FindObjectsByType<SmartObject>(FindObjectsSortMode.InstanceID);
+        SmartObject[] allSOs = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude,FindObjectsSortMode.InstanceID);
+        List<SmartObject> evaluated = new List<SmartObject>();
         foreach (SmartObject smartObject in allSOs)
         {
+            if (evaluated.Contains(smartObject))
+            {
+                Debug.LogError($"2 copies of SO: {smartObject}");
+                break;
+            }
+            evaluated.Add(smartObject);
+
             foreach (HackAbility hackAbility in smartObject.Hacks)
             {
                 if (hackAbility is Hack_Collect_Data data)
                 {
+                    if (smartObject is TaskSmartObject ts)
+                    {
+                        Debug.Log($"Gold Task Object: {ts}");
+
+                    }
                     maxGB += data.Gb;
                 }
             }

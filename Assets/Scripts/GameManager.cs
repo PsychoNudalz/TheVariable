@@ -270,6 +270,7 @@ public class GameManager : MonoBehaviour
     {
         MaxLevel();
         ResetTimeScale();
+        TutorialManager.SetTutorial(false);
     }
 
     [Command()]

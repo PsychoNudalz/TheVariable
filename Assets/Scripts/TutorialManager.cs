@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using QFSW.QC;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Video;
@@ -51,10 +52,21 @@ public class TutorialManager : MonoBehaviour
 
     public static TutorialManager current;
 
+    public static bool DisableTutorial = false;
     private void Awake()
     {
         current = this;
         tutorials = Resources.LoadAll("Tutorial", typeof(TutorialInstructions)).Cast<TutorialInstructions>().ToArray();
+
+        int temp = PlayerPrefs.GetInt("Tutorial");
+        if (temp >= 0)
+        {
+            DisableTutorial = false;
+        }
+        else
+        {
+            DisableTutorial = true;
+        }
     }
 
     // Start is called before the first frame update
@@ -187,8 +199,13 @@ public class TutorialManager : MonoBehaviour
         //
     }
 
-    public void DisplayTutorial_FirstTime(TutorialEnum tutorialEnum)
+    void DisplayTutorial_FirstTime(TutorialEnum tutorialEnum)
     {
+        if (DisableTutorial)
+        {
+            Debug.Log($"Tutorial disabled");
+            return;
+        }
         if (!alreadyDisplayed.Contains(tutorialEnum))
         {
             alreadyDisplayed.Add(tutorialEnum);
@@ -201,6 +218,20 @@ public class TutorialManager : MonoBehaviour
         if (current)
         {
             current.DisplayTutorial_FirstTime(tutorialEnum);
+        }
+    }
+
+    [Command()]
+    public static void SetTutorial(bool b)
+    {
+        DisableTutorial = !b;
+        if (DisableTutorial)
+        {
+            PlayerPrefs.SetInt("Tutorial",-1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Tutorial",0);
         }
     }
 }

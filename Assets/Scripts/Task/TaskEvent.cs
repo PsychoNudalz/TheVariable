@@ -133,5 +133,10 @@ namespace Task
         {
             return TaskName;
         }
+        
+        public virtual bool HasItem(ItemObject item)
+        {
+            return taskDescription.HasItem(item);
+        }
     }
 }

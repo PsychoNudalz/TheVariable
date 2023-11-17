@@ -70,6 +70,29 @@ public class TaskDescription : ScriptableObject
         return base.Equals(other);
     }
 
+    public bool HasItem(ItemObject item)
+    {
+        if (!item)
+        {
+            if (requiredItems.Length == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        foreach (ItemName requiredItem in requiredItems)
+        {
+            if (item.Equals(requiredItem))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // TaskEnum autoFindTaskEnum(string s)
     // {
     //     string taskEnumString = "";

@@ -22,7 +22,6 @@ public class Action_DepositItem : ActionNode
             context.NpcController.DropItem();
         }
 
-        Clear_Blackboard_Items();
     }
 
 
@@ -33,6 +32,7 @@ public class Action_DepositItem : ActionNode
 
     protected override State OnUpdate()
     {
+        Clear_Blackboard_Items();
         return State.Success;
     }
 }

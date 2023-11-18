@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5ec38bdf1fdc6d640b59f716a8db7989,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9797647
+      value: 0.9981835
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ec38bdf1fdc6d640b59f716a8db7989,
         type: 3}
@@ -40,7 +40,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5ec38bdf1fdc6d640b59f716a8db7989,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.20015292
+      value: 0.060248516
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ec38bdf1fdc6d640b59f716a8db7989,
         type: 3}
@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5ec38bdf1fdc6d640b59f716a8db7989,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -23.092
+      value: 6.908
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ec38bdf1fdc6d640b59f716a8db7989,
         type: 3}
@@ -71,6 +71,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tray-small
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5ec38bdf1fdc6d640b59f716a8db7989,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec38bdf1fdc6d640b59f716a8db7989, type: 3}
@@ -145,6 +150,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Prop_Desk_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7990d37c7fcaa349b8c041eb6e565ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7990d37c7fcaa349b8c041eb6e565ad, type: 3}
@@ -334,6 +344,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mirror-table-small
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 750ac2aeed84c834797ee62d5b253ca1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 750ac2aeed84c834797ee62d5b253ca1, type: 3}

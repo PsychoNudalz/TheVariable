@@ -234,6 +234,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioDistract: {fileID: 0}
+  dataEffect: {fileID: 0}
   Enable_Debug: 1
   associateTask: {fileID: 11400000, guid: 261ded751482477478237a7726af2938, type: 2}
   interactAnimation: 3
@@ -296,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioDistract_Range: 10
+  audioDistract_MaxNPC: 2
   audioDistract_Strength: 60
   audioDistract_Dampen: 0.7
   audioDistract_PS: {fileID: 0}
@@ -842,7 +844,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: bb9bcf9763d434148ab499970997dff2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5b12cf4be3e7c5149a5f24108ee6a551, type: 2}
+      objectReference: {fileID: 2100000, guid: 964671b2cbeec044284ed02ff2a8eda4, type: 2}
     - target: {fileID: 2300002, guid: bb9bcf9763d434148ab499970997dff2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

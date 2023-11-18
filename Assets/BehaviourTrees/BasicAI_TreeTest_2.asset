@@ -151,8 +151,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: 128, y: -40.8, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+  viewPosition: {x: -307.2, y: -978.4, z: 0}
+  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
   references:
     version: 2
     RefIds:
@@ -197,7 +197,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 805e311953d76377185bc6ab04a26373
-        position: {x: 779.19995, y: 1476.7999}
+        position: {x: 358.39996, y: 1478.4}
         blackboard:
           alertState: 0
           health: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b02b3093bcfb81df49dd7022e7795e4a
-        position: {x: 778.3999, y: 1602.4}
+        position: {x: 357.59985, y: 1603.9999}
         blackboard:
           alertState: 0
           health: 0
@@ -1868,7 +1868,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a14ab65e7d407564aa4cc43a5e608144
-        position: {x: 436, y: 1478.4}
+        position: {x: 661.5999, y: 1478.3998}
         blackboard:
           alertState: 0
           health: 0
@@ -1903,7 +1903,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 41adc6f6cb8000942994893d94b73568
-        position: {x: 284.80005, y: 1476.7999}
+        position: {x: 510.3999, y: 1476.7998}
         blackboard:
           alertState: 0
           health: 0
@@ -3180,7 +3180,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: f264eda43cfa36b43a4c6276145c0d96
-        position: {x: 584, y: 1477.6002}
+        position: {x: 809.59985, y: 1477.5999}
         blackboard:
           alertState: 0
           health: 0

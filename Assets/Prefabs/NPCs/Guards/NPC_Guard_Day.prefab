@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 6200175563074222498, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
       propertyPath: schedule.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6200175563074222498, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
@@ -29,7 +29,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6200175563074222498, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
+      propertyPath: schedule.Array.data[1].taskQueryType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200175563074222498, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
+        type: 3}
       propertyPath: schedule.Array.data[0].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d951cd22734f134392dfb2f4ab78976,
+        type: 2}
+    - target: {fileID: 6200175563074222498, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
+        type: 3}
+      propertyPath: schedule.Array.data[1].taskDescription
       value: 
       objectReference: {fileID: 11400000, guid: 1d951cd22734f134392dfb2f4ab78976,
         type: 2}

@@ -44,6 +44,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1d951cd22734f134392dfb2f4ab78976,
         type: 2}
+    - target: {fileID: 6200175563074222498, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
+        type: 3}
+      propertyPath: randomTasks.Array.data[4].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: c1d1e125a3679934c90ef4c88d75e26b,
+        type: 2}
     - target: {fileID: 6200175563074222501, guid: 9bd5c753c9dbd5f4aa26f66be304bd82,
         type: 3}
       propertyPath: m_RootOrder

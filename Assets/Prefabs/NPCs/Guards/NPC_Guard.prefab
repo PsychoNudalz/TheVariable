@@ -147,7 +147,7 @@ PrefabInstance:
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: randomTasks.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -206,9 +206,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
+      propertyPath: randomTasks.Array.data[1].taskQueryType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[3].taskQueryType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
       propertyPath: randomTasks.Array.data[0].taskDescription
       value: 
       objectReference: {fileID: 11400000, guid: 3c1962452e9dfaf40ac0abcb84470dd3,
+        type: 2}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[1].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c1962452e9dfaf40ac0abcb84470dd3,
+        type: 2}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[2].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c1962452e9dfaf40ac0abcb84470dd3,
+        type: 2}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: randomTasks.Array.data[3].taskDescription
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c4d674da37a7df4fb488d9cfa62813a,
         type: 2}
     - target: {fileID: 2202455951231104387, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}

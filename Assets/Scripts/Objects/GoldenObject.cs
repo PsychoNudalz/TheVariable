@@ -5,11 +5,7 @@ using UnityEngine.VFX;
 
 public class GoldenObject : SmartObject
 {
-    [Header("More Data Effect")]
-    [SerializeField]
-    private MeshRenderer[] renderers;
-    [SerializeField]
-    private Material goldlessMaterial;
+
     protected override void AwakeBehaviour()
     {
         if (renderers.Length == 0)
@@ -30,9 +26,9 @@ public class GoldenObject : SmartObject
     {
     }
 
-    public override void Hack_Data()
+    public override void Hack_ChangeMaterial()
     {
-        base.Hack_Data();
+        base.Hack_ChangeMaterial();
 
         List<Material> tempList = new List<Material>();
 

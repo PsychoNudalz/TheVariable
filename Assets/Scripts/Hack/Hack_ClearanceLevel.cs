@@ -12,6 +12,8 @@ public class Hack_ClearanceLevel : HackAbility
     [Header("Clearance Level")]
     [SerializeField]
     private int clearanceLevel = 0;
+    private bool hasCollected = false;
+
 
     public int ClearanceLevel => clearanceLevel;
 
@@ -21,6 +23,7 @@ public class Hack_ClearanceLevel : HackAbility
 
     protected override void StartBehaviour()
     {
+        hasCollected = false;
     }
 
     protected override void UpdateBehaviour()
@@ -30,6 +33,19 @@ public class Hack_ClearanceLevel : HackAbility
     public override int Hack(HackContext hackContext)
     {
         PlayerController.current.IncreaseClearanceLevel(clearanceLevel);
+        hasCollected = true;
+        showHack = false;
+        hackContext.SmartObjects[0].Hack_ChangeMaterial();
         return 0;
+    }
+    
+    public override bool CanHack()
+    {
+        if (!hasCollected)
+        {
+            return base.CanHack();
+        }
+
+        return false;
     }
 }

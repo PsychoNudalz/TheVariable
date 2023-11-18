@@ -32,7 +32,7 @@ public class Hack_Collect_Data : HackAbility
         hasCollected = true;
         PlayerController.current.AddGB(gb);
         showHack = false;
-        hackContext.SmartObjects[0].Hack_Data();
+        hackContext.SmartObjects[0].Hack_ChangeMaterial();
         return 0;
     }
 

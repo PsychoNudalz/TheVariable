@@ -32,10 +32,13 @@ public abstract class SmartObject : MonoBehaviour
     
     
     //This should have been on a separate effects controller but I really CBA to add one now
-    [Header("Data Effect")]
+    [Header("Hack Change Effect")]
     [SerializeField]
-    private VisualEffect dataEffect;
-
+    protected VisualEffect dataEffect;
+    [SerializeField]
+    protected MeshRenderer[] renderers;
+    [SerializeField]
+    protected Material goldlessMaterial;
 
 
     public virtual Vector3 Position => transform.position;
@@ -276,12 +279,28 @@ public abstract class SmartObject : MonoBehaviour
         TutorialManager.Display_FirstTime(tutorialEnum.TutorialEnum);
     }
 
-    public virtual void Hack_Data()
+    public virtual void Hack_ChangeMaterial()
     {
         if (dataEffect)
         {
             dataEffect.SetVector3("TPosition",Camera.main.transform.position+new Vector3(0,-.1f,0));
             dataEffect.Play();
+        }
+        List<Material> tempList = new List<Material>();
+
+        if (goldlessMaterial)
+        {
+            foreach (MeshRenderer r in renderers)
+            {
+                tempList = new List<Material>();
+                for (int i = 0; i < r.materials.Length; i++)
+                {
+                    tempList.Add(goldlessMaterial);
+                }
+
+                r.materials = tempList.ToArray();
+
+            }
         }
     }
 }

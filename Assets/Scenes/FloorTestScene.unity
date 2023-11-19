@@ -2383,6 +2383,16 @@ PrefabInstance:
       propertyPath: targetFXTexture
       value: 
       objectReference: {fileID: 2800000, guid: 1de3c566a6c8c405b9f6f453137273ec, type: 3}
+    - target: {fileID: 3682397781918668069, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682397781918668069, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.9999989
+      objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackActivateEvent.m_PersistentCalls.m_Calls.Array.size

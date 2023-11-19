@@ -90,7 +90,10 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private CameraState cameraState = CameraState.None;
 
-    private Coroutine hackCoroutine;
+    private SmartObject savedHack_SO;
+    private int savedHack_index = 0;
+    private HackContext_Enum[] savedHack_ContextEnum;
+    // private Coroutine hackCoroutine;
 
     [SerializeField]
     private LineRenderer hackLine;
@@ -203,6 +206,11 @@ public class CameraController : MonoBehaviour
                     }
 
                     HackLine_Update();
+
+                    if (cameraHack_TimeNow < 0)
+                    {
+                        Hack_Activation(savedHack_SO,savedHack_index,savedHack_ContextEnum);
+                    }
                 }
 
                 break;
@@ -245,10 +253,9 @@ public class CameraController : MonoBehaviour
         hackLine.material.SetFloat("_Effect_Animation_Value", 1 - (cameraHack_TimeNow / cameraHack_Time));
     }
 
-    public void HackLine_Reset()
+    void HackLine_Reset()
     {
-        cameraHack_TimeNow = 0;
-        cameraHack_Time = 0;
+
         hackLine.gameObject.SetActive(false);
         HackLine_Update();
     }
@@ -378,6 +385,12 @@ public class CameraController : MonoBehaviour
         throughWallEffect.overlay = Mathf.Sin(throughWallEffect_TimeNow * 2 * Mathf.PI);
     }
 
+    /// <summary>
+    /// Starting the hack
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="index">index of the hack on the target</param>
+    /// <param name="hackContextEnum"></param>
     public void StartHack(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
     {
         // if (cameraState != CameraState.None)
@@ -400,16 +413,24 @@ public class CameraController : MonoBehaviour
             return;
         }
 
-        hackCoroutine = StartCoroutine(HackRoutine(target, index, hackContextEnum));
-    }
-
-    IEnumerator HackRoutine(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
-    {
+        // hackCoroutine = StartCoroutine(HackRoutine(target, index, hackContextEnum));
+        
         Hack_Initialise(target, index);
-        yield return new WaitForSeconds(target.Hacks[index].HackTime);
-        Hack_Activation(target, index, hackContextEnum);
+        savedHack_ContextEnum = hackContextEnum;
     }
 
+    // IEnumerator HackRoutine(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
+    // {
+    //     Hack_Initialise(target, index);
+    //     yield return new WaitForSeconds(target.Hacks[index].HackTime);
+    //     Hack_Activation(target, index, hackContextEnum);
+    // }
+
+    /// <summary>
+    /// Saves the values for the hack
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="index"></param>
     private void Hack_Initialise(SmartObject target, int index)
     {
         cameraState = CameraState.Hacking;
@@ -419,23 +440,27 @@ public class CameraController : MonoBehaviour
         cameraHack_Time = time;
         cameraHack_TimeNow = time;
         SoundManager.PlayGlobal(SoundGlobal.Hacking);
+        
+        savedHack_SO = target;
+        savedHack_index = index;
     }
 
 
+    /// <summary>
+    /// activate the hack and apply the hack effects etc
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="index"></param>
+    /// <param name="hackContextEnum"></param>
     private void Hack_Activation(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
     {
         target.ActivateHack(index, hackContextEnum);
-        if (cameraState != CameraState.Locked && cameraLock_Time <= 0f &&
-            investigationMode != CameraInvestigationMode.Spotted)
-        {
-            cameraState = CameraState.None;
-        }
 
-        hackTarget = null;
+
         // hackLine.gameObject.SetActive(false);
-        HackLine_Reset();
+        // HackLine_Reset();
+        Hack_End();
         SoundManager.PlayGlobal(SoundGlobal.HackComplete);
-        SoundManager.StopGlobal(SoundGlobal.Hacking);
     }
 
     public void Set_Lock(bool b, float duration = 0f)
@@ -479,6 +504,7 @@ public class CameraController : MonoBehaviour
             SetInvestigationMode(CameraInvestigationMode.None);
         }
     }
+    
 
     public void Set_Investigate(bool b)
     {
@@ -526,17 +552,40 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// for finishing and reseting hacking values
+    /// </summary>
+    void Hack_End()
+    {
+        if (cameraState != CameraState.Locked &&
+            investigationMode != CameraInvestigationMode.Spotted)
+        {
+            //forces the camera to still be hacking if it is spotted to avoid NPCs from changing it's investigation target
+            cameraState = CameraState.None;
+        }
+        hackTarget = null;
+        cameraHack_TimeNow = 0;
+        cameraHack_Time = 0;
+        SoundManager.StopGlobal(SoundGlobal.Hacking);
+
+        HackLine_Reset();
+
+    }
+
     public void CancelHack()
     {
-        if (hackCoroutine != null)
+        // if (hackCoroutine != null)
+        // {
+        //     //Stopping the hack
+        //     StopCoroutine(hackCoroutine);
+        //     hackCoroutine = null;
+        //     SoundManager.PlayGlobal(SoundGlobal.HackStop);
+        // }
+        if (cameraState == CameraState.Hacking&&isPlayerControl)
         {
-            //Stopping the hack
-            StopCoroutine(hackCoroutine);
-            hackCoroutine = null;
             SoundManager.PlayGlobal(SoundGlobal.HackStop);
         }
-        HackLine_Reset();
-        SoundManager.StopGlobal(SoundGlobal.Hacking);
+        Hack_End();
         
     }
     

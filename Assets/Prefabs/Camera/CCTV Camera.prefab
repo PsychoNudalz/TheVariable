@@ -430,7 +430,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 80
+    FieldOfView: 90
     OrthographicSize: 5
     NearClipPlane: 0.001
     FarClipPlane: 500
@@ -529,6 +529,8 @@ MonoBehaviour:
       m_Calls: []
   audioDistract: {fileID: 1344593526981589994}
   dataEffect: {fileID: 0}
+  renderers: []
+  goldlessMaterial: {fileID: 0}
   Enable_Debug: 1
   cameraController: {fileID: 3915646345386012475}
 --- !u!114 &3915646345386012475

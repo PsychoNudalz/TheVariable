@@ -18,7 +18,8 @@ public enum SoundGlobal
     Distraction,
     HackDisplay_On,
     HackDisplay_Off,
-    ClearanceLevel
+    ClearanceLevel,
+    HackStop
     
     
     

@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     private CameraController currentCamera;
 
     [SerializeField]
-    private List<CameraController> cameraStack = new List<CameraController>( 6);
+    private List<CameraController> cameraStack = new List<CameraController>(6);
 
     private int cameraStackIndex = 0;
     CameraController currentCameraFromStack => cameraStack[cameraStackIndex];
@@ -404,7 +404,6 @@ public class PlayerController : MonoBehaviour
                 HackContext_Enum.Camera_notPushToStack
             });
         uiController.CameraStack_SetIndex(cameraStackIndex);
-
     }
 
     public void OnZoom(InputValue inputValue)
@@ -464,9 +463,14 @@ public class PlayerController : MonoBehaviour
         switch (cameraMode)
         {
             case CameraMode.Free:
+                CancelHack();
                 break;
             case CameraMode.SelectHack:
                 SelectHack(Vector2.zero);
+                break;
+            case CameraMode.LockedOut:
+                break;
+            case CameraMode.StopInput:
                 break;
         }
     }
@@ -520,6 +524,11 @@ public class PlayerController : MonoBehaviour
         cameraMode = CameraMode.Free;
         uiController.HacksDisplay_SetActive(false);
         GameManager.ResetTimeScale();
+    }
+
+    void CancelHack()
+    {
+        currentCamera.CancelHack();
     }
 
 
@@ -585,15 +594,15 @@ public class PlayerController : MonoBehaviour
         {
             cameraStack.RemoveAt(6);
         }
-        uiController.CameraStack_AddStack(cameraStack.ToArray(),cameraStackIndex);
+
+        uiController.CameraStack_AddStack(cameraStack.ToArray(), cameraStackIndex);
     }
 
     void WipeCameraStack()
     {
         cameraStack = new List<CameraController>();
         cameraStackIndex = 0;
-        uiController.CameraStack_AddStack(cameraStack.ToArray(),cameraStackIndex);
-
+        uiController.CameraStack_AddStack(cameraStack.ToArray(), cameraStackIndex);
     }
 
 
@@ -603,6 +612,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
         if (currentCamera)
         {
             currentCamera.RotateCamera(rotation.x, rotation.y);
@@ -618,7 +628,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(currentCamera.Position, currentCamera.Forward, out hit, camera_CastRange, selectorLayer))
         {
             SmartObject smartObject = hit.collider.GetComponentInParent<SmartObject>();
-            if (smartObject&&smartObject.HasHacks())
+            if (smartObject && smartObject.HasHacks())
             {
                 selectStickyTime_Now = selectStickyTime;
                 if (!smartObject.Equals(selectedObject))
@@ -761,12 +771,11 @@ public class PlayerController : MonoBehaviour
 
         itemObject.PasteItem(copiedItem);
     }
-    
+
     //Collect GB
     public void AddGB(int gb)
     {
         collectedGB += gb;
         UIController.current.Objective_SetData(collectedGB);
-
     }
 }

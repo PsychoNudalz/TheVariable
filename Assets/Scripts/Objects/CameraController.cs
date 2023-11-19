@@ -443,7 +443,7 @@ public class CameraController : MonoBehaviour
         Set_LockMaterial(b);
         if (b)
         {
-            HackLine_Reset();
+            // HackLine_Reset();
             CancelHack();
 
             cameraState = CameraState.Locked;
@@ -526,16 +526,20 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private void CancelHack()
+    public void CancelHack()
     {
         if (hackCoroutine != null)
         {
+            //Stopping the hack
             StopCoroutine(hackCoroutine);
             hackCoroutine = null;
+            SoundManager.PlayGlobal(SoundGlobal.HackStop);
         }
-
+        HackLine_Reset();
         SoundManager.StopGlobal(SoundGlobal.Hacking);
+        
     }
+    
 
     void Set_LockMaterial(bool b)
     {

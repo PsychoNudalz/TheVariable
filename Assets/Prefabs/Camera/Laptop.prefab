@@ -530,6 +530,8 @@ MonoBehaviour:
       m_Calls: []
   audioDistract: {fileID: 1344593526981589994}
   dataEffect: {fileID: 0}
+  renderers: []
+  goldlessMaterial: {fileID: 0}
   Enable_Debug: 1
   cameraController: {fileID: 3915646345386012475}
 --- !u!114 &3915646345386012475
@@ -1253,6 +1255,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4a994a8a5c1b1fd4490c4cb21dcb1697,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 624c8c6695966c04ab62b9f4565722ad, type: 2}
     - target: {fileID: 919132149155446097, guid: 4a994a8a5c1b1fd4490c4cb21dcb1697,
         type: 3}
       propertyPath: m_Name

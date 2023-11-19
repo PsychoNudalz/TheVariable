@@ -47,9 +47,9 @@ Material:
     - _StepValue: 0
     - _Tiling: 50
     m_Colors:
-    - _BumpColour: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0}
+    - _BumpColour: {r: 0.93, g: 0.93, b: 0.93, a: 0}
     - _RemapWall: {r: 0.8, g: 1, b: 0, a: 0}
-    - _TextureRemap: {r: 0.5, g: 1, b: 0, a: 0}
+    - _TextureRemap: {r: 0.9, g: 1, b: 0, a: 0}
     - _WallColour: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &791438143517842750

@@ -78,6 +78,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Hack_SpeedUp",
+                    "type": "Button",
+                    "id": "c4699f86-09ce-42be-9ef0-c9294d68c8e7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Camera_Next",
                     "type": "Button",
                     "id": "509be926-c16c-4241-9c62-84f7b0825b89",
@@ -540,7 +549,7 @@
                 {
                     "name": "",
                     "id": "7169f51a-d72e-48c7-aa58-ccbaaaa603cf",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -853,6 +862,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Window_Tutorial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f759596-0efe-4041-9181-3af0ea7ea154",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hack_SpeedUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b4ae30da-d894-4b33-a4a3-0e4ad6a7ae12",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hack_SpeedUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

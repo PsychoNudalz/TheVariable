@@ -102,7 +102,7 @@ public class CameraController : MonoBehaviour
     // [SerializeField]
     private Transform hackTarget;
     private float cameraHack_Time = 0;
-    private float cameraHack_TimeNow = 0;
+    private float cameraHack_TimeLeft = 0;
 
     [Header("Locking")]
     [SerializeField]
@@ -137,6 +137,7 @@ public class CameraController : MonoBehaviour
     private UIController uiController;
     private float lastInvestigateTime;
     private float investigateFailSafeTime = 5f;
+    private float maxHackSpeedUp = .15f;
     public Vector3 Position => camera_transform.position;
     public Vector3 Forward => camera_transform.forward;
 
@@ -200,14 +201,14 @@ public class CameraController : MonoBehaviour
             case CameraState.Hacking:
                 if (hackLine && hackTarget)
                 {
-                    if (cameraHack_TimeNow > 0)
+                    if (cameraHack_TimeLeft > 0)
                     {
-                        cameraHack_TimeNow -= Time.deltaTime;
+                        cameraHack_TimeLeft -= Time.deltaTime;
                     }
 
                     HackLine_Update();
 
-                    if (cameraHack_TimeNow < 0)
+                    if (cameraHack_TimeLeft < 0)
                     {
                         Hack_Activation(savedHack_SO,savedHack_index,savedHack_ContextEnum);
                     }
@@ -250,7 +251,7 @@ public class CameraController : MonoBehaviour
         hackLine.material.SetVector("_Effect_Animation_Position", hackLine.transform.position);
         hackLine.material.SetFloat("_Effect_Animation_Distance",
             (Position - hackTarget.position).magnitude);
-        hackLine.material.SetFloat("_Effect_Animation_Value", 1 - (cameraHack_TimeNow / cameraHack_Time));
+        hackLine.material.SetFloat("_Effect_Animation_Value", 1 - (cameraHack_TimeLeft / cameraHack_Time));
     }
 
     void HackLine_Reset()
@@ -438,7 +439,7 @@ public class CameraController : MonoBehaviour
         hackTarget = target.transform;
         float time = target.Hacks[index].HackTime;
         cameraHack_Time = time;
-        cameraHack_TimeNow = time;
+        cameraHack_TimeLeft = time;
         SoundManager.PlayGlobal(SoundGlobal.Hacking);
         
         savedHack_SO = target;
@@ -564,7 +565,7 @@ public class CameraController : MonoBehaviour
             cameraState = CameraState.None;
         }
         hackTarget = null;
-        cameraHack_TimeNow = 0;
+        cameraHack_TimeLeft = 0;
         cameraHack_Time = 0;
         SoundManager.StopGlobal(SoundGlobal.Hacking);
 
@@ -587,6 +588,11 @@ public class CameraController : MonoBehaviour
         }
         Hack_End();
         
+    }
+
+    public void SpeedHack(float speedUp)
+    {
+        cameraHack_TimeLeft -= Mathf.Min(speedUp,cameraHack_Time*maxHackSpeedUp);
     }
     
 

@@ -108,6 +108,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private int collectedGB = 0;
 
+    [SerializeField]
+    private float speedUpAmount = .1f;
+
     public int ClearanceLevel => clearanceLevel;
 
     public int CollectedGb => collectedGB;
@@ -511,6 +514,19 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.ResetSave();
         }
+    }
+
+    public void OnHack_SpeedUp(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            currentCamera.SpeedHack(speedUpAmount);
+        }
+    }
+
+    public void OverrideSpeedUp(float speed)
+    {
+        speedUpAmount = speed;
     }
 
     private void SelectHack(Vector2 dir)

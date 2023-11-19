@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchoredPosition: {x: 0, y: 24.086365}
   m_SizeDelta: {x: 250, y: 25}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1817552616375568820
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite="Keyboard_Controls" name="C"> <sprite="SteamDeck_Controls" name="Button_E">to
+  m_text: <sprite="Keyboard_Controls" name="C">|<sprite="SteamDeck_Controls" name="Button_E">to
     Close
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
@@ -836,7 +836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8979336384097687664
 RectTransform:
   m_ObjectHideFlags: 0

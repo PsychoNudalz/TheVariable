@@ -418,6 +418,8 @@ public class CameraController : MonoBehaviour
         
         Hack_Initialise(target, index);
         savedHack_ContextEnum = hackContextEnum;
+        UIController.current.HackSpeedUp_SetActive(true);
+
     }
 
     // IEnumerator HackRoutine(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
@@ -568,7 +570,7 @@ public class CameraController : MonoBehaviour
         cameraHack_TimeLeft = 0;
         cameraHack_Time = 0;
         SoundManager.StopGlobal(SoundGlobal.Hacking);
-
+        UIController.current.HackSpeedUp_SetActive(false);
         HackLine_Reset();
 
     }

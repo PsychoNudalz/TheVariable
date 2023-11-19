@@ -2290,6 +2290,7 @@ MonoBehaviour:
   timerDisplay: {fileID: 8123213032728364875}
   timerText: {fileID: 8123213031381796805}
   itemText: {fileID: 4562442189563198258}
+  speedUpDisplay: {fileID: 6000517113680247995}
 --- !u!1 &6944199360731862755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3596,6 +3597,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330f698963c6454fa1260391715970b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6000517113680247995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7788714396633632708, guid: 570abc7c9bf5d33409f39075128b559e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4562442190646784895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8123213031381796805 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5758555575945770170, guid: 570abc7c9bf5d33409f39075128b559e,

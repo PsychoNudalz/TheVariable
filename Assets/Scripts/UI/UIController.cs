@@ -99,6 +99,13 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI itemText;
 
+    [Header("Hacking")]
+    [SerializeField]
+    private GameObject speedUpDisplay;
+
+    [SerializeField]
+    private Animator speedUpDisplay_animator;
+
     public bool IsTutorialActive => tutorialDisplay.IsActive;
 
 
@@ -116,6 +123,7 @@ public class UIController : MonoBehaviour
         HacksDisplay_SetActive(false);
         // SetClearanceText(0);
         gameFinish.SetActive(false);
+        HackSpeedUp_SetActive(false);
     }
 
     // Update is called once per frame
@@ -341,6 +349,11 @@ public class UIController : MonoBehaviour
         cameraStack.SetIndex(i);
     }
 
+    public void HackSpeedUp_SetActive(bool b)
+    {
+        speedUpDisplay.SetActive(b);
+    }
+
     public static float UpdateDelayValueUI(float currentData, float targetData, float maxData, float dataIncreaseAmount,
         TextMeshProUGUI data_Text = null, Image data_Bar = null)
     {
@@ -364,5 +377,49 @@ public class UIController : MonoBehaviour
         }
 
         return currentData;
+    }
+    public static string ConvertTextToInputIcon(string word, char prefix_Button)
+    {
+        string platform = "";
+        bool hasComma = false;
+        string[] wordSplit = word.Split(prefix_Button);
+        if (word.Contains("."))
+        {
+            word.Remove(word.Length - 1);
+            hasComma = true;
+        }
+
+        if (wordSplit.Length < 2)
+        {
+            Debug.LogError($"Failed to convert: {word}");
+            return word;
+        }
+
+        //Selecting platform
+        if (wordSplit[0].Equals("@S"))
+        {
+            //Steam Deck
+            platform = "SteamDeck_Controls";
+        }
+        else if (wordSplit[0].Equals("@P"))
+        {
+            //Play Station
+            platform = "PS_Controls";
+        }
+        else
+        {
+            //PC
+            platform = "Keyboard_Controls";
+        }
+
+        string control = wordSplit[1];
+
+        string returnString = string.Concat("<sprite=\"", platform, "\" name=\"", control, "\">");
+        if (hasComma)
+        {
+            returnString += ".";
+        }
+
+        return returnString;
     }
 }

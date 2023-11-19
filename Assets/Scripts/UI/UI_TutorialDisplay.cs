@@ -54,63 +54,34 @@ public class UI_TutorialDisplay : MonoBehaviour
                     reconstructedText += "  ";
                 }
 
-                reconstructedText += ConvertTextToIcon(word);
+                reconstructedText += ConvertTextToInputIcon(word);
                 wasWord = false;
             }
             else
             {
-                reconstructedText += word + " ";
-                wasWord = true;
+                reconstructedText += word;
+                if (word.Length > 0 && (!word[0].Equals('|')||!word[0].Equals('&')))
+                {
+                    reconstructedText += " ";
+                    wasWord = true;
+
+                }
+                else
+                {
+                    wasWord = false;
+                }
+
             }
         }
 
         explainText.text = reconstructedText;
     }
 
-    string ConvertTextToIcon(string word)
+    string ConvertTextToInputIcon(string word)
     {
-        string platform = "";
-        bool hasComma = false;
-        string[] wordSplit = word.Split(prefix_Button);
-        if (word.Contains("."))
-        {
-            word.Remove(word.Length - 1);
-            hasComma = true;
-        }
-
-        if (wordSplit.Length < 2)
-        {
-            Debug.LogError($"Failed to convert: {word}");
-            return word;
-        }
-
-        //Selecting platform
-        if (wordSplit[0].Equals("@S"))
-        {
-            //Steam Deck
-            platform = "SteamDeck_Controls";
-        }
-        else if (wordSplit[0].Equals("@P"))
-        {
-            //Play Station
-            platform = "PS_Controls";
-        }
-        else
-        {
-            //PC
-            platform = "Keyboard_Controls";
-        }
-
-        string control = wordSplit[1];
-
-        string returnString = string.Concat("<sprite=\"", platform, "\" name=\"", control, "\">");
-        if (hasComma)
-        {
-            returnString += ".";
-        }
-
-        return returnString;
+        return UIController.ConvertTextToInputIcon(word, prefix_Button);
     }
+
 
     public void Close()
     {

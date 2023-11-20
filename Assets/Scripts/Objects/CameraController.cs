@@ -594,7 +594,11 @@ public class CameraController : MonoBehaviour
 
     public void SpeedHack(float speedUp)
     {
-        cameraHack_TimeLeft -= Mathf.Min(speedUp,cameraHack_Time*maxHackSpeedUp);
+        if (IsHacking)
+        {
+            cameraHack_TimeLeft -= Mathf.Min(speedUp,cameraHack_Time*maxHackSpeedUp);
+            SoundManager.PlayGlobal(SoundGlobal.HackSpeedUp);
+        }
     }
     
 

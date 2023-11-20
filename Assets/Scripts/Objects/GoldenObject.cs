@@ -29,22 +29,6 @@ public class GoldenObject : SmartObject
     public override void Hack_ChangeMaterial()
     {
         base.Hack_ChangeMaterial();
-
-        List<Material> tempList = new List<Material>();
-
-        if (goldlessMaterial)
-        {
-            foreach (MeshRenderer r in renderers)
-            {
-                tempList = new List<Material>();
-                for (int i = 0; i < r.materials.Length; i++)
-                {
-                    tempList.Add(goldlessMaterial);
-                }
-
-                r.materials = tempList.ToArray();
-
-            }
-        }
+        SoundManager.PlayGlobal(SoundGlobal.CollectData);
     }
 }

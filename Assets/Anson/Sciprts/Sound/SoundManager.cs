@@ -19,8 +19,9 @@ public enum SoundGlobal
     HackDisplay_On,
     HackDisplay_Off,
     ClearanceLevel,
-    HackStop
-    
+    HackStop,
+    CollectData,
+    HackSpeedUp
     
     
 }

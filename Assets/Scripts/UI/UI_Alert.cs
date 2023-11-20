@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 /// <summary>
@@ -8,23 +9,28 @@ using UnityEngine;
 /// </summary>
 public class UI_Alert : MonoBehaviour
 {
+    [SerializeField]
+    private RectTransform rectTransform;
+    [SerializeField]
+    private Image susSprite_Base;
+
+    [SerializeField]
+    private Image susSprite_Fill;
+
+    [SerializeField]
+    private Image susSprite_Red;
+
+    [SerializeField]
+    private Image spottedSprite;
     
-    [SerializeField]
-    private SpriteRenderer susSprite_Base;
+    public bool isActive => gameObject.activeSelf;
+    private Vector2 canvasSize = new Vector2(1280, 720);
 
-    [SerializeField]
-    private SpriteRenderer susSprite_Fill;
-
-    [SerializeField]
-    private SpriteRenderer susSprite_Red;
-
-    [SerializeField]
-    private SpriteRenderer spottedSprite;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetAlertStrength(0);
     }
 
     // Update is called once per frame
@@ -33,6 +39,10 @@ public class UI_Alert : MonoBehaviour
         
     }
 
+    public void SetCanvasSize(Vector2 size)
+    {
+        canvasSize = size;
+    }
     
     public void SetAlertStrength(float value)
     {
@@ -42,6 +52,9 @@ public class UI_Alert : MonoBehaviour
             susSprite_Fill.gameObject.SetActive(false);
             susSprite_Red.gameObject.SetActive(false);
             spottedSprite.gameObject.SetActive(false);
+
+            susSprite_Fill.fillAmount = value / .5f;
+            susSprite_Red.fillAmount = 0;
         }
         else if (value < 1f)
         {
@@ -49,6 +62,9 @@ public class UI_Alert : MonoBehaviour
             susSprite_Fill.gameObject.SetActive(true);
             susSprite_Red.gameObject.SetActive(true);
             spottedSprite.gameObject.SetActive(false);
+            
+            susSprite_Fill.fillAmount = 1;
+            susSprite_Red.fillAmount = value-.5f / .5f;
         }
         else
         {
@@ -58,5 +74,45 @@ public class UI_Alert : MonoBehaviour
             susSprite_Red.gameObject.SetActive(false);
             spottedSprite.gameObject.SetActive(true);
         }
+    }
+    
+    public void SetAlert(Vector2 worldPosition, float value)
+    {
+        if (value > 0)
+        {
+            if (!isActive)
+            {
+                gameObject.SetActive(true);
+            }
+
+            SetAlertPosition(worldPosition);
+            SetAlertStrength(value);
+        }
+        else
+        {
+            SetAlertStrength(0);
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void SetAlertPosition(Vector2 p)
+    {
+        rectTransform.position = p;
+        
+        // if (uiCanvasPosition.x < -canvasSize.x * .5f)
+        // {
+        //     uiCanvasPosition.x = -canvasSize.x * .5f;
+        // }
+        // else if (uiCanvasPosition.x > canvasSize.x * .5f)
+        // {
+        //     uiCanvasPosition.x = canvasSize.x * .5f;
+        // }
+
+        Vector2 rectTransformAnchoredPosition = rectTransform.anchoredPosition;
+        rectTransformAnchoredPosition.x = Mathf.Clamp(rectTransformAnchoredPosition.x, -canvasSize.x * .5f, canvasSize.x * .5f);
+        rectTransformAnchoredPosition.y = Mathf.Clamp(rectTransformAnchoredPosition.y, -canvasSize.y * .5f, canvasSize.y * .5f);
+        rectTransform.anchoredPosition = rectTransformAnchoredPosition;
+
+        
     }
 }

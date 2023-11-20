@@ -799,6 +799,6 @@ public class PlayerController : MonoBehaviour
     {
         Application.Quit();
         //Note: this might kill Richard's program so will need to test
-        System.Diagnostics.Process.GetCurrentProcess().Kill();
+        // System.Diagnostics.Process.GetCurrentProcess().Kill();
     }
 }

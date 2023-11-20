@@ -55,7 +55,7 @@ public class UIController : MonoBehaviour
     private UI_HackAbilityDisplay hackAbilityDisplay;
 
     [SerializeField]
-    private UI_AlertManager_Old alertManagerOld;
+    private UI_AlertManager alertManager;
 
     [SerializeField]
     private UI_LockOutScreen lockOutScreen;
@@ -225,7 +225,7 @@ public class UIController : MonoBehaviour
 
     public void AlertManager_SetAlert(NpcController npc, float value)
     {
-        alertManagerOld.UpdateAlert(npc, value);
+        alertManager.UpdateAlert(npc, value);
     }
 
     public void LockoutScreen_SetActive(bool b, CameraController cameraController = null)

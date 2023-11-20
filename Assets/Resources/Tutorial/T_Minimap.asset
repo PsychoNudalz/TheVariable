@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee1779857d7434eb2a7fc3a4f023d52, type: 3}
+  m_Name: T_Minimap
+  m_EditorClassIdentifier: 
+  tutorialEnum: 13
+  title: Minimap
+  videoClip: {fileID: 32900000, guid: e8220f5c3ac2ee24489828560e49337b, type: 3}
+  text: 'The minimap on the top right shows your current location.
+
+
+    White Camera:
+    You
+
+    Faded Icons: Explored rooms
+
+    Golden King: VIP
+
+    Blue Knights:
+    Coloured Guards
+
+    Green Servent: Coloured Servents'

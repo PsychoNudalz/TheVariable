@@ -22,8 +22,9 @@ public enum TutorialEnum
     NPCCamera,
     Zooming,
     Highlight,
-    GoldenBits
-    
+    GoldenBits,
+    Minimap
+
 }
 //
 // [Serializable]

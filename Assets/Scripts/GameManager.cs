@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     enum GameState
     {
         None,
-        Tutorial,
+        Pause,
         Free,
         GameOver,
         GameWin
@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
     public static bool IsVIPDead => GM.isVIPDead;
 
 
+    public bool IsPaused => gameState == GameState.Pause;
     // [Header("NPCs")]
     // [SerializeField]
     // private NpcManager npcManager;
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
         //TODO:Remove this and move to tutorial
         StartTimer();
         UIController.current.Objective_SetDataMax(maxGB);
+        GM.gameState = GameState.Free;
 
     }
 
@@ -168,12 +170,15 @@ public class GameManager : MonoBehaviour
     public static void StopTime()
     {
         Time.timeScale = 0;
+        GM.gameState = GameState.Pause;
     }
 
     [Command()]
     public static void ResetTimeScale()
     {
         Time.timeScale = 1;
+        GM.gameState = GameState.Free;
+
     }
 
 

@@ -60,6 +60,24 @@ public class UI_AlertManager : MonoBehaviour
             uiCanvasPosition = camera.WorldToScreenPoint(npc.AlertPosition); 
         }
 
-        npcToAlertMap[npc].SetAlert(uiCanvasPosition, value);
+        if (Vector3.Dot(camera.transform.forward, (npc.AlertPosition - camera.transform.position).normalized) < 0)
+        {
+            float angle = Vector3.SignedAngle(camera.transform.forward,
+                (npc.AlertPosition - camera.transform.position).normalized, Vector3.up);
+            if (angle > 0)
+            {
+                npcToAlertMap[npc].SetAlert(uiCanvasPosition, value,1);
+
+            }
+            else
+            {
+                npcToAlertMap[npc].SetAlert(uiCanvasPosition, value,-1);
+
+            }
+        }
+        else
+        {
+            npcToAlertMap[npc].SetAlert(uiCanvasPosition, value,0);
+        }
     }
 }

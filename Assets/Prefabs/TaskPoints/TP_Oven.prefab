@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4494576970443820311
 Transform:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ SphereCollider:
   m_GameObject: {fileID: 5166154293152395576}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -24473,6 +24473,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 964671b2cbeec044284ed02ff2a8eda4, type: 2}
+    - target: {fileID: -5057655534071898995, guid: f4fc2a3ea906bf745878dcaffca1811d,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -495855474515087703, guid: f4fc2a3ea906bf745878dcaffca1811d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -24663,6 +24668,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 281604243852614510, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 414467088825717663, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}

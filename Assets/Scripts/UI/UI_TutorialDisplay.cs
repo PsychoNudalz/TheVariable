@@ -40,7 +40,15 @@ public class UI_TutorialDisplay : MonoBehaviour
         gameObject.SetActive(true);
 
         titleText.text = title;
-        videoPlayer.clip = videoClip;
+
+        if (!videoClip)
+        {
+            videoPlayer.gameObject.SetActive(false);
+        }else
+        {
+            videoPlayer.gameObject.SetActive(true);
+            videoPlayer.clip = videoClip;
+        }
 
         string[] splitText = text.Split(" ");
         string reconstructedText = "";

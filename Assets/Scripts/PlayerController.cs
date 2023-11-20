@@ -496,7 +496,7 @@ public class PlayerController : MonoBehaviour
     {
         if (inputValue.isPressed)
         {
-            uiController.ToggleHUD();
+            uiController.CycleHUD();
         }
     }
 

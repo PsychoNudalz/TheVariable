@@ -106,6 +106,22 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private Animator speedUpDisplay_animator;
 
+    [Serializable]
+    enum HUDState
+    {
+        All,
+        HackWheel,
+        Overlay,
+        None
+    }
+
+    [Header("HUD Display")]
+    [SerializeField]
+    private HUDState currentHUD = HUDState.All;
+
+    [SerializeField]
+    private GameObject overlay;
+    
     public bool IsTutorialActive => tutorialDisplay.IsActive;
 
 
@@ -258,6 +274,7 @@ public class UIController : MonoBehaviour
         {
             return "NULL";
         }
+
         TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
         string mili = timeSpan.Milliseconds.ToString();
         if (mili.Length >= 2)
@@ -279,24 +296,57 @@ public class UIController : MonoBehaviour
         return timeString;
     }
 
-    public void ToggleHUD()
+    public void CycleHUD()
     {
         HUD.SetActive(!HUD.activeSelf);
+
+        currentHUD = (HUDState)(((int)currentHUD + 1) % Enum.GetValues(typeof(HUDState)).Length);
+        switch (currentHUD)
+        {
+            case HUDState.All:
+                HUD.SetActive(true);
+                hackAbilityDisplay.SetActive(true);
+                // hackAbilityDisplay.enabled= true;
+                overlay.gameObject.SetActive(true);
+                break;
+            case HUDState.HackWheel:
+                HUD.SetActive(false);
+                hackAbilityDisplay.SetActive(true);
+                // hackAbilityDisplay.enabled= true;
+
+                overlay.gameObject.SetActive(true);
+
+                break;
+            case HUDState.Overlay:
+                HUD.SetActive(false);
+                hackAbilityDisplay.SetActive(false);
+                // hackAbilityDisplay.enabled= false;
+
+                overlay.gameObject.SetActive(true);
+                break;
+            case HUDState.None:
+                HUD.SetActive(false);
+                hackAbilityDisplay.SetActive(false);
+                // hackAbilityDisplay.enabled= false;
+
+                overlay.gameObject.SetActive(false);
+                break;
+        }
     }
 
-    public void SetHUD(bool b)
+    // public void SetHUD(bool b)
+    // {
+    //     HUD.SetActive(b);
+    // }
+
+    public void GameOver(float currentTime, float fastestTime, float currentScore, float highScore)
     {
-        HUD.SetActive(b);
+        gameFinish.GameOver(currentTime, fastestTime, currentScore, highScore);
     }
 
-    public void GameOver(float currentTime, float fastestTime,float currentScore,float highScore)
+    public void GameWin(float currentTime, float fastestTime, float currentScore, float highScore)
     {
-        gameFinish.GameOver(currentTime,fastestTime,currentScore, highScore);
-    }
-
-    public void GameWin(float currentTime, float fastestTime,float currentScore,float highScore)
-    {
-        gameFinish.GameWin(currentTime,fastestTime,currentScore, highScore);
+        gameFinish.GameWin(currentTime, fastestTime, currentScore, highScore);
     }
 
     public void Tutorial_Show(string title, VideoClip videoClip, string text)
@@ -378,6 +428,7 @@ public class UIController : MonoBehaviour
 
         return currentData;
     }
+
     public static string ConvertTextToInputIcon(string word, char prefix_Button)
     {
         string platform = "";

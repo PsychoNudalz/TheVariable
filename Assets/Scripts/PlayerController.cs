@@ -794,4 +794,11 @@ public class PlayerController : MonoBehaviour
         collectedGB += gb;
         UIController.current.Objective_SetData(collectedGB);
     }
+
+    public void OnExitGame()
+    {
+        Application.Quit();
+        //Note: this might kill Richard's program so will need to test
+        System.Diagnostics.Process.GetCurrentProcess().Kill();
+    }
 }

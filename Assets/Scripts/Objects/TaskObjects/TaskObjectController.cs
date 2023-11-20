@@ -8,6 +8,7 @@ namespace Task
     /// Handles logic for task objects
     /// custom for each object
     /// Subclasses will be called TOC_(Object)
+    /// This is being depreciated, as there isn't enough time
     /// </summary>
     public abstract class TaskObjectController: MonoBehaviour
     {

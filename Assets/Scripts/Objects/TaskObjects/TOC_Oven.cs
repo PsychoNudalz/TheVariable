@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Task
 {
+    /// <summary>
+    /// This is being depreciated, as there isn't enough time
+    /// </summary>
     public class TOC_Oven: TaskObjectController
     {
         [Header("Oven")]
@@ -18,7 +21,7 @@ namespace Task
         public override void OnInterruptTask()
         {
             base.OnInterruptTask();
-            damageZone.gameObject.SetActive(true);
+            // damageZone.gameObject.SetActive(true);
 
         }
     }

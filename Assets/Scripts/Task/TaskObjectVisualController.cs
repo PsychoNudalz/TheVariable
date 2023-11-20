@@ -20,23 +20,23 @@ public class TaskObjectVisualController : MonoBehaviour
     [SerializeField]
     private UnityEvent onInterruptEvent;
 
-    [SerializeField]
-    private ParticleSystem[] particleSystems;
-    [SerializeField]
-    private VisualEffect[] visualEffects;
-
-    private void Awake()
-    {
-        foreach (ParticleSystem system in particleSystems)
-        {
-            system.Stop();
-        }
-
-        foreach (VisualEffect visualEffect in visualEffects)
-        {
-            visualEffect.Stop();
-        }
-    }
+    // [SerializeField]
+    // private ParticleSystem[] particleSystems;
+    // [SerializeField]
+    // private VisualEffect[] visualEffects;
+    //
+    // private void Awake()
+    // {
+    //     foreach (ParticleSystem system in particleSystems)
+    //     {
+    //         system.Stop();
+    //     }
+    //
+    //     foreach (VisualEffect visualEffect in visualEffects)
+    //     {
+    //         visualEffect.Stop();
+    //     }
+    // }
 
     public void OnInteract(NpcController npc = null)
     {

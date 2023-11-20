@@ -778,14 +778,12 @@ public class NpcController : MonoBehaviour
         if (effectsController)
         {
             effectsController.MoveTransform(position,rotation,animation);
+            CleanUpVisionCone();
         }
     }
     public void MoveTransform(Vector3 position, NpcAnimation animation = NpcAnimation.None)
     {
-        if (effectsController)
-        {
-            effectsController.MoveTransform(position,transform.rotation,animation);
-        }
+        MoveTransform(position,transform.rotation,animation);
     }
 
 

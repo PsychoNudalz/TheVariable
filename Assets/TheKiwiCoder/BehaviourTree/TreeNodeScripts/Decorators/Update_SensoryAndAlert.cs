@@ -21,6 +21,10 @@ public class Update_SensoryAndAlert : DecoratorNode
     [SerializeField]
     private bool failureOnNewCameraDetected;
 
+    [SerializeField]
+    private float timeUntilLastKnownCamera = 1f;
+    private float timeUntilLastKnownCamera_TimeNow = 1f;
+
 
     protected override void OnStart()
     {
@@ -38,20 +42,28 @@ public class Update_SensoryAndAlert : DecoratorNode
         {
             returnState = context.NpcController.Update_AlertValue(AlertValue_Increase);
             // if(blackboard.hackingCameras[0].)
-            Update_LastKnown(blackboard.hackingCameras[0]);
-            if (failureOnNewCameraDetected)
+            timeUntilLastKnownCamera_TimeNow -= Time.deltaTime;
+
+            if (timeUntilLastKnownCamera_TimeNow <= 0)
             {
-                if (blackboard.currentSensorySource == null || blackboard.currentSensorySource is SensorySource_Audio ||
-                    !(blackboard.currentSensorySource.SmartObject.Equals(blackboard.player_LastKnown_Camera
-                        .ConnectedSo)))
+                Update_LastKnown(blackboard.hackingCameras[0]);
+                if (failureOnNewCameraDetected)
                 {
-                    return State.Failure;
+                    if (blackboard.currentSensorySource == null || blackboard.currentSensorySource is SensorySource_Audio ||
+                        !(blackboard.currentSensorySource.SmartObject.Equals(blackboard.player_LastKnown_Camera
+                            .ConnectedSo)))
+                    {
+                        return State.Failure;
+                    }
                 }
             }
+
+            
         }
         else
         {
             returnState = context.NpcController.Update_AlertValue(AlertValue_Decrease);
+            timeUntilLastKnownCamera_TimeNow = timeUntilLastKnownCamera;
         }
 
         if (successAfterUpdate)

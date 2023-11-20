@@ -152,8 +152,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -128.8, y: -597.6, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: -1092.8, y: -375.2, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -670,6 +670,7 @@ MonoBehaviour:
         failureOnStateChange: 0
         successAfterUpdate: 0
         failureOnNewCameraDetected: 0
+        timeUntilLastKnownCamera: 0
     - rid: 466623170613870602
       type: {class: Update_SensoryAndAlert, ns: , asm: Assembly-CSharp}
       data:
@@ -706,6 +707,7 @@ MonoBehaviour:
         failureOnStateChange: 0
         successAfterUpdate: 0
         failureOnNewCameraDetected: 0
+        timeUntilLastKnownCamera: 0
     - rid: 466623170613870605
       type: {class: Action_SetHackingCameraToSS, ns: , asm: Assembly-CSharp}
       data:
@@ -801,6 +803,7 @@ MonoBehaviour:
         failureOnStateChange: 0
         successAfterUpdate: 0
         failureOnNewCameraDetected: 1
+        timeUntilLastKnownCamera: 0.5
     - rid: 466623464268365825
       type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
       data:

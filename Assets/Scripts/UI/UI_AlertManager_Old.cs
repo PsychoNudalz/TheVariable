@@ -1,15 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// New alert manager to update alert
-/// </summary>
-public class UI_AlertManager : MonoBehaviour
+
+[Obsolete("Used the new Alert system",false)]
+public class UI_AlertManager_Old : MonoBehaviour
 {
     [SerializeField]
-    private UI_Alert uiAlertGo;
+    private UI_Alert_Old uiAlertOldGo;
     [SerializeField]
     private Dictionary<NpcController, UI_Alert_Old> npcToAlertMap;
+
+
+    private void Awake()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +34,7 @@ public class UI_AlertManager : MonoBehaviour
         npcToAlertMap = new Dictionary<NpcController, UI_Alert_Old>();
         foreach (NpcController npcController in NpcManager.NPCs)
         {
-            UI_Alert_Old alertOld = Instantiate(uiAlertGo,transform).GetComponent<UI_Alert_Old>();
+            UI_Alert_Old alertOld = Instantiate(uiAlertOldGo,transform).GetComponent<UI_Alert_Old>();
             npcToAlertMap.Add(npcController,alertOld);
         }
     }

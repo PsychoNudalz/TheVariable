@@ -10817,7 +10817,7 @@ GameObject:
   - component: {fileID: 649040790}
   - component: {fileID: 649040789}
   m_Layer: 0
-  m_Name: UIAlertManager
+  m_Name: UIAlertManager_Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10835,7 +10835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28dfe04c7865465ba07f63fb67688b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiAlert_GO: {fileID: 7554421975564591966, guid: 503baea87bccd5a4d91df48a3a44ad0d,
+  uiAlertOldGo: {fileID: 7554421975564591966, guid: 503baea87bccd5a4d91df48a3a44ad0d,
     type: 3}
 --- !u!4 &649040790
 Transform:
@@ -32177,6 +32177,11 @@ PrefabInstance:
     - target: {fileID: 6944199360593761877, guid: 7661d64eaf9dc254e984ba0d653a9c9b,
         type: 3}
       propertyPath: alertManager
+      value: 
+      objectReference: {fileID: 649040789}
+    - target: {fileID: 6944199360593761877, guid: 7661d64eaf9dc254e984ba0d653a9c9b,
+        type: 3}
+      propertyPath: alertManagerOld
       value: 
       objectReference: {fileID: 649040789}
     - target: {fileID: 6944199360593761880, guid: 7661d64eaf9dc254e984ba0d653a9c9b,

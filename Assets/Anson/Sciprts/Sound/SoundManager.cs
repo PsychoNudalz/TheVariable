@@ -103,7 +103,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private GlobalSoundPair[] globalSoundPairs;
 
-    private Dictionary<SoundGlobal, GlobalSoundPair> globalSoundDict = new Dictionary<SoundGlobal, GlobalSoundPair>();
+    private Dictionary<SoundGlobal, List<GlobalSoundPair>> globalSoundDict = new Dictionary<SoundGlobal,  List<GlobalSoundPair>>();
 
     // private Dictionary<SoundGlobal, >
     private void Awake()
@@ -116,7 +116,11 @@ public class SoundManager : MonoBehaviour
         current = this;
         foreach (GlobalSoundPair globalSoundPair in globalSoundPairs)
         {
-            globalSoundDict.Add(globalSoundPair.SoundGlobal, globalSoundPair);
+            if (!globalSoundDict.ContainsKey(globalSoundPair.SoundGlobal))
+            {
+                globalSoundDict.Add(globalSoundPair.SoundGlobal, new List<GlobalSoundPair>());
+            }
+            globalSoundDict[globalSoundPair.SoundGlobal].Add(globalSoundPair);
         }
     }
 
@@ -208,7 +212,10 @@ public class SoundManager : MonoBehaviour
     {
         try
         {
-            globalSoundDict[soundGlobal].Play();
+            foreach (GlobalSoundPair globalSoundPair in globalSoundDict[soundGlobal])
+            {
+                globalSoundPair.Play();
+            }
         }
         catch (KeyNotFoundException e)
         {
@@ -220,7 +227,10 @@ public class SoundManager : MonoBehaviour
     {
         try
         {
-            globalSoundDict[soundGlobal].Stop();
+            foreach (GlobalSoundPair globalSoundPair in globalSoundDict[soundGlobal])
+            {
+                globalSoundPair.Stop();
+            }
         }
         catch (KeyNotFoundException e)
         {

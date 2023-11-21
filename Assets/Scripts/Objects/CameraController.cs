@@ -92,6 +92,7 @@ public class CameraController : MonoBehaviour
 
     private SmartObject savedHack_SO;
     private int savedHack_index = 0;
+
     private HackContext_Enum[] savedHack_ContextEnum;
     // private Coroutine hackCoroutine;
 
@@ -137,6 +138,8 @@ public class CameraController : MonoBehaviour
     private UIController uiController;
     private float lastInvestigateTime;
     private float investigateFailSafeTime = 5f;
+    private float lastSpottedeTime;
+    private float spottedFailSafeTime = 6f;
     private float maxHackSpeedUp = .15f;
     public Vector3 Position => camera_transform.position;
     public Vector3 Forward => camera_transform.forward;
@@ -210,7 +213,7 @@ public class CameraController : MonoBehaviour
 
                     if (cameraHack_TimeLeft < 0)
                     {
-                        Hack_Activation(savedHack_SO,savedHack_index,savedHack_ContextEnum);
+                        Hack_Activation(savedHack_SO, savedHack_index, savedHack_ContextEnum);
                     }
                 }
 
@@ -233,9 +236,18 @@ public class CameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (investigationMode == CameraInvestigationMode.Investigated)
+        switch (investigationMode)
         {
-            CameraRevertToNormalFailSafe();
+            case CameraInvestigationMode.None:
+                break;
+            case CameraInvestigationMode.Investigated:
+                CameraRevertToNormalFailSafe_Investigate();
+
+                break;
+            case CameraInvestigationMode.Spotted:
+                CameraRevertToNormalFailSafe_Spotted();
+
+                break;
         }
     }
 
@@ -256,7 +268,6 @@ public class CameraController : MonoBehaviour
 
     void HackLine_Reset()
     {
-
         hackLine.gameObject.SetActive(false);
         HackLine_Update();
     }
@@ -415,11 +426,10 @@ public class CameraController : MonoBehaviour
         }
 
         // hackCoroutine = StartCoroutine(HackRoutine(target, index, hackContextEnum));
-        
+
         Hack_Initialise(target, index);
         savedHack_ContextEnum = hackContextEnum;
         UIController.current.HackSpeedUp_SetActive(true);
-
     }
 
     // IEnumerator HackRoutine(SmartObject target, int index, HackContext_Enum[] hackContextEnum = default)
@@ -443,7 +453,7 @@ public class CameraController : MonoBehaviour
         cameraHack_Time = time;
         cameraHack_TimeLeft = time;
         SoundManager.PlayGlobal(SoundGlobal.Hacking);
-        
+
         savedHack_SO = target;
         savedHack_index = index;
     }
@@ -507,7 +517,7 @@ public class CameraController : MonoBehaviour
             SetInvestigationMode(CameraInvestigationMode.None);
         }
     }
-    
+
 
     public void Set_Investigate(bool b)
     {
@@ -528,7 +538,7 @@ public class CameraController : MonoBehaviour
     }
 
 
-    public void CameraRevertToNormalFailSafe()
+    public void CameraRevertToNormalFailSafe_Investigate()
     {
         if (Time.time - lastInvestigateTime > investigateFailSafeTime)
         {
@@ -536,13 +546,27 @@ public class CameraController : MonoBehaviour
             Set_Investigate(false);
         }
     }
-    
+
+    public void CameraRevertToNormalFailSafe_Spotted()
+    {
+        if (Time.time - lastSpottedeTime > spottedFailSafeTime)
+        {
+            Debug.LogWarning($"{name} camera spotted failsafe triggered");
+            Set_Investigate(false);
+        }
+    }
+
     public void SetInvestigationMode(CameraInvestigationMode mode)
     {
         if (mode == CameraInvestigationMode.Investigated)
         {
             lastInvestigateTime = Time.time;
         }
+        else if (mode == CameraInvestigationMode.Spotted)
+        {
+            lastSpottedeTime = Time.time;
+        }
+
         investigationMode = mode;
         if (isPlayerControl)
         {
@@ -566,13 +590,13 @@ public class CameraController : MonoBehaviour
             //forces the camera to still be hacking if it is spotted to avoid NPCs from changing it's investigation target
             cameraState = CameraState.None;
         }
+
         hackTarget = null;
         cameraHack_TimeLeft = 0;
         cameraHack_Time = 0;
         SoundManager.StopGlobal(SoundGlobal.Hacking);
         UIController.current.HackSpeedUp_SetActive(false);
         HackLine_Reset();
-
     }
 
     public void CancelHack()
@@ -584,23 +608,23 @@ public class CameraController : MonoBehaviour
         //     hackCoroutine = null;
         //     SoundManager.PlayGlobal(SoundGlobal.HackStop);
         // }
-        if (cameraState == CameraState.Hacking&&isPlayerControl)
+        if (cameraState == CameraState.Hacking && isPlayerControl)
         {
             SoundManager.PlayGlobal(SoundGlobal.HackStop);
         }
+
         Hack_End();
-        
     }
 
     public void SpeedHack(float speedUp)
     {
-        if (IsHacking&&!GameManager.GM.IsPaused)
+        if (IsHacking && !GameManager.GM.IsPaused)
         {
-            cameraHack_TimeLeft -= Mathf.Min(speedUp,cameraHack_Time*maxHackSpeedUp);
+            cameraHack_TimeLeft -= Mathf.Min(speedUp, cameraHack_Time * maxHackSpeedUp);
             SoundManager.PlayGlobal(SoundGlobal.HackSpeedUp);
         }
     }
-    
+
 
     void Set_LockMaterial(bool b)
     {

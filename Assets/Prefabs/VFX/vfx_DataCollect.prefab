@@ -53,9 +53,12 @@ VisualEffect:
       - m_Value: 100
         m_Name: Angular Velocity
         m_Overridden: 1
+      - m_Value: 0.4
+        m_Name: Emission
+        m_Overridden: 1
     m_Vector2f:
       m_Array:
-      - m_Value: {x: 0.05, y: 0.1}
+      - m_Value: {x: 0.05, y: 0.12}
         m_Name: Size
         m_Overridden: 0
     m_Vector3f:

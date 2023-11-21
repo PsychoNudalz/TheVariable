@@ -132,6 +132,9 @@ MonoBehaviour:
   - rid: 2403197464529862657
   - rid: 2403197509882871825
   - rid: 2403197509882871826
+  - rid: 2403197544751431680
+  - rid: 2403197544751431681
+  - rid: 2403197544751431682
   treeState: 0
   blackboard:
     alertState: 0
@@ -152,8 +155,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -1092.8, y: -375.2, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  viewPosition: {x: -1724, y: 651.2, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -1868,6 +1871,99 @@ MonoBehaviour:
         - rid: 2809099641645694982
         - rid: 2809099641645694980
         - rid: 8796965059076030479
+    - rid: 2403197544751431680
+      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c2559d7ec9212b04098705454cf91997
+        position: {x: 3674.7993, y: -525.75635}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: 'DEAD
+
+'
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2403197544751431682
+        - rid: 2403197544751431681
+        - rid: 8796965019197636611
+    - rid: 2403197544751431681
+      type: {class: Action_ResetAlert, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 2239078a60648294199e7b3ec2378de3
+        position: {x: 3673.0107, y: -379.08368}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Action_ResetAlert
+        description: 
+        drawGizmos: 0
+    - rid: 2403197544751431682
+      type: {class: Action_ClearSS, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: de969cbc59fc17b4fbaa2c1dc8680fc5
+        position: {x: 3523.9993, y: -379.1998}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Action_ClearSS
+        description: 
+        drawGizmos: 0
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -2807,15 +2903,14 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 466623170613870592
-        - rid: 8796965019197636611
-        - rid: 8796965019197636611
+        - rid: 2403197544751431680
     - rid: 8796965019197636611
       type: {class: Action_Dead, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 0a548a740473c7b4bbe942522b5c1818
-        position: {x: 3732, y: -481.56985}
+        position: {x: 3824.7996, y: -379.1998}
         blackboard:
           alertState: 0
           health: 0

@@ -204,7 +204,11 @@ public class TutorialManager : MonoBehaviour
     {
         if (DisableTutorial)
         {
-            Debug.Log($"Tutorial disabled");
+            if (!(tutorialEnum is TutorialEnum.Investigate or TutorialEnum.AlertLevel or TutorialEnum.SpotAndLockdown))
+            {
+                Debug.Log($"Tutorial disabled");
+            }
+
             return;
         }
         if (!alreadyDisplayed.Contains(tutorialEnum))

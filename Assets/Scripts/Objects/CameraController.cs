@@ -100,7 +100,7 @@ public class CameraController : MonoBehaviour
     // private LineRenderer hackLine_Material;
 
     // [SerializeField]
-    private Transform hackTarget;
+    private SmartObject hackTarget;
     private float cameraHack_Time = 0;
     private float cameraHack_TimeLeft = 0;
 
@@ -247,10 +247,10 @@ public class CameraController : MonoBehaviour
             return;
         }
 
-        hackLine.SetPosition(1, hackTarget.position);
+        hackLine.SetPosition(1, hackTarget.HackPosition);
         hackLine.material.SetVector("_Effect_Animation_Position", hackLine.transform.position);
         hackLine.material.SetFloat("_Effect_Animation_Distance",
-            (Position - hackTarget.position).magnitude);
+            (Position - hackTarget.HackPosition).magnitude);
         hackLine.material.SetFloat("_Effect_Animation_Value", 1 - (cameraHack_TimeLeft / cameraHack_Time));
     }
 
@@ -438,7 +438,7 @@ public class CameraController : MonoBehaviour
     {
         cameraState = CameraState.Hacking;
         hackLine.gameObject.SetActive(true);
-        hackTarget = target.transform;
+        hackTarget = target;
         float time = target.Hacks[index].HackTime;
         cameraHack_Time = time;
         cameraHack_TimeLeft = time;

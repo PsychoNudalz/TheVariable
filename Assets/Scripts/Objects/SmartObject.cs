@@ -24,6 +24,8 @@ public abstract class SmartObject : MonoBehaviour
     private HackAbility[] hacks = Array.Empty<HackAbility>();
 
     [SerializeField]
+    private Transform hackPoint;
+    [SerializeField]
     private UnityEvent onHackActivateEvent;
 
     [Header("Audio Distract")]
@@ -47,6 +49,10 @@ public abstract class SmartObject : MonoBehaviour
     public Transform InteractTransform => InteractPointTransform();
     public Vector3 InteractPosition => InteractPointPosition();
     public Quaternion InteractRotation => InteractPointTransform().rotation;
+
+    public virtual Vector3 HackPosition => GetHackPosition();
+
+
 
     public HackAbility[] Hacks => hacks;
 
@@ -104,6 +110,17 @@ public abstract class SmartObject : MonoBehaviour
         return interactPoint;
     }
 
+    protected virtual Vector3 GetHackPosition()
+    {
+        if (hackPoint)
+        {
+            return hackPoint.position;
+        }
+        else
+        {
+            return transform.position;
+        }
+    }
     private void Awake()
     {
         if (!highlightEffect)

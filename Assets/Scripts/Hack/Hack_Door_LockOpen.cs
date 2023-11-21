@@ -24,6 +24,7 @@ public class Hack_Door_LockOpen : HackAbility
         if (hackContext.SmartObjects[0] is EnvironmentObject environmentObject)
         {
             environmentObject.Hack_LockOpen();
+            showHack = false;
             return 0;
         }
         else
@@ -32,5 +33,15 @@ public class Hack_Door_LockOpen : HackAbility
             return 1;
         }
         
+    }
+    
+    public override bool CanHack()
+    {
+        if (showHack)
+        {
+            return base.CanHack();
+        }
+
+        return false;
     }
 }

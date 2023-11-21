@@ -23,7 +23,9 @@ public enum TutorialEnum
     Zooming,
     Highlight,
     GoldenBits,
-    Minimap
+    Minimap,
+    HackingControls_2,
+    CameraStack
 
 }
 //
@@ -84,6 +86,7 @@ public class TutorialManager : MonoBehaviour
     {
         Display_FirstTime(TutorialEnum.Start);
         Display_FirstTime(TutorialEnum.HackingControls);
+        Display_FirstTime(TutorialEnum.ClearanceLevel);
     }
 
     // Update is called once per frame

@@ -16,6 +16,6 @@ MonoBehaviour:
   title: Spot and lockdown
   videoClip: {fileID: 0}
   text: "If an NPC\u2019s alert level is maxed out, they would lock down the camera.\r\n\nLockdown
-    stops you from controlling the camera for a while before resetting you back to
-    the start of the level.  Your clearance level will be reduced as well.\r\n\nTo
-    avoid being locked out, you must switch away the affected camera.\r\n"
+    stops you from controlling the camera before resetting you back to the start
+    of the level. \n\nSwitching away from the affected camera to avoid being locked
+    out."

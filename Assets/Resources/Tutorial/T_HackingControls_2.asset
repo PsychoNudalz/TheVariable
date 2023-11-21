@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee1779857d7434eb2a7fc3a4f023d52, type: 3}
+  m_Name: T_HackingControls_2
+  m_EditorClassIdentifier: 
+  tutorialEnum: 14
+  title: Activate & Cancel Hack
+  videoClip: {fileID: 32900000, guid: 7d0910d2bcc19224a88828db1d5829bd, type: 3}
+  text: 'Releasing @K$Mouse_L | @S$R2 will activate the hack.
+
+
+    Pressing @K$Mouse_R
+    | @S&Button_E will interupt and cancel the hack.'

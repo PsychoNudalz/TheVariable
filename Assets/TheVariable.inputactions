@@ -557,17 +557,6 @@
                 },
                 {
                     "name": "",
-                    "id": "7169f51a-d72e-48c7-aa58-ccbaaaa603cf",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0d74c0d5-2cd8-4edf-993d-aa3e9e30c556",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -656,17 +645,6 @@
                 },
                 {
                     "name": "",
-                    "id": "f2dc2887-b5f0-42b1-bfa7-269dde1492b8",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SelectCancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0286c6b1-68e3-45ea-888b-3016a54f9dd7",
                     "path": "<Pointer>/delta",
                     "interactions": "",
@@ -716,17 +694,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "HoldHack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "02227080-0545-47e9-8852-602119e92d44",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
                     "action": "HoldHack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -799,11 +766,11 @@
                 },
                 {
                     "name": "",
-                    "id": "8389b44d-938c-46d1-8883-ebf451fa0e15",
-                    "path": "<Gamepad>/buttonNorth",
+                    "id": "361f82f5-5f6d-4b71-b91d-4ccd320cd3d3",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "",
                     "action": "Window_Next",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -815,17 +782,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Window_Prev",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "19cb046a-dd26-4b96-b63d-c17fd9c76af9",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
                     "action": "Window_Prev",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -889,6 +845,39 @@
                     "name": "",
                     "id": "b4ae30da-d894-4b33-a4a3-0e4ad6a7ae12",
                     "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hack_SpeedUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f4067d0-22b5-4b06-9679-010b7b7b13ce",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hack_SpeedUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd25ab2e-0714-478f-ae1c-1441548f3db0",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hack_SpeedUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60742b4d-48ad-412e-9d57-6ab14d849199",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

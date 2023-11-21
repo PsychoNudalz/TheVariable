@@ -1010,6 +1010,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gold_Painting_Big
       objectReference: {fileID: 0}
+    - target: {fileID: 3243000121703634592, guid: 33c04c91d7955ec45a316ad70b3751d6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8414024616375634448, guid: 33c04c91d7955ec45a316ad70b3751d6,
         type: 3}
       propertyPath: m_RootOrder
@@ -6612,6 +6617,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2873226294152924323, guid: 216a46e2c9d2cd4478bc86ddc4f3866b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8630612919221635819, guid: 216a46e2c9d2cd4478bc86ddc4f3866b,
         type: 3}
       propertyPath: m_Name
@@ -8771,6 +8781,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gold_Hologram_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6116400582142615387, guid: 0ca8733a566285e46a6a25847295e4e4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7412798956610856102, guid: 0ca8733a566285e46a6a25847295e4e4,
         type: 3}
       propertyPath: m_RootOrder
@@ -10385,6 +10400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2873226294152924323, guid: 216a46e2c9d2cd4478bc86ddc4f3866b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8630612919221635819, guid: 216a46e2c9d2cd4478bc86ddc4f3866b,
         type: 3}
@@ -14578,6 +14598,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2873226294152924323, guid: 216a46e2c9d2cd4478bc86ddc4f3866b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8630612919221635819, guid: 216a46e2c9d2cd4478bc86ddc4f3866b,
         type: 3}
       propertyPath: m_Name
@@ -15877,6 +15902,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gold_Cat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264050616458878098, guid: 862e624764504314496d420fc35806ee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7412798956610856102, guid: 862e624764504314496d420fc35806ee,
         type: 3}
@@ -17523,6 +17553,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Golden_Datapad
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727269999341233354, guid: 0474d8384aff30a479e12733e4fdd245,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8026062044175736631, guid: 0474d8384aff30a479e12733e4fdd245,
         type: 3}
@@ -19348,6 +19383,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gold_Fruit
       objectReference: {fileID: 0}
+    - target: {fileID: 6116400582142615387, guid: f7f1d9e049220834b95bc16f407a40ff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7412798956610856102, guid: f7f1d9e049220834b95bc16f407a40ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -20365,6 +20405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033742476345779126, guid: 0fb54271b61b1704b86c3ee95403098b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb54271b61b1704b86c3ee95403098b, type: 3}
@@ -22859,6 +22904,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gold_Fruit (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6116400582142615387, guid: f7f1d9e049220834b95bc16f407a40ff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7412798956610856102, guid: f7f1d9e049220834b95bc16f407a40ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -24395,6 +24445,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gold_Fruit
       objectReference: {fileID: 0}
+    - target: {fileID: 6116400582142615387, guid: f7f1d9e049220834b95bc16f407a40ff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7412798956610856102, guid: f7f1d9e049220834b95bc16f407a40ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -24634,6 +24689,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 62c1bc74d9bcfe1f2b0d78dfdad6f9b0,
         type: 2}
+    - target: {fileID: 3723792418505643460, guid: 902f72ef79bbe334abeff7eb7f206029,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317077094311575929, guid: 902f72ef79bbe334abeff7eb7f206029,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8323980233101562251, guid: 902f72ef79bbe334abeff7eb7f206029,
         type: 3}
       propertyPath: m_Name
@@ -25501,6 +25566,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2873226294152924323, guid: 216a46e2c9d2cd4478bc86ddc4f3866b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8630612919221635819, guid: 216a46e2c9d2cd4478bc86ddc4f3866b,
         type: 3}
       propertyPath: m_Name
@@ -25569,6 +25639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2873226294152924323, guid: 216a46e2c9d2cd4478bc86ddc4f3866b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8630612919221635819, guid: 216a46e2c9d2cd4478bc86ddc4f3866b,
         type: 3}
@@ -25965,6 +26040,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298052966931490504, guid: 058d4f1c92481f04a8f0f7a0076fa745,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142862861734137744, guid: 058d4f1c92481f04a8f0f7a0076fa745,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7595249839513012696, guid: 058d4f1c92481f04a8f0f7a0076fa745,
         type: 3}
@@ -27719,6 +27804,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298052966931490504, guid: 058d4f1c92481f04a8f0f7a0076fa745,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142862861734137744, guid: 058d4f1c92481f04a8f0f7a0076fa745,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7595249839513012696, guid: 058d4f1c92481f04a8f0f7a0076fa745,
         type: 3}
@@ -30115,6 +30210,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620586632}
     m_Modifications:
+    - target: {fileID: 1115940318033486890, guid: f68100a29cf95cc42b897fa0577abfa8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3682397781918668069, guid: f68100a29cf95cc42b897fa0577abfa8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30969,6 +31069,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gold_Cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264050616458878098, guid: 862e624764504314496d420fc35806ee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7412798956610856102, guid: 862e624764504314496d420fc35806ee,
         type: 3}

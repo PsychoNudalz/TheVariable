@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vent_L_0
       objectReference: {fileID: 0}
+    - target: {fileID: 7109564250253033216, guid: 1e81cada0b95edb42935df4efd950770,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 101
+      objectReference: {fileID: 0}
     - target: {fileID: 8251218387863287530, guid: 1e81cada0b95edb42935df4efd950770,
         type: 3}
       propertyPath: m_RootOrder

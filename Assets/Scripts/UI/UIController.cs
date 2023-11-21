@@ -87,6 +87,8 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_GameFinish gameFinish;
 
+    
+    
     [Header("Smaller Components")]
     [Header("Timer")]
     [SerializeField]

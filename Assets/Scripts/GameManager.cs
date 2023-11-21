@@ -40,7 +40,9 @@ public class GameManager : MonoBehaviour
 
     private float suspicious_LastTime = 0;
     private float suspicious_Cooldown = 5;
-
+    [Header("Clearance Colours")]
+    [SerializeField]
+    private Color[] clearanceColours = new Color[4];
     [Header("Global Sounds")]
     [SerializeField]
     private SoundAbstract sfx_Suspicious;
@@ -325,6 +327,11 @@ public class GameManager : MonoBehaviour
         PlayerController.current.AddGB(i);
     }
 
+    public static Color GetClearanceColour(int i)
+    {
+        return GM.clearanceColours[Mathf.Min(i, GM.clearanceColours.Length)];
+    }
+
     
     
     //----------------------TEST CASES---------------
@@ -350,4 +357,6 @@ public class GameManager : MonoBehaviour
         // GM.Invoke(nameof(GameOver),.1f);
 
     }
+    
+    
 }

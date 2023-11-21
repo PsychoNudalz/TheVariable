@@ -15028,6 +15028,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a48d1c166a61c42a54fb76d4468272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clearanceColours:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.08900524, g: 1, b: 0.047120422, a: 1}
+  - {r: 0.047120422, g: 0.17801048, b: 1, a: 1}
+  - {r: 1, g: 0.87434554, b: 0, a: 1}
   sfx_Suspicious: {fileID: 1556899712}
   globalRealTimer: 300
   isVIPDead: 0

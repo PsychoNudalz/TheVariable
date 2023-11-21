@@ -18,6 +18,9 @@ public class UI_HackAbilityButton : MonoBehaviour
     [SerializeField]
     Color selectColour = Color.white;
 
+    [SerializeField]
+    private Color[] speedColours = new Color[3];
+
     [Space(5)]
     [SerializeField]
     private UI_HackAbilityDisplay display;
@@ -29,6 +32,9 @@ public class UI_HackAbilityButton : MonoBehaviour
     private TextMeshProUGUI hackText;
     [SerializeField]
     private TextMeshProUGUI levelText;
+    [SerializeField]
+    private TextMeshProUGUI durationText;
+
 
     [SerializeField]
     GameObject lockGO;
@@ -62,7 +68,7 @@ public class UI_HackAbilityButton : MonoBehaviour
     {
     }
 
-    void SetActive(bool b, bool canHack, string hackName,int hackLevel)
+    void SetActive(bool b, bool canHack, string hackName,int hackLevel,float duration)
     {
         OnHover(false);
         if (b)
@@ -84,7 +90,7 @@ public class UI_HackAbilityButton : MonoBehaviour
             SetActive(false);
         }
 
-        UpdateButton(hackName,hackLevel);
+        UpdateButton(hackName,hackLevel,duration);
     }
 
     public void SetActive(bool b, HackAbility hackAbility = null)
@@ -97,7 +103,7 @@ public class UI_HackAbilityButton : MonoBehaviour
         }
         else
         {
-            SetActive(b, hackAbility.CanHack(), hackAbility.HackName,hackAbility.HackClearance);
+            SetActive(b, hackAbility.CanHack(), hackAbility.HackName,hackAbility.HackClearance,hackAbility.HackTime);
         }
     }
     
@@ -107,10 +113,26 @@ public class UI_HackAbilityButton : MonoBehaviour
         this.display = display;
     }
 
-    public void UpdateButton(string s,int hackLevel)
+    public void UpdateButton(string s,int hackLevel,float duration)
     {
         hackText.SetText(s);
-        levelText.SetText($"Level: {hackLevel}");
+        levelText.SetText($"Lv: {hackLevel}");
+        levelText.color = GameManager.GetClearanceColour(hackLevel);
+        if (duration >= 5)
+        {
+            durationText.SetText($"Speed:SLOW");
+            durationText.color = speedColours[2];
+
+        }else if (duration >= 2.5f)
+        {
+            durationText.SetText($"Speed:MID");
+            durationText.color = speedColours[1];
+        }
+        else
+        {
+            durationText.SetText($"Speed:FAST");
+            durationText.color = speedColours[0];
+        }
     }
 
     public void OnHover(bool enter = true)

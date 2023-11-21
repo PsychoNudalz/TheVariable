@@ -209,7 +209,7 @@ public class CameraController : MonoBehaviour
                         cameraHack_TimeLeft -= Time.deltaTime;
                     }
 
-                    HackLine_Update();
+                    HackEffect_Update();
 
                     if (cameraHack_TimeLeft < 0)
                     {
@@ -251,7 +251,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private void HackLine_Update()
+    private void HackEffect_Update()
     {
         hackLine.SetPosition(0, Position + new Vector3(0, -.2f, 0));
         if (!hackTarget)
@@ -264,12 +264,15 @@ public class CameraController : MonoBehaviour
         hackLine.material.SetFloat("_Effect_Animation_Distance",
             (Position - hackTarget.HackPosition).magnitude);
         hackLine.material.SetFloat("_Effect_Animation_Value", 1 - (cameraHack_TimeLeft / cameraHack_Time));
+        
+        uiController.HackProgress_Update(cameraHack_TimeLeft, cameraHack_Time,hackTarget.HackPosition);
     }
 
-    void HackLine_Reset()
+    void HackEffect_Reset()
     {
         hackLine.gameObject.SetActive(false);
-        HackLine_Update();
+        uiController.HackProgress_SetActive(false);
+        HackEffect_Update();
     }
 
 
@@ -456,6 +459,9 @@ public class CameraController : MonoBehaviour
 
         savedHack_SO = target;
         savedHack_index = index;
+        
+        uiController.HackProgress_SetActive(true);
+
     }
 
 
@@ -596,7 +602,7 @@ public class CameraController : MonoBehaviour
         cameraHack_Time = 0;
         SoundManager.StopGlobal(SoundGlobal.Hacking);
         UIController.current.HackSpeedUp_SetActive(false);
-        HackLine_Reset();
+        HackEffect_Reset();
     }
 
     public void CancelHack()

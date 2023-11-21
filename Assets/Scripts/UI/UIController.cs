@@ -85,6 +85,9 @@ public class UIController : MonoBehaviour
     private UI_CameraStack cameraStack;
 
     [SerializeField]
+    private UI_HackProgress hackProgress;
+
+    [SerializeField]
     private UI_GameFinish gameFinish;
 
     
@@ -142,6 +145,7 @@ public class UIController : MonoBehaviour
         // SetClearanceText(0);
         gameFinish.SetActive(false);
         HackSpeedUp_SetActive(false);
+        HackProgress_SetActive(false);
     }
 
     // Update is called once per frame
@@ -404,6 +408,16 @@ public class UIController : MonoBehaviour
     public void HackSpeedUp_SetActive(bool b)
     {
         speedUpDisplay.SetActive(b);
+    }
+
+    public void HackProgress_SetActive(bool b)
+    {
+        hackProgress.SetActive(b);
+    }
+
+    public void HackProgress_Update(float timeLeft, float maxTime, Vector3 worldPosition)
+    {
+        hackProgress.UpdateProgress(timeLeft,maxTime,worldPosition);
     }
 
     public static float UpdateDelayValueUI(float currentData, float targetData, float maxData, float dataIncreaseAmount,

@@ -366,7 +366,7 @@ public class NpcController : MonoBehaviour
         //will need to change this in to detecting any suspicious item
         if (alertValue >= 0f)
         {
-            if (alertValue > .2f)
+            if (alertValue > .7f)
             {
                 hasShowedTutorial = false;
                 if (!hasShowedTutorial)

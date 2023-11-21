@@ -82,6 +82,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 286815960618585298, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: audioDistract_Range
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 414467088825717663, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: m_StaticEditorFlags

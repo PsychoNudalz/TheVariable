@@ -26,6 +26,9 @@ public abstract class SmartObject : MonoBehaviour
     [SerializeField]
     private Transform hackPoint;
     [SerializeField]
+    private UnityEvent onHackSelectEvent;
+
+    [SerializeField]
     private UnityEvent onHackActivateEvent;
 
     [Header("Audio Distract")]
@@ -184,6 +187,7 @@ public abstract class SmartObject : MonoBehaviour
     public virtual void OnSelect_Enter()
     {
         highlightEffect.highlighted = true;
+        onHackSelectEvent.Invoke();
     }
 
     public virtual void OnSelect_Exit()

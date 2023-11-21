@@ -22,10 +22,12 @@ public enum TutorialEnum
     NPCCamera,
     Zooming,
     Highlight,
-    GoldenBits,
+    GoldenBytes,
     Minimap,
     HackingControls_2,
-    CameraStack
+    CameraStack,
+    Tutorial,
+    VIP
 
 }
 //
@@ -86,6 +88,7 @@ public class TutorialManager : MonoBehaviour
     {
         Display_FirstTime(TutorialEnum.Start);
         Display_FirstTime(TutorialEnum.HackingControls);
+        Display_FirstTime(TutorialEnum.HackingControls_2);
         Display_FirstTime(TutorialEnum.ClearanceLevel);
     }
 

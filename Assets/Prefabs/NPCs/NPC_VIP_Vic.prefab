@@ -114,6 +114,47 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a8663666d4fc76e4baeed34342e415d8,
         type: 2}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8370501660360052029}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DisplayTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SmartObject, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 86992060193f275458da7bb284e7fe70,
+        type: 2}
+    - target: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TutorialInstructions, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
       propertyPath: isVIP
@@ -123,6 +164,16 @@ PrefabInstance:
         type: 3}
       propertyPath: schedule.Array.size
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: alertModifier_Decrease
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
+        type: 3}
+      propertyPath: alertModifier_Increase
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1320077873986614615, guid: d069e2915b6eb7046a856e3c59f0a699,
         type: 3}
@@ -256,6 +307,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3692b5776f8a450468d2116e5055c6aa, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d069e2915b6eb7046a856e3c59f0a699, type: 3}
+--- !u!114 &8370501660360052029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1320077873986614613, guid: d069e2915b6eb7046a856e3c59f0a699,
+    type: 3}
+  m_PrefabInstance: {fileID: 7383692530233587816}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a382b2bead64ff4185104a5f9c00d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9172433257414247311 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1815832799226166247, guid: d069e2915b6eb7046a856e3c59f0a699,

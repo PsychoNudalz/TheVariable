@@ -1568,8 +1568,8 @@ MonoBehaviour:
   roomLocation: 0
   camera: {fileID: 4368685064227142844}
   camera_transform: {fileID: 4368685064227142845}
-  xClamp: {x: -80, y: 80}
-  yClamp: {x: -80, y: 80}
+  xClamp: {x: -60, y: 60}
+  yClamp: {x: -60, y: 60}
   zoomLevel: 0
   zoomFOVMultiplier: 0.2
   zoomSpeed: 1

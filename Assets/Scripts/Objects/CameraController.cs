@@ -43,6 +43,7 @@ public class CameraController : MonoBehaviour
     [Range(0f, 1f)]
     private float zoomLevel = 0f;
 
+    public float ZoomLevel => zoomLevel;
 
     [SerializeField]
     private float zoomFOVMultiplier = .5f;

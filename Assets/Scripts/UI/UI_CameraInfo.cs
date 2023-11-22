@@ -28,6 +28,12 @@ public class UI_CameraInfo : MonoBehaviour
         if (currentCamera && currentCamera.IsNPC && currentNPC)
         {
             UpdateAlert(currentNPC);
+            
+        }
+
+        if (currentCamera)
+        {
+            UpdateZoom();
         }
         
     }
@@ -104,7 +110,12 @@ public class UI_CameraInfo : MonoBehaviour
 
         currentCamera = cameraController;
         
-        // zoom.SetText($"{currentCamera.}");
+        UpdateZoom();
+    }
+
+    private void UpdateZoom()
+    {
+        zoom.SetText($"{(currentCamera.ZoomLevel * 100):00.0}%");
     }
 
     private void UpdateAlert(NpcObject npcObject)

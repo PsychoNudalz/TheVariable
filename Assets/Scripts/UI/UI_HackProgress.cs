@@ -45,9 +45,11 @@ public class UI_HackProgress : MonoBehaviour
         }
         else
         {
-            delayCoroutine = StartCoroutine(DelayDeactive());
-            animator.Play("Deactive");
-
+            if (gameObject.activeSelf)
+            {
+                delayCoroutine = StartCoroutine(DelayDeactive());
+                animator.Play("Deactive");
+            }
         }
     }
 

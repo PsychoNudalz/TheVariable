@@ -6,12 +6,12 @@ using UnityEngine;
 public class NpcVisionConeController : MonoBehaviour
 {
     [SerializeField]
-    private List<SmartObject> allDetectedSmartObjects;
-    private List<SmartObject> allDetectedSmartObjectsBuffer = new List<SmartObject>();
+    private HashSet<SmartObject> allDetectedSmartObjects = new HashSet<SmartObject>();
+    // private List<SmartObject> allDetectedSmartObjectsBuffer = new List<SmartObject>();
 
     [Header("Line of Sight")]
     [SerializeField]
-    private List<SmartObject> allLoSSmartObjects;
+    private HashSet<SmartObject> allLoSSmartObjects = new HashSet<SmartObject>();
 
     [SerializeField]
     private float los_Distance = 15f;
@@ -42,9 +42,9 @@ public class NpcVisionConeController : MonoBehaviour
 
     private Vector3 forwardDirection=>-transform.right;
 
-    public List<SmartObject> AllDetectedSmartObjects => allDetectedSmartObjects;
+    public HashSet<SmartObject> AllDetectedSmartObjects => allDetectedSmartObjects;
 
-    public List<SmartObject> AllLoSSmartObjects => allLoSSmartObjects;
+    public HashSet<SmartObject> AllLoSSmartObjects => allLoSSmartObjects;
 
 
     // static string CameraTag = "CCTV";
@@ -77,9 +77,10 @@ public class NpcVisionConeController : MonoBehaviour
 
     void UpdateLoSObjects()
     {
-        for (var i = 0; i < allDetectedSmartObjects.Count; i++)
+        List<SmartObject> objectsToRemove = new List<SmartObject>();
+        HashSet<SmartObject> newLos = new HashSet<SmartObject>();
+        foreach (SmartObject smartObject in allDetectedSmartObjects)
         {
-            var smartObject = allDetectedSmartObjects[i];
             // if (!smartObject)
             // {
             //     //TODO: actually remove the null object
@@ -88,10 +89,10 @@ public class NpcVisionConeController : MonoBehaviour
             //     continue;
             // }
             if (!smartObject||Vector3.Dot((smartObject.Position - transform.position).normalized, forwardDirection) <
-                .9f)
+                0)
             {
-                allDetectedSmartObjects.RemoveAt(i);
-                i--;
+                objectsToRemove.Add(smartObject);
+                // allDetectedSmartObjects.Remove(smartObject);
                 continue;
             }
 
@@ -116,51 +117,70 @@ public class NpcVisionConeController : MonoBehaviour
                 // Debug.DrawLine(eyePositon, hit.collider.transform.position, Color.cyan);
 
                 SmartObject detected = hit.collider.GetComponentInParent<SmartObject>();
-                if (!allLoSSmartObjects.Contains(smartObject))
+                if (detected&&smartObject.Equals(detected))
                 {
-                    //If the object wasn't in line of sight originally
-                    if (smartObject.Equals(detected))
+                    newLos.Add(smartObject);
+                    if (isDebug)
                     {
-                        allLoSSmartObjects.Add(smartObject);
-                        if (isDebug)
-                        {
-                            Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
-                        }
-                    }
-                    else
-                    {
-                        if (isDebug)
-                        {
-                            //Remaining out of LOS, detected is null
-                            Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
-                        }
+                        Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
                     }
                 }
                 else
                 {
-                    //If the object is in line of sight originally
-
-                    if (smartObject.Equals(detected))
+                    if (isDebug)
                     {
-                        if (isDebug)
-                        {
-                            Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
-                        }
-                    }
-                    else
-                    {
-                        if (!smartObject.Equals(selfSmartObject))
-                        {
-                            allLoSSmartObjects.Remove(smartObject);
-                        }
-
-                        if (isDebug)
-                        {
-                            Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
-                        }
+                        Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
                     }
                 }
+
+
+                // if (!allLoSSmartObjects.Contains(smartObject))
+                // {
+                //     //If the object wasn't in line of sight originally
+                //     if (smartObject.Equals(detected))
+                //     {
+                //         allLoSSmartObjects.Add(smartObject);
+                //         if (isDebug)
+                //         {
+                //             Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
+                //         }
+                //     }
+                //     else
+                //     {
+                //         if (isDebug)
+                //         {
+                //             //Remaining out of LOS, detected is null
+                //             Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
+                //         }
+                //     }
+                // }
+                // else
+                // {
+                //     //If the object is in line of sight originally
+                //
+                //     if (smartObject.Equals(detected))
+                //     {
+                //         if (isDebug)
+                //         {
+                //             Debug.DrawLine(eyePositon, smartObject.Position, Color.green);
+                //         }
+                //     }
+                //     else
+                //     {
+                //         if (!smartObject.Equals(selfSmartObject))
+                //         {
+                //             allLoSSmartObjects.Remove(smartObject);
+                //         }
+                //
+                //         if (isDebug)
+                //         {
+                //             Debug.DrawLine(eyePositon, smartObject.Position, Color.red);
+                //         }
+                //     }
+                // }
             }
+            allLoSSmartObjects = newLos;
+
         }
     }
 
@@ -174,21 +194,24 @@ public class NpcVisionConeController : MonoBehaviour
                 return;
             }
 
-            // //For some reason contain is not stopping double adding the items
-            foreach (SmartObject detectedSmartObject in allDetectedSmartObjects)
+            // // //For some reason contain is not stopping double adding the items
+            // foreach (SmartObject detectedSmartObject in allDetectedSmartObjects)
+            // {
+            //     if (smartObject.Equals(detectedSmartObject))
+            //     {
+            //         // Debug.LogError($"{selfSmartObject.name}: found same Smart Object");
+            //         return;
+            //     }
+            //
+            //     // if (smartObject.name.Equals(detectedSmartObject.name))
+            //     // {
+            //     //     Debug.LogError($"{selfSmartObject.name}: found same Smart Object");
+            //     // }
+            // }
+            if (!allDetectedSmartObjects.Contains(smartObject))
             {
-                if (smartObject.Equals(detectedSmartObject))
-                {
-                    // Debug.LogError($"{selfSmartObject.name}: found same Smart Object");
-                    return;
-                }
-            
-                // if (smartObject.name.Equals(detectedSmartObject.name))
-                // {
-                //     Debug.LogError($"{selfSmartObject.name}: found same Smart Object");
-                // }
+                allDetectedSmartObjects.Add(smartObject);
             }
-            allDetectedSmartObjects.Add(smartObject);
         }
     }
 
@@ -203,20 +226,27 @@ public class NpcVisionConeController : MonoBehaviour
 
         if (smartObject)
         {
-            for (var i = 0; i < allDetectedSmartObjects.Count; i++)
-            {
-                var detectedSmartObject = allDetectedSmartObjects[i];
-                if (smartObject.Equals(detectedSmartObject))
-                {
-                    allDetectedSmartObjects.RemoveAt(i);
-                    if (allLoSSmartObjects.Contains(smartObject))
-                    {
-                        allLoSSmartObjects.Remove(smartObject);
-                    }
 
-                    i--;
-                }
+            if (allDetectedSmartObjects.Contains(smartObject))
+            {
+                allDetectedSmartObjects.Remove(smartObject);
             }
+            
+            
+            // for (var i = 0; i < allDetectedSmartObjects.Count; i++)
+            // {
+            //     var detectedSmartObject = allDetectedSmartObjects[i];
+            //     if (smartObject.Equals(detectedSmartObject))
+            //     {
+            //         allDetectedSmartObjects.RemoveAt(i);
+            //         if (allLoSSmartObjects.Contains(smartObject))
+            //         {
+            //             allLoSSmartObjects.Remove(smartObject);
+            //         }
+            //
+            //         i--;
+            //     }
+            // }
         }
     }
 
@@ -228,22 +258,51 @@ public class NpcVisionConeController : MonoBehaviour
     public void CleanUpAllDetectedSO()
     {
         List<SmartObject> temp = new List<SmartObject>();
-        for (int i = 0; i < allDetectedSmartObjects.Count; i++)
+
+        
+        foreach (SmartObject smartObject in allDetectedSmartObjects)
         {
-            if (!allDetectedSmartObjects[i]||Vector3.Dot((allDetectedSmartObjects[i].Position - transform.position).normalized, forwardDirection) <
+            
+            if (!smartObject||Vector3.Dot((smartObject.Position - transform.position).normalized, forwardDirection) <
                 0)
             {
-                allDetectedSmartObjects.RemoveAt(i);
-                // allLoSSmartObjects.
-                i--;
+                continue;
+                
             }
-            else if (!temp.Contains(allDetectedSmartObjects[i]))
+            else if (!temp.Contains(smartObject))
             {
-                temp.Add(allDetectedSmartObjects[i]);
+                temp.Add(smartObject);
             }
         }
 
-        allDetectedSmartObjects = temp;
+        allDetectedSmartObjects = new HashSet<SmartObject>();
+        foreach (SmartObject smartObject in temp)
+        {
+            allDetectedSmartObjects.Add(smartObject);
+        }
+
+
+        if (isDebug)
+        {
+            HashSet<SmartObject> wasFound = new HashSet<SmartObject>();
+            foreach (SmartObject smartObject in allDetectedSmartObjects)
+            {
+                foreach (SmartObject o in wasFound)
+                {
+                    if (o.name.Equals(smartObject.name))
+                    {
+                        // Debug.LogError($"{name} Found same Item: {smartObject.name}");
+                        if (o.GetInstanceID().Equals(smartObject.GetInstanceID()))
+                        {
+                            Debug.LogError($"{name} Found same ID: {smartObject.GetInstanceID()}");
+                            
+                        }
+                    }
+                }
+                wasFound.Add(smartObject);
+            }
+        }
+        // allDetectedSmartObjects = temp;
     }
 
     // void EvaluateBuffer()

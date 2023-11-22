@@ -20,8 +20,8 @@ public class NpcSensoryController : MonoBehaviour
     [SerializeField]
     private NpcVisionConeController visionConeController;
 
-    public List<SmartObject> detectedObjects => visionConeController.AllDetectedSmartObjects;
-    public List<SmartObject> losObjects => visionConeController.AllLoSSmartObjects;
+    public HashSet<SmartObject> detectedObjects => visionConeController.AllDetectedSmartObjects;
+    public HashSet<SmartObject> losObjects => visionConeController.AllLoSSmartObjects;
 
 
     private void Awake()

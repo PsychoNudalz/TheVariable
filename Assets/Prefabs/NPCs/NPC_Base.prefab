@@ -838,8 +838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154b677a84b922c4f9b87d6e52355288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allDetectedSmartObjects: []
-  allLoSSmartObjects: []
   los_Distance: 20
   los_DeadZone: 0
   los_LayerMask:
@@ -927,7 +925,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0

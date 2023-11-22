@@ -58,6 +58,8 @@ public class TutorialManager : MonoBehaviour
     public static TutorialManager current;
 
     public static bool DisableTutorial = false;
+
+    public bool IsActive => uiController.IsTutorialActive;
     private void Awake()
     {
         current = this;

@@ -140,7 +140,7 @@ public class CameraController : MonoBehaviour
     private float investigateFailSafeTime = 5f;
     private float lastSpottedeTime;
     private float spottedFailSafeTime = 6f;
-    private float maxHackSpeedUp = .15f;
+    private float maxHackSpeedUp = .5f;
     public Vector3 Position => camera_transform.position;
     public Vector3 Forward => camera_transform.forward;
 

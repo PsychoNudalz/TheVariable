@@ -332,6 +332,12 @@ public class GameManager : MonoBehaviour
         return GM.clearanceColours[Mathf.Min(i, GM.clearanceColours.Length)];
     }
 
+    [Command()]
+    public static void OverrideHackSpeedUp(float speed)
+    {
+        PlayerController.current.OverrideSpeedUp(speed);
+    }
+
     
     
     //----------------------TEST CASES---------------

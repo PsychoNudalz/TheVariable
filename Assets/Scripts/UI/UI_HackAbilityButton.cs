@@ -123,7 +123,7 @@ public class UI_HackAbilityButton : MonoBehaviour
             durationText.SetText($"Speed:SLOW");
             durationText.color = speedColours[2];
 
-        }else if (duration >= 2.5f)
+        }else if (duration >= 5f)
         {
             durationText.SetText($"Speed:MID");
             durationText.color = speedColours[1];

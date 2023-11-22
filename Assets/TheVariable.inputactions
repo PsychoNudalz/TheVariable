@@ -458,22 +458,11 @@
                 },
                 {
                     "name": "",
-                    "id": "6dd2ee91-048b-4466-8414-78dbd0958da3",
-                    "path": "<Gamepad>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera_Prev",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "01696fd6-b8af-42bd-a01e-2ef801050a12",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Camera_Prev",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -491,22 +480,11 @@
                 },
                 {
                     "name": "",
-                    "id": "ced297d7-c687-4892-a2de-888689388fb4",
-                    "path": "<Gamepad>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Camera_Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b3d59b84-0661-4546-936b-441d271b0ba5",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Camera_Next",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -517,7 +495,7 @@
                     "path": "<Mouse>/scroll/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -528,7 +506,7 @@
                     "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -638,7 +616,7 @@
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "SelectCancel",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -660,7 +638,7 @@
                     "path": "<Mouse>/middleButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "HighlightCameras",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -671,7 +649,7 @@
                     "path": "<Gamepad>/rightStickPress",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "HighlightCameras",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -682,7 +660,7 @@
                     "path": "<Keyboard>/f11",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "CameraManager_Cycle",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -836,7 +814,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Hack_SpeedUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -847,7 +825,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Hack_SpeedUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -858,7 +836,7 @@
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Hack_SpeedUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -869,7 +847,7 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Hack_SpeedUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -880,7 +858,7 @@
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Hack_SpeedUp",
                     "isComposite": false,
                     "isPartOfComposite": false

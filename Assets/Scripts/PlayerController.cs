@@ -371,7 +371,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnWindow_Close(InputValue inputValue)
     {
-        TutorialManager.current.OnWindow_Close();
+        if (uiController.IsTutorialActive)
+        {
+            TutorialManager.current.OnWindow_Close();
+        }
     }
 
     public void LockInput(bool b)

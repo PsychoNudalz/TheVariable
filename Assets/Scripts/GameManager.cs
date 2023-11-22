@@ -41,9 +41,11 @@ public class GameManager : MonoBehaviour
 
     private float suspicious_LastTime = 0;
     private float suspicious_Cooldown = 5;
+
     [Header("Clearance Colours")]
     [SerializeField]
     private Color[] clearanceColours = new Color[4];
+
     [Header("Global Sounds")]
     [SerializeField]
     private SoundAbstract sfx_Suspicious;
@@ -87,6 +89,7 @@ public class GameManager : MonoBehaviour
 
 
     public bool IsPaused => gameState is GameState.Tutorial or GameState.PauseGame;
+
     // [Header("NPCs")]
     // [SerializeField]
     // private NpcManager npcManager;
@@ -133,7 +136,8 @@ public class GameManager : MonoBehaviour
     public void CalculateMaxGB()
     {
         maxGB = 0;
-        SmartObject[] allSOs = FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude,FindObjectsSortMode.InstanceID);
+        SmartObject[] allSOs =
+            FindObjectsByType<SmartObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.InstanceID);
         List<SmartObject> evaluated = new List<SmartObject>();
         foreach (SmartObject smartObject in allSOs)
         {
@@ -142,6 +146,7 @@ public class GameManager : MonoBehaviour
                 Debug.LogError($"2 copies of SO: {smartObject}");
                 break;
             }
+
             evaluated.Add(smartObject);
 
             foreach (HackAbility hackAbility in smartObject.Hacks)
@@ -151,14 +156,14 @@ public class GameManager : MonoBehaviour
                     if (smartObject is TaskSmartObject ts)
                     {
                         Debug.Log($"Gold Task Object: {ts}");
-
                     }
+
                     maxGB += data.Gb;
                 }
             }
         }
     }
-    
+
 
     public static void Alert_Suspicious()
     {
@@ -180,7 +185,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         GM.gameState = GameState.Free;
-
     }
 
 
@@ -193,12 +197,12 @@ public class GameManager : MonoBehaviour
 
     public static void PauseTimer(bool b)
     {
-        if (b&&GM.timerState == TimerState.Started)
+        if (b && GM.timerState == TimerState.Started)
         {
             GM.timerState = TimerState.Pause;
             GM.pausedTime = Time.realtimeSinceStartup;
         }
-        else if(!b&&GM.timerState == TimerState.Pause)
+        else if (!b && GM.timerState == TimerState.Pause)
         {
             GM.timerState = TimerState.Started;
             GM.globalStartTime += Time.realtimeSinceStartup - GM.pausedTime;
@@ -223,14 +227,14 @@ public class GameManager : MonoBehaviour
         //     fastestTime = Mathf.Infinity;
         // }
         //
-        
+
         //Score
         float highScore = PlayerPrefs.GetFloat("Score");
         float runTime = Time.realtimeSinceStartup - GM.globalStartTime;
 
 
         float currentCollectedGb = PlayerController.current.CollectedGb;
-        UIController.current.GameOver(runTime, fastestTime,currentCollectedGb,highScore);
+        UIController.current.GameOver(runTime, fastestTime, currentCollectedGb, highScore);
         Debug.Log("GAME OVER");
         GM.gameState = GameState.GameOver;
     }
@@ -264,15 +268,14 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat("Time", fastestTime);
             highScore = playerGB;
             PlayerPrefs.SetFloat("Score", highScore);
-
         }
-        
-        UIController.current.GameWin(runTime, fastestTime,playerGB,highScore);
+
+        UIController.current.GameWin(runTime, fastestTime, playerGB, highScore);
         Debug.Log("GAME WIN");
         GM.gameState = GameState.GameWin;
     }
-    [Command()]
 
+    [Command()]
     public static void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -312,7 +315,6 @@ public class GameManager : MonoBehaviour
         UIController.current.Objective_KilledVIP();
         UIController.current.Objective_ShowExtraction();
     }
-
 
 
     [Command()]
@@ -355,31 +357,30 @@ public class GameManager : MonoBehaviour
     public static void PauseGame()
     {
         TutorialManager.current.OnWindow_Close();
-        
+
         PlayerController.current.LockInput(true);
-        
+
         StopTime();
         CursorLock(false);
         PauseTimer(true);
 
         UIController.current.PauseGame_SetActive(true);
-        
+
         ChangeState(GameState.PauseGame);
     }
-    
+
     [Command()]
     public static void ResumeGame()
     {
         PlayerController.current.LockInput(false);
-        
+
         ResetTimeScale();
         CursorLock(true);
         PauseTimer(false);
 
         UIController.current.PauseGame_SetActive(false);
-        
-        ChangeState(GameState.Free);
 
+        ChangeState(GameState.Free);
     }
 
     [Command()]
@@ -387,7 +388,13 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-    
+
+    [Command()]
+    public static void PlayGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
 
     /// <summary>
     /// Locks and disable cursor visibility
@@ -413,8 +420,8 @@ public class GameManager : MonoBehaviour
     {
         GM.gameState = gameState;
     }
-    
-    
+
+
     //----------------------TEST CASES---------------
     /// <summary>
     /// Test Case 1: add GB and Game Win
@@ -426,7 +433,7 @@ public class GameManager : MonoBehaviour
         GameWin();
         // GM.Invoke(nameof(GameWin),.1f);
     }
-    
+
     /// <summary>
     /// Test Case 2: add GB and Game Over
     /// </summary>
@@ -436,8 +443,5 @@ public class GameManager : MonoBehaviour
         AddGB(12345);
         GameOver();
         // GM.Invoke(nameof(GameOver),.1f);
-
     }
-    
-    
 }

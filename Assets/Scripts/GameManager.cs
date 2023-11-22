@@ -95,6 +95,8 @@ public class GameManager : MonoBehaviour
     // private NpcManager npcManager;
     private void Awake()
     {
+        Application.targetFrameRate = 120;
+
         if (!GM)
         {
             GM = this;

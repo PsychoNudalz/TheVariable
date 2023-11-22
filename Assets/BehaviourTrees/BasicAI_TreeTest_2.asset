@@ -75,8 +75,6 @@ MonoBehaviour:
   - rid: 270282306868215812
   - rid: 466623170613870592
   - rid: 466623170613870594
-  - rid: 466623170613870598
-  - rid: 466623170613870599
   - rid: 466623170613870601
   - rid: 466623170613870602
   - rid: 466623170613870605
@@ -135,6 +133,8 @@ MonoBehaviour:
   - rid: 2403197544751431680
   - rid: 2403197544751431681
   - rid: 2403197544751431682
+  - rid: 2403197577705291776
+  - rid: 2403197577705291780
   treeState: 0
   blackboard:
     alertState: 0
@@ -155,8 +155,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -1724, y: 651.2, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: -906.4, y: -523.2, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -574,69 +574,6 @@ MonoBehaviour:
         drawGizmos: 0
         returnSuccessAfterUpdate: 0
         detectPlayerControl: 0
-    - rid: 466623170613870598
-      type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: b490528a2d2f6294bb044ea31804c0b0
-        position: {x: 2738.4001, y: -266.487}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          targetPosition: {x: 0, y: 0, z: 0}
-          targetRotation: {x: 0, y: 0, z: 0, w: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          npcController: {fileID: 0}
-          resetFlag: 0
-          cameraToLock: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-          hackingCameras: []
-        name: Repeat
-        description: 
-        drawGizmos: 0
-        child:
-          rid: 466623170613870599
-        restartOnSuccess: 1
-        restartOnFailure: 1
-    - rid: 466623170613870599
-      type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 10294d0589fe7db40be3544a05e639aa
-        position: {x: 2616.8, y: -108.88696}
-        blackboard:
-          alertState: 0
-          health: 0
-          healthThreshold: 0
-          targetPosition: {x: 0, y: 0, z: 0}
-          targetRotation: {x: 0, y: 0, z: 0, w: 0}
-          missingItem: 0
-          locatedItem: {fileID: 0}
-          pickedUpItem: {fileID: 0}
-          flag_wait: 0
-          wait_startTime: 0
-          wait_duration: 0
-          npcController: {fileID: 0}
-          resetFlag: 0
-          cameraToLock: {fileID: 0}
-          player_LastKnown_Position: {x: 0, y: 0, z: 0}
-          player_LastKnown_Camera: {fileID: 0}
-          player_LastKnown_Time: 0
-          hackingCameras: []
-        name: Sequencer
-        description: 
-        drawGizmos: 0
-        children: []
     - rid: 466623170613870601
       type: {class: Update_SensoryAndAlert, ns: , asm: Assembly-CSharp}
       data:
@@ -1433,7 +1370,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 00d22c78209127d4fae12a6755cedd1b
-        position: {x: 1514.8, y: 1374.8002}
+        position: {x: 1515.2002, y: 1578.0001}
         blackboard:
           alertState: 0
           health: 0
@@ -1518,7 +1455,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 3034970053129797634
-        - rid: 2403197331013369863
+        - rid: 2403197577705291776
     - rid: 2403197331013369862
       type: {class: Has_AudioSS, ns: , asm: Assembly-CSharp}
       data:
@@ -1557,7 +1494,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 476ed3e285101074aae426060da15305
-        position: {x: 1552.7999, y: 1254.4}
+        position: {x: 1552.8, y: 1457.2002}
         blackboard:
           alertState: 0
           health: 0
@@ -1912,7 +1849,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2239078a60648294199e7b3ec2378de3
-        position: {x: 3673.0107, y: -379.08368}
+        position: {x: 3675.1995, y: -328.9159}
         blackboard:
           alertState: 0
           health: 0
@@ -1941,7 +1878,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: de969cbc59fc17b4fbaa2c1dc8680fc5
-        position: {x: 3523.9993, y: -379.1998}
+        position: {x: 3525.5996, y: -328.9159}
         blackboard:
           alertState: 0
           health: 0
@@ -1964,6 +1901,69 @@ MonoBehaviour:
         name: Action_ClearSS
         description: 
         drawGizmos: 0
+    - rid: 2403197577705291776
+      type: {class: Selector, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d0693bd8f7811884a9ec3c0824ed2e1a
+        position: {x: 1552.8, y: 1244.8002}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Selector
+        description: 
+        drawGizmos: 0
+        children:
+        - rid: 2403197577705291780
+    - rid: 2403197577705291780
+      type: {class: Has_CameraSS, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c81320e46bae39f47ae944ee93678932
+        position: {x: 1552.8, y: 1343.2001}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Has_CameraSS
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 2403197331013369863
+        failure: 0
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -2910,7 +2910,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0a548a740473c7b4bbe942522b5c1818
-        position: {x: 3824.7996, y: -379.1998}
+        position: {x: 3826.3997, y: -328.9159}
         blackboard:
           alertState: 0
           health: 0

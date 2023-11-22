@@ -423,7 +423,7 @@ public class CameraController : MonoBehaviour
 
         if (!target.Hacks[index].CanHack())
         {
-            Debug.LogError($"{name} hack on {target.name} can NOT hack");
+            Debug.LogWarning($"{name} hack on {target.name} can NOT hack");
 
             return;
         }

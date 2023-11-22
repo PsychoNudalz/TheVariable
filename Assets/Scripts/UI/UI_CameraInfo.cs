@@ -10,6 +10,8 @@ public class UI_CameraInfo : MonoBehaviour
     [Header("Camera")]
     [SerializeField]
     private TextMeshProUGUI camera;
+    [SerializeField]
+    private TextMeshProUGUI zoom;
     [Header("Location")]
     [SerializeField]
     private TextMeshProUGUI location;
@@ -101,6 +103,8 @@ public class UI_CameraInfo : MonoBehaviour
         }
 
         currentCamera = cameraController;
+        
+        // zoom.SetText($"{currentCamera.}");
     }
 
     private void UpdateAlert(NpcObject npcObject)

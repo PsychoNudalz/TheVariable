@@ -63,4 +63,10 @@ public class UI_HackProgress : MonoBehaviour
         timeLeft = Mathf.Max(timeLeft, 0);
         timeLeftText.SetText($"{timeLeft:0.00}s");
     }
+
+    public void SpeedUp()
+    {
+        // animator.Play("SpeedUp");
+        animator.SetTrigger("SpeedUp");
+    }
 }

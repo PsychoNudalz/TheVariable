@@ -590,8 +590,14 @@ public class CameraController : MonoBehaviour
     /// </summary>
     void Hack_End()
     {
-        if (cameraState != CameraState.Locked &&
-            investigationMode != CameraInvestigationMode.Spotted)
+        // if (cameraState != CameraState.Locked &&cameraLock_Time <= 0f&&
+        //     investigationMode != CameraInvestigationMode.Spotted)
+        // {
+        //     //forces the camera to still be hacking if it is spotted to avoid NPCs from changing it's investigation target
+        //     cameraState = CameraState.None;
+        // }
+        
+        if (cameraState != CameraState.Locked &&cameraLock_Time <= 0f)
         {
             //forces the camera to still be hacking if it is spotted to avoid NPCs from changing it's investigation target
             cameraState = CameraState.None;
@@ -628,6 +634,7 @@ public class CameraController : MonoBehaviour
         {
             cameraHack_TimeLeft -= Mathf.Min(speedUp, cameraHack_Time * maxHackSpeedUp);
             SoundManager.PlayGlobal(SoundGlobal.HackSpeedUp);
+            uiController.HackProgress_SpeedUp();
         }
     }
 

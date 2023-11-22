@@ -420,6 +420,11 @@ public class UIController : MonoBehaviour
         hackProgress.UpdateProgress(timeLeft,maxTime,worldPosition);
     }
 
+    public void HackProgress_SpeedUp()
+    {
+        hackProgress.SpeedUp();
+    }
+
     public static float UpdateDelayValueUI(float currentData, float targetData, float maxData, float dataIncreaseAmount,
         TextMeshProUGUI data_Text = null, Image data_Bar = null)
     {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -126,6 +127,13 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private GameObject overlay;
 
+
+    [Header("Pause Menu")]
+    [SerializeField]
+    private GameObject pauseMenu;
+
+    [SerializeField]
+    private GameObject firstPauseButton;
     public bool IsTutorialActive => tutorialDisplay.IsActive;
 
 
@@ -145,6 +153,7 @@ public class UIController : MonoBehaviour
         gameFinish.SetActive(false);
         HackSpeedUp_SetActive(false);
         HackProgress_SetActive(false);
+        PauseGame_SetActive(false);
     }
 
     // Update is called once per frame
@@ -422,6 +431,32 @@ public class UIController : MonoBehaviour
     public void HackProgress_SpeedUp()
     {
         hackProgress.SpeedUp();
+    }
+
+    public void PauseGame_SetActive(bool b)
+    {
+        pauseMenu.SetActive(b);
+        EventSystem.current.SetSelectedGameObject( null);
+
+        if (b)
+        {
+            EventSystem.current.SetSelectedGameObject( firstPauseButton);
+        }
+    }
+
+    public void PauseGame_Toggle()
+    {
+        GameManager.TogglePause();
+    }
+
+    public void PauseGame_Reset()
+    {
+        GameManager.ResetLevel();
+    }
+
+    public void PauseGame_Exit()
+    {
+        GameManager.MainMenu();
     }
 
     public static float UpdateDelayValueUI(float currentData, float targetData, float maxData, float dataIncreaseAmount,

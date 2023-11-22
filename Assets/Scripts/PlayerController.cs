@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private UIController uiController;
 
+    [SerializeField]
+    private PlayerInput playerInput;
+
     [Header("Settings")]
     [SerializeField]
     private float rotateMultiplier = 1f;
@@ -127,7 +130,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         CameraController cameraController = cameraManager.StartingCamera;
         if (cameraController)
         {
@@ -381,6 +383,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
+    /// <summary>
+    /// Locks the player's inputs by changing the camera mode.
+    /// Player inputs are still active
+    /// </summary>
+    /// <param name="b"></param>
     public void LockInput(bool b)
     {
         if (b)
@@ -396,7 +404,14 @@ public class PlayerController : MonoBehaviour
         else
         {
             cameraMode = originalCameraMode;
+
         }
+    }
+
+    public void DisableInput(bool b)
+    {
+        LockInput(b);
+        playerInput.enabled = !b;
     }
 
 
@@ -530,6 +545,22 @@ public class PlayerController : MonoBehaviour
             currentCamera.SpeedHack(speedUpAmount);
         }
     }
+    
+    public void OnExitGame()
+    {
+        Application.Quit();
+        //Note: this might kill Richard's program so will need to test
+        // System.Diagnostics.Process.GetCurrentProcess().Kill();
+    }
+
+    public void OnPauseGame(InputValue inputValue)
+    {
+        if (inputValue.isPressed)
+        {
+            GameManager.TogglePause();
+        }
+    }
+    
 
     public void OverrideSpeedUp(float speed)
     {
@@ -802,10 +833,5 @@ public class PlayerController : MonoBehaviour
         UIController.current.Objective_SetData(collectedGB);
     }
 
-    public void OnExitGame()
-    {
-        Application.Quit();
-        //Note: this might kill Richard's program so will need to test
-        // System.Diagnostics.Process.GetCurrentProcess().Kill();
-    }
+
 }

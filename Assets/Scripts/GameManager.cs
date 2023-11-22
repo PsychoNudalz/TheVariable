@@ -25,11 +25,12 @@ public enum RoomLabel
 
 public class GameManager : MonoBehaviour
 {
-    enum GameState
+    public enum GameState
     {
         None,
-        Pause,
+        Tutorial,
         Free,
+        PauseGame,
         GameOver,
         GameWin
     }
@@ -85,7 +86,7 @@ public class GameManager : MonoBehaviour
     public static bool IsVIPDead => GM.isVIPDead;
 
 
-    public bool IsPaused => gameState == GameState.Pause;
+    public bool IsPaused => gameState is GameState.Tutorial or GameState.PauseGame;
     // [Header("NPCs")]
     // [SerializeField]
     // private NpcManager npcManager;
@@ -111,7 +112,7 @@ public class GameManager : MonoBehaviour
         StartTimer();
         UIController.current.Objective_SetDataMax(maxGB);
         GM.gameState = GameState.Free;
-
+        CursorLock(true);
     }
 
     // Update is called once per frame
@@ -172,7 +173,6 @@ public class GameManager : MonoBehaviour
     public static void StopTime()
     {
         Time.timeScale = 0;
-        GM.gameState = GameState.Pause;
     }
 
     [Command()]
@@ -338,6 +338,81 @@ public class GameManager : MonoBehaviour
         PlayerController.current.OverrideSpeedUp(speed);
     }
 
+    [Command()]
+    public static void TogglePause()
+    {
+        if (GM.gameState == GameState.PauseGame)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
+        }
+    }
+
+    [Command()]
+    public static void PauseGame()
+    {
+        TutorialManager.current.OnWindow_Close();
+        
+        PlayerController.current.LockInput(true);
+        
+        StopTime();
+        CursorLock(false);
+        PauseTimer(true);
+
+        UIController.current.PauseGame_SetActive(true);
+        
+        ChangeState(GameState.PauseGame);
+    }
+    
+    [Command()]
+    public static void ResumeGame()
+    {
+        PlayerController.current.LockInput(false);
+        
+        ResetTimeScale();
+        CursorLock(true);
+        PauseTimer(false);
+
+        UIController.current.PauseGame_SetActive(false);
+        
+        ChangeState(GameState.Free);
+
+    }
+
+    [Command()]
+    public static void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    
+
+    /// <summary>
+    /// Locks and disable cursor visibility
+    /// 
+    /// </summary>
+    /// <param name="b"></param>
+    [Command()]
+    public static void CursorLock(bool b)
+    {
+        if (b)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
+    public static void ChangeState(GameState gameState)
+    {
+        GM.gameState = gameState;
+    }
     
     
     //----------------------TEST CASES---------------

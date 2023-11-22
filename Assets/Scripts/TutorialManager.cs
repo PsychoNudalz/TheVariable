@@ -184,8 +184,11 @@ public class TutorialManager : MonoBehaviour
         }
 
         uiController.Tutorial_Show(currentTutorial.Title, currentTutorial.VideoClip, currentTutorial.Text);
+        
         GameManager.StopTime();
         GameManager.PauseTimer(true);
+        GameManager.ChangeState(GameManager.GameState.PauseGame);
+        
         PlayerController.current.LockInput(true);
         SoundManager.PlayGlobal(SoundGlobal.Tutorial_On);
     }

@@ -90,8 +90,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UI_GameFinish gameFinish;
 
-    
-    
+
     [Header("Smaller Components")]
     [Header("Timer")]
     [SerializeField]
@@ -126,7 +125,7 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     private GameObject overlay;
-    
+
     public bool IsTutorialActive => tutorialDisplay.IsActive;
 
 
@@ -417,7 +416,7 @@ public class UIController : MonoBehaviour
 
     public void HackProgress_Update(float timeLeft, float maxTime, Vector3 worldPosition)
     {
-        hackProgress.UpdateProgress(timeLeft,maxTime,worldPosition);
+        hackProgress.UpdateProgress(timeLeft, maxTime, worldPosition);
     }
 
     public void HackProgress_SpeedUp()
@@ -493,5 +492,31 @@ public class UIController : MonoBehaviour
         }
 
         return returnString;
+    }
+
+    public static Vector2 ClampAnchorPoint(Vector3 worldPoint, Vector2 anchorPoint, Vector2 canvasSize, Camera camera)
+    {
+        Vector3 normalizedDir = (worldPoint - camera.transform.position).normalized;
+        if (Vector3.Dot(camera.transform.forward, normalizedDir) < 0)
+        {
+            float angle = Vector3.SignedAngle(camera.transform.forward,
+                normalizedDir, Vector3.up);
+            if (angle > 0)
+            {
+                anchorPoint.x = canvasSize.x * .5f;
+            }
+            else
+            {
+                anchorPoint.x = -canvasSize.x * .5f;
+            }
+        }
+
+        else
+        {
+            anchorPoint.x = Mathf.Clamp(anchorPoint.x, -canvasSize.x * .5f,canvasSize.x * .5f);
+            anchorPoint.y = Mathf.Clamp(anchorPoint.y, -canvasSize.y * .5f,canvasSize.y * .5f);
+        }
+
+        return anchorPoint;
     }
 }

@@ -177,7 +177,12 @@ PrefabInstance:
     - target: {fileID: 286815960618585298, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}
       propertyPath: audioDistract_Range
-      value: 5
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 286815960618585298, guid: 4f64ec6eb2b81604ab51f063b9e51632,
+        type: 3}
+      propertyPath: audioDistract_MaxNPC
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2918198883386962691, guid: 4f64ec6eb2b81604ab51f063b9e51632,
         type: 3}

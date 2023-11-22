@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,6 +7,8 @@ using UnityEngine.UI;
 
 public class UI_HackProgress : MonoBehaviour
 {
+    private RectTransform rectTransform;
+
     [SerializeField]
     private Image progressBar;
 
@@ -14,10 +17,18 @@ public class UI_HackProgress : MonoBehaviour
 
     [SerializeField]
     private Animator animator;
-    
+
+    [SerializeField]
+    private Vector2 canvasSize = new Vector2(1280, 720);
+
     private Camera camera;
 
     private Coroutine delayCoroutine;
+
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +39,6 @@ public class UI_HackProgress : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void SetActive(bool b)
@@ -37,9 +47,9 @@ public class UI_HackProgress : MonoBehaviour
         {
             StopCoroutine(delayCoroutine);
         }
+
         if (b)
         {
-
             gameObject.SetActive(b);
             animator.Play("Active");
         }
@@ -65,6 +75,9 @@ public class UI_HackProgress : MonoBehaviour
         progressBar.fillAmount = timeLeft / maxTime;
         timeLeft = Mathf.Max(timeLeft, 0);
         timeLeftText.SetText($"{timeLeft:0.00}s");
+
+        rectTransform.anchoredPosition =
+            UIController.ClampAnchorPoint(worldPosition, rectTransform.anchoredPosition, canvasSize, camera);
     }
 
     public void SpeedUp()

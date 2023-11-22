@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2374813012014555805, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3915917789128815181, guid: e66bf6855d51f7d47afce00a23dbfea8,
         type: 3}
       propertyPath: rmsCount
@@ -96,6 +101,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471878073489035400, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6471878073489035400, guid: e66bf6855d51f7d47afce00a23dbfea8,
         type: 3}
@@ -243,6 +253,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: scifi-hologram-monster
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b1365a5f5545b96449c6dd5048ad75d7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1365a5f5545b96449c6dd5048ad75d7, type: 3}
 --- !u!23 &3373368560594629971 stripped
@@ -268,6 +283,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2846620345707282641, guid: b1365a5f5545b96449c6dd5048ad75d7, type: 3}

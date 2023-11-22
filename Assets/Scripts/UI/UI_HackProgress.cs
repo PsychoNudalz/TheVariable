@@ -33,12 +33,13 @@ public class UI_HackProgress : MonoBehaviour
 
     public void SetActive(bool b)
     {
+        if (delayCoroutine != null)
+        {
+            StopCoroutine(delayCoroutine);
+        }
         if (b)
         {
-            if (delayCoroutine != null)
-            {
-                StopCoroutine(delayCoroutine);
-            }
+
             gameObject.SetActive(b);
             animator.Play("Active");
         }

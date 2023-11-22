@@ -396,36 +396,10 @@ MonoBehaviour:
   hackPoint: {fileID: 0}
   onHackSelectEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1320077873986614613}
-        m_TargetAssemblyTypeName: SmartObject, Assembly-CSharp
-        m_MethodName: DisplayTutorial
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 45784e50fdff59e408ed09247eff221c,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: TutorialInstructions, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onHackActivateEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1320077873986614613}
-        m_TargetAssemblyTypeName: SmartObject, Assembly-CSharp
-        m_MethodName: DisplayTutorial
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 45784e50fdff59e408ed09247eff221c,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: TutorialInstructions, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   audioDistract: {fileID: 3326811676266680409}
   dataEffect: {fileID: 0}
   renderers: []

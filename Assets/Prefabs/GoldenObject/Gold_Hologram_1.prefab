@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1139167457039281958}
   - component: {fileID: 7174163212172390850}
   - component: {fileID: 5211855151152095847}
-  m_Layer: 11
+  m_Layer: 7
   m_Name: vfx_DataCollect (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,6 +237,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: scifi-hologram-man
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 16a0fdb312985d8428731d17aa7bdfed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16a0fdb312985d8428731d17aa7bdfed, type: 3}
 --- !u!1 &735304838144349436 stripped
@@ -256,7 +261,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4189267764462290219, guid: 16a0fdb312985d8428731d17aa7bdfed, type: 3}
 --- !u!1001 &3715415092778971271
@@ -273,8 +278,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5b12cf4be3e7c5149a5f24108ee6a551, type: 2}
     - target: {fileID: 1559660415962558156, guid: e66bf6855d51f7d47afce00a23dbfea8,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559660415962558156, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722827703287221584, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1722827703287221584, guid: e66bf6855d51f7d47afce00a23dbfea8,
         type: 3}
@@ -365,6 +380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471878073489035400, guid: e66bf6855d51f7d47afce00a23dbfea8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6471878073489035400, guid: e66bf6855d51f7d47afce00a23dbfea8,
         type: 3}

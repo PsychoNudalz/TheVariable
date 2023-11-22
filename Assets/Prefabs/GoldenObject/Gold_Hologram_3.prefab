@@ -107,6 +107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: scifi-hologram-ship
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b23f8466d533c447a09a9ebf634badf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b23f8466d533c447a09a9ebf634badf, type: 3}
 --- !u!1 &1334508547487554100 stripped
@@ -126,7 +131,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 9204359968622674655, guid: 0b23f8466d533c447a09a9ebf634badf, type: 3}
 --- !u!1001 &3715415092778971271
@@ -254,7 +259,7 @@ PrefabInstance:
     - target: {fileID: 6471878073489035400, guid: e66bf6855d51f7d47afce00a23dbfea8,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6471878073489035400, guid: e66bf6855d51f7d47afce00a23dbfea8,
         type: 3}

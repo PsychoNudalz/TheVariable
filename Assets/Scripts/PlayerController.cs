@@ -84,6 +84,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float camera_CastRange = 20f;
 
+    // [SerializeField]
+    // private float camera_DeadZone = 1f;
+    // [ser]
+
     [SerializeField]
     private float selectStickyTime = 1f;
 

@@ -15,6 +15,11 @@ public class NpcVisionConeController : MonoBehaviour
 
     [SerializeField]
     private float los_Distance = 15f;
+    [SerializeField]
+    private float los_DeadZone = 1f;
+
+    private float los_CastRange => los_Distance - los_DeadZone;
+    private Vector3 los_Offset => forwardDirection * los_DeadZone;
 
     [SerializeField]
     private LayerMask los_LayerMask;
@@ -63,7 +68,11 @@ public class NpcVisionConeController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(.3f, 1, .3f);
-        Gizmos.DrawRay(eyePositon, forwardDirection * los_Distance);
+        Gizmos.DrawRay(eyePositon+los_Offset, forwardDirection *los_CastRange);
+        Gizmos.color = new Color(1f, 0f, 0f);
+        Gizmos.DrawRay(eyePositon, los_Offset);
+
+
     }
 
     void UpdateLoSObjects()
@@ -78,8 +87,8 @@ public class NpcVisionConeController : MonoBehaviour
             //     i--;
             //     continue;
             // }
-            if (!allDetectedSmartObjects[i]||Vector3.Dot((allDetectedSmartObjects[i].Position - transform.position).normalized, forwardDirection) <
-                0)
+            if (!smartObject||Vector3.Dot((smartObject.Position - transform.position).normalized, forwardDirection) <
+                .9f)
             {
                 allDetectedSmartObjects.RemoveAt(i);
                 i--;
@@ -225,6 +234,7 @@ public class NpcVisionConeController : MonoBehaviour
                 0)
             {
                 allDetectedSmartObjects.RemoveAt(i);
+                // allLoSSmartObjects.
                 i--;
             }
             else if (!temp.Contains(allDetectedSmartObjects[i]))

@@ -79,6 +79,12 @@ public class NpcVisionConeController : MonoBehaviour
     {
         List<SmartObject> objectsToRemove = new List<SmartObject>();
         HashSet<SmartObject> newLos = new HashSet<SmartObject>();
+        if (selfSmartObject)
+        {
+            allLoSSmartObjects.Add(selfSmartObject);
+
+        }
+
         foreach (SmartObject smartObject in allDetectedSmartObjects)
         {
             // if (!smartObject)

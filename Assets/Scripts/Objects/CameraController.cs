@@ -140,7 +140,7 @@ public class CameraController : MonoBehaviour
     private float lastInvestigateTime;
     private float investigateFailSafeTime = 5f;
     private float lastSpottedeTime;
-    private float spottedFailSafeTime = 6f;
+    private float spottedFailSafeTime = 10f;
     private float maxHackSpeedUp = .2f;//requires at least 5 taps to hack completely
     public Vector3 Position => camera_transform.position;
     public Vector3 Forward => camera_transform.forward;
@@ -559,7 +559,7 @@ public class CameraController : MonoBehaviour
         if (Time.time - lastSpottedeTime > spottedFailSafeTime)
         {
             Debug.LogWarning($"{name} camera spotted failsafe triggered");
-            Set_Investigate(false);
+            SetInvestigationMode(CameraInvestigationMode.None);
         }
     }
 

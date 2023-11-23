@@ -135,6 +135,7 @@ MonoBehaviour:
   - rid: 2403197544751431682
   - rid: 2403197577705291776
   - rid: 2403197577705291780
+  - rid: 2403197609912827904
   treeState: 0
   blackboard:
     alertState: 0
@@ -155,8 +156,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -906.4, y: -523.2, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: -844.8, y: 606.4, z: 0}
+  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
   references:
     version: 2
     RefIds:
@@ -1840,6 +1841,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
+        - rid: 2403197609912827904
         - rid: 2403197544751431682
         - rid: 2403197544751431681
         - rid: 8796965019197636611
@@ -1964,6 +1966,37 @@ MonoBehaviour:
         child:
           rid: 2403197331013369863
         failure: 0
+    - rid: 2403197609912827904
+      type: {class: Action_SetCameraInvestigation, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d16dfa3e10c814146a8c853fddcd5854
+        position: {x: 3299.2007, y: -328.80002}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Action_SetCameraInvestigation
+        description: 
+        drawGizmos: 0
+        cameraInvestigationMode: 0
+        cameraToLock: {fileID: 0}
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:

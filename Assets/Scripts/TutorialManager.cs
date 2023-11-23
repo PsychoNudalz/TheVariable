@@ -83,7 +83,7 @@ public class TutorialManager : MonoBehaviour
         DisplayTutorial(TutorialEnum.Start);
         Close();
         
-        Invoke(nameof(StartingTutorial),1f);
+        Invoke(nameof(StartingTutorial),5f);
     }
 
     private void StartingTutorial()

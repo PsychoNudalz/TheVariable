@@ -111,6 +111,13 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private Animator speedUpDisplay_animator;
 
+    [Header("Transition")]
+    [SerializeField]
+    private GameObject transitionGO;
+
+    [SerializeField]
+    private Animator transitionAnimator;
+
     [Serializable]
     enum HUDState
     {
@@ -154,6 +161,7 @@ public class UIController : MonoBehaviour
         HackSpeedUp_SetActive(false);
         HackProgress_SetActive(false);
         PauseGame_SetActive(false);
+        Transition_Play();
     }
 
     // Update is called once per frame
@@ -457,6 +465,19 @@ public class UIController : MonoBehaviour
     public void PauseGame_Exit()
     {
         GameManager.MainMenu();
+    }
+
+    public void Transition_Play()
+    {
+        transitionGO.SetActive(true);
+        transitionAnimator.Play("Play");
+        Invoke(nameof(Transition_DelayDisable), 2f);
+    }
+
+    void Transition_DelayDisable()
+    {
+        transitionGO.SetActive(false);
+
     }
 
     public static float UpdateDelayValueUI(float currentData, float targetData, float maxData, float dataIncreaseAmount,

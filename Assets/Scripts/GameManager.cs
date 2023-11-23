@@ -186,7 +186,10 @@ public class GameManager : MonoBehaviour
     public static void ResetTimeScale()
     {
         Time.timeScale = 1;
-        GM.gameState = GameState.Free;
+        if (GM)
+        {
+            GM.gameState = GameState.Free;
+        }
     }
 
 
@@ -388,12 +391,14 @@ public class GameManager : MonoBehaviour
     [Command()]
     public static void MainMenu()
     {
+        ResetTimeScale();
         SceneManager.LoadScene(0);
     }
 
     [Command()]
     public static void PlayGame()
     {
+        ResetTimeScale();
         SceneManager.LoadScene(1);
     }
 

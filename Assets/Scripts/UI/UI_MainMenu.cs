@@ -12,26 +12,32 @@ public class UI_MainMenu : MonoBehaviour
     private Animator menuAnimatior;
 
     [SerializeField]
-    private GameObject startingButton;
+    private GameObject beginningButton;
     [SerializeField]
     private GameObject startGameButton;
     
     // Start is called before the first frame update
     void Start()
     {
-        animator.SetTrigger("Start");
         Application.targetFrameRate = 120;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        animator.SetTrigger("Start");
+
     }
 
     public void DisplayTutorial()
     {
         animator.SetTrigger("End");
+
+    }
+
+    public void CloseBriefing()
+    {
+        animator.SetTrigger("Begin");
 
     }
 
@@ -49,7 +55,13 @@ public class UI_MainMenu : MonoBehaviour
     {
         menuAnimatior.SetBool("Start",true);
         menuAnimatior.SetBool("End",false);
-        EventSystem.current.SetSelectedGameObject(startingButton);
+        SetBeginningButton();
+    }
+
+    private void SetBeginningButton()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(beginningButton);
     }
 
     public void IntroAnimation_End()
@@ -57,6 +69,13 @@ public class UI_MainMenu : MonoBehaviour
         menuAnimatior.SetBool("Start",false);
 
         menuAnimatior.SetBool("End",true);
+
+    }
+
+    public void UpdateSelectStartButton()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(startGameButton);
 
     }
 }

@@ -83,7 +83,8 @@ public class UI_Minimap : MonoBehaviour
     [Header("Camera")]
     [SerializeField]
     private RectTransform cameraSprite;
-
+    [SerializeField]
+    private RectTransform cameraOrientationSprite;
     [SerializeField]
     private Vector2 offset;
 
@@ -129,6 +130,15 @@ public class UI_Minimap : MonoBehaviour
         }
 
         UpdateMapIcon(camera2D, cameraSprite);
+
+        // float angle = Vector3.SignedAngle(Vector3.forward, mainCamera.forward, Vector3.up);
+        float angle = mainCamera.eulerAngles.y;
+
+        var eulerAngles = cameraOrientationSprite.eulerAngles;
+        eulerAngles.z = -angle;
+        cameraOrientationSprite.eulerAngles = eulerAngles;
+
+
     }
 
     private void UpdateMapIcon(Vector2 worldPosition, RectTransform sprite)

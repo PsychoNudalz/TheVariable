@@ -15,15 +15,15 @@ MonoBehaviour:
   tutorialEnum: 3
   title: Clearance level
   videoClip: {fileID: 32900000, guid: b83120e99d6c21f45af364a560b5297d, type: 3}
-  text: 'Hacks require a certain clearance level shown on the bottom left of each
+  text: 'Hacks require a certain <b>Clearance Level</b> shown on the bottom left of each
     hack.
 
 
-    Hacks that does not met the requirement will be blocked out with
-    an error icon.
+    Hacks that does <b>Not</b> met the requirement will be blocked out with
+    an <b>Error</b> icon.
 
 
-    Hacking key cards would increase the clearance level, allowing
+    Hacking <b>Keycards</b> will <b>Increase</b> the clearance level, allowing
     stronger hacks.
 
 '

@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: T_Start
   m_EditorClassIdentifier: 
   tutorialEnum: 0
-  title: The VARIABLE
+  title: Welcome
   videoClip: {fileID: 32900000, guid: 6a7435f724b56314b9954f2ba849815f, type: 3}
-  text: 'This is a stealth hacking game, where you will have to take out the VIP
-    in GOLD while also collecting GOLDEN BYTES
+  text: 'Welcome to the <b>SIMULATIONS</b>!
 
 
-    You will be able to traverse
-    the level by switching between cameras and hacking objects, items and NPCs.'
+    Your objective is to <b>Eleminate</b>
+    the <b>VIP</b>, <b>Collect</b> the <b>Golden Bytes</b> and <b>Extract</b>.
+
+
+    Remember, be <b>stealthy</b> and remain <b>undetected</b> as much as possible.'

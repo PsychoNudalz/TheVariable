@@ -91,7 +91,7 @@ public class TutorialManager : MonoBehaviour
 
     public void StartingTutorial()
     {
-        Display_FirstTime(TutorialEnum.Start);
+        // Display_FirstTime(TutorialEnum.Start);
         Display_FirstTime(TutorialEnum.HackingControls);
         Display_FirstTime(TutorialEnum.HackingControls_2);
         Display_FirstTime(TutorialEnum.ClearanceLevel);

@@ -21,8 +21,13 @@ public class PlayAnimation : ActionNode
 
     public PlayAnimationOrientation orientation = PlayAnimationOrientation.None;
 
+    public float duration = 1;
+    private float startTime;
+    
     protected override void OnStart()
     {
+        startTime = Time.time;
+
     }
 
     protected override void OnStop()
@@ -126,6 +131,14 @@ public class PlayAnimation : ActionNode
             return State.Success;
         }
 
+        
+        //Wait time
+        if (Time.time - startTime<duration)
+        {
+            return State.Running;
+        }
+        
+        
         return State.Success;
     }
 }

@@ -16210,6 +16210,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 737865809}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &823365949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3921058093831504330, guid: 864c05fc0c7e56c45b22eb823f49bb86,
+    type: 3}
+  m_PrefabInstance: {fileID: 560065185}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131f9f65807596549a6571148598d615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &827512182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24007,6 +24019,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1391780261}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1391780267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3921058093831504330, guid: 864c05fc0c7e56c45b22eb823f49bb86,
+    type: 3}
+  m_PrefabInstance: {fileID: 1391780261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131f9f65807596549a6571148598d615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1395807991
 GameObject:
   m_ObjectHideFlags: 0
@@ -28599,10 +28623,11 @@ MonoBehaviour:
   TickLoop: 24
   TimePerTick: 5
   allTaskSmartObjects:
-  - {fileID: 246177318}
-  - {fileID: 1727106808}
+  - {fileID: 1391780267}
+  - {fileID: 823365949}
   - {fileID: 33092871}
   - {fileID: 142016516}
+  - {fileID: 246177318}
   - {fileID: 334618091}
   - {fileID: 346793504}
   - {fileID: 381082119}
@@ -28655,6 +28680,7 @@ MonoBehaviour:
   - {fileID: 1614223229}
   - {fileID: 1628008962}
   - {fileID: 1647495709}
+  - {fileID: 1727106808}
   - {fileID: 1729046842}
   - {fileID: 1786573132}
   - {fileID: 1799787957}

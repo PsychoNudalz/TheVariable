@@ -865,12 +865,12 @@ MonoBehaviour:
   - soundGlobal: 0
     sound: {fileID: 3368617931381514036}
     delayPlay: 0
-    cooldownTime: 2
+    cooldownTime: 5
     lastPlayedTime: 0
   - soundGlobal: 1
     sound: {fileID: 3368617932528817397}
     delayPlay: 0
-    cooldownTime: 1
+    cooldownTime: 2
     lastPlayedTime: 0
   - soundGlobal: 2
     sound: {fileID: 3368617930946205051}
@@ -1167,7 +1167,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f2d0c8bb84500a84ba36b6a6a8950e64, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 07131ced2c282db43934271200184b57, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1266,7 +1266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 0}
-  volume: 5
+  volume: 0.7
   volumeVariance: 0
   pitch: 1
   pitchVariance: 0.1
@@ -1707,9 +1707,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 0}
-  volume: 0.75
+  volume: 2
   volumeVariance: 0.1
-  pitch: 1
+  pitch: 1.5
   pitchVariance: 0.1
   audioMixer: {fileID: 0}
 --- !u!1 &3369119104988099110

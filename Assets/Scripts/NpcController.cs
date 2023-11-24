@@ -502,7 +502,8 @@ public class NpcController : MonoBehaviour
         {
             GlobalKnowledgeSystem.SpottedPlayer(co.Position, co.CameraController, Time.time);
         }
-        //TODO: do the same for NPC smart object
+
+        GameManager.Alert_Spotted();
     }
 
     public bool HasTasksQueued()

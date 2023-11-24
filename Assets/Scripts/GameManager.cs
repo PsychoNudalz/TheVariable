@@ -171,6 +171,11 @@ public class GameManager : MonoBehaviour
     {
         SoundManager.PlayGlobal(SoundGlobal.Suspicious);
     }
+    
+    public static void Alert_Spotted()
+    {
+        SoundManager.PlayGlobal(SoundGlobal.Spotted);
+    }
 
     public static void SlowTimeForHack()
     {

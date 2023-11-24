@@ -21,6 +21,10 @@ public class UI_HackAbilityDisplay : MonoBehaviour
     private float cursorSpeed;
 
     [SerializeField]
+    private float selectionDelay = .5f;
+    private float selectionDelay_Now = .5f;
+
+    [SerializeField]
     private Animator animator;
 
     private SmartObject currentSO;
@@ -28,6 +32,9 @@ public class UI_HackAbilityDisplay : MonoBehaviour
     private UI_HackAbilityButton selectedButton;
 
     private Vector3 targetPosition;
+
+    private Vector2 previousDir = new Vector2();
+    
 
     // Start is called before the first frame update
     private void Start()
@@ -103,6 +110,7 @@ public class UI_HackAbilityDisplay : MonoBehaviour
 
     public int UpdateDir(Vector2 dir)
     {
+        
         if (selectedButton)
         {
             selectedButton.OnHover(false);
@@ -118,7 +126,16 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         targetPosition = transform.position + cursorDisplace;
         if (dir.magnitude < 0.2f)
         {
-            return -1;
+            if (selectionDelay_Now < 0)
+            {
+                return -1;
+            }
+            selectionDelay_Now -= Time.deltaTime/Time.timeScale;
+            dir = previousDir;
+        }
+        else
+        {
+            selectionDelay_Now = selectionDelay;
         }
 
         dir = dir.normalized;
@@ -154,6 +171,10 @@ public class UI_HackAbilityDisplay : MonoBehaviour
         }
 
         selectedButton.OnHover(true);
+        if (dir.magnitude > 0.2f)
+        {
+            previousDir = dir;
+        }
 
         return bIndex;
     }

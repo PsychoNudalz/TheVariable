@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialEnum: 8
   title: Lockdown Immunity
-  videoClip: {fileID: 0}
+  videoClip: {fileID: 32900000, guid: 2113640fd55d15e48ab42cbefbfa43db, type: 3}
   text: 'The timer at the top of your HUD will show the time remaining until lockdown
     immunity is disabled.
 
 
     If you get lockdown with 0 seconds remaining, it''s
-    game over.
+    GAME OVER.
 
 '

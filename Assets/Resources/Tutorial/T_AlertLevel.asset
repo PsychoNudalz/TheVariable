@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialEnum: 5
   title: Alert Level
-  videoClip: {fileID: 0}
+  videoClip: {fileID: 32900000, guid: dcbf2ae8e2ce382448232a07d3534f8b, type: 3}
   text: "An NPC\u2019s alert level is shown above its head.  Their alert level will
     increase if they see a camera hacking.  If their alert level is high enough,
     they will approach and investigate the camera."

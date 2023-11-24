@@ -16559,7 +16559,7 @@ PrefabInstance:
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
@@ -16569,6 +16569,11 @@ PrefabInstance:
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
@@ -16589,6 +16594,11 @@ PrefabInstance:
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1279393412}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1925930254}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
@@ -16613,7 +16623,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
       propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartingTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: DisplayTutorial
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
@@ -16649,6 +16669,11 @@ PrefabInstance:
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TutorialManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SmartObject, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
@@ -16669,6 +16694,11 @@ PrefabInstance:
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 11400000, guid: 4cf1bc0e392c73c438e0012d34a9ef5a,
         type: 2}
@@ -16693,6 +16723,11 @@ PrefabInstance:
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
         type: 3}
       propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,
+        type: 3}
+      propertyPath: onHackSelectEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: TutorialInstructions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3703868500515075467, guid: 6b8031b96a3d95549a06fe14865b31cc,

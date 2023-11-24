@@ -86,10 +86,10 @@ public class TutorialManager : MonoBehaviour
         DisplayTutorial(TutorialEnum.Start);
         Close();
         
-        Invoke(nameof(StartingTutorial),5f);
+        Invoke(nameof(StartingTutorial),3f);
     }
 
-    private void StartingTutorial()
+    public void StartingTutorial()
     {
         Display_FirstTime(TutorialEnum.Start);
         Display_FirstTime(TutorialEnum.HackingControls);
@@ -149,6 +149,8 @@ public class TutorialManager : MonoBehaviour
         {
             DisplayTutorial(tutorialEnum);
         }
+        
+        SoundManager.current.ResumeSounds();
 
 
     }
@@ -168,6 +170,10 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Main method to display tutorial
+    /// </summary>
+    /// <param name="tutorialEnum"></param>
     void DisplayTutorial(TutorialEnum tutorialEnum)
     {
         currentTutorial = null;
@@ -192,8 +198,11 @@ public class TutorialManager : MonoBehaviour
         GameManager.PauseTimer(true);
         GameManager.ChangeState(GameManager.GameState.PauseGame);
         
+        SoundManager.current.PauseAllSounds();
+
         PlayerController.current.LockInput(true);
         SoundManager.PlayGlobal(SoundGlobal.Tutorial_On);
+
     }
 
     public void PushStack(TutorialEnum tutorialEnum)

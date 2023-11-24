@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialEnum: 7
   title: Spot and lockdown
-  videoClip: {fileID: 0}
+  videoClip: {fileID: 32900000, guid: 12001e02c6ee9bd4c8a78391867baad0, type: 3}
   text: "If an NPC\u2019s alert level is maxed out, they would lock down the camera.\r\n\nLockdown
     stops you from controlling the camera before resetting you back to the start
     of the level. \n\nSwitching away from the affected camera to avoid being locked

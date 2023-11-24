@@ -396,7 +396,20 @@ MonoBehaviour:
   hackPoint: {fileID: 0}
   onHackSelectEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1320077873986614613}
+        m_TargetAssemblyTypeName: SmartObject, Assembly-CSharp
+        m_MethodName: DisplayTutorial
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 1f8d118cb14625642b568c5af733e846,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TutorialInstructions, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHackActivateEvent:
     m_PersistentCalls:
       m_Calls: []

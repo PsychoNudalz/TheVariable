@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -368,8 +368,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Your main objective is to eliminate the VIP.  He will be moving around
-    the map but will stay in his room and study for the majority of the time.  You
-    may either get to his room or lure him out.
+    the map but will stay in his bedroom and study room for the majority of the time. 
+    You may either get to his room or lure him out.
 
 
     Extraction will be enabled
@@ -1586,7 +1586,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "For this experiment, you\u2019ll be stealthly infiltrating the simulation
     as the VARIABLE.  You\u2019ll be able to hack objects to trigger different effects. 
-    Though be discreet, as the AI NPCs from spotting and locking you out of the simulation.\r\n"
+    Though be discreet, as the AI NPCs will try to spot and lock you out of the simulation.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
   m_sharedMaterial: {fileID: 8248030770639639578, guid: 1ddbc97ca8eda42749e1e1eb08026b42,

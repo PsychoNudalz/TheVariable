@@ -31,6 +31,9 @@ public class Action_Investigate : ActionNode
     private float investigate_StartTime = 0;
     private bool isPlayerSpotted = false;
     private SensorySource SSToInvestigate;
+    
+    bool hasShowedTutorial = false;
+
 
     // private bool skipRemoveSS = false;
 
@@ -58,9 +61,12 @@ public class Action_Investigate : ActionNode
         SSToInvestigate = npcController.GetCurrentSS;
 
         Update_LastKnown(blackboard.CameraToInvestigate);
-        TutorialManager.Display_FirstTime(TutorialEnum.SpotAndLockdown);
-        TutorialManager.Display_FirstTime(TutorialEnum.LockdownImmunity);
-
+        if (!hasShowedTutorial)
+        {
+            TutorialManager.Display_FirstTime(TutorialEnum.SpotAndLockdown);
+            TutorialManager.Display_FirstTime(TutorialEnum.LockdownImmunity);
+            hasShowedTutorial = true;
+        }
         // skipRemoveSS = true;
     }
 
@@ -71,13 +77,13 @@ public class Action_Investigate : ActionNode
             // if (!skipRemoveSS)
             // {
 
-            if (!isPlayerSpotted&&SSToInvestigate.Equals(npcController.GetCurrentSS))
+            if (!isPlayerSpotted && SSToInvestigate.Equals(npcController.GetCurrentSS))
             {
                 npcController.RemoveCurrentSensorySource();
             }
             // }
 
-            if (blackboard.CameraToInvestigate&&!isPlayerSpotted)
+            if (blackboard.CameraToInvestigate && !isPlayerSpotted)
             {
                 blackboard.CameraToInvestigate.Set_Investigate(false);
                 blackboard.SetCameraToInvestigate(null);

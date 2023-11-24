@@ -366,11 +366,12 @@ public class NpcController : MonoBehaviour
         //will need to change this in to detecting any suspicious item
         if (alertValue >= 0f)
         {
-            if (alertValue > .7f)
+            if (alertValue > .4f)
             {
                 hasShowedTutorial = false;
                 if (!hasShowedTutorial)
                 {
+                    TutorialManager.Display_FirstTime(TutorialEnum.NPCs);
                     TutorialManager.Display_FirstTime(TutorialEnum.AlertLevel);
                     TutorialManager.Display_FirstTime(TutorialEnum.Investigate);
                     hasShowedTutorial = true;

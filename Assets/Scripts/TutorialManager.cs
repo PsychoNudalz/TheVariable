@@ -27,7 +27,10 @@ public enum TutorialEnum
     HackingControls_2,
     CameraStack,
     Tutorial,
-    VIP
+    VIP,
+    NPCs,
+    Hack_Reset_Alert,
+    Hack_Delete
 
 }
 //

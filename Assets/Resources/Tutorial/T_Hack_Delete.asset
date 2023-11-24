@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee1779857d7434eb2a7fc3a4f023d52, type: 3}
+  m_Name: T_Hack_Delete
+  m_EditorClassIdentifier: 
+  tutorialEnum: 20
+  title: Delete
+  videoClip: {fileID: 0}
+  text: 'Hack: Delete
+
+
+    The most powerful hack to UNLIMITED POWER!
+
+    Deletes
+    and eleminate the NPC.  Don''t worry about the body, it''s deleted.'

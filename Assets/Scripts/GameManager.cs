@@ -423,6 +423,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Command()]
+    public void SetGlobalTimer(float f)
+    {
+        globalRealTimer = f;
+    }
+
     public static void ChangeState(GameState gameState)
     {
         GM.gameState = gameState;

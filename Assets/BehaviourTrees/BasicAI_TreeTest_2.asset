@@ -135,7 +135,7 @@ MonoBehaviour:
   - rid: 2403197544751431682
   - rid: 2403197577705291776
   - rid: 2403197577705291780
-  - rid: 2403197609912827904
+  - rid: 2403197628274966528
   treeState: 0
   blackboard:
     alertState: 0
@@ -156,8 +156,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -844.8, y: 606.4, z: 0}
-  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
+  viewPosition: {x: -1656, y: 594.4, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -1841,7 +1841,7 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         children:
-        - rid: 2403197609912827904
+        - rid: 2403197628274966528
         - rid: 2403197544751431682
         - rid: 2403197544751431681
         - rid: 8796965019197636611
@@ -1851,7 +1851,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2239078a60648294199e7b3ec2378de3
-        position: {x: 3675.1995, y: -328.9159}
+        position: {x: 4010.8062, y: -290.5842}
         blackboard:
           alertState: 0
           health: 0
@@ -1880,7 +1880,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: de969cbc59fc17b4fbaa2c1dc8680fc5
-        position: {x: 3525.5996, y: -328.9159}
+        position: {x: 3861.206, y: -290.5842}
         blackboard:
           alertState: 0
           health: 0
@@ -1966,13 +1966,13 @@ MonoBehaviour:
         child:
           rid: 2403197331013369863
         failure: 0
-    - rid: 2403197609912827904
-      type: {class: Action_SetCameraInvestigation, ns: , asm: Assembly-CSharp}
+    - rid: 2403197628274966528
+      type: {class: Action_StopMove, ns: , asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: d16dfa3e10c814146a8c853fddcd5854
-        position: {x: 3299.2007, y: -328.80002}
+        guid: d94dd17b669128f4b9b046624b264101
+        position: {x: 3485.5994, y: -290.4}
         blackboard:
           alertState: 0
           health: 0
@@ -1992,11 +1992,15 @@ MonoBehaviour:
           player_LastKnown_Camera: {fileID: 0}
           player_LastKnown_Time: 0
           hackingCameras: []
-        name: Action_SetCameraInvestigation
+        name: Action_StopMove
         description: 
         drawGizmos: 0
-        cameraInvestigationMode: 0
-        cameraToLock: {fileID: 0}
+        stoppingDistance: 0.5
+        updateRotation: 1
+        tolerance: 1
+        playIdleAnimationOnStop: 1
+        samePosition_TimeOut: 1
+        samePosition_ResetTime: 1
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -2943,7 +2947,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0a548a740473c7b4bbe942522b5c1818
-        position: {x: 3826.3997, y: -328.9159}
+        position: {x: 4162.0063, y: -290.5842}
         blackboard:
           alertState: 0
           health: 0

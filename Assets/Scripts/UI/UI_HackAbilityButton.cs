@@ -116,9 +116,10 @@ public class UI_HackAbilityButton : MonoBehaviour
     public void UpdateButton(string s,int hackLevel,float duration)
     {
         hackText.SetText(s);
+        hackText.color = GameManager.GetClearanceColour(hackLevel);
         levelText.SetText($"Lv: {hackLevel}");
         levelText.color = GameManager.GetClearanceColour(hackLevel);
-        if (duration >= 5)
+        if (duration >= 7)
         {
             durationText.SetText($"Speed:SLOW");
             durationText.color = speedColours[2];

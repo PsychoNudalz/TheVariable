@@ -15,5 +15,9 @@ MonoBehaviour:
   tutorialEnum: 6
   title: Investigate
   videoClip: {fileID: 32900000, guid: 56a8ac5c2aae99d4ea5533f7f8b73114, type: 3}
-  text: If you are still <b>Controlling</b> the camera while being <b>Investigated</b>, that will
-    further <b>Increase</b> your alert level.
+  text: 'If you are still <b>Controlling</b> the camera while being <b>Investigated</b>,
+    that will further <b>Increase</b> your alert level.
+
+
+    A <b>white eye</b>
+    will appear if the camera is being or about to be investigated.'

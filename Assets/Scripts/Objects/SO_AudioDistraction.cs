@@ -40,7 +40,7 @@ public class SO_AudioDistraction : MonoBehaviour
 
     private void Awake()
     {
-        audioDistraction_LayerMask = LayerMask.GetMask("Npc", "Object", "Environment", "Ground");
+        audioDistraction_LayerMask = LayerMask.GetMask("Npc", "Object", "Environment", "Ground","Default");
         if (audioDistract_VE)
         {
             audioDistract_VE.gameObject.layer = LayerMask.NameToLayer("UI_World");

@@ -79,11 +79,7 @@ public class NpcVisionConeController : MonoBehaviour
     {
         List<SmartObject> objectsToRemove = new List<SmartObject>();
         HashSet<SmartObject> newLos = new HashSet<SmartObject>();
-        if (selfSmartObject)
-        {
-            allLoSSmartObjects.Add(selfSmartObject);
 
-        }
 
         foreach (SmartObject smartObject in allDetectedSmartObjects)
         {
@@ -99,7 +95,7 @@ public class NpcVisionConeController : MonoBehaviour
             {
                 objectsToRemove.Add(smartObject);
                 // allDetectedSmartObjects.Remove(smartObject);
-                continue;
+                break;
             }
 
             Vector3 diff = Vector3.zero;
@@ -184,6 +180,12 @@ public class NpcVisionConeController : MonoBehaviour
                 //         }
                 //     }
                 // }
+            }
+            
+            if (selfSmartObject)
+            {
+                newLos.Add(selfSmartObject);
+
             }
             allLoSSmartObjects = newLos;
 
@@ -272,7 +274,7 @@ public class NpcVisionConeController : MonoBehaviour
             if (!smartObject||Vector3.Dot((smartObject.Position - transform.position).normalized, forwardDirection) <
                 0)
             {
-                continue;
+                break;
                 
             }
             else if (!temp.Contains(smartObject))

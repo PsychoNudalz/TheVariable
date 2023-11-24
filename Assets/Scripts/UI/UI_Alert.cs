@@ -24,6 +24,9 @@ public class UI_Alert : MonoBehaviour
     [SerializeField]
     private Image spottedSprite;
 
+    [SerializeField]
+    private Animator animator;
+
     public bool isActive => gameObject.activeSelf;
     private Vector2 canvasSize = new Vector2(1280, 720);
 
@@ -58,6 +61,10 @@ public class UI_Alert : MonoBehaviour
         }
         else if (value <= .5f)
         {
+            if (!susSprite_Base.gameObject.activeSelf)
+            {
+                animator.SetTrigger("White");
+            }
             susSprite_Base.gameObject.SetActive(true);
             susSprite_Fill.gameObject.SetActive(true);
             susSprite_Red.gameObject.SetActive(false);
@@ -68,6 +75,10 @@ public class UI_Alert : MonoBehaviour
         }
         else if (value < 1f)
         {
+            if (!susSprite_Red.gameObject.activeSelf)
+            {
+                animator.SetTrigger("White");
+            }
             susSprite_Base.gameObject.SetActive(true);
             susSprite_Fill.gameObject.SetActive(true);
             susSprite_Red.gameObject.SetActive(true);
@@ -78,6 +89,10 @@ public class UI_Alert : MonoBehaviour
         }
         else
         {
+            if (!spottedSprite.gameObject.activeSelf)
+            {
+                animator.SetTrigger("Red");
+            }
             susSprite_Base.gameObject.SetActive(false);
             susSprite_Fill.gameObject.SetActive(false);
             susSprite_Red.gameObject.SetActive(false);

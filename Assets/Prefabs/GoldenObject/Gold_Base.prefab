@@ -223,14 +223,31 @@ MonoBehaviour:
   interactPoint: {fileID: 0}
   highlightEffect: {fileID: 3915917789128815181}
   hacks: []
+  hackPoint: {fileID: 0}
+  onHackSelectEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7010282229916508100}
+        m_TargetAssemblyTypeName: SmartObject, Assembly-CSharp
+        m_MethodName: DisplayTutorial
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 40448512ff5d8e84fa53246003c74e20,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: TutorialInstructions, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHackActivateEvent:
     m_PersistentCalls:
       m_Calls: []
   audioDistract: {fileID: 0}
   dataEffect: {fileID: 5527493924495391865}
-  Enable_Debug: 1
   renderers: []
   goldlessMaterial: {fileID: 2100000, guid: 603449d7c7445dd45a085f5809b828f7, type: 2}
+  Enable_Debug: 1
 --- !u!54 &5308503017342964817
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -156,8 +156,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: 168, y: -15.2, z: 0}
-  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
+  viewPosition: {x: 413.6, y: -544, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -233,7 +233,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b02b3093bcfb81df49dd7022e7795e4a
-        position: {x: 357.59985, y: 1603.9999}
+        position: {x: 357.59998, y: 1628}
         blackboard:
           alertState: 0
           health: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
         drawGizmos: 0
         animation: 6
         orientation: 0
-        duration: 1
+        duration: 0.5
     - rid: 270282263272095744
       type: {class: Action_ChangeAlertState, ns: , asm: Assembly-CSharp}
       data:
@@ -1239,7 +1239,7 @@ MonoBehaviour:
         drawGizmos: 0
         animation: 3
         orientation: 3
-        duration: 1
+        duration: 0
     - rid: 2403197175240327178
       type: {class: Action_StopMove, ns: , asm: Assembly-CSharp}
       data:

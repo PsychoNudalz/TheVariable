@@ -231,20 +231,18 @@ public class GameManager : MonoBehaviour
 
         //Get Score from player pref
         //Time
-        float fastestTime = PlayerPrefs.GetFloat("Time");
-        // if (fastestTime == 0f)
-        // {
-        //     fastestTime = Mathf.Infinity;
-        // }
-        //
+        float highScore_Time = PlayerPrefs.GetFloat("highScore_Time");
+        float highScore_Score = PlayerPrefs.GetFloat("highScore_Score");
+        float fastestTime_Time = PlayerPrefs.GetFloat("fastestTime_Time");
+        float fastestTime_Score = PlayerPrefs.GetFloat("fastestTime_Score");
+
 
         //Score
-        float highScore = PlayerPrefs.GetFloat("Score");
         float runTime = Time.realtimeSinceStartup - GM.globalStartTime;
-
-
         float currentCollectedGb = PlayerController.current.CollectedGb;
-        UIController.current.GameOver(runTime, fastestTime, currentCollectedGb, highScore);
+        
+        
+        UIController.current.GameOver(currentCollectedGb, runTime, highScore_Score, highScore_Time,fastestTime_Score,fastestTime_Time);
         Debug.Log("GAME OVER");
         GM.gameState = GameState.GameOver;
     }
@@ -259,28 +257,39 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-
-        //Time
-        float fastestTime = PlayerPrefs.GetFloat("Time");
-        // if (fastestTime == 0f)
-        // {
-        //     fastestTime = 9999999999f;
-        // }
-        float runTime = Time.realtimeSinceStartup - GM.globalStartTime;
-
-        //Score
-        float highScore = PlayerPrefs.GetFloat("Score");
         int playerGB = PlayerController.current.CollectedGb;
 
-        if (playerGB > highScore)
-        {
-            fastestTime = runTime;
-            PlayerPrefs.SetFloat("Time", fastestTime);
-            highScore = playerGB;
-            PlayerPrefs.SetFloat("Score", highScore);
-        }
+        float runTime = Time.realtimeSinceStartup - GM.globalStartTime;
 
-        UIController.current.GameWin(runTime, fastestTime, playerGB, highScore);
+
+        //HIGH SCORE
+        //Time
+        float highScore_Time = PlayerPrefs.GetFloat("highScore_Time");
+        float highScore_Score = PlayerPrefs.GetFloat("highScore_Score");
+        float fastestTime_Time = PlayerPrefs.GetFloat("fastestTime_Time");
+        float fastestTime_Score = PlayerPrefs.GetFloat("fastestTime_Score");
+        
+        
+        if (playerGB > highScore_Score)
+        {
+            highScore_Time = runTime;
+            highScore_Score = playerGB;
+            PlayerPrefs.SetFloat("highScore_Time", highScore_Time);
+            PlayerPrefs.SetFloat("highScore_Score", highScore_Score);
+        }
+        //FASTEST TIME
+
+        if (runTime < fastestTime_Time)
+        {
+            fastestTime_Time = runTime;
+            fastestTime_Score = playerGB;
+            PlayerPrefs.SetFloat("fastestTime_Time", fastestTime_Time);
+            PlayerPrefs.SetFloat("fastestTime_Score", fastestTime_Score);
+        }
+        
+        
+
+        UIController.current.GameWin(playerGB, runTime, highScore_Score, highScore_Time,fastestTime_Score,fastestTime_Time);
         Debug.Log("GAME WIN");
         GM.gameState = GameState.GameWin;
     }
@@ -294,8 +303,10 @@ public class GameManager : MonoBehaviour
     [Command()]
     public static void ResetSave()
     {
-        PlayerPrefs.SetFloat("Time", 0);
-        PlayerPrefs.SetFloat("Score", 0);
+        PlayerPrefs.SetFloat("highScore_Time", 999999999);
+        PlayerPrefs.SetFloat("highScore_Score", 0);
+        PlayerPrefs.SetFloat("fastestTime_Time", 999999999);
+        PlayerPrefs.SetFloat("fastestTime_Score", 0);
     }
 
     [Command()]

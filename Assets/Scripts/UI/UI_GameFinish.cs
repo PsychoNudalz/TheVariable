@@ -21,16 +21,24 @@ public class UI_GameFinish : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI playTimeText;
 
-    [SerializeField]
-    private TextMeshProUGUI fastestText;
+
     [SerializeField]
     private TextMeshProUGUI scoreText;
     [SerializeField]
     private Image data_Bar;
     [SerializeField]
     float dataIncreaseAmount = 10f;
+    
+    [Header("High Scores")]
     [SerializeField]
     private TextMeshProUGUI highScoreText;
+    [SerializeField]
+    private TextMeshProUGUI highScoreTimeText;
+    [Header("Fastest Scores")]
+    [SerializeField]
+    private TextMeshProUGUI fastestScoreText;
+    [SerializeField]
+    private TextMeshProUGUI fastestTimeText;
     
     private float currentData = 0;
     private float targetData = 0;
@@ -54,28 +62,31 @@ public class UI_GameFinish : MonoBehaviour
         gameObject.SetActive(b);
     }
     
-    public void GameOver(float currentTime, float fastestTime,float currentScore,float highScore)
+    public void GameOver(float currentScore, float currentTime, float highScore_Score, float highScore_Time , float fastestTime_Score, float fastestTime_Time)
     {
         gameFinishScreen.SetActive(true);
         gameOverTitle.SetActive(true);
         gameWinTitle.SetActive(false);
-        DisplayResults(currentTime, fastestTime, currentScore, highScore);
+        DisplayResults(currentScore, currentTime, highScore_Score, highScore_Time,fastestTime_Score,fastestTime_Time);
     }
 
-    public void GameWin(float currentTime, float fastestTime,float currentScore,float highScore)
+    public void GameWin(float currentScore, float currentTime, float highScore_Score, float highScore_Time , float fastestTime_Score, float fastestTime_Time)
     {
         gameFinishScreen.SetActive(true);
         gameOverTitle.SetActive(false);
         gameWinTitle.SetActive(true);
-        DisplayResults(currentTime, fastestTime, currentScore, highScore);
+        DisplayResults(currentScore, currentTime, highScore_Score, highScore_Time,fastestTime_Score,fastestTime_Time);
     }
 
-    private void DisplayResults(float currentTime, float fastestTime, float currentScore, float highScore)
+    private void DisplayResults(float currentScore, float currentTime, float highScore_Score, float highScore_Time , float fastestTime_Score, float fastestTime_Time)
     {
         playTimeText.text = UIController.SecondsToString(currentTime);
-        fastestText.text = UIController.SecondsToString(fastestTime);
+        highScoreTimeText.text = UIController.SecondsToString(highScore_Time);
         // scoreText.text = currentScore.ToString("0");
-        highScoreText.text = highScore.ToString("0") + "GB";
+        highScoreText.text = highScore_Score.ToString("0") + "GB";
+
+        fastestTimeText.text = UIController.SecondsToString(fastestTime_Time);
+        fastestScoreText.text = fastestTime_Score.ToString("0") + "GB";
 
         targetData = currentScore;
         maxData = GameManager.GM.MaxGb;

@@ -361,14 +361,14 @@ public class UIController : MonoBehaviour
     //     HUD.SetActive(b);
     // }
 
-    public void GameOver(float currentTime, float fastestTime, float currentScore, float highScore)
+    public void GameOver(float currentScore, float currentTime, float highScore_Score, float highScore_Time , float fastestTime_Score, float fastestTime_Time)
     {
-        gameFinish.GameOver(currentTime, fastestTime, currentScore, highScore);
+        gameFinish.GameOver(currentScore, currentTime, highScore_Score, highScore_Time,fastestTime_Score,fastestTime_Time);
     }
 
-    public void GameWin(float currentTime, float fastestTime, float currentScore, float highScore)
+    public void GameWin(float currentScore, float currentTime, float highScore_Score, float highScore_Time, float fastestTime_Score, float fastestTime_Time)
     {
-        gameFinish.GameWin(currentTime, fastestTime, currentScore, highScore);
+        gameFinish.GameWin(currentScore, currentTime, highScore_Score, highScore_Time,fastestTime_Score,fastestTime_Time);
     }
 
     public void Tutorial_Show(string title, VideoClip videoClip, string text)

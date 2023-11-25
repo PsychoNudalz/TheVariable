@@ -28619,12 +28619,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a6b05fa4c629c4fbf9f4c71b741fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTick: -1
+  currentTick: 23
   TickLoop: 24
   TimePerTick: 5
   allTaskSmartObjects:
-  - {fileID: 1391780267}
-  - {fileID: 823365949}
   - {fileID: 33092871}
   - {fileID: 142016516}
   - {fileID: 246177318}
@@ -28642,6 +28640,7 @@ MonoBehaviour:
   - {fileID: 765176516}
   - {fileID: 783822486}
   - {fileID: 790046155}
+  - {fileID: 823365949}
   - {fileID: 839888161}
   - {fileID: 855664279}
   - {fileID: 863619635}
@@ -28661,6 +28660,7 @@ MonoBehaviour:
   - {fileID: 1319614097}
   - {fileID: 1346895338}
   - {fileID: 1363812046}
+  - {fileID: 1391780267}
   - {fileID: 1407068033}
   - {fileID: 1416098607}
   - {fileID: 1428791987}

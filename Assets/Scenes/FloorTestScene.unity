@@ -28619,7 +28619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a6b05fa4c629c4fbf9f4c71b741fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTick: 23
+  currentTick: -1
   TickLoop: 24
   TimePerTick: 5
   allTaskSmartObjects:

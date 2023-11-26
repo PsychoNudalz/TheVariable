@@ -94,7 +94,7 @@ public class TutorialManager : MonoBehaviour
         // Display_FirstTime(TutorialEnum.Start);
         Display_FirstTime(TutorialEnum.HackingControls);
         Display_FirstTime(TutorialEnum.HackingControls_2);
-        Display_FirstTime(TutorialEnum.ClearanceLevel);
+        // Display_FirstTime(TutorialEnum.ClearanceLevel);
     }
 
     // Update is called once per frame

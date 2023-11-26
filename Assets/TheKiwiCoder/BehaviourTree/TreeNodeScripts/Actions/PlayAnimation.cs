@@ -27,15 +27,8 @@ public class PlayAnimation : ActionNode
     protected override void OnStart()
     {
         startTime = Time.time;
-
-    }
-
-    protected override void OnStop()
-    {
-    }
-
-    protected override State OnUpdate()
-    {
+        
+        
         try
         {
             switch (orientation)
@@ -100,6 +93,7 @@ public class PlayAnimation : ActionNode
                         {
                             if (Vector3.Distance(ss.SmartObject.InteractPosition, blackboard.targetPosition) > 1f)
                             {
+                                
                                 context.NpcController.MoveTransform(agent_Position,
                                     blackboard.targetRotation , animation);
                             }
@@ -128,7 +122,21 @@ public class PlayAnimation : ActionNode
         catch (Exception e)
         {
             Console.WriteLine(e);
-            return State.Success;
+            started = false;
+        }
+
+    }
+
+    protected override void OnStop()
+    {
+    }
+
+    protected override State OnUpdate()
+    {
+
+        if (!started)
+        {
+            return State.Failure;
         }
 
         

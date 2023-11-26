@@ -17,7 +17,8 @@ public enum NpcAnimation
     Eat,
     LayDown,
     Guard,
-    Dead
+    Dead,
+    Suspicious_Start,
 }
 
 /// <summary>
@@ -188,6 +189,15 @@ public class NpcEffectsController : MonoBehaviour
             case NpcAnimation.Guard:
                 PlayAnimator("NPC_Guard");
                 break;
+            case NpcAnimation.Suspicious_Start:
+                if (sfx_Spotted)
+                {
+                    sfx_Spotted.Play();
+                }
+
+                PlayAnimator("NPC_Spotted");
+
+                break;
             default:
                 PlayAnimator("NPC_Idle");
                 break;
@@ -233,7 +243,8 @@ public class NpcEffectsController : MonoBehaviour
         // }
         //Void the call to change animation if it was called with the same animation at a short distance
         float distance = Vector3.Distance(transform.position,position);
-        if(currentAnimation.Equals(animation)&&(distance<1f))
+        float angle = Quaternion.Angle(transform.rotation, rotation);
+        if (currentAnimation.Equals(animation) && (distance < 1f) && angle < 2f)
         {
             return;
         }

@@ -136,6 +136,7 @@ MonoBehaviour:
   - rid: 2403197577705291776
   - rid: 2403197577705291780
   - rid: 2403197628274966528
+  - rid: 2403197670790266880
   treeState: 0
   blackboard:
     alertState: 0
@@ -156,8 +157,8 @@ MonoBehaviour:
     player_LastKnown_Camera: {fileID: 0}
     player_LastKnown_Time: 0
     hackingCameras: []
-  viewPosition: {x: -1152, y: -475.2, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  viewPosition: {x: -3160.8, y: -842.4, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -753,7 +754,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1bb60f0214f7b5a4d9ecbf853cce32cf
-        position: {x: 3715.738, y: 1222.0002}
+        position: {x: 3700, y: 1220.8}
         blackboard:
           alertState: 0
           health: 0
@@ -1214,7 +1215,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: dc9eb2a63a4e79b4392374e2ccd98d11
-        position: {x: 3862.9377, y: 1222.8002}
+        position: {x: 4076.0005, y: 1221.6001}
         blackboard:
           alertState: 0
           health: 0
@@ -1624,7 +1625,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0c93a4add17653549ab3fdd52e8c3af6
-        position: {x: 4087.7378, y: 1363.6002}
+        position: {x: 4301, y: 1364.8}
         blackboard:
           alertState: 0
           health: 0
@@ -2004,6 +2005,37 @@ MonoBehaviour:
         playIdleAnimationOnStop: 1
         samePosition_TimeOut: 1
         samePosition_ResetTime: 1
+    - rid: 2403197670790266880
+      type: {class: Action_SetCameraInvestigation, ns: , asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4cfe62b10765ff44fb719bf17c8dca0e
+        position: {x: 3849.6, y: 1220.8}
+        blackboard:
+          alertState: 0
+          health: 0
+          healthThreshold: 0
+          targetPosition: {x: 0, y: 0, z: 0}
+          targetRotation: {x: 0, y: 0, z: 0, w: 0}
+          missingItem: 0
+          locatedItem: {fileID: 0}
+          pickedUpItem: {fileID: 0}
+          flag_wait: 0
+          wait_startTime: 0
+          wait_duration: 0
+          npcController: {fileID: 0}
+          resetFlag: 0
+          cameraToLock: {fileID: 0}
+          player_LastKnown_Position: {x: 0, y: 0, z: 0}
+          player_LastKnown_Camera: {fileID: 0}
+          player_LastKnown_Time: 0
+          hackingCameras: []
+        name: Action_SetCameraInvestigation
+        description: 
+        drawGizmos: 0
+        cameraInvestigationMode: 2
+        cameraToLock: {fileID: 0}
     - rid: 2809099641645694977
       type: {class: RootNode, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -3787,7 +3819,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 29151917c3dde2145ba95caeb2f48913
-        position: {x: 4012.5376, y: 1222.0002}
+        position: {x: 4225.8, y: 1223.2001}
         blackboard:
           alertState: 0
           health: 0
@@ -3818,7 +3850,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c34a00b1545911b46992503fa2d84f4d
-        position: {x: 4087.7378, y: 1495.6003}
+        position: {x: 4301, y: 1496.8}
         blackboard:
           alertState: 0
           health: 0
@@ -3849,7 +3881,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 56a9eebd9e713a947af62dc64d4a0e73
-        position: {x: 4162.9375, y: 1210.0002}
+        position: {x: 4376.2, y: 1211.2001}
         blackboard:
           alertState: 0
           health: 0
@@ -3881,7 +3913,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0920859c0ff8fe24b8a38c51b900a484
-        position: {x: 3732, y: 1022.4}
+        position: {x: 4012, y: 984.39996}
         blackboard:
           alertState: 0
           health: 0
@@ -3906,6 +3938,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 466623464268365825
+        - rid: 2403197670790266880
         - rid: 2403197175240327176
         - rid: 8796965355488280586
         - rid: 8796965355488280588
@@ -3915,7 +3948,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: afb2fdbedab54af48bebabf6120a5fdf
-        position: {x: 4262.938, y: 1495.6003}
+        position: {x: 4476.2, y: 1496.8}
         blackboard:
           alertState: 0
           health: 0
@@ -3948,7 +3981,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 72f4026cd40b89043a18ed6d90186039
-        position: {x: 4289.338, y: 1359.6002}
+        position: {x: 4502.6, y: 1360.8}
         blackboard:
           alertState: 0
           health: 0

@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350fd39f14f010f49b1650e4be2580c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioDistract_Range: 10
+  audioDistract_Range: 6
   audioDistract_MaxNPC: 2
   audioDistract_Strength: 50
   audioDistract_Dampen: 0.5

@@ -50,6 +50,22 @@ MonoBehaviour:
     LoadingType: 0
     FakeLoadingTime: 2
     Backgrounds: []
+  - SceneName: MainMenu
+    SceneAsset: {fileID: 102900000, guid: 718d1e5f9d95b2548b867070aa26d6ee, type: 3}
+    DisplayName: MainMenu
+    Description: 
+    SkipType: 3
+    LoadingType: 0
+    FakeLoadingTime: 2
+    Backgrounds: []
+  - SceneName: FloorTestScene
+    SceneAsset: {fileID: 102900000, guid: ded565f624362c94bbd06a23c168bb98, type: 3}
+    DisplayName: FloorTestScene
+    Description: 
+    SkipType: 3
+    LoadingType: 0
+    FakeLoadingTime: 2
+    Backgrounds: []
   tipsList:
   - Create beautiful loading screens for improved your game
   - Easy to use and implement

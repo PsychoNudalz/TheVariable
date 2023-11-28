@@ -108,6 +108,11 @@ public class GameManager : MonoBehaviour
         }
 
         ResetTimeScale();
+        
+        if( PlayerPrefs.GetFloat("fastestTime_Time")<=.1f)
+        {
+            ResetSave();
+        }
     }
 
     // Start is called before the first frame update
@@ -448,6 +453,13 @@ public class GameManager : MonoBehaviour
     public static void ChangeState(GameState gameState)
     {
         GM.gameState = gameState;
+    }
+
+    [Command()]
+    [ContextMenu("DeletePref")]
+    public void DeletePref()
+    {
+        PlayerPrefs.DeleteAll();
     }
 
 

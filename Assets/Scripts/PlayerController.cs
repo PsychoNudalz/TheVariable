@@ -238,6 +238,8 @@ public class PlayerController : MonoBehaviour
     //Player Input
     public void OnLook(InputValue inputValue)
     {
+        GameManager.ResetTimer_Reset();
+        
         if (cameraMode != CameraMode.Free)
         {
             return;
@@ -250,6 +252,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnLook_Joystick(InputValue inputValue)
     {
+        GameManager.ResetTimer_Reset();
+
+        
         if (cameraMode != CameraMode.Free)
         {
             return;
@@ -275,6 +280,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnSelectHack(InputValue inputValue)
     {
+        GameManager.ResetTimer_Reset();
+
         if (cameraMode == CameraMode.Free)
         {
             return;
@@ -290,6 +297,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnSelectHack_Joystick(InputValue inputValue)
     {
+        GameManager.ResetTimer_Reset();
+
         if (cameraMode == CameraMode.Free)
         {
             return;

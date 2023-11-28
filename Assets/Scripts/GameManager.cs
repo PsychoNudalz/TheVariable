@@ -56,6 +56,16 @@ public class GameManager : MonoBehaviour
     [Tooltip("Timer in seconds")]
     private float globalRealTimer = 300f;
 
+
+    [Space(10)]
+    [Header("Reset Timer")]
+    [SerializeField]
+    private bool is_ResetTimer = true;
+    [SerializeField]
+    private float resetTimeSeconds = 240f;
+
+    [SerializeField]
+    private float resetTime = 0;
     // [SerializeField]
     private float globalStartTime = 0f;
     private float globalTimeRemaining;
@@ -109,6 +119,8 @@ public class GameManager : MonoBehaviour
 
         ResetTimeScale();
         
+        ResetTimer_Reset();
+        
         if( PlayerPrefs.GetFloat("fastestTime_Time")<=.1f)
         {
             ResetSave();
@@ -137,6 +149,15 @@ public class GameManager : MonoBehaviour
                 timerState = TimerState.Finished;
             }
         }
+        if (is_ResetTimer&&Time.realtimeSinceStartup - resetTime > resetTimeSeconds)
+        {
+            MainMenu();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     [ContextMenu("CalculateMaxGB")]
@@ -460,6 +481,18 @@ public class GameManager : MonoBehaviour
     public void DeletePref()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    public static void ResetTimer_Reset()
+    {
+        GM.resetTime = Time.realtimeSinceStartup;
+    }
+
+    [Command()]
+
+    public static void ResetTimer_Active(bool b)
+    {
+        GM.is_ResetTimer = b;
     }
 
 

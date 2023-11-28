@@ -17838,6 +17838,9 @@ MonoBehaviour:
   - {r: 0.9622642, g: 0.90533656, b: 0.5210751, a: 1}
   sfx_Suspicious: {fileID: 1556899712}
   globalRealTimer: 300
+  is_ResetTimer: 1
+  resetTimeSeconds: 300
+  resetTime: 0
   isVIPDead: 0
   maxGB: 22000
 --- !u!1001 &894381106

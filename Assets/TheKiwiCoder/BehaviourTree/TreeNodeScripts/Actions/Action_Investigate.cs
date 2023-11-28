@@ -18,7 +18,11 @@ public class Action_Investigate : ActionNode
     private Vector2 investigate_TimeRange = new Vector2(3, 10);
 
     [SerializeField]
+    private float investigateCamera_Distance = 3f;
+    
+    [SerializeField]
     float alertBuildup = 1f;
+    
 
     [SerializeField]
     private float decayAmount = 1f;
@@ -97,30 +101,36 @@ public class Action_Investigate : ActionNode
         // {
         //     return State.Failure;
         // }
+        
+        
         if (Time.time - investigate_StartTime <= investigate_Time)
         {
             //TODO: I know setting this very second is bad, but i dont have time to optimise it
             if (blackboard.CameraToInvestigate)
             {
-                blackboard.CameraToInvestigate.Set_Investigate(true);
-            }
-
-            //While the AI is investigating
-            if (blackboard.CameraToInvestigate && blackboard.CameraToInvestigate.IsDetectable)
-            {
-                // if(blackboard.currentSensorySource)
-
-                NPC_AlertState returnState = context.NpcController.Update_AlertValue(alertBuildup);
-
-                Update_LastKnown(blackboard.CameraToInvestigate);
-                //If the NPC spots the player
-                //TODO: might change this to compare to Spotted state
-                if (returnState != blackboard.alertState)
+                //To ensure only investigate if the NPC is close to the camera
+                if (Vector3.Distance(blackboard.CameraToInvestigate.InteractPosition,
+                        blackboard.currentSensorySource.Position) < investigateCamera_Distance)
                 {
-                    ChangeAlertState(returnState, false);
-                    isPlayerSpotted = true;
-                    // skipRemoveSS = true;
-                    return State.Failure;
+                    blackboard.CameraToInvestigate.Set_Investigate(true);
+                    //While the AI is investigating
+                    if (blackboard.CameraToInvestigate.IsDetectable)
+                    {
+                        // if(blackboard.currentSensorySource)
+
+                        NPC_AlertState returnState = context.NpcController.Update_AlertValue(alertBuildup);
+
+                        Update_LastKnown(blackboard.CameraToInvestigate);
+                        //If the NPC spots the player
+                        //TODO: might change this to compare to Spotted state
+                        if (returnState != blackboard.alertState)
+                        {
+                            ChangeAlertState(returnState, false);
+                            isPlayerSpotted = true;
+                            // skipRemoveSS = true;
+                            return State.Failure;
+                        }
+                    }
                 }
             }
 

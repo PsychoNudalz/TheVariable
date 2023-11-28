@@ -445,6 +445,17 @@
                 },
                 {
                     "name": "",
+                    "id": "b21f6652-7b65-4aff-8815-9365b0ad141a",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Look_Joystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f2150b38-bb88-4d3a-bed5-58a86e6e04ee",
                     "path": "<Joystick>/{Hatswitch}",
                     "interactions": "",

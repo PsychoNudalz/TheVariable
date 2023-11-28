@@ -61,8 +61,8 @@ public abstract class HackAbility : ScriptableObject
 
     [SerializeField]
     private int hackClearance;
-    [SerializeField]
-    protected int hackCost;
+    // [SerializeField]
+    protected int hackCost = 0;
 
     protected bool showHack = true;
 

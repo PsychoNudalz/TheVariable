@@ -259,12 +259,17 @@ public class PlayerController : MonoBehaviour
         controlMode = ControlMode.Controller;
         Vector2 inputVector = inputValue.Get<Vector2>();
 
-        if (inputVector.magnitude <= .2f)
+        float hackingToLookingDeadzone = .5f;
+        float hackingToLookingDot = .5f;
+        if (inputVector.magnitude <= hackingToLookingDeadzone||Vector2.Dot(inputVector.normalized,selectDir.normalized)<hackingToLookingDot)
         {
             hackingToLookingFlag = false;
         }
 
-        lookValue = inputVector * rotateMultiplier_joystick;
+        // if (!hackingToLookingFlag)
+        // {
+            lookValue = inputVector * rotateMultiplier_joystick;
+        // }
     }
 
 

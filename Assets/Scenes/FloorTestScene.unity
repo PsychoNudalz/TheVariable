@@ -17838,7 +17838,7 @@ MonoBehaviour:
   - {r: 0.9622642, g: 0.90533656, b: 0.5210751, a: 1}
   sfx_Suspicious: {fileID: 1556899712}
   globalRealTimer: 300
-  is_ResetTimer: 1
+  is_ResetTimer: 0
   resetTimeSeconds: 300
   resetTime: 0
   isVIPDead: 0
@@ -20954,7 +20954,7 @@ PrefabInstance:
     - target: {fileID: 7122516448743715517, guid: 73c62168d15f03c43ba0aa14eed82066,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.25
+      value: 20.25
       objectReference: {fileID: 0}
     - target: {fileID: 7122516448743715517, guid: 73c62168d15f03c43ba0aa14eed82066,
         type: 3}
@@ -25193,7 +25193,7 @@ PrefabInstance:
     - target: {fileID: 7122516448743715517, guid: 73c62168d15f03c43ba0aa14eed82066,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.75
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7122516448743715517, guid: 73c62168d15f03c43ba0aa14eed82066,
         type: 3}

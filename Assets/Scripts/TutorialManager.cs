@@ -114,6 +114,10 @@ public class TutorialManager : MonoBehaviour
         {
             currentEnum += 1;
         }
+        else
+        {
+            currentEnum = 0;
+        }
 
         DisplayTutorial(currentEnum);
     }
